@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.25)  26 JUN 2018 15:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.25)  26 JUN 2018 16:03
 entering extended mode
 **./main.tex
 (main.tex
@@ -1813,7 +1813,8 @@ File: english.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
- (main.aux (Chapters/Chapter1.aux) (Appendices/AppendixA.aux))
+
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
@@ -1833,7 +1834,6 @@ LaTeX Font Info:    ... okay on input line 91.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
 LaTeX Font Info:    ... okay on input line 91.
 LaTeX Font Info:    Try loading font information for T1+ppl on input line 91.
-
 ("C:\Users\Usuario\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\t1ppl.fd"
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -2028,7 +2028,6 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 91.
 LaTeX Info: Redefining \pageref on input line 91.
 LaTeX Info: Redefining \nameref on input line 91.
- (main.out) (main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -2079,10 +2078,6 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 132.
- (main.toc
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 3.
-)
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -2122,31 +2117,36 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 231899190A63EB9F8A4DE09DFADA365F;140
+(rerunfilecheck)             Before: <no file>
 (rerunfilecheck)             After:  6AC6F2A0886F08564576AC06C88534F2;140.
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34729 strings out of 493305
- 699477 string characters out of 3128932
- 918098 words of memory out of 3000000
- 37955 multiletter control sequences out of 15000+200000
- 563782 words of font info for 74 fonts, out of 3000000 for 9000
+ 34707 strings out of 493305
+ 699020 string characters out of 3128932
+ 917098 words of memory out of 3000000
+ 37947 multiletter control sequences out of 15000+200000
+ 562333 words of font info for 72 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 52i,19n,69p,795b,1679s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{chapter.4} has been referenced but does not exist
-, replaced by a fixed one
-
-{C:/Users/Usuario/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
-}<C:/Users/Usuario/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/u
-plb8a.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/p
-alatino/uplr8a.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (5 pages, 44573 bytes).
+ 52i,19n,69p,795b,1657s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Usuario/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.e
+nc}<C:/Users/Usuario/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino
+/uplb8a.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
+/palatino/uplr8a.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX 2.9/fonts/
+type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (5 pages, 43850 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 500000)
- 9 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 44 PDF objects out of 1000 (max. 8388607)
+ 8 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

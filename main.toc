@@ -1,3 +1,0 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {english}{}
-\contentsline {chapter}{\numberline {1}Chapter Title Here}{1}{chapter.2}
