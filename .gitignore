@@ -2,6 +2,7 @@
 *.aux
 *.log
 *.toc
+*run.ml
 
 # PDF output - usually a bad idea to keep this in Git
 *.pdf
@@ -21,6 +22,7 @@
 # BibTeX
 *.bbl
 *.blg
+main-blx.bib
 
 # Log created by Adobe Reader
 C:\\nppdf32Log\\debuglog.txt
