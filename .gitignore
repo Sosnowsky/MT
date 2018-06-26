@@ -2,7 +2,7 @@
 *.aux
 *.log
 *.toc
-*run.ml
+*run.xml
 
 # PDF output - usually a bad idea to keep this in Git
 *.pdf
