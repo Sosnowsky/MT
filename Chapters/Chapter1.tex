@@ -1,6 +1,6 @@
 \chapter{Chapter Title Here} % Main chapter title
 
-Here we will do stuff.
+\begin{section}{Free particle in a periodic potential}
 
 The one particle part of the Hamiltonian can be written as:
 
@@ -11,10 +11,33 @@ The one particle part of the Hamiltonian can be written as:
 Where $U(\textbf{r})$ has the symmetry of the lattice, i.e. $U(\textbf{r} + \textbf{R}) = U(\textbf{r})$ for all Bravais lattice vectors $\textbf{R}$(\ref{AP1A}). The group of translation symmetries $T_{\textbf{R}}\phi(\textbf{r}) = \phi(\textbf{r} + \textbf{R})$ is an abelian group, therefore its irreducible representations are one-dimensional, that is, within an energy level $n$ the wavefunctions of that level transform according to the representation they belong: $T_{\textbf{R}}\phi_{n, \textbf{k}}(\textbf{r}) = \Gamma^{\textbf{k}}(\textbf{R}) \phi_{n, \textbf{k}}(\textbf{r})$. Now, imposing periodic boundary conditions, $\phi_{n, \textbf{k}}(\textbf{r} + L_\mu \textbf{a}_\mu) = \Gamma^{\textbf{k}}(L_\mu \textbf{a}_\mu) \phi_{n, \textbf{k}}(\textbf{r}) = \Gamma^{\textbf{k}}(\textbf{a}_\mu)^{L_\mu} \phi_{n, \textbf{k}}(\textbf{r}) = \phi_{n, \textbf{k}}(\textbf{r})$, so that, $\Gamma^{\textbf{k}}(\textbf{a}_\mu)^{L_\mu} = 1$, this can be accomplished if we label the representation with a vector of the first Brillouin zone and have $\Gamma^{\textbf{k}}(R) = e^{i \textbf{k} \textbf{R}}$. Therefore, for a wavefunction in a periodic lattice we have:
 
 \begin{equation}
+\label{Bloch1}
 \phi_{n, \textbf{k}}(\textbf{r}+\textbf{R}) = e^{i\textbf{k}\textbf{R}}\phi_{n, \textbf{k}} (\textbf{r})
 \end{equation}
 
+Which is the well-known Bloch function form. Here, $n$ is called the band index, and $\textbf{k}$ is the quasimomentum. The energy of this wavefunction is $\epsilon_{n \textbf{k}}$.  Notice that both $\phi_{n,\textbf{k}}$ and $\epsilon_{n \textbf{k}}$ are periodic functions of $\textbf{k}$ in the reciprocal lattice.
 
+The Bloch function is extended over the whole crystal volume $V$. We would like to work with a localized basis. An alternative orthonormal basis are the Wannier functions, defined in terms of the Bloch functions as:
+
+\begin{equation}
+\psi_{in}(\textbf{r}) = \frac{1}{\sqrt{M}}\sum_{\textbf{k}\in BZ} e^{-i\textbf{k}\textbf{r}_i} \psi_{n\textbf{k}}(\textbf{r})
+\end{equation}
+
+Where $M$ is the number of lattice sites as defined in \ref{AP1A}. Using \ref{Bloch1} we see that $\psi_{in}(\textbf{r}) = \psi_{0n}(\textbf{r}-\textbf{r}_i) \equiv \psi_{n}(\textbf{r}-\textbf{r}_i)$, so we only need to define one Wannier function for each band and the others are obtained by translations.
+
+\end{section}
+
+\begin{section}{Derivation of the single-band Hubbard model}
+
+The Hamiltonian for a system of $N_e$ electrons has the form:
+
+\begin{equation}
+\hat{H} = \sum_{i=1}^{N_e} \hat{H}^{(1)}(\textbf{r}_i) + \frac{1}{2} \sum_{\substack{i,j = 1 \\ i \neq j}} ^ {N_e} v(\textbf{r}_i - \textbf{r}_j)
+\end{equation}
+
+Where $v$ represents the electron-electron interaction.
+
+\end{section}
 
 
 \begin{subappendices}
@@ -27,7 +50,7 @@ Here we will introduce some notation. The Bravais lattice in a crystal is the la
 \textbf{R} = \sum_{\mu=1}^3 m_\mu \textbf{a}_\mu
 \end{equation}
 
-Where $m_\mu$ are integers. The volume of the unit cell is $v = \textbf{a}_1 \cdot (\textbf{a}_2 \times \textbf{a}_3)$. The primitive translations in the reciprocal lattice are defined as $\textbf{b}_1 = \frac{2 \pi}{v}\textbf{a}_2 \times \textbf{a}_3$, etc. With this notation the first Brillouin zone is:
+Where $m_\mu$ are integers. The volume of the unit cell is $v = \textbf{a}_1 \cdot (\textbf{a}_2 \times \textbf{a}_3)$. The crystal volume is $V = Mv$ where $M = L_1 L_2 L_3$ is the number of lattice sites. The primitive translations in the reciprocal lattice are defined as $\textbf{b}_1 = \frac{2 \pi}{v}\textbf{a}_2 \times \textbf{a}_3$, etc. With this notation the first Brillouin zone is:
 
 \begin{equation}
 \textbf{k} = \sum_{\mu=1}^3 \kappa_\mu \textbf{b}_\mu
