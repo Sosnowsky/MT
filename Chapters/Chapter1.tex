@@ -23,7 +23,7 @@ The Bloch function is extended over the whole crystal volume $V$. We would like 
 \psi_{in}(\textbf{r}) = \frac{1}{\sqrt{M}}\sum_{\textbf{k}\in BZ} e^{-i\textbf{k}\textbf{r}_i} \psi_{n\textbf{k}}(\textbf{r})
 \end{equation}
 
-Where $M$ is the number of lattice sites as defined in \ref{AP1A}. Using \ref{Bloch1} we see that $\psi_{in}(\textbf{r}) = \psi_{0n}(\textbf{r}-\textbf{r}_i) \equiv \psi_{n}(\textbf{r}-\textbf{r}_i)$, so we only need to define one Wannier function for each band and the others are obtained by translations.
+Where $M$ is the number of lattice sites as defined in \ref{AP1A}. Using \ref{Bloch1} we see that $\psi_{in}(\textbf{r}) = \psi_{0n}(\textbf{r}-\textbf{r}_i) \equiv \psi_{n}(\textbf{r}-\textbf{r}_i)$, so we only need to define one Wannier function for each band and the others are obtained by translations. 
 
 \end{section}
 
@@ -32,10 +32,47 @@ Where $M$ is the number of lattice sites as defined in \ref{AP1A}. Using \ref{Bl
 The Hamiltonian for a system of $N_e$ electrons has the form:
 
 \begin{equation}
+\label{Ham1}
 \hat{H} = \sum_{i=1}^{N_e} \hat{H}^{(1)}(\textbf{r}_i) + \frac{1}{2} \sum_{\substack{i,j = 1 \\ i \neq j}} ^ {N_e} v(\textbf{r}_i - \textbf{r}_j)
 \end{equation}
 
-Where $v$ represents the electron-electron interaction.
+Where $v$ represents the electron-electron interaction and $\hat{H}^{(1)}$ is the free particle Hamiltonian. We use the Wannier functions $\Phi_j$ as a basis and restrict ourselves to a fixed band so we don't write the band index. Let $\hat{c}_{j \sigma}^\dagger$ and $\hat{c}_{j \sigma}$ create and annihilate a particle in the state $\Phi_j$ and spin $\sigma$. In this basis, the second quantized form of \ref{Ham1} is:
+
+\begin{equation}
+\hat{H} = -\sum_{i,j,\sigma} t_{i,j} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \frac{1}{2} \sum_{i,j,k,l, \sigma, \sigma'} \bra{ij} \hat{v} \ket{kl} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}^\dagger \hat{c}_{l \sigma'} \hat{c}_{k \sigma}
+\end{equation}
+
+Where $t_{ij} = \bra{i} \hat{H}^{(1)} \ket{j} = t_{ji}^*$. And where we assume $\hat{H}^{(1)}$ and $\hat{v}$ to be spin independent. Also we assume that $t_{ii} = t(0) = 0$. For a system of strongly correlated electrons we can assume that:
+
+\begin{itemize}
+\item A property of the Wannier functions $\Phi_j$ is that they have exponentially decreasing overlaps, therefore $t_{ij}$ will decay rapidly with the distance $|\textbf{r}_i-\textbf{r}_j|$. In an isotropic system we can approximate:
+
+\begin{equation}
+t_{ij} = \begin{cases}
+             t,  & \text{for } (i,j) \text{ nearest neighbous} \\
+             0,  & \text{otherwise}
+       \end{cases} \quad
+\end{equation}
+
+\item The dominant contribution of $\bra{ij} \hat{v} \ket{kl}$ will come from $i=j=k=l$ since the Coulomb interaction will be screened for further electrons. Therefore we approximate:
+
+\begin{equation}
+\bra{ij} \hat{v} \ket{kl} =
+	\begin{cases}
+		U, & \text{if } i=j=k=l \\
+		0, & \text{otherwise}
+	\end{cases}						
+\end{equation}
+
+Additionally, for $i=j=k=l$ the Pauli principle requires $\sigma' = \sigma$.
+
+\end{itemize}
+
+Taking these approximations we obtain the single band Hubbard model:
+
+\begin{equation}
+\hat{H} = -t\sum_{\langle i,j \rangle, \sigma}(\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + h.c.) + U \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation}
 
 \end{section}
 
