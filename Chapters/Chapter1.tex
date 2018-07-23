@@ -13,7 +13,7 @@ where $v$ is the electron-electron interaction and where $\hat{H}^{(1)}$ is the 
 \hat{H}^{(1)}(\textbf{r}) = -\frac{\hbar^2}{2m}\nabla^2_{\textbf{r}} + U(\textbf{r}) + \lambda\boldsymbol{\sigma}\boldsymbol{\nabla}V(\textbf{r}) \times \textbf{p}
 \end{equation}
 
-Where $\lambda = \frac{\hbar^2}{4m^2c^2}$ and $U(\bs{r})$ is a periodic potential. In this Chapter we will derive an effective Hamiltonian using time independent perturbation theory.
+Where $\lambda = \frac{\hbar^2}{4m^2c^2}$ is the spin orbit coupling constant and $U(\bs{r})$ is a periodic potential. The second quantized form of this Hamiltonian can be approximated by a version of the Hubbard model. Then, for a half filled system we will derive an effective Hamiltonian using time independent perturbation theory.
 
 
 \begin{section}{Single particle in a periodic potential}
@@ -51,7 +51,7 @@ In this section we will derive the second quantized form of \ref{Ham1} using the
 \hat{H} = -\sum_{i,j,\sigma, \sigma'} (\delta_{\sigma, \sigma'} t_{ij} + \boldsymbol{\Delta}_{ij} \boldsymbol{\sigma}_{\sigma, \sigma'}) \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \frac{1}{2} \sum_{i,j,k,l, \sigma, \sigma'} \bra{ij} \hat{v} \ket{kl} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}^\dagger \hat{c}_{l \sigma'} \hat{c}_{k \sigma}
 \end{equation}
 
-Where $t_{ij} = \bra{i} -\frac{\hbar^2}{2m}\nabla^2_{\textbf{r}} + U(\textbf{r}) \ket{j}$ and $\boldsymbol{\Delta}_{ij} = \bra{i} \lambda \boldsymbol{\nabla}V(\textbf{r}) \times \textbf{p} \ket{j}$. Notice that $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$. We assumed $\hat{v}$ to be spin independent. Also we can impose that $t_{ii} = t(0) = 0$. For a system of strongly correlated electrons we can assume that:
+Where $t_{ij} = \bra{i} -\frac{\hbar^2}{2m}\nabla^2_{\textbf{r}} + U(\textbf{r}) \ket{j}$ and $\boldsymbol{\Delta}_{ij} = \bra{i} \lambda \boldsymbol{\nabla}V(\textbf{r}) \times \textbf{p} \ket{j}$. Notice that $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$ (why?), and therefore $\bs{\Delta}_{ii} = 0$. We assumed $\hat{v}$ to be spin independent. Also we can impose that $t_{ii} = t(0) = 0$. For a system of strongly correlated electrons we can assume that:
 
 \begin{itemize}
 \item A property of the Wannier functions $\Phi_j$ is that they have exponentially decreasing overlaps, therefore $t_{ij}$ and $\boldsymbol{\Delta}_{ij}$ will decay rapidly with the distance $|\textbf{r}_i-\textbf{r}_j|$. In an isotropic system we can approximate:
@@ -71,8 +71,6 @@ and
              0,  & \text{otherwise}
        \end{cases} \quad
 \end{equation}
-
-(What about i=j for $\Delta$?)
 
 \item The dominant contribution of $\bra{ij} \hat{v} \ket{kl}$ will come from $i=j=k=l$ since the Coulomb interaction will be screened for further electrons. Therefore we approximate:
 
@@ -116,7 +114,7 @@ The sum being over all excited states. Since $\hat{H_t}\ket{\phi}$ is a superpos
 &-\frac{1}{U} \bra{\phi'} \hat{H}_J + \hat{H}_D + \mathcal{O}(\boldsymbol{\Delta}^2))\ket{\phi}
 \end{align*}
 
-In the second line we imposed $i=j'$ and $j=i'$ since that's the only way $\hat{H_t^2}\ket{\phi}$ has no double occupied sites and so the matrix element does not vanish. We will neglect the $\mathcal{O}(\boldsymbol{\Delta}^2)$ term since $t$ is dominant.
+In the second line we imposed $i=j'$ and $j=i'$ since that's the only way $\hat{H_t^2}\ket{\phi}$ has no double occupied sites and so the matrix element does not vanish. We also used $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$. We will neglect the $\mathcal{O}(\boldsymbol{\Delta}^2)$ term since $t$ is dominant.
 
 Let us now introduce the on-site spin operators:
 
