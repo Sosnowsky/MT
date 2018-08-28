@@ -18,6 +18,7 @@
 *.vrb
 *.nav
 *.out
+*.dvi
 
 # BibTeX
 *.bbl
