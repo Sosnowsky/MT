@@ -1,29 +1,183 @@
-\chapter{Perturbing the lattice}
+\chapter{Chapter Title Here} % Main chapter title
 
-In this chapter we will study how introducing an electromagnetic perturbation in \ref{Ham1} can affect the parameters $J$ and $\boldsymbol{D}_{ij}$ of the effective Hamiltonian. 
-
-\section{Modified exchange interaction}
-
-We start by considering only the exchange interaction part. Consider the Hamiltonian:
+In this chapter we will start with a Hamiltonian
 
 \begin{equation}
-\hat{H} = -t_0\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + U \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\label{Ham1}
+\hat{H} = \sum_{i=1}^{N_e} \hat{H}^{(1)}(\textbf{r}_i) + \frac{1}{2} \sum_{\substack{i,j = 1 \\ i \neq j}} ^ {N_e} v(\textbf{r}_i - \textbf{r}_j)
 \end{equation}
 
-Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We can introduce a time dependent electric field in this Hamiltonian by adding a phase to the hopping term $t_{ij}(t) = t_0e^{ieaA_{ij}(t)}$, where $A_{ij}$ is the projection of the vector potential into the vector from site $i$ to $j$. The electric field has the form $\bs{E}(t) = E_0 (\sin (\omega t) \hat{e}_x + \lambda \cos (\omega t)\hat{e}_y)$ where $\lambda = 0, \pm 1$ representing planar or circular polarized field. We can therefore take $A_{ij} = \frac{E_0}{\omega} (-\cos(\omega t)\hat{e}_x +  \lambda \sin(\omega t)\hat{e}_y)\hat{e}_{ij}$, where $\hat{e}_{ij}$ is a unit vector pointing from site $i$ to site $j$.
-
-The Hamiltonan with the new $t_{ij}(t)$ is periodic in time with period $T=\frac{2\pi}{\omega}$. According to Floquet's theorem there exist solutions that have the form $\ket{\psi(t)} = e^{-i \epsilon_\alpha t} \ket{\psi_\alpha (t)}$ where $\ket{\psi_\alpha(t)}$ has also period $T$, and so it can be expanded in Fourier series $\ket{\psi_\alpha(t)} = \sum_m e^{i\omega mt} \ket{\psi_{\alpha,m}}$ introducing this ansatz in the Scrodinger equation and projecting into the m'th mode we obtain:
+where $v$ is the electron-electron interaction and where $\hat{H}^{(1)}$ is the single particle Hamiltonian.
 
 \begin{equation}
-(\epsilon_\alpha-\omega m) \ket{\psi_{\alpha, m}} = \sum_{m'} = H_{m'-m} \ket{\psi_{\alpha,m'}}
+\hat{H}^{(1)}(\textbf{r}) = -\frac{\hbar^2}{2m}\nabla^2_{\textbf{r}} + U(\textbf{r}) + \lambda\boldsymbol{\sigma}\boldsymbol{\nabla}V(\textbf{r}) \times \textbf{p}
 \end{equation}
 
-Where $H_m = \frac{1}{T}\int_0^T dt e^{i\omega mt} H(t)$. The hopping term with the Peierls phase has Fourier components:
+Where $\lambda = \frac{\hbar^2}{4m^2c^2}$ is the spin orbit coupling constant and $U(\bs{r})$ is a periodic potential. The second quantized form of this Hamiltonian can be approximated by a version of the Hubbard model. Then, for a half filled system we will derive an effective Hamiltonian using time independent perturbation theory.
+
+
+\begin{section}{Single particle in a periodic potential}
+
+First we will define a suitable basis for the single particle wavefunctions. To do so, we will consider the single particle Hamiltonian without the spin orbit interaction term:
 
 \begin{equation}
-H_{m,ij} = \begin{cases}
-	\frac{t_0}{T} \int_0^T dt e^{i\omega mt} e^{\mp iea\frac{E_0}{\omega}\cos(\omega t)}, & \text{for } \hat{e}_{ij} = \pm \hat{x} \\
-	\frac{t_0}{T} \int_0^T dt e^{i\omega mt} e^{\pm iea\lambda\frac{E_0}{\omega}\sin(\omega t)}, & \text{for } \hat{e}_{ij} = \pm \hat{y} \\
-\end{cases} \quad
+\hat{H}^{(1)}(\textbf{r}) = -\frac{\hbar^2}{2m}\nabla^2_{\textbf{r}} + U(\textbf{r})
 \end{equation}
 
+Where $U(\textbf{r})$ has the symmetry of the lattice, i.e. $U(\textbf{r} + \textbf{R}) = U(\textbf{r})$ for all Bravais lattice vectors $\textbf{R}$(\ref{AP1A}). The group of translation symmetries $T_{\textbf{R}}\phi(\textbf{r}) = \phi(\textbf{r} + \textbf{R})$ is an abelian group, therefore its irreducible representations are one-dimensional, that is, within an energy level $n$ the wavefunctions of that level transform according to the representation they belong: $T_{\textbf{R}}\phi_{n, \textbf{k}}(\textbf{r}) = \Gamma^{\textbf{k}}(\textbf{R}) \phi_{n, \textbf{k}}(\textbf{r})$. Now, imposing periodic boundary conditions, $\phi_{n, \textbf{k}}(\textbf{r} + L_\mu \textbf{a}_\mu) = \Gamma^{\textbf{k}}(L_\mu \textbf{a}_\mu) \phi_{n, \textbf{k}}(\textbf{r}) = \Gamma^{\textbf{k}}(\textbf{a}_\mu)^{L_\mu} \phi_{n, \textbf{k}}(\textbf{r}) = \phi_{n, \textbf{k}}(\textbf{r})$, so that, $\Gamma^{\textbf{k}}(\textbf{a}_\mu)^{L_\mu} = 1$, this can be accomplished if we label the representation with a vector of the first Brillouin zone and have $\Gamma^{\textbf{k}}(R) = e^{i \textbf{k} \textbf{R}}$. Therefore, for a wavefunction in a periodic lattice we have:
+
+\begin{equation}
+\label{Bloch1}
+\phi_{n, \textbf{k}}(\textbf{r}+\textbf{R}) = e^{i\textbf{k}\textbf{R}}\phi_{n, \textbf{k}} (\textbf{r})
+\end{equation}
+
+Which is the well-known Bloch function form. Here, $n$ is called the band index, and $\textbf{k}$ is the quasimomentum. The energy of this wavefunction is $\epsilon_{n \textbf{k}}$.  Notice that both $\phi_{n,\textbf{k}}$ and $\epsilon_{n \textbf{k}}$ are periodic functions of $\textbf{k}$ in the reciprocal lattice.
+
+The Bloch function is extended over the whole crystal volume $V$. We would like to work with a localized basis. An alternative orthonormal basis are the Wannier functions, defined in terms of the Bloch functions as:
+
+\begin{equation}
+\phi_{in}(\textbf{r}) = \frac{1}{\sqrt{M}}\sum_{\textbf{k}\in BZ} e^{-i\textbf{k}\textbf{r}_i} \psi_{n\textbf{k}}(\textbf{r})
+\end{equation}
+
+Where $M$ is the number of lattice sites as defined in \ref{AP1A}. Using \ref{Bloch1} we see that $\phi_{in}(\textbf{r}) = \phi_{0n}(\textbf{r}-\textbf{r}_i) \equiv \phi_{n}(\textbf{r}-\textbf{r}_i)$, so we only need to define one Wannier function for each band and the others are obtained by translations. We will restrict ourselves to a fixed band, so we will drop the band index and write $\phi_i(\bs{r})$ or $\ket{i}$.
+
+\end{section}
+
+\begin{section}{Derivation of the single-band Hubbard model}
+
+In this section we will derive the second quantized form of \ref{Ham1} using the Wannier function basis. Let $\hat{c}_{j \sigma}^\dagger$ and $\hat{c}_{j \sigma}$ create and annihilate a particle in the state $\phi_j$ and spin $\sigma$. In this basis, the second quantized form of \ref{Ham1} is:
+
+\begin{equation}
+\hat{H} = -\sum_{i,j,\sigma, \sigma'} (\delta_{\sigma, \sigma'} t_{ij} + \boldsymbol{\Delta}_{ij} \boldsymbol{\sigma}_{\sigma, \sigma'}) \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \frac{1}{2} \sum_{i,j,k,l, \sigma, \sigma'} \bra{ij} \hat{v} \ket{kl} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}^\dagger \hat{c}_{l \sigma'} \hat{c}_{k \sigma}
+\end{equation}
+
+Where $t_{ij} = \bra{i} -\frac{\hbar^2}{2m}\nabla^2_{\textbf{r}} + U(\textbf{r}) \ket{j}$ and $\boldsymbol{\Delta}_{ij} = \bra{i} \lambda \boldsymbol{\nabla}V(\textbf{r}) \times \textbf{p} \ket{j}$. Notice that $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$ (why?), and therefore $\bs{\Delta}_{ii} = 0$. We assumed $\hat{v}$ to be spin independent. Also we can impose that $t_{ii} = t(0) = 0$. For a system of strongly correlated electrons we can assume that:
+
+\begin{itemize}
+\item A property of the Wannier functions $\Phi_j$ is that they have exponentially decreasing overlaps, therefore $t_{ij}$ and $\boldsymbol{\Delta}_{ij}$ will decay rapidly with the distance $|\textbf{r}_i-\textbf{r}_j|$. In an isotropic system we can approximate:
+
+\begin{equation}
+t_{ij} = \begin{cases}
+             t,  & \text{for } (i,j) \text{ nearest neighbous} \\
+             0,  & \text{otherwise}
+       \end{cases} \quad
+\end{equation}
+
+and
+
+\begin{equation}
+\boldsymbol{\Delta}_{ij} = \begin{cases}
+             \boldsymbol{\Delta}_{ij},  & \text{for } (i,j) \text{ nearest neighbous} \\
+             0,  & \text{otherwise}
+       \end{cases} \quad
+\end{equation}
+
+\item The dominant contribution of $\bra{ij} \hat{v} \ket{kl}$ will come from $i=j=k=l$ since the Coulomb interaction will be screened for further electrons. Therefore we approximate:
+
+\begin{equation}
+\bra{ij} \hat{v} \ket{kl} =
+	\begin{cases}
+		U, & \text{if } i=j=k=l \\
+		0, & \text{otherwise}
+	\end{cases}						
+\end{equation}
+
+Additionally, for $i=j=k=l$ the Pauli principle requires $\sigma' = \sigma$
+
+\end{itemize}
+
+Taking these approximations we obtain the single band Hubbard model:
+
+\begin{equation}
+\label{Hubbard}
+\hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{ij} + \boldsymbol{\Delta}_{ij} \boldsymbol{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + U \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation}
+
+\end{section}
+
+\begin{section}{Effective Hamiltonian for half-filling system}
+
+At half filling, in the $t << U$ limit we can apply perturbation theory to obtain the Heisenberg model from the Hubbard Hamiltonian \ref{Hubbard}. First notice that in the case $t = 0$ the ground state corresponds to having all sites single-occupied. There are two possible spin orientations for each sites, so there is a $2^M$ degeneracy. The ground state energy is $0$. The first exited states are obtained by moving one electron from one site to another, thus leaving one empty site and one double-occupied site. The energy of one of these states is $U$. Now, if we turn the kinetic term on as a perturbation, having two neighbors electrons with antiparallel spin will allow them to hop and reduce the kinetic energy, whereas while being parallel this hopping is not allowed and there is no energy reduction. Therefore, we can see that when turning the kinetic term on antiparallel alignment will be favored. 
+
+Let us write $\hat{H} = \hat{H_0} + \hat{H_t}$, $\hat{H_t} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t + \boldsymbol{\Delta}_{ij} \boldsymbol{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$. Let $\ket{\phi}$ and $\ket{\phi'}$ be state from the ground state, then we know $\bra{\phi'} \hat{H_0} \ket{\phi} = 0$ and in first order in $t$ $\bra{\phi'} \hat{H} \ket{\phi} = \bra{\phi'} \hat{H_t} \ket{\phi} = 0$ since $\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma}$ moves an electron from site $j$ to $i$ thus leaving $i$ doubly occupied, therefore $\hat{H_t} \ket{\phi}$ has no superposition with $\phi'$. In second order we have:
+
+\begin{equation}
+\bra{\phi'} \hat{H} \ket{\phi} = \sum_s \frac{\bra{\phi'} \hat{H_t} \ket{s}\bra{s} \hat{H_t} \ket{\phi}}{E_0-E_s}
+\end{equation}
+
+The sum being over all excited states. Since $\hat{H_t}\ket{\phi}$ is a superposition of states with exactly one double occupied site and one empty site, we see that only excited states with one double occupied site will contribute. These states have energy $E_s = U$ therefore we have $\bra{\phi'} \hat{H} \ket{\phi} = -\frac{1}{U}\sum_s \bra{\phi'} \hat{H_t} \ket{s}\bra{s} \hat{H_t} \ket{\phi} = \bra{\phi'} -\frac{\hat{H_t^2}}{U} \ket{\phi}$. These means that within the subspace generated by the ground states of $\hat{H_0}$, $\hat{H}$ acts as an effective Hamiltonian $\hat{H}_{eff} = -\frac{\hat{H_t^2}}{U}$. Now,
+
+\begin{align*}
+&\bra{\phi'} -\frac{\hat{H_t^2}}{U} \ket{\phi} = \\
+&-\frac{1}{U} \bra{\phi'} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2} \sum_{\langle i',j' \rangle, 					\sigma_3, \sigma_4} (t^2 \delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4} + t(\delta_{\sigma_1 \sigma_2}		\boldsymbol{\Delta}_{i'j'}\boldsymbol{\sigma}_{\sigma_3 \sigma_4} + \delta_{\sigma_3 \sigma_4}						\boldsymbol{\Delta}_{ij}\boldsymbol{\sigma}_{\sigma_1 \sigma_2}) + \mathcal{O}(\boldsymbol{\Delta}^2)) 				\hat{c}_{i\sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{i' \sigma_3}^\dagger \hat{c}_{j'\sigma_4}					\ket{\phi} = \\
+&-\frac{1}{U} \bra{\phi'} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} (t^2 						\delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4} + t\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}			\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3 					\sigma_4}) + \mathcal{O}(\boldsymbol{\Delta}^2)) \hat{c}_{i\sigma_1}^\dagger \hat{c}_{i\sigma_4} \hat{c}_{j 		\sigma_2} \hat{c}_{j \sigma_3}^\dagger \ket{\phi} = \\
+&-\frac{1}{U} \bra{\phi'} \hat{H}_J + \hat{H}_D + \mathcal{O}(\boldsymbol{\Delta}^2))\ket{\phi}
+\end{align*}
+
+In the second line we imposed $i=j'$ and $j=i'$ since that's the only way $\hat{H_t^2}\ket{\phi}$ has no double occupied sites and so the matrix element does not vanish. We also used $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$. We will neglect the $\mathcal{O}(\boldsymbol{\Delta}^2)$ term since $t$ is dominant.
+
+Let us now introduce the on-site spin operators:
+
+\begin{equation}
+\boldsymbol{S}_i = \frac{1}{2} \sum_{\sigma, \sigma'} \hat{c}_{i \sigma}^\dagger \boldsymbol{\sigma}_{\sigma, \sigma'} \hat{c}_{i \sigma'}
+\end{equation}
+
+Which satisfy:
+
+\begin{align*}
+\hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma', \sigma} \\ 
+\hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma, \sigma'} 
+\end{align*}
+
+Introducing these relations into $H_J$ and using $n_{i \uparrow} + n_{i \downarrow} = 1$ we obtain:
+
+\begin{align*}
+\hat{H}_{J} = &-\frac{t^2}{U} \sum_{\langle i,j \rangle, \sigma \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma \sigma'}\right) = \\
+&-\frac{t^2}{U}\sum_{\langle i,j \rangle, \sigma \sigma'} \frac{1}{4}\delta_{\sigma \sigma'} - \sum_{ab} S_i^aS_j^b 	\boldsymbol{\sigma}_{\sigma'\sigma}^a \boldsymbol{\sigma}_{\sigma \sigma'}^b = 
+-\frac{t^2}{U}\sum_{\langle i,j \rangle} \frac{1}{2} - \sum_{ab} S_i^aS_j^b	2\delta_{ab} = \\
+&-\frac{t^2}{U}\sum_{\langle i,j \rangle} \frac{1}{2} - 2\boldsymbol{S}_i\boldsymbol{S}_j
+\end{align*}
+
+The constant term can be neglected leaving:
+
+\begin{equation}
+\hat{H}_{J} = \frac{2t^2}{U} \sum_{\langle i,j \rangle} \boldsymbol{S}_i\boldsymbol{S}_j = J\sum_{\langle i,j \rangle} \boldsymbol{S}_i\boldsymbol{S}_j
+\end{equation}
+
+Which is the Heisenberg model for antiferromagnets with $J = \frac{2t^2}{U}$. Likewise, for $\hat{H}_D$:
+
+\begin{align*}
+\hat{H}_D = &-\frac{t}{U} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right) = \\
+&-\frac{2t}{U}\sum_{\langle i,j \rangle} \Delta_{ij}^+ (S_i^-S_j^z - S_i^zS_j^-) + \Delta_{ij}^- (S_i^zS_j^+ - S_i^+S_j^z) + \Delta_{ij}^z (S_i^+S_j^- - S_i^-S_j^+) = \\
+&-\frac{4it}{U} \sum_{\langle i,j \rangle} \boldsymbol{\Delta}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j = \sum_{\langle i,j \rangle} \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j
+\end{align*}
+
+Where $\boldsymbol{D}_{ij} = -\frac{4it}{U}\boldsymbol{\Delta}_{ij}$. The total effective Hamiltonian is:
+
+\begin{equation}
+\hat{H}_{eff} = \sum_{\langle i,j \rangle} J\boldsymbol{S}_i\boldsymbol{S}_j + \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j
+\end{equation}
+
+\end{section}
+
+
+\begin{subappendices}
+\begin{section}{Crystal structure and reciprocal lattice}
+\label{AP1A}
+
+Here we will introduce some notation. The Bravais lattice in a crystal is the lattice generated by the primitive translations $\textbf{a}_\mu$:
+
+\begin{equation}
+\textbf{R} = \sum_{\mu=1}^3 m_\mu \textbf{a}_\mu
+\end{equation}
+
+Where $m_\mu$ are integers. The volume of the unit cell is $v = \textbf{a}_1 \cdot (\textbf{a}_2 \times \textbf{a}_3)$. The crystal volume is $V = Mv$ where $M = L_1 L_2 L_3$ is the number of lattice sites. The primitive translations in the reciprocal lattice are defined as $\textbf{b}_1 = \frac{2 \pi}{v}\textbf{a}_2 \times \textbf{a}_3$, etc. With this notation the first Brillouin zone is:
+
+\begin{equation}
+\textbf{k} = \sum_{\mu=1}^3 \kappa_\mu \textbf{b}_\mu
+\end{equation}
+
+Where $\kappa_\mu = \frac{\nu_\mu}{L_\mu}, -\frac{L_\mu}{2}+1 \leq \nu_\mu \leq \frac{L_\mu}{2}$ so that, $-\frac{1}{2} < \kappa_\mu \leq \frac{1}{2}$. We will only consider cubic lattices where $|\textbf{a}_\mu| = a$ and $|b_\mu| = \frac{2\pi}{a}$ and the vectors of the first Brillouin zone have components $k_\mu = \frac{2 \pi \nu_\mu}{aL}$.
+
+\end{section}
+\end{subappendices}
