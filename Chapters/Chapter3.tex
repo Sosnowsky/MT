@@ -4,13 +4,13 @@ In this chapter we will study how introducing an electromagnetic perturbation in
 
 \section{Modified exchange interaction}
 
-We start by considering only the exchange interaction part. Consider the Hamiltonian:
+We start by considering only the exchange interaction part in a one-dimensional lattice. Consider the Hamiltonian:
 
 \begin{equation}
 \hat{H} = -t_0\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + U \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
 \end{equation}
 
-Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We can introduce a time dependent electric field in this Hamiltonian by adding a phase to the hopping term $t_{ij}(t) = t_0e^{ieaA_{ij}(t)}$, where $A_{ij}$ is the projection of the vector potential into the vector from site $i$ to $j$. The electric field has the form $\bs{E}(t) = E_0 (\sin (\omega t) \hat{e}_x + \lambda \cos (\omega t)\hat{e}_y)$ where $\lambda = 0, \pm 1$ representing planar or circular polarized field. We can therefore take $A_{ij} = \frac{E_0}{\omega} (-\cos(\omega t)\hat{e}_x +  \lambda \sin(\omega t)\hat{e}_y)\hat{e}_{ij}$, where $\hat{e}_{ij}$ is a unit vector pointing from site $i$ to site $j$.
+Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We can introduce a time dependent electric field in this Hamiltonian by adding a phase to the hopping term $t_{ij}(t) = t_0e^{ieaA_{ij}(t)}$, where $A_{ij}$ is the projection of the vector potential into the vector from site $i$ to $j$. The electric field has the form $\bs{E}(t) = E_0 \sin (\omega t)$ (one-dimensional lattice). We can therefore take $A_{ij} = -\frac{E_0}{\omega}\cos(\omega t)(i-j)$.
 
 The Hamiltonan with the new $t_{ij}(t)$ is periodic in time with period $T=\frac{2\pi}{\omega}$. According to Floquet's theorem there exist solutions that have the form $\ket{\psi(t)} = e^{-i \epsilon_\alpha t} \ket{\psi_\alpha (t)}$ where $\ket{\psi_\alpha(t)}$ has also period $T$, and so it can be expanded in Fourier series $\ket{\psi_\alpha(t)} = \sum_m e^{i\omega mt} \ket{\psi_{\alpha,m}}$ introducing this ansatz in the Scrodinger equation and projecting into the m'th mode we obtain:
 
@@ -21,9 +21,7 @@ The Hamiltonan with the new $t_{ij}(t)$ is periodic in time with period $T=\frac
 Where $H_m = \frac{1}{T}\int_0^T dt e^{i\omega mt} H(t)$. The hopping term with the Peierls phase has Fourier components:
 
 \begin{equation}
-H_{m,ij} = \begin{cases}
-	\frac{t_0}{T} \int_0^T dt e^{i\omega mt} e^{\mp iea\frac{E_0}{\omega}\cos(\omega t)}, & \text{for } \hat{e}_{ij} = \pm \hat{x} \\
-	\frac{t_0}{T} \int_0^T dt e^{i\omega mt} e^{\pm iea\lambda\frac{E_0}{\omega}\sin(\omega t)}, & \text{for } \hat{e}_{ij} = \pm \hat{y} \\
-\end{cases} \quad
+H_{m} = \frac{t_0}{T} \sum_{\langle i,j \rangle, \sigma} \int_0^T dt e^{i\omega mt} e^{-iea\frac{E_0}{\omega}\cos(\omega t)(i-j)}\hat{c}_{i\sigma}^\dagger \hat{c}_{j\sigma} = -t_0 \sum_{\langle i,j \rangle, \sigma} (-1)^mJ_m((i-j)ea\frac{E_0}{\omega})\hat{c}_{i\sigma}^\dagger \hat{c}_{j\sigma}
 \end{equation}
 
+Where $J_m(x)$ is the \textit{m}th Bessel function.
