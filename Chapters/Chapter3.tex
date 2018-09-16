@@ -10,18 +10,115 @@ We start by considering only the exchange interaction part in a one-dimensional 
 \hat{H} = -t_0\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + U \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
 \end{equation}
 
-Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We can introduce a time dependent electric field in this Hamiltonian by adding a phase to the hopping term $t_{ij}(t) = t_0e^{ieaA_{ij}(t)}$, where $A_{ij}$ is the projection of the vector potential into the vector from site $i$ to $j$. The electric field has the form $\bs{E}(t) = E_0 \sin (\omega t)$ (one-dimensional lattice). We can therefore take $A_{ij} = -\frac{E_0}{\omega}\cos(\omega t)(i-j)$.
-
-The Hamiltonan with the new $t_{ij}(t)$ is periodic in time with period $T=\frac{2\pi}{\omega}$. According to Floquet's theorem there exist solutions that have the form $\ket{\psi(t)} = e^{-i \epsilon_\alpha t} \ket{\psi_\alpha (t)}$ where $\ket{\psi_\alpha(t)}$ has also period $T$, and so it can be expanded in Fourier series $\ket{\psi_\alpha(t)} = \sum_m e^{i\omega mt} \ket{\psi_{\alpha,m}}$ introducing this ansatz in the Scrodinger equation and projecting into the m'th mode we obtain:
+Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We can introduce a time dependent electric field in this Hamiltonian by adding a phase to the hopping term $t_{ij}(t) = t_0e^{ie\bs{R}_{ij}\bs{A}(t)}$, where $\bs{A}$ is the vector potential and $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$. The electric field has the form $\bs{E}(t) = E_0 \sin (\omega t)\bs{\hat{x}}$ (one-dimensional lattice). We can therefore take $\bs{A}(t) = -\frac{E_0}{\omega}\cos(\omega t)\bs{\hat{x}} = -\bs{A}\cos(\omega t)$. Therefore the time dependent Hamiltonian is:
 
 \begin{equation}
-(\epsilon_\alpha-\omega m) \ket{\psi_{\alpha, m}} = \sum_{m'} = H_{m'-m} \ket{\psi_{\alpha,m'}}
+\hat{H}(t) = -\sum_{\langle i,j \rangle, \sigma} t_{ij}(t)\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + U \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} = -\hat{T}(t) + U\hat{D}
 \end{equation}
 
-Where $H_m = \frac{1}{T}\int_0^T dt e^{i\omega mt} H(t)$. The hopping term with the Peierls phase has Fourier components:
+Where $\hat{D}$ is the double occupancy number operator and $\hat{T}(t) = \sum_{\langle i,j \rangle, \sigma} t_{ij}(t)\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma}$ is the hopping operator. Since the time dependence in periodic we can expand $t_{ij}(t) = \sum_m t_{ij,m} e^{im \omega t}$, where
 
 \begin{equation}
-H_{m} = \frac{t_0}{T} \sum_{\langle i,j \rangle, \sigma} \int_0^T dt e^{i\omega mt} e^{-iea\frac{E_0}{\omega}\cos(\omega t)(i-j)}\hat{c}_{i\sigma}^\dagger \hat{c}_{j\sigma} = -t_0 \sum_{\langle i,j \rangle, \sigma} (-1)^mJ_m((i-j)ea\frac{E_0}{\omega})\hat{c}_{i\sigma}^\dagger \hat{c}_{j\sigma}
+t_{ij,m} = t_0(-1)^mJ_m(\alpha_{ij})
 \end{equation}
 
-Where $J_m(x)$ is the \textit{m}th Bessel function.
+Where $\alpha_{ij} = e\bs{R}_{ij}\bs{A}$ and $J_m(x)$ is the \textit{m}th Bessel function, and correspondingly $\hat{T}(t) = \sum_m \hat{T}_m e^{im \omega t}$.
+
+In order to derive the form of the effective Hamiltonian in the half filling system with $\frac{t}{U} << 1$ let us introduce a time dependent unitary transformation $\hat{U}(t) = e^{-i\hat{S}(t)}$. The transformed Hamiltonian is:
+
+\begin{equation}
+\hat{H}'(t) = \hat{U}^\dagger (t) \hat{H}(t) \hat{U}(t) - i\hat{U}^\dagger(t) d_t \hat{U}(t)
+\end{equation} 
+
+We perform the unitary transformation perturbatively in the hopping parameter $t_0$. We expand $\hat{S}(t) = \sum_\nu \hat{S}^{(\nu)}(t)$ and $\hat{H}'(t) = \sum_\nu \hat{H}'^{(\nu)}(t)$. In order for the new Hamiltonian to be periodic we impose the unitary transformation to have the periodicity of the Hamiltonian, so that we can expand $\hat{S}^{(\nu)}(t) = \sum_m e^{im\omega t}\hat{S}^{(\nu)}_m$. Additionally we can impose the transformed Hamiltonian to be block diagonal in the doublon number $d$. With these conditions the unitary transformation can be uniquely determined if we impose that $\hat{S}(t)$ does not contain block-diagonal terms, i.e. we can write:
+
+\begin{equation}
+\hat{S}^{(\nu)}(t) = \sum_{d \neq 0} \sum_m \hat{S}^{(\nu)}_{d,m} e^{im\omega t}
+\end{equation}
+
+where $\hat{S}^{(\nu)}_{d,m}$ changes the double occupancy number by $d$. We also decompose the hopping operator as:
+
+\begin{equation}
+\hat{T}(t) = \sum_m (\hat{T}_{-1,m}+\hat{T}_{0,m}+\hat{T}_{1,m})e^{im\omega t}
+\end{equation}
+
+Where $\hat{T}_d(t)$ changes the double occupancy number by $d$, for example $\hat{T}_1(t) = \hat{P}_1 \hat{T}(t) \hat{P}_0$. We can write the transformed Hamiltonian as:
+
+\begin{equation}
+\label{Perturbation}
+\hat{H}'(t) = \hat{H}(t) + \sum_{n=1}^\infty \frac{1}{n!} \left[i\hat{S}(t), \dots, \left[ i\hat{S}(t), \hat{H}(t) \right]\dots \right] - d_t \hat{S}(t)
+\end{equation}
+
+To zeroth order we have $\hat{H}'^{(0)}= U\hat{D}$ and $i\hat{S}^{(0)}(t)=0$. In first order we obtain:
+
+\begin{equation}
+\hat{H}'^{(1)}(t)=-\hat{T}(t)-\sum_{d\neq 0}\sum_m (Ud+m\omega) i\hat{S}^{(1)}_{dm} e^{im\omega t}
+\end{equation}
+
+Therefore:
+
+\begin{align*}
+i\hat{S}^{(1)}_d(t) &= -\sum_m \frac{\hat{T}_{d,m}}{Ud+m\omega}e^{im\omega t} \\
+\hat{H}'^{(1)}(t) &= -\hat{T}_0(t)
+\end{align*}
+
+To second order we find:
+
+\begin{equation}
+\hat{H}'^{(2)}(t) = \left[i\hat{S}^{(2)}(t), U \hat{D} \right] - \left[ i\hat{S}^{(1)}(t), \hat{T}(t) \right] - d_t\hat{S}^{(2)}(t)
+\end{equation}
+
+Where the middle term is:
+
+\begin{align*}
+\left[ i\hat{S}^{(1)}(t), \hat{T}(t) \right] &= -\left[\sum_m \left( \frac{\hat{T}_{1m}}{U+m\omega} - \frac{\hat{T}_{-1m}}{U-m\omega} \right)e^{im \omega t}, \sum_n \left( \hat{T}_{-1n} +\hat{T}_{0n} + \hat{T}_{1n} \right) e^{in\omega t} \right] \\
+&= -\sum_{mn} \left\{ \frac{\left[\hat{T}_{1m}, \hat{T}_{0n} \right]}{U+m\omega} + \frac{\left[\hat{T}_{1m}, \hat{T}_{-1n} \right]}{U+m\omega} - \frac{\left[\hat{T}_{-1m}, \hat{T}_{1n} \right]}{U-m\omega} - \frac{\left[\hat{T}_{-1m}, \hat{T}_{0n} \right]}{U-m\omega} \right\} e^{i(m+n)\omega t} \\
+&= -\sum_{mn} \left\{ \frac{\left[\hat{T}_{1n}, \hat{T}_{0(m-n)} \right]}{U+n\omega} + \frac{\left[\hat{T}_{1n}, \hat{T}_{-1(m-n)} \right]}{U+n\omega} - \frac{\left[\hat{T}_{-1n}, \hat{T}_{1(m-n)} \right]}{U-n\omega} - \frac{\left[\hat{T}_{-1n}, \hat{T}_{0(m-n)} \right]}{U-n\omega} \right\} e^{im\omega t}
+\end{align*}
+
+We obtain:
+
+\begin{align*}
+i\hat{S}^{(2)}_{dm} &= \sum_n \frac{\left[ \hat{T}_{dn}, \hat{T}_{0(m-n)} \right]}{(Ud+n\omega)(Ud+m\omega)} \\
+\hat{H}'^{(2)}(t) &= \sum_{mn} \left( \frac{\left[\hat{T}_{1n}, \hat{T}_{-1(m-n)} \right]}{U+n\omega} - \frac{\left[\hat{T}_{-1n}, \hat{T}_{1(m-n)} \right]}{U-n\omega} \right) e^{im\omega t}
+\end{align*}
+
+Now the effective Hamiltonian acts on the subspace of $\hat{P}_0$, therefore we are only interested on $\hat{P}_0 \hat{H}'^{(2)}(t) \hat{P}_0$ (notice that $\hat{P}_0 \hat{H}'^{(1)}(t) \hat{P}_0 = 0$). In this subspace we can write:
+
+\begin{align*}
+\hat{T}_{1n} \hat{T}_{-1(m-n)} &= 0 \\
+\hat{T}_{-1(m-n)} \hat{T}_{1n} &= \sum_{\langle i,j \rangle, \sigma_1, \sigma_2} t_{ji,(m-n)} t_{ij,n} \hat{c}_{j \sigma_2}^\dagger \hat{c}_{i \sigma_2} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_1}
+\end{align*}
+
+So that,
+
+\begin{equation}
+\hat{H}_{eff}(t) = \hat{P}_0\hat{H}'^{(2)}(t)\hat{P}_0 = - \sum_{mn} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2}\hat{c}_{j \sigma_2}^\dagger \hat{c}_{i \sigma_2} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_1} \left( \frac{t_{ji,(m-n)} t_{ij,n}}{U+n\omega} + \frac{t_{ji,n} t_{ij,(m-n)}}{U-n\omega} \right) e^{im\omega t}
+\end{equation}
+
+Comparing with \ref{PertNoEMF} we can see that this will lead to a spin Hamiltonian 
+
+\begin{equation}
+\hat{H}_{eff}(t) = \sum_{\langle i,j \rangle} J_{ij}(t) \bs{S}_i \bs{S}_j
+\end{equation}
+
+With 
+
+\begin{align}
+J_{ij}(t) &= \sum_{mn} \left( \frac{t_{ji,(m-n)} t_{ij,n}}{U+n\omega} + \frac{t_{ji,n} t_{ij,(m-n)}}{U-n\omega} \right) e^{im\omega t} \nonumber \\
+&= \sum_{mn} (-1)^m t_0^2 \left( \frac{J_{m-n}(\alpha_{ji})J_n(\alpha_{ij})}{U+n\omega} +\frac{J_n(\alpha_{ji})J_{(m-n)}(\alpha_{ij})}{U-n\omega} \right)
+\end{align}
+
+In the case $\omega >> U$ we can limit to $m=0$ (time independent part) and $n=0$ or $n=\pm1$ (small denominators), additionally, if the electric field is small we can use $J_n(x) \aprox x^n$. With these approximations: 
+
+\begin{equation}
+J_{ij} = 2 t_0^2 \alpha_{ij}^2 \left( \frac{1}{U-\omega} - \frac{1}{U} + \frac{1}{U+\omega} \right)
+\end{equation}
+
+
+
+
+
+
+
+

@@ -9,3 +9,18 @@ During several decades after the discovery of antiferromagnetics, these material
 It has been shown that spin-transfer torques and giant magnetoresistance effects can occur in circuits containing only normal and antiferromagnetic materials \cite{MacDonald2011}. Additionally, spin axis reorientation by a lateral electrical current can be used to offer ultra-fast electrical writing and reading in AFM devices \cite{Zelezny2014}.
 
 \section{AFM dynamics}
+
+In this section we will show how a continuum one dimensional model can be obtained from the discrete Heisenberg Hamiltonian in order to describe the AFM order and its dynamics. We write the Heisenberg Hamiltonian as $\hat{H} = J \sum_{\langle i,j \rangle} \bs{S}_i\bs{S}_j - K \sum_i S_{iz}^2$ with $J>0$ and $K$ is the anisotropy energy. Let the lattice be a one dimensional chain with $2N$ sites, such lattice can be described by the repetition of $N$ unit cells consisting of two sites $\alpha$ and $\beta$ for the left and right site respectively. Then the ground state of this Hamiltonian is double degenerated and is obtained by aligning the spins in the $\alpha$ sites in the $\hat{z}$ direction and the $\beta$ spins in the $-\hat{z}$ direction or vice versa. Let us introduce the parameters:
+
+\begin{align}
+\bs{m}_i &= \frac{\bs{S}_{\alpha}^i + \bs{S}_{\beta}^i}{2S} \\
+\bs{l}_i &= \frac{\bs{S}_{\alpha}^i - \bs{S}_{\beta}^i}{2S}
+\end{align}
+
+Where $S$ is the spin angular momentum in units of $\hbar$. Inverting these relations, introducing them into the Hamiltonian and neglecting edge terms we obtain:
+
+\begin{align}
+\hat{H} &= JS^2 \sum_i^{N-1} (\bs{m}_i-\bs{l}_i)(\bs{m}_i+\bs{l}_i+\bs{m}_{i+1}+\bs{l}_{i+1}) - KS^2\sum_i^N \left[(\bs{m}_{iz}+\bs{l}_{iz})^2 + (\bs{m}_{iz}-\bs{l}_{iz})^2 \right] \nonumber = \\
+& 2JS^2\sum_i^{N} (\bs{m}_i^2-\bs{l}_i^2)+\frac{JS^2}{2}\sum_i^{N-1}\left[(\bs{l}_{i+1}-\bs{l}_i)^2-(\bs{m}_{i+1}-\bs{m}_i)^2 \right] \nonumber \\
+& + JS^2\sum_i^{N-1} \left[ \bs{m}_i(\bs{l}_{i+1}-\bs{l}_i) - \bs{l}_i(\bs{m}_{i+1}-\bs{m}_i) \right] - 2KS^2\sum_i^N(m_{iz}^2+l_{iz}^2)
+\end{align}
