@@ -10,7 +10,7 @@ We start by considering only the exchange interaction part in a one-dimensional 
 \hat{H} = -t_0\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + U \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
 \end{equation}
 
-Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We can introduce a time dependent electric field in this Hamiltonian by adding a phase to the hopping term $t_{ij}(t) = t_0e^{ie\bs{R}_{ij}\bs{A}(t)}$, where $\bs{A}$ is the vector potential and $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$. The electric field has the form $\bs{E}(t) = E_0 \sin (\omega t)\bs{\hat{x}}$ (one-dimensional lattice). We can therefore take $\bs{A}(t) = -\frac{E_0}{\omega}\cos(\omega t)\bs{\hat{x}} = -\bs{A}\cos(\omega t)$. Therefore the time dependent Hamiltonian is:
+Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We can introduce a time dependent electric field in this Hamiltonian by adding a phase to the hopping term $t_{ij}(t) = t_0e^{ie\bs{R}_{ij}\bs{A}(t)}$, where $\bs{A}$ is the vector potential and $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$. This is known as Peierls substitution and it is derived in \ref{AP3A}. The electric field has the form $\bs{E}(t) = E_0 \sin (\omega t)\bs{\hat{x}}$ (one-dimensional lattice). We can therefore take $\bs{A}(t) = -\frac{E_0}{\omega}\cos(\omega t)\bs{\hat{x}} = -\bs{A}\cos(\omega t)$. Therefore the time dependent Hamiltonian is:
 
 \begin{equation}
 \hat{H}(t) = -\sum_{\langle i,j \rangle, \sigma} t_{ij}(t)\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + U \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} = -\hat{T}(t) + U\hat{D}
@@ -115,6 +115,14 @@ In the case $\omega >> U$ we can limit to $m=0$ (time independent part) and $n=0
 J_{ij} = 2 t_0^2 \alpha_{ij}^2 \left( \frac{1}{U-\omega} - \frac{1}{U} + \frac{1}{U+\omega} \right)
 \end{equation}
 
+\end{section}
+
+\begin{subappendices}
+\begin{section}{Peierls Substitution}
+\label{AP3A}
+
+\end{section}
+\end{subappendices}
 
 
 
