@@ -2,7 +2,7 @@
 
 In this chapter we will study how introducing an electromagnetic perturbation in \ref{Ham1} can affect the parameters $J$ and $\boldsymbol{D}_{ij}$ of the effective Hamiltonian. 
 
-\section{Modified exchange interaction}
+\begin{section}{Modified exchange interaction}
 
 We start by considering only the exchange interaction part in a one-dimensional lattice. Consider the Hamiltonian:
 
@@ -109,7 +109,7 @@ J_{ij}(t) &= \sum_{mn} \left( \frac{t_{ji,(m-n)} t_{ij,n}}{U+n\omega} + \frac{t_
 &= \sum_{mn} (-1)^m t_0^2 \left( \frac{J_{m-n}(\alpha_{ji})J_n(\alpha_{ij})}{U+n\omega} +\frac{J_n(\alpha_{ji})J_{(m-n)}(\alpha_{ij})}{U-n\omega} \right)
 \end{align}
 
-In the case $\omega >> U$ we can limit to $m=0$ (time independent part) and $n=0$ or $n=\pm1$ (small denominators), additionally, if the electric field is small we can use $J_n(x) \aprox x^n$. With these approximations: 
+In the case $\omega >> U$ we can limit to $m=0$ (time independent part) and $n=0$ or $n=\pm1$ (small denominators), additionally, if the electric field is small we can use $J_n(x) \approx x^n$. With these approximations: 
 
 \begin{equation}
 J_{ij} = 2 t_0^2 \alpha_{ij}^2 \left( \frac{1}{U-\omega} - \frac{1}{U} + \frac{1}{U+\omega} \right)
@@ -124,14 +124,31 @@ J_{ij} = 2 t_0^2 \alpha_{ij}^2 \left( \frac{1}{U-\omega} - \frac{1}{U} + \frac{1
 In first quantization we can introduce a vector potential $\bs{A}(\bs{r},t)$ by changing the Hamiltonian of the latice \ref{LaticeHam} to:
 
 \begin{equation}
+\label{HamEMF}
   \hat{H}'(\bs{r}) = \frac{(\bs{p}-e\bs{A})^2}{2m} +U(\bs{r})
 \end{equation}
 
-Now the Bloch functions defined for \ref{LaticeHam} will not be eigenfunctions of this Hamiltonian. We will show that the functions:
+Now the Bloch functions defined for \ref{LaticeHam} will not be eigenfunctions of this Hamiltonian. We define a new set of Wannier functions in terms of those defined in \ref{Wannier2}, and obtain the new Bloch functions. 
+
+\begin{align}
+\psi'_{\bs{R}}(\bs{r}) &= e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \psi_{\bs{R}}(\bs{r}) \\
+\phi'_{\bs{k}}(\textbf{r}) &= \frac{1}{\sqrt{M}}\sum_{\bs{R}} e^{-i\bs{k}\bs{R}}\psi'_{\bs{R}}(\bs{r}) = \frac{1}{\sqrt{M}}\sum_{\bs{R}} e^{-i\bs{k}\bs{R}} e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \psi_{\bs{R}}(\bs{r})
+\end{align}
+
+Where we omitted the band number. The action of the new Hamiltonian is greatly simplified:
+
+\begin{align*}
+\hat{H}'(\bs{r}) \psi'_{\bs{R}} (\bs{r}) &= \left[ \frac{(\bs{p}-e\bs{A})^2}{2m} +U(\bs{r}) \right] e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \psi_{\bs{R}}(\bs{r}) = \\
+&= e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \left[ \frac{\bs{p}^2}{2m} + U(\bs{r}) \right] \psi_{\bs{R}}(\bs{r}) = e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \hat{H}(\bs{r}) \psi_{\bs{R}}(\bs{r})
+\end{align*}
+
+And so, the matrix elements as in the case without field except for a phase:
 
 \begin{equation}
-
+t_{ij}(t) = \bra{\psi'_{\bs{R_i}}} \hat{H}'(\bs{r}) \ket{\psi'_{\bs{R_j}}} = e^{i\frac{e}{\hbar}\int_{\bs{R}_j}^{\bs{R}_i} d\bs{r}'\bs{A}(\bs{r}',t)} \bra{\psi_{\bs{R_i}}} \hat{H}(\bs{r}) \ket{\psi_{\bs{R_j}}}
 \end{equation}
+
+When the field can be approximated as constant along the lattice we have: $e^{i\frac{e}{\hbar}\int_{\bs{R}_j}^{\bs{R}_i} d\bs{r}'\bs{A}(\bs{r}',t)} = e^{i\frac{e}{\hbar} (\bs{R}_i-\bs{R}_j) \bs{A}(t)}$.
 
 \end{section}
 \end{subappendices}
