@@ -145,6 +145,7 @@ Where we omitted the band number. The action of the new Hamiltonian is greatly s
 And so, the matrix elements as in the case without field except for a phase:
 
 \begin{equation}
+\label{PeierlsMtxElem}
 t_{ij}(t) = \bra{\psi'_{\bs{R_i}}} \hat{H}'(\bs{r}) \ket{\psi'_{\bs{R_j}}} = e^{i\frac{e}{\hbar}\int_{\bs{R}_j}^{\bs{R}_i} d\bs{r}'\bs{A}(\bs{r}',t)} \bra{\psi_{\bs{R_i}}} \hat{H}(\bs{r}) \ket{\psi_{\bs{R_j}}}
 \end{equation}
 
@@ -152,9 +153,12 @@ When the field can be approximated as constant along the lattice we have: $e^{i\
 
 Notice that this substitution also applies if we add a Rashba Spin-Orbit interaction term to \ref{HamEMF}, i.e., if $\hat{H}'(\bs{r}) = \frac{(\bs{p}-e\bs{A})^2}{2m} +U(\bs{r}) + \alpha_R \hat{z}(\hat{\bs{\sigma}} \times (\bs{p}-e\bs{A}))$, then
 
-\begin{equation}
-  \alpha_R \hat{z}(\hat{\bs{\sigma}} \times (\bs{p}-e\bs{A})) \psi'_{\bs{R}} = \alpha_R(\hat{\sigma_x}(\hat{p}_y-e\bs{A}) - \hat{\sigma_y}(\hat{p}_x-e\bs{A})) e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} \psi_{\bs{R}}}=  e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}}} \alpha_R \hat{z}(\hat{\bs{\sigma}} \times \bs{p} \psi_{\bs{R}} 
-\end{equation}
+\begin{align*}
+  \alpha_R \hat{z}(\hat{\bs{\sigma}} \times (\bs{p}-e\bs{A})) \psi'_{\bs{R}} &= \alpha_R(\hat{\sigma_x}(\hat{p}_y-e\bs{A}) - \hat{\sigma_y}(\hat{p}_x-e\bs{A})) e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}}d\bs{r}'\bs{A}(\bs{r}',t)} \psi_{\bs{R}} = \\
+  &= e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}}d\bs{r}'\bs{A}(\bs{r}',t)} \alpha_R \hat{z}\hat{\bs{\sigma}} \times \bs{p} \psi_{\bs{R}}
+\end{align*}
+
+Therefore relation \ref{PeierlsMtxElem} still holds.
 
 \end{section}
 \end{subappendices}
