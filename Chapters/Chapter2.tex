@@ -99,7 +99,7 @@ and
 	\end{cases}						
 \end{equation}
 
-Additionally, for $i=j=k=l$ the Pauli principle requires $\sigma' = \sigma$
+i.e. $\text{U} = \int d\bs{r} d\bs{r}' \phi(\bs{r})^* \phi(\bs{r}')^* \hat{v}(\bs{r}-\bs{r}') \phi(\bs{r}') \phi(\bs{r})$, where $\phi(\bs{r})$ is the Wannier function centered at the origin. Additionally, for $i=j=k=l$ the Pauli principle requires $\sigma' = \sigma$.
 
 \end{itemize}
 
@@ -114,9 +114,9 @@ Taking these approximations we obtain the single band Hubbard model:
 
 \begin{section}{Effective Hamiltonian for half-filling system}
 
-At half filling, in the $t << \text{U}$ limit we can apply perturbation theory to obtain the Heisenberg model from the Hubbard Hamiltonian \ref{Hubbard}. First notice that in the case $t = 0$ the ground state corresponds to having all sites single-occupied. There are two possible spin orientations for each sites, so there is a $2^M$ degeneracy. The ground state energy is $0$. The first exited states are obtained by moving one electron from one site to another, thus leaving one empty site and one double-occupied site. The energy of one of these states is $\text{U}$. Now, if we turn the kinetic term on as a perturbation, having two neighbors electrons with antiparallel spin will allow them to hop and reduce the kinetic energy, whereas while being parallel this hopping is not allowed and there is no energy reduction. Therefore, we can see that when turning the kinetic term on antiparallel alignment will be favored. 
+At half filling, in the $t << \text{U}$ limit, which correspond to the strong coupling limit, we can apply perturbation theory to obtain the Heisenberg model from the Hubbard Hamiltonian \ref{Hubbard}. First notice that in the case $t = 0$ the ground state corresponds to having all sites single-occupied. There are two possible spin orientations for each sites, so there is a $2^M$ degeneracy. The ground state energy is $0$. The first exited states are obtained by moving one electron from one site to another, thus leaving one empty site and one double-occupied site. The energy of one of these states is $\text{U}$. Now, if we turn the kinetic term on as a perturbation, having two neighbors electrons with antiparallel spin will allow them to hop and reduce the kinetic energy, whereas while being parallel this hopping is not allowed and there is no energy reduction. Therefore, we can see that when turning the kinetic term on antiparallel alignment will be favored. 
 
-Let us write $\hat{H} = \hat{H_0} + \hat{H_t}$, $\hat{H_t} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t + \boldsymbol{\Delta}_{ij} \boldsymbol{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$. Let $\ket{\phi}$ and $\ket{\phi'}$ be state from the ground state, then we know $\bra{\phi'} \hat{H_0} \ket{\phi} = 0$ and in first order in $t$ $\bra{\phi'} \hat{H} \ket{\phi} = \bra{\phi'} \hat{H_t} \ket{\phi} = 0$ since $\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma}$ moves an electron from site $j$ to $i$ thus leaving $i$ doubly occupied, therefore $\hat{H_t} \ket{\phi}$ has no superposition with $\phi'$. In second order we have:
+Let us write $\hat{H} = \hat{H}_0 + \hat{H}_t$, where $\hat{H}_0$ is the Hamiltonian for $t=0$ i.e. $\hat{H}_0 = \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ and $\hat{H_t} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t + \boldsymbol{\Delta}_{ij} \boldsymbol{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$. Let $\ket{\phi}$ and $\ket{\phi'}$ be states from the ground state of $\hat{H}_0$, then we know $\bra{\phi'} \hat{H_0} \ket{\phi} = 0$ and in first order in $t$ $\bra{\phi'} \hat{H} \ket{\phi} = \bra{\phi'} \hat{H_t} \ket{\phi} = 0$ since $\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma}$ moves an electron from site $j$ to $i$ thus leaving $i$ doubly occupied, therefore $\hat{H_t} \ket{\phi}$ has no superposition with $\phi'$. In second order we have:
 
 \begin{equation}
 \bra{\phi'} \hat{H} \ket{\phi} = \sum_s \frac{\bra{\phi'} \hat{H_t} \ket{s}\bra{s} \hat{H_t} \ket{\phi}}{E_0-E_s}
@@ -162,7 +162,7 @@ The constant term can be neglected leaving:
 \hat{H}_{J} = \frac{2t^2}{\text{U}} \sum_{\langle i,j \rangle} \boldsymbol{S}_i\boldsymbol{S}_j = J\sum_{\langle i,j \rangle} \boldsymbol{S}_i\boldsymbol{S}_j
 \end{equation}
 
-Which is the Heisenberg model for antiferromagnets with $J = \frac{2t^2}{\text{U}}$. Likewise, for $\hat{H}_D$:
+Which is the Heisenberg model for antiferromagnets with $J = \frac{2t^2}{\text{U}} > 0$. Likewise, for $\hat{H}_D$:
 
 \begin{align*}
 \hat{H}_D = &-\frac{t}{\text{U}} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right) = \\
