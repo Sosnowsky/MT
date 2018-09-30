@@ -132,7 +132,12 @@ The sum being over all excited states. Since $\hat{H_t}\ket{\phi}$ is a superpos
 &-\frac{1}{\text{U}} \bra{\phi'} \hat{H}_J + \hat{H}_D + \mathcal{O}(\boldsymbol{\Delta}^2))\ket{\phi}
 \end{align}
 
-In the second line we imposed $i=j'$ and $j=i'$ since that's the only way $\hat{H_t^2}\ket{\phi}$ has no double occupied sites and so the matrix element does not vanish. We also used $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$. We will neglect the $\mathcal{O}(\boldsymbol{\Delta}^2)$ term since $t$ is dominant.
+In the second line we imposed $i=j'$ and $j=i'$ since that's the only way $\hat{H_t^2}\ket{\phi}$ has no double occupied sites and so the matrix element does not vanish. We also used $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$. We will neglect the $\mathcal{O}(\boldsymbol{\Delta}^2)$ term since $t$ is dominant. We defined:
+
+\begin{align}
+\hat{H}_J &= -\frac{t^2}{\text{U}} \sum_{\langle i,j \rangle, \sigma, \sigma'} \hat{c}_{i\sigma}^\dagger \hat{c}_{i\sigma'} \hat{c}_{j\sigma} \hat{c}_{j \sigma'}^\dagger \\
+\hat{H}_D &= -\frac{t}{\text{U}}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}	\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3 	\sigma_4}) \hat{c}_{i\sigma_1}^\dagger \hat{c}_{i\sigma_4} \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger
+\end{align}
 
 Let us now introduce the on-site spin operators:
 
@@ -147,13 +152,13 @@ Which satisfy:
 \hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma, \sigma'} 
 \end{align*}
 
-Introducing these relations into $H_J$ and using $n_{i \uparrow} + n_{i \downarrow} = 1$ we obtain:
+Introducing these relations into $\hat{H}_J$ and using $n_{i \uparrow} + n_{i \downarrow} = 1$ we obtain:
 
 \begin{align*}
 \hat{H}_{J} = &-\frac{t^2}{\text{U}} \sum_{\langle i,j \rangle, \sigma \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma \sigma'}\right) = \\
-&-\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle, \sigma \sigma'} \frac{1}{4}\delta_{\sigma \sigma'} - \sum_{ab} S_i^aS_j^b 	\boldsymbol{\sigma}_{\sigma'\sigma}^a \boldsymbol{\sigma}_{\sigma \sigma'}^b = 
--\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle} \frac{1}{2} - \sum_{ab} S_i^aS_j^b	2\delta_{ab} = \\
-&-\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle} \frac{1}{2} - 2\boldsymbol{S}_i\boldsymbol{S}_j
+&-\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle, \sigma \sigma'} \left\{ \frac{1}{4}\delta_{\sigma \sigma'} - \sum_{ab} S_i^aS_j^b 	\boldsymbol{\sigma}_{\sigma'\sigma}^a \boldsymbol{\sigma}_{\sigma \sigma'}^b \right\} = 
+-\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle} \left\{ \frac{1}{2} - \sum_{ab} S_i^aS_j^b	2\delta_{ab} \right\} = \\
+&-\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle} \left( \frac{1}{2} - 2\boldsymbol{S}_i\boldsymbol{S}_j \right)
 \end{align*}
 
 The constant term can be neglected leaving:
@@ -166,11 +171,31 @@ Which is the Heisenberg model for antiferromagnets with $J = \frac{2t^2}{\text{U
 
 \begin{align*}
 \hat{H}_D = &-\frac{t}{\text{U}} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right) = \\
-&-\frac{2t}{\text{U}}\sum_{\langle i,j \rangle} \Delta_{ij}^+ (S_i^-S_j^z - S_i^zS_j^-) + \Delta_{ij}^- (S_i^zS_j^+ - S_i^+S_j^z) + \Delta_{ij}^z (S_i^+S_j^- - S_i^-S_j^+) = \\
-&-\frac{4it}{\text{U}} \sum_{\langle i,j \rangle} \boldsymbol{\Delta}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j = \sum_{\langle i,j \rangle} \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j
+ &= -\frac{t}{\text{U}} \sum_{\langle i,j \rangle} \left\{ \right.
+	\overbrace{0}^{\uparrow \uparrow \uparrow \uparrow} +
+	\overbrace{(-\Delta_{ij}^+)S_i^-(\frac{1}{2}-S_j^z)}^{\uparrow \uparrow \uparrow \downarrow} +
+	\overbrace{(-\Delta_{ij}^-)(\frac{1}{2}+ S_i^z)(-S_j^+)}^{\uparrow \uparrow \downarrow \uparrow} +
+	\overbrace{2\Delta_{ij}^z S_i^-(-S_j^+)}^{\uparrow \uparrow \downarrow \downarrow} + \\
+	&\overbrace{\Delta_{ij}^+ (\frac{1}{2}+S_i^z)(-S_j^-)}^{\uparrow \downarrow \uparrow \uparrow} +
+	\overbrace{0}^{\uparrow \downarrow \uparrow \downarrow} +
+	\overbrace{0}^{\uparrow \downarrow \downarrow \uparrow} +
+	\overbrace{\Delta_{ij}^+ S_i^-(\frac{1}{2}+S_j^z)}^{\uparrow \downarrow \downarrow \downarrow} + \\
+	&\overbrace{\Delta_{ij}^- S_i^+(\frac{1}{2}-S_j^z)}^{\downarrow \uparrow \uparrow \uparrow} +
+	\overbrace{0}^{\downarrow \uparrow \uparrow \downarrow} +
+	\overbrace{0}^{\downarrow \uparrow \downarrow \uparrow} +
+	\overbrace{\Delta_{ij}^- (\frac{1}{2} - S_i^z) (-S_j^+)}^{\downarrow \uparrow \downarrow \downarrow} + \\
+	& \overbrace{(-2\Delta_{ij}^z)S_i^+(-S_j^-)}^{\downarrow \downarrow \uparrow \uparrow} +
+	\overbrace{(-\Delta_{ij}^+) (\frac{1}{2}-S_i^z)(-S_j^-)}^{\downarrow \downarrow \uparrow \downarrow} +
+	\overbrace{(-\Delta_{ij}^-) S_i^+(\frac{1}{2}+S_j^z)}^{\downarrow \downarrow \downarrow \uparrow} +
+	\overbrace{0}^{\downarrow \downarrow \downarrow \downarrow}
+\left. \right\} = \\
+&= -\frac{2t}{\text{U}}\sum_{\langle i,j \rangle}\left\{ \Delta_{ij}^+ (S_i^-S_j^z - S_i^zS_j^-) + \Delta_{ij}^- (S_i^zS_j^+ - S_i^+S_j^z) + \Delta_{ij}^z (S_i^+S_j^- - S_i^-S_j^+) \right\} = \\
+&= +\frac{2ti}{\text{U}}\sum_{\langle i,j \rangle}\left\{ \Delta_{ij}^+ (\bs{S}_i\times\bs{S}_j)^- + \Delta_{ij}^- (\bs{S}_i\times\bs{S}_j)^+ + 2\Delta_{ij}^z (\bs{S}_i\times\bs{S}_j)^z \right\} = \\
+&= +\frac{4it}{\text{U}} \sum_{\langle i,j \rangle} \boldsymbol{\Delta}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j = \sum_{\langle i,j \rangle} \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j
 \end{align*}
 
-Where $\boldsymbol{D}_{ij} = -\frac{4it}{\text{U}}\boldsymbol{\Delta}_{ij}$. The total effective Hamiltonian is:
+In the second line we expand the sum in the spin states (overbrace indicates the spin state $\sigma_1$, $\sigma_2$, $\sigma_3$, $\sigma_4$ respectively). We also used that for any vector $\vec{v}$ we can define $\bs{\sigma}_{12}\vec{v} = v^x+iv^y = v^+$, $\bs{\sigma}_{21}\vec{v} = v^x-iv^y = v^-$, $\bs{\sigma}_{11}\vec{v} = v^z$ and $\bs{\sigma}_{22}\vec{v} = -v^z$. Also, for any two vectors $\vec{a}$ and $\vec{b}$, the following applies $a^-b^z-a^zb^- = -i(\vec{a}\times\vec{b})^-$, $a^zb^+-a^+b^z=-i(\vec{a}\times\vec{b})^+$, $a^+b^--a^-b^+=-2i(\vec{a}\times \vec{b})^z$ and $a^+b^-+a^-b^+=2(a^xb^x+a^yb^y)$.
+Where $\boldsymbol{D}_{ij} = \frac{4it}{\text{U}}\boldsymbol{\Delta}_{ij}$. The total effective Hamiltonian is:
 
 \begin{equation}
 \hat{H}_{eff} = \sum_{\langle i,j \rangle} J\boldsymbol{S}_i\boldsymbol{S}_j + \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j
