@@ -13,7 +13,7 @@ where $v$ is the electron-electron interaction and where $\hat{H}^{(1)}$ is the 
 \hat{H}^{(1)}(\textbf{r}) = -\frac{\hbar^2}{2m}\nabla^2_{\textbf{r}} + \text{U}(\textbf{r}) + \lambda\boldsymbol{\sigma}\boldsymbol{\nabla}V(\textbf{r}) \times \textbf{p}
 \end{equation}
 
-Where $\lambda = \frac{\hbar^2}{4m^2c^2}$ is the spin orbit coupling constant and $\text{U}(\bs{r})$ is a periodic potential. The second quantized form of this Hamiltonian can be approximated by a version of the Hubbard model. Then, for a half filled system we will derive an effective Hamiltonian using time independent perturbation theory.
+Where $\lambda = \frac{\hbar^2}{4m^2c^2}$ is the spin orbit coupling constant and $\text{U}(\bs{r})$ is a periodic potential. The second quantized form of this Hamiltonian can be approximated by a version of the Hubbard model. We will consider a half filled system in the strong coupling limit. Ignoring electron hopping and spin orbit interaction, the ground state of this system is massively degenerated. We will find an effective Hamiltonian considering that the hopping term and the spin interaction term act on this subspace. This effective Hamiltonian will be the sum of a spin exchange interaction $J\bs{S}_i\bs{S}_j$ with $J>0$ plus an anisotropic interaction $\bs{D}\bs{S}_i\times\bs{S}_j$ \cite{Moriya1960}.
 
 
 \begin{section}{Single particle in a periodic potential}
@@ -219,6 +219,23 @@ Where $S$ is the spin angular momentum in units of $\hbar$. Inverting these rela
 & 2JS^2\sum_i^{N} (\bs{m}_i^2-\bs{l}_i^2)+\frac{JS^2}{2}\sum_i^{N-1}\left[(\bs{l}_{i+1}-\bs{l}_i)^2-(\bs{m}_{i+1}-\bs{m}_i)^2 \right] \nonumber \\
 & + JS^2\sum_i^{N-1} \left[ \bs{m}_i(\bs{l}_{i+1}-\bs{l}_i) - \bs{l}_i(\bs{m}_{i+1}-\bs{m}_i) \right] - 2KS^2\sum_i^N(m_{iz}^2+l_{iz}^2)
 \end{align}
+
+Now we can take the continuum limit with:
+
+\begin{align*}
+\bs{m}_i &\rightarrow \bs{m}(x) \\
+\bs{l}_i &\rightarrow \bs{l}(x) \\
+2d \sum_i &\rightarrow \int dx \\
+\hat{H} &\rightarrow \int \frac{dx}{2d} \mathcal{H}(\bs{l},\bs{m})
+\end{align*}
+
+This, together with $\bs{m}_i-\bs{l}_i = 2\bs{m}_i-1$ and $\bs{m}_{i+1} \rightarrow \bs{m}(x) + 2d \partial_x\bs{m}(x)$ gives:
+
+\begin{equation}
+\mathcal{H}(\bs{l},\bs{m}) = JS^2\left\{ 4|\bs{m}|^2 + |\partial_x\bs{l}'|^2 -  |\partial_x\bs{m}'|^2 +(\bs{m}\partial_x\bs{l} -\bs{l}\partial_x\bs{m}) \right\} -KS^2\left\{ (\bs{l}\hat{z})^2 + (\bs{m}\hat{z})^2 \right\}
+\end{equation}
+
+
 
 \end{section}
 
