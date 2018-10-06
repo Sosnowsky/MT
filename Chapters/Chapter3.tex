@@ -2,7 +2,7 @@
 
 In this chapter we will study how introducing an electromagnetic perturbation in \ref{Ham1} can affect the parameters $J$ and $\boldsymbol{D}_{ij}$ of the effective Hamiltonian. 
 
-\begin{section}{Modified exchange interaction}
+\begin{section}{Hubbard model without SOI}
 
 We start by considering only the exchange interaction part in a one-dimensional lattice. Consider the Hamiltonian:
 
@@ -150,6 +150,112 @@ For circular polarized light ($\lambda=\pm1$) in this approximation the exchange
 
 \begin{equation}
 J_{ij}^{CP} = J_{ij}^0 + 2t_0^2 \mathcal{E}^2 \left( \frac{1}{U+\omega} + \frac{1}{U-\omega} \right)
+\end{equation}
+
+\end{section}
+
+\begin{section}{Hubbard model with SOI}
+
+Now, let's investigate the effect of the electric field for the Hubbard model with SOI. As seen in \ref{AP3A} we can use the Peierls substitution to obtain the Hamiltonian:
+
+\begin{equation}
+\hat{H}(t) = -\sum_{\langle i,j \rangle, \sigma, \sigma'} e^{ie\bs{R}_{ij}\bs{A}(t)} (\delta_{\sigma \sigma'}t_0 + \bs{\Delta}_{ij}\bs{\sigma}_{\sigma \sigma'}) \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} = -\hat{T}(t) + \text{U}\hat{D}
+\end{equation}
+
+In this case the hopping operator $\hat{T}(t)$ includes the spin orbit interaction, but the time dependence is the same as before, we can use $e^{ie\bs{R}_{ij}\bs{A}(t)} =  \sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} J_m(\alpha_{ij}) e^{im\omega t}$ where as before $e\bs{R}_{ij}\vec{A} = \alpha_{ij} e^{i \theta_{ij}}$ to write:
+
+\begin{equation}
+\hat{T}(t) = \sum_{\langle i,j \rangle, \sigma, \sigma'} \sum_m \Gamma_{ij,m}^{\sigma\sigma'} e^{im \omega t} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}
+\end{equation}
+
+Where we define $\Gamma_{ij,m}^{\sigma\sigma'} = e^{i(\frac{\pi}{2}-\theta_{ij})m} J_m(\alpha_{ij})(\delta_{\sigma, \sigma'}t_0+\bs{\Delta}_{ij}\bs{\sigma}_{\sigma \sigma'})$ a scalar. Now we can follow the same procedure as in the previous section to obtain:
+
+\begin{equation}
+\hat{H}'^{(2)}(t) = \sum_{mn} \left( \frac{\left[\hat{T}_{1n}, \hat{T}_{-1(m-n)} \right]}{\text{U}+n\omega} - \frac{\left[\hat{T}_{-1n}, \hat{T}_{1(m-n)} \right]}{\text{U}-n\omega} \right) e^{im\omega t}
+\end{equation}
+
+As before, we are only interested on how the Hamiltonian acts on the subspace of doublon number $d=0$. In that subspace we have:
+
+\begin{equation}
+\hat{H}_{eff}(t) = \hat{P}_0 \hat{H}'^{(2)}(t)\hat{P}_0 = - \sum_{mn} \left( \frac{\hat{T}_{-1(m-n)}\hat{T}_{1n}  }{\text{U}+n\omega} + \frac{\hat{T}_{-1n}\hat{T}_{1(m-n)}}{\text{U}-n\omega} \right) e^{im\omega t}
+\end{equation}
+
+Where,
+
+\begin{equation}
+\hat{P}_0 \hat{T}_{-1a}\hat{T}_{1b} \hat{P}_0 = \sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \Gamma_{ij,a}^{\sigma_1\sigma_2}\Gamma_{ji,b}^{\sigma_3\sigma_4} \hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4}
+\end{equation}
+
+For any integers $a,b$. Therefore:
+
+\begin{equation}
+\hat{H}_{eff}(t) = -\sum_{mn} \sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4} \left\{ \frac{\Gamma_{ij,(m-n)}^{\sigma_1\sigma_2}\Gamma_{ji,n}^{\sigma_3\sigma_4}}{\text{U}+n\omega} + \frac{\Gamma_{ij,n}^{\sigma_1\sigma_2}\Gamma_{ji,(m-n)}^{\sigma_3\sigma_4}}{\text{U}-n\omega} \right\} e^{im\omega t}
+\end{equation}
+
+We can rewrite:
+
+\begin{align*}
+\Gamma_{ij,(m-n)}^{\sigma_1\sigma_2}\Gamma_{ji,n}^{\sigma_3\sigma_4} &= e^{i(\frac{\pi}{2}-\theta_{ij})m}J_{m-n}(\alpha_{ij})J_n(\alpha_{ji})(\delta_{\sigma_1, \sigma_2}t_0+\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\delta_{\sigma_3, \sigma_4}t_0+\bs{\Delta}_{ji}\bs{\sigma}_{\sigma_3 \sigma_4}) = \\
+&= e^{i(\frac{\pi}{2}-\theta_{ij})m}J_{m-n}(\alpha_{ij})J_{-n}(\alpha_{ij})(\delta_{\sigma_1, \sigma_2}t_0+\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\delta_{\sigma_3, \sigma_4}t_0-\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_3 \sigma_4}) = \\
+&= e^{i(\frac{\pi}{2}-\theta_{ij})m}J_{m-n}(\alpha_{ij})J_{-n}(\alpha_{ij}) \left[ \delta_{\sigma_1, \sigma_2}\delta_{\sigma_3, \sigma_4}t_0^2+t_0\bs{\Delta}_{ij}(\delta_{\sigma_3,\sigma_4}\bs{\sigma}_{\sigma_1 \sigma_2}-\delta_{\sigma_1,\sigma_2}\bs{\sigma}_{\sigma_3 \sigma_4}) + \mathcal{O}(\bs{\Delta}_{ij}^2) \right]
+\end{align*}
+
+Where we used $\theta_{ji} = \theta_{ij}$, $\alpha_{ji} = - \alpha_{ij}$ and $\bs{\Delta}_{ji} = -\bs{\Delta}_{ij}$. We neglect the $\mathcal{O}(\bs{\Delta}_{ij}^2)$ term. The term proportional to $t_0^2$ will lead to the modified exchange interaction, and it is exactly the same as in the previous section. The term proportional to $t_0\bs{\Delta}_{ij}$ will lead to the modified DMI interaction. Define:
+
+\begin{equation}
+\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) = \sum_{mn}e^{i(\frac{\pi}{2}-\theta_{ij})m} \left\{ 
+    \frac{J_{m-n}(\alpha_{ij})J_{-n}(\alpha_{ij})}{\text{U}+n\omega} +
+    \frac{J_n(\alpha_{ij})J_{n-m}(\alpha_{ij})}{\text{U}-n\omega}    
+    \right\}e^{im\omega t}
+\end{equation}
+
+Now, introducing the spin operators \ref{SpinOperators}, using relations \ref{SpinOperatorInv1} and \ref{SpinOperatorInv2} and taking into account that in this subspace $n_{i\uparrow}+n_{i\downarrow}=1$ we obtain:
+
+\begin{align*}
+\hat{H}_{eff}(t) &\approx -\sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) \times \\
+&\times \left[ \delta_{\sigma_1, \sigma_2}\delta_{\sigma_3, \sigma_4}t_0^2+t_0\bs{\Delta}_{ij}(\delta_{\sigma_3,\sigma_4}\bs{\sigma}_{\sigma_1 \sigma_2}-\delta_{\sigma_1,\sigma_2}\bs{\sigma}_{\sigma_3 \sigma_4}) \right]\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) = \\
+&= -t_0^2 \sum_{\langle i,j \rangle \sigma, \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \bs{S}_i\bs{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\bs{S}_j\bs{\sigma}_{\sigma \sigma'}\right)\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) - \\
+&- t_0 \sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) \times \\
+&\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \bs{\Delta}_{ij}(\delta_{\sigma_3,\sigma_4}\bs{\sigma}_{\sigma_1 \sigma_2}-\delta_{\sigma_1,\sigma_2}\bs{\sigma}_{\sigma_3 \sigma_4}) = \\
+&= \hat{H}_J'(t)+\hat{H}_D'(t)
+\end{align*}
+
+Now, for $\hat{H}_J'(t)$ we know from the previous chapter that:
+
+\begin{equation}
+\sum_{\langle i,j \rangle \sigma, \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \bs{S}_i\bs{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\bs{S}_j\bs{\sigma}_{\sigma \sigma'}\right) = -2\sum_{\langle i,j \rangle}\bs{S}_i\bs{S}_j
+\end{equation} 
+
+Up to a constant. Therefore:
+
+\begin{align}
+\hat{H}_J'(t) &= 2t_0^2 \sum_{mn} \bs{S}_i\bs{S}_j e^{i(\frac{\pi}{2}-\theta_{ij})m} \left\{ 
+    \frac{J_{m-n}(\alpha_{ij})J_{-n}(\alpha_{ij})}{\text{U}+n\omega} +
+    \frac{J_n(\alpha_{ij})J_{n-m}(\alpha_{ij})}{\text{U}-n\omega}    
+    \right\}e^{im\omega t} = \nonumber \\
+&= \sum_{mn} \bs{S}_i\bs{S}_j J_{ij}(t)
+\end{align}
+
+With the same expression for $J_{ij}(t)$ as in the previous section. For $\hat{H}_D'(t)$ we use the relation:
+
+\begin{align}
+&\sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right)\bs{\Delta}_{ij}(\delta_{\sigma_3,\sigma_4}\bs{\sigma}_{\sigma_1 \sigma_2}-\delta_{\sigma_1,\sigma_2}\bs{\sigma}_{\sigma_3 \sigma_4}) = \nonumber \\
+&= \sum_{\langle i,j \rangle} 4i\bs{\Delta}_{ij} \bs{S}_i \times \bs{S}_j
+\end{align}
+
+To obtain:
+
+\begin{equation}
+\hat{H}_D'(t) = -\sum_{\langle i,j \rangle} 4it_0 \bs{\Delta}_{ij}\mathcal{M}(\alpha_{ij},t) \bs{S}_i \times \bs{S}_j = \sum_{\langle i,j \rangle} \bs{D}_{ij}(t) \bs{S}_i \times \bs{S}_j
+\end{equation}
+
+With
+
+\begin{equation}
+\bs{D}_{ij} = -4it_0\bs{\Delta}_{ij}\mathcal{M}(\alpha_{ij},t) = -4it_0 \bs{\Delta}_{ij} \sum_{mn}e^{i(\frac{\pi}{2}-\theta_{ij})m} \left\{ 
+    \frac{J_{m-n}(\alpha_{ij})J_{-n}(\alpha_{ij})}{\text{U}+n\omega} +
+    \frac{J_n(\alpha_{ij})J_{n-m}(\alpha_{ij})}{\text{U}-n\omega}    
+    \right\}e^{im\omega t}
 \end{equation}
 
 \end{section}

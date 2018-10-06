@@ -142,36 +142,29 @@ In the second line we imposed $i=j'$ and $j=i'$ since that's the only way $\hat{
 Let us now introduce the on-site spin operators:
 
 \begin{equation}
+\label{SpinOperators}
 \boldsymbol{S}_i = \frac{1}{2} \sum_{\sigma, \sigma'} \hat{c}_{i \sigma}^\dagger \boldsymbol{\sigma}_{\sigma, \sigma'} \hat{c}_{i \sigma'}
 \end{equation}
 
 Which satisfy:
 
+\begin{align}
+\hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
+\hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
+\end{align}
+
+In the half-filling case we have $n_{i \uparrow} + n_{i \downarrow} = 1$ and we can show two important relations. First:
+
 \begin{align*}
-\hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma', \sigma} \\ 
-\hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma, \sigma'} 
+&\sum_{\sigma \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma \sigma'}\right) = \sum_{\sigma \sigma'} \left\{ \frac{1}{4}\delta_{\sigma \sigma'} - \sum_{ab} S_i^aS_j^b 	\boldsymbol{\sigma}_{\sigma'\sigma}^a \boldsymbol{\sigma}_{\sigma \sigma'}^b \right\}= \\
+&= \frac{1}{2} - \sum_{ab} S_i^aS_j^b	2\delta_{ab} = \frac{1}{2} - 2\boldsymbol{S}_i\boldsymbol{S}_j
 \end{align*}
 
-Introducing these relations into $\hat{H}_J$ and using $n_{i \uparrow} + n_{i \downarrow} = 1$ we obtain:
+Where we have neglected the term $\sum_{\sigma \sigma'} \frac{1}{2}\delta_{\sigma,\sigma'}(\bs{S}_i\bs{\sigma}_{\sigma',\sigma} - \bs{S}_j\bs{\sigma}_{\sigma,\sigma'})$ because eventually we will sum over all $\langle i, j \rangle$ and it will cancel out. We also used the well known property $tr(\bs{\sigma}^a\bs{\sigma}^b)=2\delta_{a,b}$. And second:
 
 \begin{align*}
-\hat{H}_{J} = &-\frac{t^2}{\text{U}} \sum_{\langle i,j \rangle, \sigma \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma \sigma'}\right) = \\
-&-\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle, \sigma \sigma'} \left\{ \frac{1}{4}\delta_{\sigma \sigma'} - \sum_{ab} S_i^aS_j^b 	\boldsymbol{\sigma}_{\sigma'\sigma}^a \boldsymbol{\sigma}_{\sigma \sigma'}^b \right\} = 
--\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle} \left\{ \frac{1}{2} - \sum_{ab} S_i^aS_j^b	2\delta_{ab} \right\} = \\
-&-\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle} \left( \frac{1}{2} - 2\boldsymbol{S}_i\boldsymbol{S}_j \right)
-\end{align*}
-
-The constant term can be neglected leaving:
-
-\begin{equation}
-\hat{H}_{J} = \frac{2t^2}{\text{U}} \sum_{\langle i,j \rangle} \boldsymbol{S}_i\boldsymbol{S}_j = J\sum_{\langle i,j \rangle} \boldsymbol{S}_i\boldsymbol{S}_j
-\end{equation}
-
-Which is the Heisenberg model for antiferromagnets with $J = \frac{2t^2}{\text{U}} > 0$. Likewise, for $\hat{H}_D$:
-
-\begin{align*}
-\hat{H}_D = &-\frac{t}{\text{U}} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right) = \\
- &= -\frac{t}{\text{U}} \sum_{\langle i,j \rangle} \left\{ \right.
+&\sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right) = \\
+ &= \left\{ \right.
 	\overbrace{0}^{\uparrow \uparrow \uparrow \uparrow} +
 	\overbrace{(-\Delta_{ij}^+)S_i^-(\frac{1}{2}-S_j^z)}^{\uparrow \uparrow \uparrow \downarrow} +
 	\overbrace{(-\Delta_{ij}^-)(\frac{1}{2}+ S_i^z)(-S_j^+)}^{\uparrow \uparrow \downarrow \uparrow} +
@@ -189,16 +182,43 @@ Which is the Heisenberg model for antiferromagnets with $J = \frac{2t^2}{\text{U
 	\overbrace{(-\Delta_{ij}^-) S_i^+(\frac{1}{2}+S_j^z)}^{\downarrow \downarrow \downarrow \uparrow} +
 	\overbrace{0}^{\downarrow \downarrow \downarrow \downarrow}
 \left. \right\} = \\
-&= -\frac{2t}{\text{U}}\sum_{\langle i,j \rangle}\left\{ \Delta_{ij}^+ (S_i^-S_j^z - S_i^zS_j^-) + \Delta_{ij}^- (S_i^zS_j^+ - S_i^+S_j^z) + \Delta_{ij}^z (S_i^+S_j^- - S_i^-S_j^+) \right\} = \\
-&= +\frac{2ti}{\text{U}}\sum_{\langle i,j \rangle}\left\{ \Delta_{ij}^+ (\bs{S}_i\times\bs{S}_j)^- + \Delta_{ij}^- (\bs{S}_i\times\bs{S}_j)^+ + 2\Delta_{ij}^z (\bs{S}_i\times\bs{S}_j)^z \right\} = \\
+&= 2\left\{ \Delta_{ij}^+ (S_i^-S_j^z - S_i^zS_j^-) + \Delta_{ij}^- (S_i^zS_j^+ - S_i^+S_j^z) + \Delta_{ij}^z (S_i^+S_j^- - S_i^-S_j^+) \right\} = \\
+&= -2i\left\{ \Delta_{ij}^+ (\bs{S}_i\times\bs{S}_j)^- + \Delta_{ij}^- (\bs{S}_i\times\bs{S}_j)^+ + 2\Delta_{ij}^z (\bs{S}_i\times\bs{S}_j)^z \right\} = -4i \boldsymbol{\Delta}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j 
+\end{align*}
+
+Where in the second line we expand the sum in the spin states (overbrace indicates the spin state $\sigma_1$, $\sigma_2$, $\sigma_3$, $\sigma_4$ respectively). We also used that for any vector $\vec{v}$ we can define $\bs{\sigma}_{12}\vec{v} = v^x+iv^y = v^+$, $\bs{\sigma}_{21}\vec{v} = v^x-iv^y = v^-$, $\bs{\sigma}_{11}\vec{v} = v^z$ and $\bs{\sigma}_{22}\vec{v} = -v^z$. Also, for any two vectors $\vec{a}$ and $\vec{b}$, the following applies $a^-b^z-a^zb^- = -i(\vec{a}\times\vec{b})^-$, $a^zb^+-a^+b^z=-i(\vec{a}\times\vec{b})^+$, $a^+b^--a^-b^+=-2i(\vec{a}\times \vec{b})^z$ and $a^+b^-+a^-b^+=2(a^xb^x+a^yb^y)$.
+
+These two relations are important and will be used in the next chapter:
+
+\begin{align}
+&\sum_{\sigma \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma \sigma'}\right) =\frac{1}{2} - \sum_{ab} S_i^aS_j^b	2\delta_{ab} = \frac{1}{2} - 2\boldsymbol{S}_i\boldsymbol{S}_j \label{SpinRel1} \\
+&\sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right)= -4i \boldsymbol{\Delta}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j \label{SpinRel2}
+\end{align}
+
+Now introducing the spin operators into  $\hat{H}_J$ with $n_{i \uparrow} + n_{i \downarrow} = 1$ and using \ref{SpinRel1} we obtain:
+
+\begin{align*}
+\hat{H}_{J} = &-\frac{t^2}{\text{U}} \sum_{\langle i,j \rangle, \sigma \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma \sigma'}\right) = \\
+&-\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle} \left( \frac{1}{2} - 2\boldsymbol{S}_i\boldsymbol{S}_j \right)
+\end{align*}
+
+The constant term can be neglected leaving:
+
+\begin{equation}
+\hat{H}_{J} = \frac{2t^2}{\text{U}} \sum_{\langle i,j \rangle} \boldsymbol{S}_i\boldsymbol{S}_j = J\sum_{\langle i,j \rangle} \boldsymbol{S}_i\boldsymbol{S}_j
+\end{equation}
+
+Which is the Heisenberg model for antiferromagnets with $J = \frac{2t^2}{\text{U}} > 0$. Likewise, for $\hat{H}_D$, using \ref{SpinRel2}:
+
+\begin{align*}
+\hat{H}_D = &-\frac{t}{\text{U}} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right) = \\
 &= +\frac{4it}{\text{U}} \sum_{\langle i,j \rangle} \boldsymbol{\Delta}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j = \sum_{\langle i,j \rangle} \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j
 \end{align*}
 
-In the second line we expand the sum in the spin states (overbrace indicates the spin state $\sigma_1$, $\sigma_2$, $\sigma_3$, $\sigma_4$ respectively). We also used that for any vector $\vec{v}$ we can define $\bs{\sigma}_{12}\vec{v} = v^x+iv^y = v^+$, $\bs{\sigma}_{21}\vec{v} = v^x-iv^y = v^-$, $\bs{\sigma}_{11}\vec{v} = v^z$ and $\bs{\sigma}_{22}\vec{v} = -v^z$. Also, for any two vectors $\vec{a}$ and $\vec{b}$, the following applies $a^-b^z-a^zb^- = -i(\vec{a}\times\vec{b})^-$, $a^zb^+-a^+b^z=-i(\vec{a}\times\vec{b})^+$, $a^+b^--a^-b^+=-2i(\vec{a}\times \vec{b})^z$ and $a^+b^-+a^-b^+=2(a^xb^x+a^yb^y)$.
 Where $\boldsymbol{D}_{ij} = \frac{4it}{\text{U}}\boldsymbol{\Delta}_{ij}$. The total effective Hamiltonian is:
 
 \begin{equation}
-\hat{H}_{eff} = \sum_{\langle i,j \rangle} J\boldsymbol{S}_i\boldsymbol{S}_j + \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j
+\hat{H}_{eff} = \sum_{\langle i,j \rangle} \left( J\boldsymbol{S}_i\boldsymbol{S}_j + \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j \right)
 \end{equation}
 
 \end{section}
