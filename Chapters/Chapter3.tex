@@ -304,6 +304,26 @@ Notice that this substitution also applies if we add a Rashba Spin-Orbit interac
 Therefore relation \ref{PeierlsMtxElem} still holds.
 
 \end{section}
+
+\begin{section}{Identities}
+
+Let $Z(t)$ be an operator dependent on the parameter $t$. Then:
+
+\begin{align*}
+d_t e^{Z} &= d_t \sum_{n=0}^\infty \frac{1}{n!} Z^n = \sum_{n=0}^\infty \sum_{m=0}^{n-1} \frac{1}{n!} Z^m \frac{\partial Z}{\partial t} Z^{n-m-1} = \\
+&= \sum_{m=0}^\infty \sum_{p=0}^\infty \frac{1}{(m+p+1)!}Z^m \frac{\partial Z}{\partial t} Z^p = \sum_{m=0}^\infty \sum_{p=0}^\infty \frac{m!p!}{(m+p+1)!} \frac{Z^m}{m!} \frac{\partial Z}{\partial t} \frac{Z^p}{p!} =\\
+&= \sum_{m=0}^\infty \sum_{p=0}^\infty \int_0^1 dx x^m (1-x)^p \frac{Z^m}{m!} \frac{\partial Z}{\partial t} \frac{Z^p}{p!} = \int_0^1 dx e^{Zx} \frac{\partial Z}{\partial t} e^{Z(1-x)} = \\
+&= \int_0^1 dx \sum_{n=0}^\infty \frac{1}{n!} \left[xZ, \dots, \left[xZ, \frac{\partial Z}{\partial t}\right] \dots \right] e^Z = \sum_{n=0}^\infty \frac{1}{(n+1)!} \left[Z, \dots, \left[Z, \frac{\partial Z}{\partial t}\right] \dots \right] e^Z
+\end{align*}
+
+Where we used the Beta function $\int_0^1 dx x^m (1-x)^p = \frac{m!p!}{(m+p+1)!}$ and we also used the Baker–Campbell–Hausdorff expansion for $e^{xZ}\frac{\partial Z}{\partial t}e^{-xZ}$ and $\int_0^1 x^n = \frac{1}{n+1}$. Therefore we proved:
+
+\begin{equation}
+d_t e^{Z} = \sum_{n=0}^\infty \frac{1}{(n+1)!} \left[Z, \dots, \left[Z, \frac{\partial Z}{\partial t}\right] \dots \right] e^Z
+\end{equation}
+
+\end{section}
+
 \end{subappendices}
 
 

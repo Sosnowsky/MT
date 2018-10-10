@@ -34,14 +34,14 @@ Where $\text{U}(\textbf{r})$ has the symmetry of the lattice, i.e. $\text{U}(\te
 
 Which is the well-known Bloch function form. Here, $n$ is called the band index, and $\textbf{k}$ is the quasimomentum. The energy of this wavefunction is $\epsilon_{n \textbf{k}}$.  Notice that both $\phi_{n,\textbf{k}}$ and $\epsilon_{n \textbf{k}}$ are periodic functions of $\textbf{k}$ in the reciprocal lattice.
 
-The Bloch function is extended over the whole crystal volume $V$. We would like to work with a localized basis. An alternative orthonormal basis are the Wannier functions $\ket{\psi_{n\bs{k}}}$, defined in terms of the Bloch functions as:
+The Bloch function is extended over the whole crystal volume $V$. We would like to work with a localized basis. An alternative orthonormal basis are the Wannier functions $\ket{\psi_{in}}$, defined in terms of the Bloch functions as:
 
 \begin{align}
-\bra{\bs{r}}\ket{\phi_{in}} &= \frac{1}{\sqrt{M}}\sum_{\textbf{k}\in BZ} e^{-i\textbf{k}\textbf{r}_i} \bra{\bs{r}}\ket{\psi_{n\textbf{k}}} \label{Wannier1} \\
-\bra{\bs{r}}\ket{\psi_{n\bs{k}}} &= \frac{1}{\sqrt{M}} \sum_{\bs{R}} e^{i\bs{k}\bs{R}} \bra{\bs{r}}\ket{\phi_{\bs{R}n}} \label{Wannier2}
+\bra{\bs{r}}\ket{\phi_{n\bs{k}}} &= \frac{1}{\sqrt{M}}\sum_{\bs{R}} e^{i\bs{k}\bs{R}} \bra{\bs{r}}\ket{\psi_{\bs{R}n}}  \label{Wannier1} \\
+\bra{\bs{r}}\ket{\psi_{in}} &= \frac{1}{\sqrt{M}} \sum_{\bs{k}\in BZ} e^{-i\textbf{k}\textbf{R}_i} \bra{\bs{r}}\ket{\phi_{n\bs{k}}}\label{Wannier2}
 \end{align}
 
-Where $M$ is the number of lattice sites as defined in \ref{AP1A}. Using \ref{Bloch1} we see that $\phi_{in}(\textbf{r}) = \phi_{0n}(\textbf{r}-\textbf{r}_i) \equiv \phi_{n}(\textbf{r}-\textbf{r}_i)$, so we only need to define one Wannier function for each band and the others are obtained by translations. From now on we will restrict ourselves to a fixed band, so we will drop the band index. Additionally, we will include the spin state, therefore the basis states will have two quantum numbers one for the site and one for the spin state. We will adopt the notation $\ket{i\sigma}$ for the basis state of site $i$ with spin state $\sigma = \uparrow, \downarrow$, or just $\ket{i}$ when the spin state is irrelevant. Fock space states with small number of particles will be denoted as $\ket{i\sigma, j\sigma'}$, for a state with a particle at site $i$ with spin $\sigma$ and a particle at $j$ with spin $\sigma'$, or $\ket{ij}$ when spin is irrelevant.
+Where $M$ is the number of lattice sites as defined in \ref{AP1A}. Using \ref{Bloch1} we see that $\psi_{in}(\textbf{r}) = \psi_{0n}(\textbf{r}-\textbf{r}_i) \equiv \psi_{n}(\textbf{r}-\textbf{r}_i)$, so we only need to define one Wannier function for each band and the others are obtained by translations. From now on we will restrict ourselves to a fixed band, so we will drop the band index. Additionally, we will include the spin state, therefore the basis states will have two quantum numbers one for the site and one for the spin state. We will adopt the notation $\ket{i\sigma}$ for the basis state of site $i$ with spin state $\sigma = \uparrow, \downarrow$, or just $\ket{i}$ when the spin state is irrelevant. Fock space states with small number of particles will be denoted as $\ket{i\sigma, j\sigma'}$, for a state with a particle at site $i$ with spin $\sigma$ and a particle at $j$ with spin $\sigma'$, or $\ket{ij}$ when spin is irrelevant.
 
 \end{section}
 
