@@ -27,7 +27,7 @@ Where $t_{ij,m} = t_0 e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij
 In order to derive the form of the effective Hamiltonian in the half filling system with $t << \text{U}$ let us introduce a time dependent unitary transformation $\hat{U}(t) = e^{-i\hat{S}(t)}$. The transformed Hamiltonian is:
 
 \begin{equation}
-\hat{H}'(t) = \hat{U}^\dagger (t) \hat{H}(t) \hat{U}(t) - i\hat{U}^\dagger(t) d_t \hat{U}(t)
+\hat{H}'(t) = e^{i\hat{S}(t)} \hat{H}(t) e^{-i\hat{S}(t)} - e^{i\hat{S}(t)} id_t e^{-i\hat{S}(t)}
 \end{equation} 
 
 We perform the unitary transformation perturbatively in the hopping parameter $t_0$, to that end let us write $\hat{T}(t) = \eta \hat{T}(t)$, where $\eta$ will play the role of a bookkeeping parameter in the perturbative expansion. We expand $\hat{S}(t) = \sum_\nu \eta^\nu \hat{S}^{(\nu)}(t)$ and $\hat{H}'(t) = \sum_\nu \eta^\nu \hat{H}'^{(\nu)}(t)$. In order for the new Hamiltonian to be periodic we impose the unitary transformation to have the periodicity of the Hamiltonian, so that we can expand $\hat{S}^{(\nu)}(t) = \sum_m e^{im\omega t}\hat{S}^{(\nu)}_m$. Additionally we can impose the transformed Hamiltonian to be block diagonal in the doublon number $d$. With these conditions the unitary transformation can be uniquely determined if we impose that $\hat{S}(t)$ does not contain block-diagonal terms, i.e. we can write:
@@ -42,18 +42,44 @@ where $\hat{S}^{(\nu)}_{d,m}$ changes the double occupancy number by $d$. We als
 \hat{T}(t) = \eta \sum_m (\hat{T}_{-1,m}+\hat{T}_{0,m}+\hat{T}_{1,m})e^{im\omega t}
 \end{equation}
 
-Where $\hat{T}_d(t)$ changes the double occupancy number by $d$, for example $\hat{T}_1(t) = \hat{P}_1 \hat{T}(t) \hat{P}_0$. Using the Baker–Campbell–Hausdorff expansion we can write the transformed Hamiltonian as:
+Where $\hat{T}_d(t)$ changes the double occupancy number by $d$, for example $\hat{T}_1(t) = \hat{P}_1 \hat{T}(t) \hat{P}_0$. Now we can use the identity:
 
 \begin{equation}
-\label{Perturbation}
-\hat{H}'(t) = \hat{H}(t) + \sum_{n=1}^\infty \frac{1}{n!} \left[i\hat{S}(t), \dots, \left[ i\hat{S}(t), \hat{H}(t) \right]\dots \right] - d_t \hat{S}(t)
+id_t e^{-i\hat{S}(t)} = \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t))e^{-i\hat{S}(t)}
 \end{equation}
 
-Now, starting from order zero and for each order we will determine $i\hat{S}^{(\nu)}(t)$ so that $\hat{H}'^{(\nu)}(t)$ is diagonal in the doublon number. To zeroth order in $\eta$ we have $\hat{H}'^{(0)}= U\hat{D}$ and $i\hat{S}^{(0)}(t)=0$. In first order we obtain:
+Derived in appendix \ref{AP3B}, where $\text{ad}_A(B) = [A,B]$. To rewrite the transformed Hamiltonian as:
+
+\begin{equation}
+\hat{H}'(t) = e^{i\hat{S}(t)} \left( \hat{H}(t) - \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t)) \right) e^{-i\hat{S}(t)}
+\end{equation}
+
+Using the Baker–Campbell–Hausdorff expansion we can write the transformed Hamiltonian as:
+
+\begin{equation}
+\label{PertFull}
+\hat{H}'(t) = \sum_m \frac{1}{m!} \text{ad}_{i\hat{S}(t)}^m \left( \hat{H}(t) - \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t)) \right)
+\end{equation}
+
+Now, in this expression we have to expand $\hat{S}(t) = \sum_\nu \eta^\nu \hat{S}^{(\nu)}(t)$ and $\hat{H}'(t) = \sum_\nu \eta^\nu \hat{H}'^{(\nu)}(t)$ and determine $\hat{S}^{(\nu)}(t)$ iteratively in $\nu$ so that $\hat{H}'^{(\nu)}(t)$ is diagonal in the doublon number. Notice that we do not expand $\hat{H}(t)$ as an infinite series since $\hat{H}(t) = -\eta \hat{T}(t) + U\hat{D}$. Now, notice also that if we take $i\hat{S}^{(0)}(t)=0$ in \ref{PertFull}, then, to zeroth order in $\eta$ only terms in $m=0$ and $n=0$ contribute obtaining:
+
+\begin{equation}
+\hat{H}'^{(0)}(t) = U\hat{D}
+\end{equation}
+
+Which is indeed diagonal in the doublon number, and therefore we can take $i\hat{S}^{(0)}(t)=0$. With this equating terms of the same order in \ref{PertFull} is greatly simplified, since terms with high $m,n$ will correspond to terms with high $\eta$. Since we are only interested in orders up to second order, we can truncate \ref{PertFull} up to $m=2$:
+
+\begin{align}
+\label{PertTrunc}
+\hat{H}'(t) &=  \hat{H}(t) - \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t)) + [i\hat{S}(t), \hat{H}(t) - \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t))] + \nonumber \\
+&+ \frac{1}{2} [i\hat{S}(t),[i\hat{S}(t), \hat{H}(t) - \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t)) ]]
+\end{align}
+
+This equation holds up to order $\eta^2$. In first order we obtain:
 
 \begin{equation}
 \label{1stO}
-\hat{H}'^{(1)}(t) = -\hat{T}(t) + \left[ i\hat{S}^{(1)}(t), U\hat{D} \right] - d_t\hat{S}^{(1)}(t)
+\hat{H}'^{(1)}(t) = -\hat{T}(t) - d_t\hat{S}^{(1)}(t) + \left[ i\hat{S}^{(1)}(t), U\hat{D} \right]
 \end{equation}
 
 Now we expanding in $m,d$ and use $\left[ \hat{D}, \hat{S}^{(\nu)}_{dm} \right] = d\hat{S}^{(\nu)}_{dm}$ because $\hat{S}^{(\nu)}_{dm}$ changes the doublon number by $d$:
@@ -71,9 +97,11 @@ i\hat{S}^{(1)}_d(t) &= -\sum_m \frac{\hat{T}_{d,m}}{Ud+m\omega}e^{im\omega t} \l
 
 To second order we find:
 
-\begin{equation}
-\hat{H}'^{(2)}(t) = \left[i\hat{S}^{(2)}(t), U \hat{D} \right] - \left[ i\hat{S}^{(1)}(t), \hat{T}(t) \right] + \frac{1}{2}\left[ i\hat{S}^{(1)}(t), \left[ i\hat{S}^{(1)}(t), U\hat{D} \right] \right] - d_t\hat{S}^{(2)}(t)
-\end{equation}
+\begin{align}
+\hat{H}'^{(2)}(t) &= - d_t\hat{S}^{(2)}(t) - \frac{1}{2}\left[-i\hat{S}^{(1)}(t), d_t\hat{S}^{(1)}(t) \right] + \left[i\hat{S}^{(1)}(t), -\hat{T}(t)-\frac{1}{2}d_t\hat{S}^{(1)}(t) \right] +\nonumber \\
+&+ \left[i\hat{S}^{(2)}(t), U\hat{D} \right] + \frac{1}{2} \left[i\hat{S}^{(1)}(t), \left[i\hat{S}^{(1)}(t), U\hat{D} \right] \right] = \nonumber \\
+&= \left[i\hat{S}^{(2)}(t), U \hat{D} \right] - \left[ i\hat{S}^{(1)}(t), \hat{T}(t) \right] + \frac{1}{2}\left[ i\hat{S}^{(1)}(t), \left[ i\hat{S}^{(1)}(t), U\hat{D} \right] \right] - d_t\hat{S}^{(2)}(t)
+\end{align}
 
 Using \ref{1stO} and using $\left[ i\hat{S}^{(1)}(t), d_t\hat{S}^{(1)}(t)\right] = 0$ due to different Fourier modes of the hopping operator being equal up to a constant, we can rewrite:
 
@@ -249,6 +277,7 @@ J_{ij}(t) &= t_0^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
 \bs{D}_{ij}(t) &= 2it_0\bs{\Delta}_{ij} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
 \end{align}
 
+Kinetic hopping and the Rashba spin orbit are both NN hopping processes, so they are both renormalized in the same way by the laser field \cite{Stepanov2017}.
 For $\bs{D}_{ij}(t)$ this is:
 
 \begin{equation}
@@ -306,7 +335,7 @@ Therefore relation \ref{PeierlsMtxElem} still holds.
 \end{section}
 
 \begin{section}{Identities}
-
+\label{AP3B}
 Let $Z(t)$ be an operator dependent on the parameter $t$. Then:
 
 \begin{align*}
@@ -319,8 +348,11 @@ d_t e^{Z} &= d_t \sum_{n=0}^\infty \frac{1}{n!} Z^n = \sum_{n=0}^\infty \sum_{m=
 Where we used the Beta function $\int_0^1 dx x^m (1-x)^p = \frac{m!p!}{(m+p+1)!}$ and we also used the Baker–Campbell–Hausdorff expansion for $e^{xZ}\frac{\partial Z}{\partial t}e^{-xZ}$ and $\int_0^1 x^n = \frac{1}{n+1}$. Therefore we proved:
 
 \begin{equation}
-d_t e^{Z} = \sum_{n=0}^\infty \frac{1}{(n+1)!} \left[Z, \dots, \left[Z, \frac{\partial Z}{\partial t}\right] \dots \right] e^Z
+\label{SneidersID}
+d_t e^{Z} = \sum_{n=0}^\infty \frac{1}{(n+1)!} \left[Z, \dots, \left[Z, \frac{\partial Z}{\partial t}\right] \dots \right] e^Z = \sum_{n=0}^\infty \frac{1}{(n+1)!} \text{ad}_Z ^n \left(\frac{\partial Z}{\partial t}\right) e^Z
 \end{equation}
+
+Where $\text{ad}_A(B) = [A,B]$.
 
 \end{section}
 
