@@ -127,16 +127,18 @@ The sum being over all excited states. Since $\hat{H_t}\ket{\phi}$ is a superpos
 \begin{align}
 \label{PertNoEMF}
 &\bra{\phi'} -\frac{\hat{H_t^2}}{\text{U}} \ket{\phi} = \nonumber \\
-&-\frac{1}{\text{U}} \bra{\phi'} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2} \sum_{\langle i',j' \rangle, 					\sigma_3, \sigma_4} (t^2 \delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4} + t(\delta_{\sigma_1 \sigma_2}		\boldsymbol{\Delta}_{i'j'}\boldsymbol{\sigma}_{\sigma_3 \sigma_4} + \delta_{\sigma_3 \sigma_4}						\boldsymbol{\Delta}_{ij}\boldsymbol{\sigma}_{\sigma_1 \sigma_2}) + \mathcal{O}(\boldsymbol{\Delta}^2)) 				\hat{c}_{i\sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{i' \sigma_3}^\dagger \hat{c}_{j'\sigma_4}					\ket{\phi} = \nonumber \\
-&-\frac{1}{\text{U}} \bra{\phi'} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} (t^2 						\delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4} + t\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}			\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3 					\sigma_4}) + \mathcal{O}(\boldsymbol{\Delta}^2)) \hat{c}_{i\sigma_1}^\dagger \hat{c}_{i\sigma_4} \hat{c}_{j 		\sigma_2} \hat{c}_{j \sigma_3}^\dagger \ket{\phi} = \nonumber \\
-&-\frac{1}{\text{U}} \bra{\phi'} \hat{H}_J + \hat{H}_D + \mathcal{O}(\boldsymbol{\Delta}^2))\ket{\phi}
+&= -\frac{1}{\text{U}} \bra{\phi'}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2} \sum_{\langle i',j' \rangle, 					\sigma_3, \sigma_4} \left( \delta_{\sigma_1, \sigma_2} t + \bs{\Delta}_{ij} \bs{\sigma}_{\sigma_1, \sigma_2} \right) \left( \delta_{\sigma_3, \sigma_4} t + \bs{\Delta}_{i'j'} \bs{\sigma}_{\sigma_3, \sigma_4} \right)\hat{c}_{i\sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{i' \sigma_3}^\dagger \hat{c}_{j'\sigma_4} \ket{\phi} = \nonumber \\
+&= -\frac{1}{\text{U}} \bra{\phi'}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left( \delta_{\sigma_1, \sigma_2} t + \bs{\Delta}_{ij} \bs{\sigma}_{\sigma_1, \sigma_2} \right) \left( \delta_{\sigma_3, \sigma_4} t - \bs{\Delta}_{ij} \bs{\sigma}_{\sigma_3, \sigma_4} \right)\hat{c}_{i\sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i\sigma_4} \ket{\phi} = \nonumber \\
+&-\frac{1}{\text{U}} \bra{\phi'} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} (t^2 						\delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4} + t\bs{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}			\bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3 \sigma_4}) - (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_3 \sigma_4}) ) \hat{c}_{i\sigma_1}^\dagger \hat{c}_{i\sigma_4} \hat{c}_{j 		\sigma_2} \hat{c}_{j \sigma_3}^\dagger \ket{\phi} = \nonumber \\
+& \bra{\phi'} \hat{H}_J + \hat{H}_D + \hat{H}_P \ket{\phi}
 \end{align}
 
-In the second line we imposed $i=j'$ and $j=i'$ since that's the only way $\hat{H_t^2}\ket{\phi}$ has no double occupied sites and so the matrix element does not vanish. We also used $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$. We will neglect the $\mathcal{O}(\boldsymbol{\Delta}^2)$ term since $t$ is dominant. We defined:
+In the second line we imposed $i=j'$ and $j=i'$ since that's the only way $\hat{H_t^2}\ket{\phi}$ has no double occupied sites and so the matrix element does not vanish. We also used $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$. We defined:
 
 \begin{align}
 \hat{H}_J &= -\frac{t^2}{\text{U}} \sum_{\langle i,j \rangle, \sigma, \sigma'} \hat{c}_{i\sigma}^\dagger \hat{c}_{i\sigma'} \hat{c}_{j\sigma} \hat{c}_{j \sigma'}^\dagger \\
-\hat{H}_D &= -\frac{t}{\text{U}}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}	\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3 	\sigma_4}) \hat{c}_{i\sigma_1}^\dagger \hat{c}_{i\sigma_4} \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger
+\hat{H}_D &= -\frac{t}{\text{U}}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \bs{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}	\bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3 	\sigma_4}) \hat{c}_{i\sigma_1}^\dagger \hat{c}_{i\sigma_4} \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \\
+\hat{H}_P &= \frac{1}{\text{U}}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_3 \sigma_4}) \hat{c}_{i\sigma_1}^\dagger \hat{c}_{i\sigma_4} \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger
 \end{align}
 
 Let us now introduce the on-site spin operators:
@@ -188,11 +190,31 @@ Where we have neglected the term $\sum_{\sigma \sigma'} \frac{1}{2}\delta_{\sigm
 
 Where in the second line we expand the sum in the spin states (overbrace indicates the spin state $\sigma_1$, $\sigma_2$, $\sigma_3$, $\sigma_4$ respectively). We also used that for any vector $\vec{v}$ we can define $\bs{\sigma}_{12}\vec{v} = v^x+iv^y = v^+$, $\bs{\sigma}_{21}\vec{v} = v^x-iv^y = v^-$, $\bs{\sigma}_{11}\vec{v} = v^z$ and $\bs{\sigma}_{22}\vec{v} = -v^z$. Also, for any two vectors $\vec{a}$ and $\vec{b}$, the following applies $a^-b^z-a^zb^- = -i(\vec{a}\times\vec{b})^-$, $a^zb^+-a^+b^z=-i(\vec{a}\times\vec{b})^+$, $a^+b^--a^-b^+=-2i(\vec{a}\times \vec{b})^z$ and $a^+b^-+a^-b^+=2(a^xb^x+a^yb^y)$.
 
-These two relations are important and will be used in the next chapter:
+Also:
+
+\begin{align*}
+&\sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4} (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_3 \sigma_4})\bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\left(-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \\
+&= \dots = \\
+&= \begin{pmatrix}
+S_i^x & S_i^y & S_i^z
+\end{pmatrix}
+\\
+&\begin{pmatrix}
+-2(\Delta_{ij}^z)^2 - 2(\Delta_{ij}^y)^2 + 2(\Delta_{ij}^x)^2 & 4\Delta_{ij}^x\Delta_{ij}^y & 4\Delta_{ij}^x\Delta_{ij}^z \\ 4\Delta_{ij}^y\Delta_{ij}^x & -2(\Delta_{ij}^x)^2+2(\Delta_{ij}^y)^2 -2(\Delta_{ij}^z)^2 & 4\Delta_{ij}^y\Delta_{ij}^z \\ 4\Delta_{ij}^z\Delta_{ij}^x & 4\Delta_{ij}^z\Delta_{ij}^y & -2(\Delta_{ij}^x)^2-2(\Delta_{ij}^y)^2+2(\Delta_{ij}^z)^2
+\end{pmatrix}
+\\
+&\begin{pmatrix}
+S_j^x \\ S_j^y \\ S_j^z
+\end{pmatrix} = \\
+&\sum_{\alpha, \beta} S_i^\alpha (\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta ) S_j^\beta
+\end{align*}
+
+These three relations are important and will be used in the next chapter:
 
 \begin{align}
 &\sum_{\sigma \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma \sigma'}\right) =\frac{1}{2} - \sum_{ab} S_i^aS_j^b	2\delta_{ab} = \frac{1}{2} - 2\boldsymbol{S}_i\boldsymbol{S}_j \label{SpinRel1} \\
-&\sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right)= -4i \boldsymbol{\Delta}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j \label{SpinRel2}
+&\sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right)= -4i \boldsymbol{\Delta}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j \label{SpinRel2} \\
+& \sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4} (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_3 \sigma_4})\bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\left(-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \sum_{\alpha, \beta} S_i^\alpha (\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta ) S_j^\beta \label{SpinRel3}
 \end{align}
 
 Now introducing the spin operators into  $\hat{H}_J$ with $n_{i \uparrow} + n_{i \downarrow} = 1$ and using \ref{SpinRel1} we obtain:
@@ -215,13 +237,22 @@ Which is the Heisenberg model for antiferromagnets with $J = \frac{2t^2}{\text{U
 &= +\frac{4it}{\text{U}} \sum_{\langle i,j \rangle} \boldsymbol{\Delta}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j = \sum_{\langle i,j \rangle} \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j
 \end{align*}
 
-Where $\boldsymbol{D}_{ij} = \frac{4it}{\text{U}}\boldsymbol{\Delta}_{ij}$. The total effective Hamiltonian is:
+Where $\boldsymbol{D}_{ij} = \frac{4it}{\text{U}}\boldsymbol{\Delta}_{ij}$. Lastly, using \ref{SpinRel3}, the term proportional to $\bs{\Delta}_{ij}^2$ gives:
+
+\begin{align*}
+\hat{H}_P &= \frac{1}{\text{U}}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_3 \sigma_4}) \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \\
+&\frac{1}{\text{U}} \sum_{\langle i,j \rangle} \sum_{\alpha, \beta} S_i^\alpha (\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta ) S_j^\beta = \sum_{\langle i,j \rangle} \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j
+\end{align*}
+
+With $\bs{\Gamma_{ij}}^{\alpha \beta} = \frac{1}{\text{U}}(\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta)$.
+
+The total effective Hamiltonian is:
 
 \begin{equation}
 \hat{H}_{eff} = \sum_{\langle i,j \rangle} \left( J\boldsymbol{S}_i\boldsymbol{S}_j + \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j \right)
 \end{equation}
 
-Compare with \cite{Stepanov2017}.
+Compare with \cite{Stepanov2017}. 
 
 \end{section}
 

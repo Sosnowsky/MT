@@ -16,7 +16,14 @@ Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We can introduce
 \hat{H}(t) = -\sum_{\langle i,j \rangle, \sigma} t_{ij}(t)\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} = -\hat{T}(t) + \text{U}\hat{D}
 \end{equation}
 
-Where $\hat{D}$ is the double occupancy number operator and $\hat{T}(t) = \sum_{\langle i,j \rangle, \sigma} t_{ij}(t)\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma}$ is the hopping operator. Let $e\bs{R}_{ij}\vec{A} = \alpha_{ij} e^{i \theta_{ij}}$, with $\alpha_{ij}$ a real number, then we can apply the Jacobi–Anger expansion:
+Where $\hat{D}$ is the double occupancy number operator and $\hat{T}(t) = \sum_{\langle i,j \rangle, \sigma} t_{ij}(t)\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma}$ is the hopping operator. Let $e\bs{R}_{ij}\vec{A} = \alpha_{ij} e^{i \theta_{ij}}$, with $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$ in such a way that:
+
+\begin{align}
+\alpha_{ij} &= -\alpha_{ji} \label{alphaSym} \\
+\theta_{ij} &= \theta_{ji} \label{thetaSym} \\
+\end{align}
+
+and $\theta_{ij} \in \left[0,\pi\right)$. Then we can apply the Jacobi–Anger expansion:
 
 \begin{align*}
 t_{ij}(t) = t_0e^{ie\bs{R}_{ij}\bs{A}(t)} = t_0e^{i\alpha_{ij} \cos(\omega t - \theta_{ij})} = t_0 \sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} = \sum t_{ij,m} e^{im\omega t}
@@ -170,7 +177,7 @@ After time average this reduces to the $m=0$ term:
 J_{ij}(t) = \sum_{n} 2t_0^2 \frac{\mathcal{J}_n(\alpha_{ij})^2}{U+n\omega}
 \end{equation}
 
-Now, $\alpha_{ij} = \text{Re}(e\bs{R}_{ij}\vec{A})$. For a square lattices aligned with the coordinate system so that $\vec{a}_1=\hat{e}_x$ and $\vec{a}_2=\hat{e}_y$, we will have $\bs{R}_{ij} = \pm a\hat{e}_x,\pm a\hat{e}_y$, where $a$ is the lattice constant. Using $\vec{A}=\frac{iE_0}{\omega\sqrt{1+\lambda^2}}(\hat{e}_x+i\lambda\hat{e}_y)$ we have:
+Now, $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$. For a square lattices aligned with the coordinate system so that $\vec{a}_1=\hat{e}_x$ and $\vec{a}_2=\hat{e}_y$, we will have $\bs{R}_{ij} = \pm a\hat{e}_x,\pm a\hat{e}_y$, where $a$ is the lattice constant. Using $\vec{A}=\frac{iE_0}{\omega\sqrt{1+\lambda^2}}(\hat{e}_x+i\lambda\hat{e}_y)$ we have:
 
 \begin{equation}
 \alpha_{ij} = \begin{cases}
@@ -199,6 +206,27 @@ For circular polarized light ($\lambda=\pm1$) in this approximation the exchange
 \begin{equation}
 J_{ij}^{CP} = J_{ij}^0 + t_0^2 \mathcal{E}^2 \left( \frac{1}{U+\omega} + \frac{1}{U-\omega} \right)
 \end{equation}
+
+\begin{subsection}{Honeycomb lattice}
+
+Now, in \ref{Jij2}, consider that the $\alpha_{ij}$ values are given by $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$ where $\bs{R}_{ij}$ are the displacement vectors in a honeycomb lattice. There are six such vectors:
+
+\begin{align}
+\bs{R}_1^\pm &= \pm a\hat{e}_x \\
+\bs{R}_2^\pm &= \pm a\frac{1}{2}(\hat{e}_x + \sqrt{3}\hat{e}_y) \\
+\bs{R}_3^\pm &= \pm a\frac{1}{2}(\hat{e}_x - \sqrt{3}\hat{e}_y)
+\end{align}
+
+These six possible directions will lead to $\alpha_a^\pm = \pm |e\bs{R}_a\vec{A}|$ where $\vec{A}=\frac{iE_0}{\omega\sqrt{1+\lambda^2}}(\hat{e}_x+i\lambda\hat{e}_y)$:
+
+\begin{align}
+\alpha_1^\pm &= \pm \frac{eaE_0}{\omega\sqrt{1+\lambda^2}} \\
+\alpha_2^\pm &= \alpha_3^\pm = \pm \frac{eaE_0}{2\omega} \sqrt{\frac{1+3\lambda^2}{1+\lambda^2}} = \pm\frac{eaE_0}{2\omega}\sqrt{1+\frac{2\lambda^2}{1+\lambda^2}}
+\end{align}
+
+We see that again, this result will not depend on the helicity of the applied electric field.
+
+\end{subsection}
 
 \end{section}
 
@@ -311,6 +339,7 @@ Where we omitted the band number. The action of the new Hamiltonian is greatly s
 
 \begin{align*}
 \hat{H}'(\bs{r}) \psi'_{\bs{R}} (\bs{r}) &= \left[ \frac{(\bs{p}-e\bs{A})^2}{2m} +U(\bs{r}) \right] e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \psi_{\bs{R}}(\bs{r}) = \\
+&=e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \left[ \frac{(\bs{p} - i\hbar \bs{\nabla_r}(i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)) -e\bs{A})^2}{2m} +U(\bs{r}) \right] = \\
 &= e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \left[ \frac{\bs{p}^2}{2m} + U(\bs{r}) \right] \psi_{\bs{R}}(\bs{r}) = e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \hat{H}(\bs{r}) \psi_{\bs{R}}(\bs{r})
 \end{align*}
 
