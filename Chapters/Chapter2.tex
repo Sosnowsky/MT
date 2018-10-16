@@ -165,7 +165,7 @@ In the half-filling case we have $n_{i \uparrow} + n_{i \downarrow} = 1$ and we 
 Where we have neglected the term $\sum_{\sigma \sigma'} \frac{1}{2}\delta_{\sigma,\sigma'}(\bs{S}_i\bs{\sigma}_{\sigma',\sigma} - \bs{S}_j\bs{\sigma}_{\sigma,\sigma'})$ because eventually we will sum over all $\langle i, j \rangle$ and it will cancel out. We also used the well known property $tr(\bs{\sigma}^a\bs{\sigma}^b)=2\delta_{a,b}$. And second:
 
 \begin{align*}
-&\sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right) = \\
+&\sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \\
  &= \left\{ \right.
 	\overbrace{0}^{\uparrow \uparrow \uparrow \uparrow} +
 	\overbrace{(-\Delta_{ij}^+)S_i^-(\frac{1}{2}-S_j^z)}^{\uparrow \uparrow \uparrow \downarrow} +
@@ -193,20 +193,40 @@ Where in the second line we expand the sum in the spin states (overbrace indicat
 Also:
 
 \begin{align*}
-&\sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4} (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_3 \sigma_4})\bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\left(-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \\
-&= \dots = \\
-&= \begin{pmatrix}
+&\sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4} (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_3 \sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \\
+&= \overbrace{\Delta_{ij}^z\Delta_{ij}^z(\frac{1}{2}+S_i^z)(\frac{1}{2}-S_j^z)}^{\uparrow \uparrow \uparrow \uparrow} +
+	\overbrace{\Delta_{ij}^z\Delta_{ij}^+S_i^-(\frac{1}{2}-S_j^z)}^{\uparrow \uparrow \uparrow \downarrow} +
+	\overbrace{\Delta_{ij}^z\Delta_{ij}^-(\frac{1}{2}+ S_i^z)(-S_j^+)}^{\uparrow \uparrow \downarrow \uparrow} +
+	\overbrace{\Delta_{ij}^z(-\Delta_{ij}^z) S_i^-(-S_j^+)}^{\uparrow \uparrow \downarrow \downarrow} + \\
+	&\overbrace{\Delta_{ij}^+\Delta_{ij}^z (\frac{1}{2}+S_i^z)(-S_j^-)}^{\uparrow \downarrow \uparrow \uparrow} +
+	\overbrace{\Delta_{ij}^+\Delta_{ij}^+S_i^-(-S_j^-)}^{\uparrow \downarrow \uparrow \downarrow} +
+	\overbrace{\Delta_{ij}^+\Delta_{ij}^-(\frac{1}{2}+S_i^z)(\frac{1}{2}+S_j^z)}^{\uparrow \downarrow \downarrow \uparrow} +
+	\overbrace{\Delta_{ij}^+(-\Delta_{ij}^z) S_i^-(\frac{1}{2}+S_j^z)}^{\uparrow \downarrow \downarrow \downarrow} + \\
+	&\overbrace{\Delta_{ij}^-\Delta_{ij}^z S_i^+(\frac{1}{2}-S_j^z)}^{\downarrow \uparrow \uparrow \uparrow} +
+	\overbrace{\Delta_{ij}^-\Delta_{ij}^+(\frac{1}{2}-S_i^z)(\frac{1}{2}-S_j^z)}^{\downarrow \uparrow \uparrow \downarrow} +
+	\overbrace{\Delta_{ij}^-\Delta_{ij}^-S_i^+(-S_j^+)}^{\downarrow \uparrow \downarrow \uparrow} +
+	\overbrace{\Delta_{ij}^-(-\Delta_{ij}^z) (\frac{1}{2} - S_i^z) (-S_j^+)}^{\downarrow \uparrow \downarrow \downarrow} + \\
+	& \overbrace{(-\Delta_{ij}^z)\Delta_{ij}^z S_i^+(-S_j^-)}^{\downarrow \downarrow \uparrow \uparrow} +
+	\overbrace{(-\Delta_{ij}^z)\Delta_{ij}^+ (\frac{1}{2}-S_i^z)(-S_j^-)}^{\downarrow \downarrow \uparrow \downarrow} +
+	\overbrace{(-\Delta_{ij}^z)\Delta_{ij}^- S_i^+(\frac{1}{2}+S_j^z)}^{\downarrow \downarrow \downarrow \uparrow} + \\
+	&+\overbrace{(-\Delta_{ij}^z)(-\Delta_{ij}^z)(\frac{1}{2}-S_i^z)(\frac{1}{2}+S_j^z)}^{\downarrow \downarrow \downarrow \downarrow} = \\
+&= \frac{(\Delta_{ij}^z)^2+\Delta_{ij}^+\Delta_{ij}^-}{2} + S_i^zS_j^z (-2(\Delta_{ij}^z)^2 + 2\Delta_{ij}^+\Delta_{ij}^-) + S_i^zS_j^+(-2\Delta_{ij}^z\Delta_{ij}^-) + S_i^zS_j^-(-2\Delta_{ij}^z\Delta_{ij}^+) +\\ 
+&+ S_i^+S_j^z(-2\Delta_{ij}^z\Delta_{ij}^-) + S_i^+S_j^+(-\Delta_{ij}^-\Delta_{ij}^-) + S_i^+S_j^-(\Delta_{ij}^z)^2 +\\
+&+ S_i^-S_j^z(-2\Delta_{ij}^z\Delta_{ij}^+) + S_i^-S_j^+(\Delta_{ij}^z)^2 + S_i^-S_j^-(-(\Delta_{ij}^+)^2) = \\
+&= \frac{(\Delta_{ij}^z)^2+\Delta_{ij}^+\Delta_{ij}^-}{2} + S_i^zS_j^z(-2(\Delta_{ij}^z)^2+2(\Delta_{ij}^x)^2+2(\Delta_{ij}^y)^2 + S_i^zS_j^y(-4\Delta_{ij}^z\Delta_{ij}^y)+S_i^zS_j^x(-4\Delta_{ij}^z\Delta_{ij}^x) + \\
+&+S_i^yS_j^z(-4\Delta_{ij}^y\Delta_{ij}^z)+S_i^yS_j^y(2(\Delta_{ij}^z)^2-2(\Delta_{ij}^y)^2+2(\Delta_{ij}^x)^2)+S_i^yS_j^x(-4\Delta_{ij}^y\Delta_{ij}^x) + \\
+&+ S_i^xS_j^z(-4\Delta_{ij}^x\Delta_{ij}^z) + S_i^xS_j^y(-4\Delta_{ij}^x\Delta_{ij}^y) + S_i^xS_j^x(2(\Delta_{ij}^z)^2+2(\Delta_{ij}^y)^2-2(\Delta_{ij}^x)^2) = \\
+&= \frac{(\Delta_{ij}^z)^2+\Delta_{ij}^+\Delta_{ij}^-}{2} + \begin{pmatrix}
 S_i^x & S_i^y & S_i^z
 \end{pmatrix}
 \\
 &\begin{pmatrix}
--2(\Delta_{ij}^z)^2 - 2(\Delta_{ij}^y)^2 + 2(\Delta_{ij}^x)^2 & 4\Delta_{ij}^x\Delta_{ij}^y & 4\Delta_{ij}^x\Delta_{ij}^z \\ 4\Delta_{ij}^y\Delta_{ij}^x & -2(\Delta_{ij}^x)^2+2(\Delta_{ij}^y)^2 -2(\Delta_{ij}^z)^2 & 4\Delta_{ij}^y\Delta_{ij}^z \\ 4\Delta_{ij}^z\Delta_{ij}^x & 4\Delta_{ij}^z\Delta_{ij}^y & -2(\Delta_{ij}^x)^2-2(\Delta_{ij}^y)^2+2(\Delta_{ij}^z)^2
+2(\Delta_{ij}^z)^2 + 2(\Delta_{ij}^y)^2 - 2(\Delta_{ij}^x)^2 & -4\Delta_{ij}^x\Delta_{ij}^y & -4\Delta_{ij}^x\Delta_{ij}^z \\ -4\Delta_{ij}^y\Delta_{ij}^x & +2(\Delta_{ij}^x)^2-2(\Delta_{ij}^y)^2 +2(\Delta_{ij}^z)^2 & -4\Delta_{ij}^y\Delta_{ij}^z \\ -4\Delta_{ij}^z\Delta_{ij}^x & -4\Delta_{ij}^z\Delta_{ij}^y & 2(\Delta_{ij}^x)^2+2(\Delta_{ij}^y)^2-2(\Delta_{ij}^z)^2
 \end{pmatrix}
-\\
-&\begin{pmatrix}
+\begin{pmatrix}
 S_j^x \\ S_j^y \\ S_j^z
 \end{pmatrix} = \\
-&\sum_{\alpha, \beta} S_i^\alpha (\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta ) S_j^\beta
+&\frac{(\Delta_{ij}^z)^2+\Delta_{ij}^+\Delta_{ij}^-}{2} + \sum_{\alpha, \beta} S_i^\alpha (4\Delta_{ij}^\alpha\Delta_{ij}^\beta - \delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2) S_j^\beta
 \end{align*}
 
 These three relations are important and will be used in the next chapter:
