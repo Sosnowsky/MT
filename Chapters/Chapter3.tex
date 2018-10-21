@@ -140,15 +140,21 @@ i\hat{S}^{(2)}_{dm} &= \sum_n \frac{\left[ \hat{T}_{dn}, \hat{T}_{0(m-n)} \right
 
 Now the effective Hamiltonian acts on the subspace of $\hat{P}_0$, therefore we are only interested on $\hat{P}_0 \hat{H}'^{(2)}(t) \hat{P}_0$ (notice that $\hat{P}_0 \hat{H}'^{(1)}(t) \hat{P}_0 = 0$). In this subspace we can write:
 
+\begin{align}
+\hat{H}_{\text{eff}}(t) &= \hat{P}_0\hat{H}'^{(2)}(t)\hat{P}_0 = -\frac{1}{2}\sum_{mn} \left( \frac{\hat{P}_0  \hat{T}_{-1(m-n)}\hat{T}_{1n}\hat{P}_0}{U+n\omega} + \frac{\hat{P}_0 \hat{T}_{-1n} \hat{T}_{1(m-n)} \hat{P}_0}{U-n\omega} \right) e^{im\omega t} \nonumber \\
+&= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}\hat{T}_{1n} + \hat{T}_{-1-n}\hat{T}_{1(m+n)})\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} \label{HeffSimplified}
+\end{align}
+
+Now, since the hopping operators act on the subspace $d=0$ and must remain within that subspace, thus we can write:
+
 \begin{align*}
-\hat{T}_{1n} \hat{T}_{-1(m-n)} &= 0 \\
-\hat{T}_{-1(m-n)} \hat{T}_{1n} &= \sum_{\langle i,j \rangle, \sigma_1, \sigma_2} t_{ji,(m-n)} t_{ij,n} \hat{c}_{j \sigma_2}^\dagger \hat{c}_{i \sigma_2} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_1}
+\hat{P}_0 \hat{T}_{-1a} \hat{T}_{1b} \hat{P}_0 = \sum_{\langle i,j \rangle, \sigma_1, \sigma_2} t_{ji,a} t_{ij,b} \hat{c}_{j \sigma_2}^\dagger \hat{c}_{i \sigma_2} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_1}
 \end{align*}
 
-So that,
+Where $a$ and $b$ are any two Fourier modes. Inserting this into \ref{HeffSimplified}:
 
 \begin{equation}
-\hat{H}_{eff}(t) = \hat{P}_0\hat{H}'^{(2)}(t)\hat{P}_0 = - \frac{1}{2}\sum_{mn} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2}\hat{c}_{j \sigma_2}^\dagger \hat{c}_{i \sigma_2} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_1} \left( \frac{t_{ji,(m-n)} t_{ij,n}}{U+n\omega} + \frac{t_{ji,n} t_{ij,(m-n)}}{U-n\omega} \right) e^{im\omega t}
+\hat{H}_{eff}(t) = \hat{P}_0\hat{H}'^{(2)}(t)\hat{P}_0 = - \frac{1}{2}\sum_{mn} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2}\hat{c}_{j \sigma_2}^\dagger \hat{c}_{i \sigma_2} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_1} \frac{t_{ji,(m-n)} t_{ij,n} + t_{ji,(-n)} t_{ij,(m+n)}}{U+n\omega} e^{im\omega t}
 \end{equation}
 
 Comparing with \ref{PertNoEMF} we can see that this will lead to a spin Hamiltonian 
@@ -159,10 +165,9 @@ Comparing with \ref{PertNoEMF} we can see that this will lead to a spin Hamilton
 
 With 
 
-\begin{align}
-J_{ij}(t) &= \sum_{mn} \left( \frac{t_{ji,(m-n)} t_{ij,n}}{U+n\omega} + \frac{t_{ji,n} t_{ij,(m-n)}}{U-n\omega} \right) e^{im\omega t} \nonumber \\
-&= \sum_{mn} \left( \frac{t_{ji,(m-n)} t_{ij,n} + t_{ji,-n} t_{ij,(m+n)}}{U+n\omega} \right) e^{im\omega t} \label{Jij1}
-\end{align}
+\begin{equation}
+J_{ij}(t) = \sum_{mn} \left( \frac{t_{ji,(m-n)} t_{ij,n} + t_{ji,-n} t_{ij,(m+n)}}{U+n\omega} \right) e^{im\omega t} \label{Jij1}
+\end{equation}
 
 Now, $t_{ij,m} = t_0 e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij})$, using that $\theta_{ji} = \theta_{ij}$ and $\alpha_{ji} = -\alpha_{ij}$ and the properties $\mathcal{J}_{-m}(x) = (-1)^m\mathcal{J}_m(x)$ and $\mathcal{J}_m(-x) = (-1)^m\mathcal{J}_m(x)$ we can write \ref{Jij1} as:
 
@@ -301,8 +306,8 @@ Now, introducing the spin operators \ref{SpinOperators}, using relations \ref{Sp
 Where we also used relations \ref{SpinRel1} and \ref{SpinRel2}. We have:
 
 \begin{align}
-J_{ij}(t) &= t_0^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
-\bs{D}_{ij}(t) &= 2it_0\bs{\Delta}_{ij} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
+J_{ij}(t) &= t_0^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \label{JijHSOI} \\
+\bs{D}_{ij}(t) &= 2it_0\bs{\Delta}_{ij} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \label{DijHSOI}
 \end{align}
 
 Kinetic hopping and the Rashba spin orbit are both NN hopping processes, so they are both renormalized in the same way by the laser field \cite{Stepanov2017}.
@@ -316,6 +321,8 @@ For $\bs{D}_{ij}(t)$ this is:
 \end{equation}
 
 \end{section}
+
+\input{Chapters/SGraphene}
 
 \begin{subappendices}
 \begin{section}{Peierls Substitution}
