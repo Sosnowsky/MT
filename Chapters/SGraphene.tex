@@ -1,6 +1,6 @@
 \begin{section}{Graphene}
 
-In graphene time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. However, if inversion symmetry is broken, a Rashba spin orbit interaction term is allowed between nearest neighbors. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model:
+In graphene time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. However, if inversion symmetry is broken by i.e. an external electric field in the $\hat{z}$ direction, a Rashba spin orbit interaction term is allowed between nearest neighbors. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model:
 
 \begin{align}
 \hat{H}_{KMH} &= -t\sum_{\langle i j \rangle \sigma} \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma} + i\Delta \sum_{\langle \langle i j \rangle \rangle \sigma \sigma'} \hat{c}^{\dagger}_{i\sigma} \nu_{ij} \sigma^z_{\sigma \sigma'} \hat{c}_{j\sigma'} \nonumber \\
@@ -60,13 +60,13 @@ Therefore for the effective Hamiltonian:
 \begin{align*}
 \hat{H}_{\text{eff}}(t) &= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}^1\hat{T}_{1n}^1 + \hat{T}_{-1(m-n)}^2\hat{T}_{1n}^2 + \hat{T}_{-1-n}^1\hat{T}_{1(m+n)}^1 + \hat{T}_{-1-n}^2\hat{T}_{1(m+n)}^2)\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} \\
 &= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}^1\hat{T}_{1n}^1 + \hat{T}_{-1-n}^1\hat{T}_{1(m+n)}^1)\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} \\
-&-\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}^2\hat{T}_{1n}^2 + \hat{T}_{-1-n}^2\hat{T}_{1(m+n)}^2)\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} = \hat{H}_{\text{eff}}^1(t) + \hat{H}_{\text{eff}}^2(t)
+&-\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}^2\hat{T}_{1n}^2 + \hat{T}_{-1-n}^2\hat{T}_{1(m+n)}^2)\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} = \hat{H}_{\text{eff}}'(t) + \hat{H}_{\text{eff}}''(t)
 \end{align*}
 
-For $\hat{H}_{\text{eff}}^1(t)$ the derivation is identical to that in the previous section with $\Delta_{ij} = i\Delta_R (R_{ij}^y, - R_{ij}^x, 0)$ so $\hat{H}_{\text{eff}}^1(t) = \sum_{\langle i,j \rangle} (J_{ij}(t) \bs{S}_i\bs{S}_j + \bs{D}_{ij}(t)\bs{S}_i \times \bs{S}_j)$ with the same exchange and DMI interaction as in \ref{JijHSOI} and \ref{DijHSOI}. For $\hat{H}_{\text{eff}}^2(t)$ the interaction will be between next-nearest neighbors:
+For $\hat{H}_{\text{eff}}'(t)$ the derivation is identical to that in the previous section with $\Delta_{ij} = i\Delta_R (R_{ij}^y, - R_{ij}^x, 0)$ so $\hat{H}_{\text{eff}}^1(t) = \sum_{\langle i,j \rangle} (J_{ij}(t) \bs{S}_i\bs{S}_j + \bs{D}_{ij}(t)\bs{S}_i \times \bs{S}_j)$ with the same exchange and DMI interaction as in \ref{JijHSOI} and \ref{DijHSOI}. For $\hat{H}_{\text{eff}}''(t)$ the interaction will be between next-nearest neighbors:
 
 \begin{align*}
-\hat{H}_{\text{eff}}^2(t) &= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}^2\hat{T}_{1n}^2 + \hat{T}_{-1-n}^2\hat{T}_{1(m+n)}^2)\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} \\
+\hat{H}_{\text{eff}}''(t) &= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}^2\hat{T}_{1n}^2 + \hat{T}_{-1-n}^2\hat{T}_{1(m+n)}^2)\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} \\
 &= -\frac{1}{2}\sum_{mn} \sum_{\langle \langle i,j \rangle \rangle \sigma_1 \sigma_2 \sigma_3 \sigma_4} \left\{ \frac{\hat{P}_0 (\Pi_{ji,(m-n)}^{\sigma_1\sigma_2}\Pi_{ij,n}^{\sigma_3\sigma_4} + \Pi_{ji,(-n)}^{\sigma_1\sigma_2}\Pi_{ij,(m+n)}^{\sigma_3\sigma_4}) \hat{P}_0}{U+n\omega} \right\}\hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4} e^{im\omega t} \\
 &= -\frac{\Delta^2}{2} \sum_{\langle \langle i,j \rangle \rangle} \sum_{mn} \frac{e^{i(\frac{\pi}{2}-\theta_{ij})m}}{\text{U}+n\omega} \left\{ \mathcal{J}_{n-m}(\alpha_{ij})\mathcal{J}_{n}(\alpha_{ij})+\mathcal{J}_{n}(\alpha_{ij})\mathcal{J}_{n+m}(\alpha_{ij}) \right\} e^{im \omega t} \\
 & \left\{ \sum_{\sigma_1 \sigma_2 \sigma_3 \sigma_4} \sigma_{\sigma_1 \sigma_2}^z\sigma_{\sigma_3 \sigma_4}^z \hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4} \right\} \\
@@ -85,7 +85,7 @@ As expected, the time dependence is the same as in the nearest neighbor interact
 Neglecting the constant term, the effective next-nearest neighbors interaction reads:
 
 \begin{equation}
-\hat{H}_{\text{eff}}^2(t) = \sum_{\langle \langle i,j \rangle \rangle} H_{ij}(t) (S_i^zS_j^z - S_i^xS_j^x - S_i^yS_j^y)
+\hat{H}_{\text{eff}}''(t) = \sum_{\langle \langle i,j \rangle \rangle} H_{ij}(t) (S_i^zS_j^z - S_i^xS_j^x - S_i^yS_j^y)
 \end{equation}
 
 With:
@@ -93,5 +93,24 @@ With:
 \begin{equation}
 H_{ij}(t) = \Delta^2 \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
 \end{equation}
+
+This describes a type of anisotropic exchange interaction. Notice that the factor $\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)$ that renormalizes the interaction coupling in presence of the electric field has the same form as in \ref{JijHSOI} and \ref{DijHSOI}.
+
+
+Together with exchange and DMI interaction obtained in the previous section the total effective Hamiltonian in this system is:
+
+\begin{align}
+\hat{H}_{\text{eff}}(t) = &\hat{H}_{\text{eff}}'(t) + \hat{H}_{\text{eff}}''(t) = \sum_{\langle i,j \rangle} \left( J_{ij}(t)\bs{S}_i\bs{S}_j + \bs{D}_{ij}(t) \bs{S}_i \times \bs{S}_j \right) \nonumber \\
+&+ \sum_{\langle \langle i,j \rangle \rangle} H_{ij}(t) (S_i^zS_j^z - S_i^xS_j^x - S_i^yS_j^y)
+\end{align}
+
+Where $J_{ij}(t)$ and $\bs{D}_{ij}(t)$ have been obtained in \ref{JijHSOI} and \ref{DijHSOI} and we take $\Delta_{ij} = i\Delta_R (R_{ij}^y, - R_{ij}^x, 0)$ to obtain:
+
+\begin{align*}
+J_{ij}(t) &= t_0^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
+\bs{D}_{ij}(t) &= -2t_0\Delta_R (R_{ij}^y, - R_{ij}^x, 0) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
+\end{align*}
+
+Where $J_{ij}(t)$ and $\bs{D}_{ij}(t)$ have been defined in \ref{JijHSOI} and \ref{DijHSOI}. 
 
 \end{section}
