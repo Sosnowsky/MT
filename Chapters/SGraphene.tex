@@ -3,77 +3,36 @@
 In graphene time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. However, if inversion symmetry is broken by i.e. an external electric field in the $\hat{z}$ direction, a Rashba spin orbit interaction term is allowed between nearest neighbors. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model:
 
 \begin{align}
-\hat{H}_{KMH} &= -t\sum_{\langle i j \rangle \sigma} \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma} + i\Delta \sum_{\langle \langle i j \rangle \rangle \sigma \sigma'} \hat{c}^{\dagger}_{i\sigma} \nu_{ij} \sigma^z_{\sigma \sigma'} \hat{c}_{j\sigma'} \nonumber \\
+\hat{H}_{KMH} &= -t_0\sum_{\langle i j \rangle \sigma} \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma} + i\Delta \sum_{\langle \langle i j \rangle \rangle \sigma \sigma'} \hat{c}^{\dagger}_{i\sigma} \nu_{ij} \sigma^z_{\sigma \sigma'} \hat{c}_{j\sigma'} \nonumber \\
 &+ i\Delta_R \sum_{\langle i j \rangle \sigma \sigma'} \hat{c}^{\dagger}_{i\sigma} \hat{z}(\bs{\sigma}_{\sigma \sigma'} \times \bs{R}_{ij}) \hat{c}_{j\sigma'} + U\hat{D}
 \end{align}
 
-Where sum over next-nearest neighbors is denotes by $\langle \langle i j \rangle \rangle$ and $\Delta$ is the intrinsic spin orbit coupling and $\Delta_R$ is the Rashba spin orbit coupling. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from i to j makes a right ($+1$) or a left turn ($-1$).
-We can apply Peierls substitution in presence of a vector potential $\vec{\bs{A}}(t)$ to obtain the time dependent Hamiltonian:
-
-\begin{align}
-\hat{H}_{KMH}(t) &= -\sum_{\langle i j \rangle \sigma \sigma'} e^{ie\bs{R}_{ij}\bs{A}(t)} (\delta_{\sigma \sigma'}t_0 - i\Delta_R \hat{z}(\bs{\sigma}_{\sigma \sigma'} \times \bs{R}_{ij})) \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma} \nonumber \\
-&+ i\Delta \sum_{\langle \langle i j \rangle \rangle \sigma \sigma'}  e^{ie\bs{R}_{ij}\bs{A}(t)} \hat{c}^{\dagger}_{i\sigma} \nu_{ij} \sigma^z_{\sigma \sigma'} \hat{c}_{j\sigma'} + U\hat{D}
-\end{align}
-
-We can write the hopping operator as a sum of two terms $\hat{T}(t) = \hat{T}^1(t) + \hat{T}^2(t)$, the first corresponding to the hopping between nearest neighbors and the second corresponding to the hopping between next-nearest neighbors. $\hat{T}^1(t)$ is the same as the hopping in the previous section specialized for the case of Rashba interaction:
-
-\begin{align*}
-\hat{T}^1(t) &= -\sum_{\langle i j \rangle \sigma \sigma'} e^{ie\bs{R}_{ij}\bs{A}(t)} (\delta_{\sigma \sigma'}t_0 - i\Delta_R \hat{z}(\bs{\sigma}_{\sigma \sigma'} \times \bs{R}_{ij})) \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma'} \nonumber \\
-&= -\sum_{\langle i j \rangle \sigma \sigma'} \left( \sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} \right) (\delta_{\sigma \sigma'}t_0 - i\Delta_R \hat{z}(\bs{\sigma}_{\sigma \sigma'} \times \bs{R}_{ij})) \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma'} \nonumber \\
-&= \sum_{\langle i j \rangle \sigma \sigma'} \sum_m  \Xi_{ij,m}^{\sigma \sigma'} e^{im\omega t}\hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma'}
-\end{align*}
-
-Where we defined:
+Where sum over next-nearest neighbors is denotes by $\langle \langle i j \rangle \rangle$ and $\Delta$ is the intrinsic spin orbit coupling and $\Delta_R$ is the Rashba spin orbit coupling, which is the same as in the previous section if we choose $\bs{\Delta}_{ij} = i\Delta_R (R_{ij}^y, - R_{ij}^x, 0)$. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from i to j makes a right ($+1$) or a left turn ($-1$). In this case the hopping amplitudes can be written as:
 
 \begin{equation}
- \Xi_{ij,m}^{\sigma \sigma'} = e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij})(\delta_{\sigma \sigma'}t_0 - i\Delta_R \hat{z}(\bs{\sigma}_{\sigma \sigma'} \times \bs{R}_{ij}))
+\label{HoppHubbSOI}
+t_{ij}^{\sigma \sigma'} = \begin{cases}
+	\delta_{\sigma \sigma'}t_0- i\Delta_R \hat{z}(\bs{\sigma}_{\sigma \sigma'} \times \bs{R}_{ij}) & \text{for } i, j \text{ nearest neighbors} \\
+	-i\Delta \nu_{ij} \sigma_{\sigma \sigma'}^z & \text{for } i, j \text{ next-nearest neighbors} \\
+	0 & \text{ otherwise}
+\end{cases} \quad
 \end{equation}
 
-Similarly, for $\hat{T}^2(t)$:
+We can apply \ref{HeffSimplified} with this hopping amplitudes to obtain:
 
 \begin{align*}
-\hat{T}^2(t) &= i\Delta \sum_{\langle \langle i j \rangle \rangle \sigma \sigma'}  e^{ie\bs{R}_{ij}\bs{A}(t)} \hat{c}^{\dagger}_{i\sigma} \nu_{ij} \sigma^z_{\sigma \sigma'} \hat{c}_{j\sigma'} \\
-&= i\Delta \sum_{\langle \langle i j \rangle \rangle \sigma \sigma'}  \left( \sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} \right) \hat{c}^{\dagger}_{i\sigma} \nu_{ij} \sigma^z_{\sigma \sigma'} \hat{c}_{j\sigma'} \\
-&= \sum_{\langle i j \rangle \sigma \sigma'} \sum_m  \Pi_{ij,m}^{\sigma \sigma'} e^{im\omega t}\hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma'}
+\hat{H}_{\text{eff}}(t) &= - \frac{1}{2} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
+& - \frac{1}{2} \sum_{\langle \langle i,j \rangle \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
+&= \hat{H}_{\text{eff}}'(t) + \hat{H}_{\text{eff}}''(t)
 \end{align*}
 
-Where
-
-\begin{equation}
-\Pi_{ij,m}^{\sigma \sigma'} = i \Delta e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) \nu_{ij} \sigma_{\sigma \sigma'}^z
-\end{equation}
-
-We write $\hat{H}_{KMH}(t) = \hat{T}^1(t) + \hat{T}^2(t) + U\hat{D}$ and apply \ref{HeffSimplified} to obtain $\hat{H}_{\text{eff}}(t)$. In order to find an expression for $\hat{H}_{\text{eff}}(t)$, we need to find how the terms $\hat{T}_{-1a}\hat{T}_{1b}$ ($a$ and $b$ being subscripts for the Fourier mode) act on the $d=0$ subspace when $\hat{T}(t) = \hat{T}^1(t) + \hat{T}^2(t)$. Now, $\hat{T}_1(t)$ represents the hopping between nearest neighbors whereas $\hat{T}_2(t)$ represents the hopping between next-nearest neighbors, the only way to avoid double occupancies would be to apply $\hat{T}^1(t)$ twice between the same nearest neighbors sites, or $\hat{T}^2(t)$ between the same next-nearest neighbors sites, that is, any cross term between $\hat{T}^1(t)$ and $\hat{T}^2(t)$ will lead to double occupancies. This means that $\hat{P}_0\hat{T}_{-1a}\hat{T}_{1b}\hat{P}_0 = \hat{P}_0\hat{T}_{-1a}^1\hat{T}_{1b}^1\hat{P}_0+\hat{P}_0\hat{T}_{-1a}^2\hat{T}_{1b}^2\hat{P}_0$, for the nearest neighbors hopping operator we obtain the same expression as in the previous section:
-
-\begin{equation}
-\hat{P}_0 \hat{T}_{-1a}^1\hat{T}_{1b}^1 \hat{P}_0 = \sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \Xi_{ji,a}^{\sigma_1\sigma_2}\Xi_{ij,b}^{\sigma_3\sigma_4} \hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4}
-\end{equation}
-
-Whereas for the next-neighbors hopping operator:
-
-\begin{equation}
-\hat{P}_0 \hat{T}_{-1a}^2\hat{T}_{1b}^2 \hat{P}_0 = \sum_{\langle \langle i,j \rangle \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \Pi_{ji,a}^{\sigma_1\sigma_2}\Pi_{ij,b}^{\sigma_3\sigma_4} \hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4}
-\end{equation}
-
-Therefore for the effective Hamiltonian:
+$\hat{H}_{\text{eff}}'(t)$ is the same effective Hamiltonian as in the previous section with $\Delta_{ij} = i\Delta_R (R_{ij}^y, - R_{ij}^x, 0)$ and it will lead to the same spin Hamiltonian after introducing spin operators $\hat{H}_{\text{eff}}'(t) = \sum_{\langle i,j \rangle} (J_{ij}(t) \bs{S}_i\bs{S}_j + \bs{D}_{ij}(t)\bs{S}_i \times \bs{S}_j)$ with the same exchange and DMI interaction as in \ref{JijHSOI} and \ref{DijHSOI}. Now we will find the spin Hamiltonian for $\hat{H}_{\text{eff}}''(t)$. Using $\nu_{ij}\nu_{ji} = -1$:
 
 \begin{align*}
-\hat{H}_{\text{eff}}(t) &= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}^1\hat{T}_{1n}^1 + \hat{T}_{-1(m-n)}^2\hat{T}_{1n}^2 + \hat{T}_{-1-n}^1\hat{T}_{1(m+n)}^1 + \hat{T}_{-1-n}^2\hat{T}_{1(m+n)}^2)\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} \\
-&= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}^1\hat{T}_{1n}^1 + \hat{T}_{-1-n}^1\hat{T}_{1(m+n)}^1)\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} \\
-&-\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}^2\hat{T}_{1n}^2 + \hat{T}_{-1-n}^2\hat{T}_{1(m+n)}^2)\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} = \hat{H}_{\text{eff}}'(t) + \hat{H}_{\text{eff}}''(t)
+\hat{H}_{\text{eff}}''(t) &= -\frac{\Delta^2}{2} \sum_{\langle \langle i,j \rangle \rangle} \left\{ \sum_{\sigma_1 \sigma_2 \sigma_3 \sigma_4} \sigma_{\sigma_1 \sigma_2}^z\sigma_{\sigma_3 \sigma_4}^z \hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4} \right\} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
 \end{align*}
 
-For $\hat{H}_{\text{eff}}'(t)$ the derivation is identical to that in the previous section with $\Delta_{ij} = i\Delta_R (R_{ij}^y, - R_{ij}^x, 0)$ so $\hat{H}_{\text{eff}}^1(t) = \sum_{\langle i,j \rangle} (J_{ij}(t) \bs{S}_i\bs{S}_j + \bs{D}_{ij}(t)\bs{S}_i \times \bs{S}_j)$ with the same exchange and DMI interaction as in \ref{JijHSOI} and \ref{DijHSOI}. For $\hat{H}_{\text{eff}}''(t)$ the interaction will be between next-nearest neighbors:
-
-\begin{align*}
-\hat{H}_{\text{eff}}''(t) &= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}^2\hat{T}_{1n}^2 + \hat{T}_{-1-n}^2\hat{T}_{1(m+n)}^2)\hat{P}_0}{U+n\omega} \right\} e^{im\omega t} \\
-&= -\frac{1}{2}\sum_{mn} \sum_{\langle \langle i,j \rangle \rangle \sigma_1 \sigma_2 \sigma_3 \sigma_4} \left\{ \frac{\hat{P}_0 (\Pi_{ji,(m-n)}^{\sigma_1\sigma_2}\Pi_{ij,n}^{\sigma_3\sigma_4} + \Pi_{ji,(-n)}^{\sigma_1\sigma_2}\Pi_{ij,(m+n)}^{\sigma_3\sigma_4}) \hat{P}_0}{U+n\omega} \right\}\hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4} e^{im\omega t} \\
-&= -\frac{\Delta^2}{2} \sum_{\langle \langle i,j \rangle \rangle} \sum_{mn} \frac{e^{i(\frac{\pi}{2}-\theta_{ij})m}}{\text{U}+n\omega} \left\{ \mathcal{J}_{n-m}(\alpha_{ij})\mathcal{J}_{n}(\alpha_{ij})+\mathcal{J}_{n}(\alpha_{ij})\mathcal{J}_{n+m}(\alpha_{ij}) \right\} e^{im \omega t} \\
-& \left\{ \sum_{\sigma_1 \sigma_2 \sigma_3 \sigma_4} \sigma_{\sigma_1 \sigma_2}^z\sigma_{\sigma_3 \sigma_4}^z \hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4} \right\} \\
-&= -\frac{\Delta^2}{2} \sum_{\langle \langle i,j \rangle \rangle} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \left\{ \sum_{\sigma_1 \sigma_2 \sigma_3 \sigma_4} \sigma_{\sigma_1 \sigma_2}^z\sigma_{\sigma_3 \sigma_4}^z \hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4} \right\}
-\end{align*}
-
-As expected, the time dependence is the same as in the nearest neighbor interaction. For the spin sum we use \ref{SpinOperatorInv1} and \ref{SpinOperatorInv2} taking into account that in the $d=0$ subspace $\hat{n}_{i\uparrow}+\hat{n}_{i\downarrow} = 1$:
+For the spin sum we use \ref{SpinOperatorInv1} and \ref{SpinOperatorInv2} taking into account that in the $d=0$ subspace $\hat{n}_{i\uparrow}+\hat{n}_{i\downarrow} = 1$:
 
 \begin{align*}
 &\sum_{\sigma_1 \sigma_2 \sigma_3 \sigma_4} \sigma_{\sigma_1 \sigma_2}^z\sigma_{\sigma_3 \sigma_4}^z \hat{c}_{i\sigma_1}^\dagger\hat{c}_{j\sigma_2}\hat{c}_{j\sigma_3}^\dagger\hat{c}_{i\sigma_4} = \sum_{\sigma \sigma'} \sigma_{\sigma \sigma}^z\sigma_{\sigma' \sigma'}^z \hat{c}_{i\sigma}^\dagger\hat{c}_{j\sigma}\hat{c}_{j\sigma'}^\dagger\hat{c}_{i\sigma'} \\
@@ -94,10 +53,9 @@ With:
 H_{ij}(t) = \Delta^2 \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
 \end{equation}
 
-This describes a type of anisotropic exchange interaction. Notice that the factor $\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)$ that renormalizes the interaction coupling in presence of the electric field has the same form as in \ref{JijHSOI} and \ref{DijHSOI}.
+This describes a type of anisotropic exchange interaction. Notice that although the factor $\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)$ that renormalizes the interaction coupling in presence of the electric field has the same form as in \ref{JijHSOI} and \ref{DijHSOI}, the time dependence will not be the same, since the structure terms $\alpha_{ij}$ will change for next-nearest neighbors $i$ and $j$.
 
-
-Together with exchange and DMI interaction obtained in the previous section the total effective Hamiltonian in this system is:
+Altogether, the total effective Hamiltonian in this system is:
 
 \begin{align}
 \hat{H}_{\text{eff}}(t) = &\hat{H}_{\text{eff}}'(t) + \hat{H}_{\text{eff}}''(t) = \sum_{\langle i,j \rangle} \left( J_{ij}(t)\bs{S}_i\bs{S}_j + \bs{D}_{ij}(t) \bs{S}_i \times \bs{S}_j \right) \nonumber \\
@@ -110,7 +68,5 @@ Where $J_{ij}(t)$ and $\bs{D}_{ij}(t)$ have been obtained in \ref{JijHSOI} and \
 J_{ij}(t) &= t_0^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
 \bs{D}_{ij}(t) &= -2t_0\Delta_R (R_{ij}^y, - R_{ij}^x, 0) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
 \end{align*}
-
-Where $J_{ij}(t)$ and $\bs{D}_{ij}(t)$ have been defined in \ref{JijHSOI} and \ref{DijHSOI}. 
 
 \end{section}
