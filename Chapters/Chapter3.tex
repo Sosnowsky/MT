@@ -44,15 +44,21 @@ J_{ij}(t) &= t_0^2 \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \nonumber \\
 After time average this reduces to the $m=0$ term:
 
 \begin{equation}
-\label{Jij2}
-J_{ij}(t) = \sum_{n} 2t_0^2 \frac{\mathcal{J}_n(\alpha_{ij})^2}{\text{U}+n\omega}
+\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \approx \sum_{n} 2 \frac{\mathcal{J}_n(\alpha_{ij})^2}{\text{U}+n\omega}
 \end{equation}
 
-For $\omega>>U$ we can truncate \ref{Jij2} to the three smallest values of $n$, i.e. $n=0, \pm 1$. We can also use that $\alpha_{ij} << 1$ because $\alpha_{ij}$ is proportional to $\vec{A}$ which is proportional to $\omega^{-1}$. Therefore we can use $J_n(x) \approx x^n \text{ for } n>0 \text{ and } x << 1$ to obtain:
+For $\omega>>U$ we can truncate this to the three smallest values of $n$, i.e. $n=0, \pm 1$. We can also use that $\alpha_{ij} << 1$ because $\alpha_{ij}$ is proportional to $\vec{A}$ which is proportional to $\omega^{-1}$. Therefore we can use $J_n(x) \approx x^n \text{ for } n>0 \text{ and } x << 1$ to obtain:
 
 \begin{equation}
-\label{Jij3}
-J_{ij} \approx 2t_0^2 \left(\frac{\alpha_{ij}^2}{\text{U}+\omega} +\frac{1}{\text{U}} +\frac{\alpha_{ij}^2}{\text{U}-\omega} \right) = J_{ij}^0 + 2t_0^2 \alpha_{ij}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
+\label{MFactorApprox}
+\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \approx 2 \left(\frac{\alpha_{ij}^2}{\text{U}+\omega} +\frac{1}{\text{U}} +\frac{\alpha_{ij}^2}{\text{U}-\omega} \right)
+\end{equation}
+
+And the exchange interaction coupling becomes:
+
+\begin{equation}
+\label{Jij2}
+J_{ij} \approx J_{ij}^0 + 2t_0^2 \alpha_{ij}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
 \end{equation}
 
 The lattice structure is contained in $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$. For a square lattices aligned with the coordinate system so that $\vec{a}_1=\hat{e}_x$ and $\vec{a}_2=\hat{e}_y$, we will have $\bs{R}_{ij} = \pm a\hat{e}_x,\pm a\hat{e}_y$, where $a$ is the lattice constant. Using $\vec{A}=\frac{iE_0}{\omega\sqrt{1+\lambda^2}}(\hat{e}_x+i\lambda\hat{e}_y)$ we have:
@@ -99,7 +105,7 @@ These six possible directions will lead to $\alpha_a^\pm = \pm |e\bs{R}_a\vec{A}
 \alpha_2^\pm &= \alpha_3^\pm = \pm \frac{eaE_0}{2\omega} \sqrt{\frac{1+3\lambda^2}{1+\lambda^2}} = \pm\frac{eaE_0}{2\omega}\sqrt{1+\frac{2\lambda^2}{1+\lambda^2}}
 \end{align}
 
-From here we can see that if we take the same approximation as in \ref{Jij3} we will obtain the same form of exchange interaction for circular polarized light ($\lambda=\pm1$) \ref{JijCPSQUARE} with possibly a different lattice constant $a$.
+From here we can see that if we take the same approximation as in \ref{Jij2} we will obtain the same form of exchange interaction for circular polarized light ($\lambda=\pm1$) \ref{JijCPSQUARE} with possibly a different lattice constant $a$. 
 
 \end{subsection}
 

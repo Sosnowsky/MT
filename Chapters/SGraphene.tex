@@ -1,6 +1,6 @@
 \begin{section}{Graphene}
 
-In graphene time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. However, if inversion symmetry is broken by i.e. an external electric field in the $\hat{z}$ direction, a Rashba spin orbit interaction term is allowed between nearest neighbors. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model:
+In graphene time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. However, if inversion symmetry is broken by i.e. an external electric field in the $\hat{z}$ direction, a Rashba spin orbit interaction term is allowed between nearest neighbors. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model \cite{Laubach2014}:
 
 \begin{align}
 \hat{H}_{KMH} &= -t_0\sum_{\langle i j \rangle \sigma} \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma} + i\Delta \sum_{\langle \langle i j \rangle \rangle \sigma \sigma'} \hat{c}^{\dagger}_{i\sigma} \nu_{ij} \sigma^z_{\sigma \sigma'} \hat{c}_{j\sigma'} \nonumber \\
@@ -53,7 +53,19 @@ With:
 H_{ij}(t) = \Delta^2 \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
 \end{equation}
 
-This describes a type of anisotropic exchange interaction. Notice that although the factor $\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)$ that renormalizes the interaction coupling in presence of the electric field has the same form as in \ref{JijHSOI} and \ref{DijHSOI}, the time dependence will not be the same, since the structure terms $\alpha_{ij}$ will change for next-nearest neighbors $i$ and $j$.
+This describes a type of anisotropic exchange interaction. Notice that although the factor $\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)$ that renormalizes the interaction coupling in presence of the electric field has the same form as in \ref{JijHSOI} and \ref{DijHSOI}, the renormalization will not be the same, since the structure terms $\alpha_{ij}$ will differ from those in a nearest neighbor interaction. For example, if we take the time independent approximation \ref{MFactorApprox}, then the exchange interaction will be:
+
+\begin{align*}
+J_{ij} = J_{ij}^0 + t_0^2 \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
+\end{align*}
+
+Where $\mathcal{E} = \frac{eaE_0}{\omega}$. Whereas the anisotropic exchange coupling will be:
+
+\begin{align*}
+H_{ij} = H_{ij}^0 + 3 \Delta^2 \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
+\end{align*}
+
+Where $H_{ij}^0 = \frac{2\Delta^2}{\text{U}}$ is the anisotropic exchange coupling in the absence of electromagnetic field, and the factor $3$ arises from the structure factor $\alpha_{ij}$ being $\sqrt{3}$ times larger for next nearest neighbors in a honeycomb lattice.
 
 Altogether, the total effective Hamiltonian in this system is:
 
