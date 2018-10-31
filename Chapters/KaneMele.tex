@@ -1,6 +1,6 @@
-\begin{section}{Graphene}
+\begin{section}{Kane Mele Hubbard model}
 
-In graphene time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. However, if inversion symmetry is broken by i.e. an external electric field in the $\hat{z}$ direction, a Rashba spin orbit interaction term is allowed between nearest neighbors. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model \cite{Laubach2014}:
+The first model to describe topological insulators was introduced by Kane and Mele \cite{Kane2005} to describe quantum spin Hall effect in graphene. In a honeycomb lattice time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. However, if inversion symmetry is broken by i.e. an external electric field in the $\hat{z}$ direction, a Rashba spin orbit interaction term is allowed between nearest neighbors. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model \cite{Laubach2014}:
 
 \begin{align}
 \hat{H}_{KMH} &= -t_0\sum_{\langle i j \rangle \sigma} \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma} + i\Delta \sum_{\langle \langle i j \rangle \rangle \sigma \sigma'} \hat{c}^{\dagger}_{i\sigma} \nu_{ij} \sigma^z_{\sigma \sigma'} \hat{c}_{j\sigma'} \nonumber \\
@@ -44,41 +44,50 @@ For the spin sum we use \ref{SpinOperatorInv1} and \ref{SpinOperatorInv2} taking
 Neglecting the constant term, the effective next-nearest neighbors interaction reads:
 
 \begin{equation}
-\hat{H}_{\text{eff}}''(t) = \sum_{\langle \langle i,j \rangle \rangle} H_{ij}(t) (S_i^zS_j^z - S_i^xS_j^x - S_i^yS_j^y)
+\hat{H}_{\text{eff}}''(t) = \sum_{\langle \langle i,j \rangle \rangle} \tilde{J}_{ij}(t) (S_i^zS_j^z - S_i^xS_j^x - S_i^yS_j^y)
 \end{equation}
 
 With:
 
 \begin{equation}
-H_{ij}(t) = \Delta^2 \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
+\tilde{J}_{ij}(t) = \Delta^2 \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
 \end{equation}
 
-This describes a type of anisotropic exchange interaction. Notice that although the factor $\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)$ that renormalizes the interaction coupling in presence of the electric field has the same form as in \ref{JijHSOI} and \ref{DijHSOI}, the renormalization will not be the same, since the structure terms $\alpha_{ij}$ will differ from those in a nearest neighbor interaction. For example, if we take the time independent approximation \ref{MFactorApprox}, then the exchange interaction will be:
+This describes a type of anisotropic exchange interaction known as XXZ Heisenberg model for next nearest neighbors. If the laser field is not too strong $\tilde{J}_{ij}(t) > 0$, and, in the $\hat{e}_z$ direction this interaction will compete against the exchange interaction $J_{ij}(t)$. The reason for this is that being $J_{ij}(t) > 0$ the spins will try to attain antiferromagnetic order, which means that next nearest neighbor spin will tend to be aligned. The effect of $\tilde{J}_{ij}(t)$ will be the opposite, forcing the next nearest neighbor spins to be in opposite directions. In general the strength of the exchange interaction will be larger and the net effect of $\tilde{J}_{ij}(t)$ will be a tilting of the spins towards the $\hat{e}_x$-$\hat{e}_y$ plane.
+
+Notice that although the factor $\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)$ that renormalizes the interaction coupling in presence of the electric field has the same form as in \ref{JijHSOI} and \ref{DijHSOI}, the renormalization will not be the same, since the structure terms $\alpha_{ij}$ will differ from those in a nearest neighbor interaction. For example, if we take the time independent approximation \ref{MFactorApprox}, and use $\lambda = \pm 1$ for circular polarized light, then the exchange interaction will be:
 
 \begin{align*}
-J_{ij} = J_{ij}^0 + t_0^2 \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
+J_{ij} = J_{ij}^0 + t_0^2 \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right) = J_{ij}^0 + J_{ij}^0 \text{U}\frac{1}{2} \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
 \end{align*}
 
-Where $\mathcal{E} = \frac{eaE_0}{\omega}$. Whereas the anisotropic exchange coupling will be:
+Where $\mathcal{E} = \frac{eaE_0}{\omega}$. And the DMI coupling will be approximated by:
 
 \begin{align*}
-H_{ij} = H_{ij}^0 + 3 \Delta^2 \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
+\bs{D}_{ij} = \bs{D}_{ij}^0 + 2it_0\bs{\Delta}_{ij}  \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right) = \bs{D}_{ij}^0 + \bs{D}_{ij}^0 \text{U}\frac{1}{2} \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
 \end{align*}
 
-Where $H_{ij}^0 = \frac{2\Delta^2}{\text{U}}$ is the anisotropic exchange coupling in the absence of electromagnetic field, and the factor $3$ arises from the structure factor $\alpha_{ij}$ being $\sqrt{3}$ times larger for next nearest neighbors in a honeycomb lattice.
+$J_{ij}^0$ and $\bs{D}_{ij}^0$ have been defined in \ref{Jij0} and \ref{Dij0}, the factor $\frac{1}{2}$ is due to the light being circularly polarized. In contrast, the anisotropic exchange coupling will be:
+
+\begin{align*}
+\tilde{J}_{ij} = \tilde{J}_{ij}^0 + 3 \Delta^2 \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right) = \tilde{J}_{ij}^0 + \tilde{J}_{ij}^0 \text{U} \frac{3}{2} \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
+\end{align*}
+
+Where $\tilde{J}_{ij}^0 = \frac{2\Delta^2}{\text{U}}$ is the anisotropic exchange coupling in the absence of electromagnetic field, and the factor $3$ arises from the structure factor $\alpha_{ij}$ being $\sqrt{3}$ times larger for next nearest neighbors in a honeycomb lattice. If we define $\Delta J_{ij} = J_{ij} - J_{ij}^0$ and $\Delta \tilde{J}_{ij} = \tilde{J}_{ij} - \tilde{J}_{ij}^0$ we can see that, in this approximation $\frac{\Delta J_{ij}}{\Delta \tilde{J}_{ij}} = \frac{1}{3}\frac{J_{ij}^0}{\tilde{J}_{ij}^0}$ whereas $\frac{\Delta J_{ij}}{\Delta |\bs{D}_{ij}|} = \frac{J_{ij}^0}{|\bs{D}_{ij}^0|}$.
 
 Altogether, the total effective Hamiltonian in this system is:
 
 \begin{align}
 \hat{H}_{\text{eff}}(t) = &\hat{H}_{\text{eff}}'(t) + \hat{H}_{\text{eff}}''(t) = \sum_{\langle i,j \rangle} \left( J_{ij}(t)\bs{S}_i\bs{S}_j + \bs{D}_{ij}(t) \bs{S}_i \times \bs{S}_j \right) \nonumber \\
-&+ \sum_{\langle \langle i,j \rangle \rangle} H_{ij}(t) (S_i^zS_j^z - S_i^xS_j^x - S_i^yS_j^y)
+&+ \sum_{\langle \langle i,j \rangle \rangle} \tilde{J}_{ij}(t) (S_i^zS_j^z - S_i^xS_j^x - S_i^yS_j^y)
 \end{align}
 
 Where $J_{ij}(t)$ and $\bs{D}_{ij}(t)$ have been obtained in \ref{JijHSOI} and \ref{DijHSOI} and we take $\Delta_{ij} = i\Delta_R (R_{ij}^y, - R_{ij}^x, 0)$ to obtain:
 
 \begin{align*}
 J_{ij}(t) &= t_0^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
-\bs{D}_{ij}(t) &= -2t_0\Delta_R (R_{ij}^y, - R_{ij}^x, 0) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
+\bs{D}_{ij}(t) &= -2t_0\Delta_R (R_{ij}^y, - R_{ij}^x, 0) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
+\tilde{J}_{ij}(t) &= \Delta^2 \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
 \end{align*}
 
 \end{section}

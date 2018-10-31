@@ -247,17 +247,17 @@ Now introducing the spin operators into  $\hat{H}_J$ with $n_{i \uparrow} + n_{i
 The constant term can be neglected leaving:
 
 \begin{equation}
-\hat{H}_{J} = \frac{2t^2}{\text{U}} \sum_{\langle i,j \rangle} \boldsymbol{S}_i\boldsymbol{S}_j = J\sum_{\langle i,j \rangle} \boldsymbol{S}_i\boldsymbol{S}_j
+\hat{H}_{J} = \frac{2t^2}{\text{U}} \sum_{\langle i,j \rangle} \bs{S}_i\bs{S}_j = \sum_{\langle i,j \rangle} J_{ij}^0 \bs{S}_i\bs{S}_j
 \end{equation}
 
-Which is the Heisenberg model for antiferromagnets with $J = \frac{2t^2}{\text{U}} > 0$. Likewise, for $\hat{H}_D$, using \ref{SpinRel2}:
+Which is the Heisenberg model for antiferromagnets with $J_{ij}^0 = \frac{2t^2}{\text{U}} > 0$. Likewise, for $\hat{H}_D$, using \ref{SpinRel2}:
 
 \begin{align*}
-\hat{H}_D = &-\frac{t}{\text{U}} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\boldsymbol{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\boldsymbol{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \boldsymbol{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\boldsymbol{S}_j\boldsymbol{\sigma}_{\sigma_2 \sigma_3}\right) = \\
-&= +\frac{4it}{\text{U}} \sum_{\langle i,j \rangle} \boldsymbol{\Delta}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j = \sum_{\langle i,j \rangle} \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j
+\hat{H}_D = &-\frac{t}{\text{U}} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\bs{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}\bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \\
+&= +\frac{4it}{\text{U}} \sum_{\langle i,j \rangle} \bs{\Delta}_{ij} \bs{S}_i \times \bs{S}_j = \sum_{\langle i,j \rangle} \bs{D}_{ij}^0 \bs{S}_i \times \bs{S}_j
 \end{align*}
 
-Where $\boldsymbol{D}_{ij} = \frac{4it}{\text{U}}\boldsymbol{\Delta}_{ij}$. Lastly, using \ref{SpinRel3}, the term proportional to $\bs{\Delta}_{ij}^2$ gives:
+Where $\bs{D}_{ij}^0 = \frac{4it}{\text{U}}\bs{\Delta}_{ij}$. Lastly, using \ref{SpinRel3}, the term proportional to $\bs{\Delta}_{ij}^2$ gives:
 
 \begin{align*}
 \hat{H}_P &= \frac{1}{\text{U}}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_3 \sigma_4}) \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \\
@@ -269,8 +269,15 @@ With $\bs{\Gamma_{ij}}^{\alpha \beta} = \frac{1}{\text{U}}(\delta_{\alpha \beta}
 The total effective Hamiltonian is:
 
 \begin{equation}
-\hat{H}_{\text{eff}} \approx \sum_{\langle i,j \rangle} \left( J\boldsymbol{S}_i\boldsymbol{S}_j + \boldsymbol{D}_{ij} \boldsymbol{S}_i \times \boldsymbol{S}_j \right) \label{HeffNOEMF}
+\hat{H}_{\text{eff}} \approx \sum_{\langle i,j \rangle} \left( J_{ij}^0 \bs{S}_i\bs{S}_j + \bs{D}_{ij}^0 \bs{S}_i \times \bs{S}_j \right) \label{HeffNOEMF}
 \end{equation}
+
+With:
+
+\begin{align}
+J_{ij}^0 &= \frac{2t^2}{\text{U}} \label{Jij0} \\
+\bs{D}_{ij}^0 &= \frac{4it}{\text{U}}\bs{\Delta}_{ij} \label{Dij0}
+\end{align}
 
 Compare with \cite{Stepanov2017}. 
 
