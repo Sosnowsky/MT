@@ -1,15 +1,29 @@
 \chapter{Perturbing the lattice}
 
-In this chapter we will derive an effective Hamiltonian for different types of Hubbard-like models in the presence of a high frequency electromagnetic perturbation. The goal is to manipulate $J$ and $\bs{D}_{ij}$ in \ref{HeffNOEMF} separately. This has already been done for the case of Mott insulators (\cite{Mentink2015}, \cite{Kitamura2017}), in which only the exchange interaction $J$ plays a role.We reproduce the result, and extend the analysis to different systems with spin orbit interaction, thereby modulating $\bs{D}_{ij}$ or other spin interactions. 
+In this chapter we will derive an effective spin Hamiltonian for different models in the presence of a high frequency electromagnetic perturbation. The goal is to manipulate $J$ and $\bs{D}_{ij}$ in \ref{HeffNOEMF} separately. This has already been done for the case of Mott insulators (\cite{Mentink2015}, \cite{Kitamura2017}) where the starting Hamiltonian is the Hubbard model:
+
+\begin{equation*}
+\hat{H} = -t_0\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation*} 
+
+In this model only the exchange interaction $J$ plays a role. The electromagnetic perturbation is then introduced via the Peierls substitution. We reproduce the result in section \ref{Section3Hubbard}. In the following sections we extend the analysis to different systems with spin orbit interaction thereby modulating $\bs{D}_{ij}$ or other spin interactions. The simplest model with spin orbit interaction is \ref{Hubbard}:
+
+\begin{equation*}
+\hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{0} + \boldsymbol{\Delta}_{ij} \boldsymbol{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation*}
+
+In section \ref{Section3HubbardSOI} we show how the exchange interaction and the DMI couplings are modulated in presence of an electromagnetic field.  In the case of graphene or other coplanar honeycomb lattice structures, nearest neighbor Rashba terms are not allowed by symmetry, and only next nearest neighbor (NNN) spin conserving terms contribute \cite{Kane2005}. For this case we examine the Kane Mele Hubbard model. The effective spin model of this Hamiltonian contains the usual exchange interaction and DMI and, in addition, it exhibits anisotropic exchange interaction arising from the intrinsic SOI term. This new term has already been obtained in \cite{Rachel2010} without taking into account any electromagnetic field.
+
+Non-coplanar honeycomb lattice may exhibit intrinsic Rashba interactions between NNN \cite{Liu2011}, this, together with a NNN hopping (which would arise from direct overlapping of the next nearest neighbor Wannier functions or from second order processes) will lead to NNN DMI.
 
 \begin{section}{Time dependent effective Hamiltonian}
-
+\label{SectionTDHeff}
 \input{Chapters/TDHeff}
 
 \end{section}
 
 \begin{section}{Hubbard model without SOI}
-
+\label{Section3Hubbard}
 We start by considering the simplest hopping operator, as in the Hubbard model:
 
 \begin{equation}
@@ -112,7 +126,7 @@ From here we can see that if we take the same approximation as in \ref{Jij2} we 
 \end{section}
 
 \begin{section}{Hubbard model with SOI}
-
+\label{Section3HubbardSOI}
 Now, let's investigate the effect of the electric field for the Hubbard model with SOI, i.e. \ref{Hubbard}, in this case the hopping operator gets an extra spin-dependent term:
 
 \begin{equation}
