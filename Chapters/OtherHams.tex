@@ -1,0 +1,35 @@
+Next we will consider a Hamiltonian:
+
+\begin{equation}
+\hat{H} = \sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_0 + \bs{\Delta}_{ij}^{(0)} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + 
+	\sum_{\langle \langle i,j \rangle \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_1 + \bs{\Delta}_{ij}^{(1)} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + 
+	\text{U}\hat{D}
+\end{equation}
+
+Which is the same we studied in section \ref{Section3HubbardSOI} plus a NNN hopping and SOI term. As before, $\bs{\Delta}_{ij}^{(n)}$ describes Rashba SOI when $\bs{\Delta}_{ij}^{(n)} = i\Delta_R^{(n)}(R_{ij}^y, -R_{ij}^x, 0)$.
+The hopping amplitudes thus are:
+
+\begin{equation}
+\label{HoppHubbSOI}
+t_{ij}^{\sigma \sigma'} = \begin{cases}
+	(\delta_{\sigma \sigma'}t_0+\bs{\Delta}_{0,ij} \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ nearest neighbors} \\
+	(\delta_{\sigma \sigma'}t_1+\bs{\Delta}_{1,ij} \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ next nearest neighbors} \\
+	0 & \text{ otherwise}
+\end{cases} \quad
+\end{equation}
+
+The effective Hamiltonian will be the same as in section \ref{Section3HubbardSOI}, with the corresponding NNN terms. This is because in second order perturbation NN hopping terms do not mix with NNN hopping terms. Thus, the effective spin Hamiltonian will be:
+
+\begin{align}
+\hat{H}_{\text{eff}}(t) = &\sum_{\langle i,j \rangle} \left\{ J_{0,ij}(t)\bs{S}_i\bs{S}_j + \bs{D}_{0,ij}(t) \bs{S}_i \times \bs{S}_j \right\} + \nonumber \\
+&\sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{1,ij}(t)\bs{S}_i\bs{S}_j + \bs{D}_{1,ij}(t) \bs{S}_i \times \bs{S}_j \right\}
+\end{align}
+
+Where:
+
+\begin{align*}
+J_{0,ij}(t) &= t_0^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
+\bs{D}_{0,ij}(t) &= 2it_0 \bs{\Delta}_{0,ij}\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
+J_{1,ij}(t) &= t_1^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
+\bs{D}_{1,ij}(t) &= 2it_1 \bs{\Delta}_{1,ij}\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
+\end{align*}
