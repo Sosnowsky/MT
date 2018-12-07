@@ -68,7 +68,15 @@ J_{2,ij}(t) &= t_2^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
 \bs{\Gamma}_{2,ij}(t) &= \Delta^2 \text{diag}(-1,-1,1) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) 
 \end{align*}
 
-Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. However, in the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In general SDW will appear in the ground state of \ref{OtherHamsSpinModel} and the SDW wavevector will be determined by a function of the parameters of this model. In many cases NNN DMI cannot be neglected in favour of NNN exchange interaction, it has even been observed $|\bs{D}_{2,ij}| > |J_{2,ij}|$ \cite{Chen2018}. Next we will show numerically that the ratio between the NN and NNN parameters can be modulated by the intensity of the field, and therefore the field can be used to control the SDW wavevector. 
+Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. In the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In the most general Hamiltonian \ref{OtherHamsSpinModel} we expect SDW to appear in the ground state and the SDW wavevector will be determined by a function of the parameters of this model. 
+
+As an example, we will show this for the one dimensional chain with hamiltonian $\hat{H} = \sum_{\langle i,j \rangle} |J_1| \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} \nu_{ij}|D_2|\hat{e}_z\bs{S}_i\bs{S}_j$. In this case we can write generally $\bs{S}(r) = S(\cos(kr), \sin(kr), 0)$, where the real number $k$ plays the role of the wavevector, and $\theta = ka-\pi$ is the deviation from the N\'eel state. Then the classical energy per site is given by:
+
+\begin{equation}
+\frac{E(\theta)}{2S^2} = -|J_1|\cos(\theta) + |D_2|\sin(2 \theta)
+\end{equation}
+
+and the energy is minimized for $\theta^* = \arcsin(\frac{\frac{J1}{D2} - \sqrt{(\frac{J1}{D2})^2+32}}{8})$, i.e. $\theta^* = \theta^*(\frac{J1}{D2})$. This approximated Hamiltonian with no NNN exchange interaction is very simple, but it can describe some systems where it has even been observed $|\bs{D}_{2,ij}| > |J_{2,ij}|$ \cite{Chen2018}. Next we will show numerically that the ratio between the NN and NNN parameters, $\frac{J1}{D2}$, can be modulated by the intensity of the field, and therefore the field can be used to control the SDW wavevector. 
 
 We will use the time average approximation \ref{MFactorApprox0} so that we can write:
 
