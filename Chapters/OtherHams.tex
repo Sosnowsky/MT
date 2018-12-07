@@ -68,7 +68,7 @@ J_{2,ij}(t) &= t_2^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
 \bs{\Gamma}_{2,ij}(t) &= \Delta^2 \text{diag}(-1,-1,1) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) 
 \end{align*}
 
-Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. However, in the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In general SDW will appear in the ground state of \ref{OtherHamsSpinModel} and the SDW wavevector will be determined by a function of the parameters of this model. Next we will show numerically that the ratio between the NN and NNN parameters can be modulated by the intensity of the field, and therefore the field can be used to control the SDW wavevector. 
+Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. However, in the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In general SDW will appear in the ground state of \ref{OtherHamsSpinModel} and the SDW wavevector will be determined by a function of the parameters of this model. In many cases NNN DMI cannot be neglected in favour of NNN exchange interaction, it has even been observed $|\bs{D}_{2,ij}| > |J_{2,ij}|$ \cite{Chen2018}. Next we will show numerically that the ratio between the NN and NNN parameters can be modulated by the intensity of the field, and therefore the field can be used to control the SDW wavevector. 
 
 We will use the time average approximation \ref{MFactorApprox0} so that we can write:
 
@@ -77,31 +77,31 @@ J_{1,ij} &= J_{1,ij}^0  \sum_{n} \frac{\mathcal{J}_n(\alpha_{ij})^2}{1+n\frac{\o
 D_{2,ij} &= D_{2,ij}^0  \sum_{n} \frac{\mathcal{J}_n(\alpha_{ij})^2}{1+n\frac{\omega}{\text{U}}}
 \end{align}
 
-Where $J_{1,ij}^0 = \frac{2t_1^2}{\text{U}}$ and $D_{2,ij}^0 = \frac{4t_2\Delta}{\text{U}}$. Now, for circularly polarized light we have $|\alpha_{ij}| = \frac{1}{\sqrt{2}}e|\vec{R}_{ij}| \frac{E_0}{\omega} = \frac{1}{\sqrt{2}}ea \frac{E_0}{\omega} \frac{|\vec{R}_{ij}|}{a} = \frac{|\vec{R}_{ij}|}{\sqrt{2}a} \mathcal{E}$:
+Where $\bs{D}_{2,ij} = \hat{e}_z D_{2,ij}$ and where $J_{1,ij}^0 = J_{1}^0 = \frac{2t_1^2}{\text{U}}$ and $D_{2,ij}^0 = -\frac{4t_2\Delta\nu_{ij}}{\text{U}}$. Since $\mathcal{J}_n(-x) = (-1)^n\mathcal{J}_n(x)$ the dependance is on $|\alpha_{ij}|$ only. Now, using \ref{Def_alpha}, for circularly polarized light we have $|\alpha_{ij}| = \frac{1}{\sqrt{2}}e|\vec{R}_{ij}| \frac{E_0}{\omega} = \frac{1}{\sqrt{2}}ea \frac{E_0}{\omega} \frac{|\vec{R}_{ij}|}{a} = \frac{|\vec{R}_{ij}|}{\sqrt{2}a} \mathcal{E}$, where $a$ is the lattice constant and $\mathcal{E} = \frac{eaE_0}{\omega}$. Now, for $J_{1,ij}$, $i$ and $j$ are NN and so we can write $|\vec{R}_{ij}|=a$, whereas for $D_{2,ij}$, $i$ and $j$ are NNN and so $|\vec{R}_{ij}|=\sqrt{3}a$. Thus:
 
 \begin{align}
-J_{1,ij} &= J_{1,ij}^0  \sum_{n} \frac{\mathcal{J}_n(\frac{1}{\sqrt{2}}\mathcal{E})^2}{1+n\frac{\omega}{\text{U}}} \\
+J_{1,ij} &= J_{1} = J_{1}^0  \sum_{n} \frac{\mathcal{J}_n(\frac{1}{\sqrt{2}}\mathcal{E})^2}{1+n\frac{\omega}{\text{U}}} \\
 D_{2,ij} &= D_{2,ij}^0  \sum_{n} \frac{\mathcal{J}_n(\sqrt{\frac{3}{2}}\mathcal{E})^2}{1+n\frac{\omega}{\text{U}}}
 \end{align}
 
-Therefore, $|\alpha_{ij}|$ will be $\sqrt{3}$ times bigger for NNN than for NN, and, in each case the absolute vale is independent of $i,j$.  Now, in units $\hbar=t_1=1$ we measure energy in units of $t_1$ and frequency in units of $\frac{t_1}{\hbar}$. Then, for $t_2 = 0.1$, $\Delta = 0.5$, $\text{U} = 10$ and $\omega = 6$ we obtain (ref fig). The ratio $\frac{J_{1,ij}}{D_{2,ij}}$ is plotted in (figure)
+In each case the absolute vale is independent of $i,j$.  Now, in units $\hbar=t_1=1$ we measure energy in units of $t_1$ and frequency in units of $\frac{t_1}{\hbar}$. Then, for $t_2 = 0.1$, $\Delta = 0.5$, $\text{U} = 10$ and $\omega = 6$ we obtain \ref{Fig1:NNvsNNN}. The ratio $\frac{J_{1,ij}}{D_{2,ij}}$ is plotted in \ref{Fig1:ratio}.
 
 \begin{figure}
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.4\linewidth]{Chapters/NNvsNNN.jpg}
-  \caption{A subfigure}
-  \label{fig:sub1}
+  \includegraphics[width=1\linewidth]{Chapters/NNvsNNN.jpg}
+  \caption{$\frac{J_{1}}{J_{1}^0}$ and $\frac{D_{2,ij}}{D_{2,ij}^0}$ are plotted as function of $\mathcal{E}$. Similar results are obtained in \cite{Mentink2015} for $J_{1}$.}
+  \label{Fig1:NNvsNNN}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.4\linewidth]{Chapters/ratio.jpg}
-  \caption{A subfigure}
-  \label{fig:sub2}
+  \includegraphics[width=1\linewidth]{Chapters/ratio.jpg}
+  \caption{$\frac{J_{1}}{D_{2,ij}}$ is plotted as function of $\mathcal{E}$, it diverges every time $D_{2,ij}$ changes sign.}
+  \label{Fig1:ratio}
 \end{subfigure}
-\caption{A figure with two subfigures}
-\label{fig:test}
+%\caption{A figure with two subfigures}
+\label{Fig1}
 \end{figure}
 
 
