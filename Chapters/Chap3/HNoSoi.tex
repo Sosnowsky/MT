@@ -1,0 +1,103 @@
+\begin{section}{Hubbard model without SOI}
+\label{Section3Hubbard}
+We start by considering the simplest hopping operator, as in the Hubbard model:
+
+\begin{equation}
+\hat{H} = -t_0\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation}
+
+Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We see that the hopping amplitudes introduced in the previous section take the form $t_{ij}^{\sigma \sigma'} = \delta_{\sigma \sigma'} t_0$ for $i,j$ being nearest neighbors, and $t_{ij}^{\sigma \sigma'} = 0$ otherwise. With this we can directly apply \ref{HeffSimplified} to obtain:
+
+\begin{equation}
+\hat{H}_{\text{eff}}(t) = -\frac{t_0^2}{2} \sum_{\langle i,j \rangle, \sigma, \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \hat{c}_{j \sigma'}^\dagger \hat{c}_{i \sigma'} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
+\end{equation}
+
+Now, introducing the spin operators \ref{SpinOperatorInv1} and \ref{SpinOperatorInv2} and summing over the spin states as in \ref{SpinRel1}:
+
+\begin{align*}
+\sum_{\sigma, \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \hat{c}_{j \sigma'}^\dagger \hat{c}_{i \sigma'} = \sum_{\sigma, \sigma'} \left( \frac{\delta_{\sigma \sigma'}}{2} + \bs{S}_i\bs{\sigma}_{\sigma' \sigma} \right) \left( \frac{\delta_{\sigma \sigma'}}{2} - \bs{S}_j\bs{\sigma}_{\sigma \sigma'} \right) = -2\bs{S}_i \bs{S}_j
+\end{align*}
+
+Where we neglected the constant term. The effective spin Hamiltonian is thus:
+
+\begin{equation}
+\hat{H}_{\text{eff}}(t) = \sum_{\langle i,j \rangle} J_{ij}(t) \bs{S}_i \bs{S}_j
+\end{equation}
+
+With 
+
+\begin{align}
+J_{ij}(t) &= t_0^2 \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \nonumber \\
+&=\sum_{mn} t_0^2 e^{-i(\frac{\pi}{2}+\theta_{ij})m}\left(\frac{\mathcal{J}_{n-m}(\alpha_{ij})\mathcal{J}_{n}(\alpha_{ij})+\mathcal{J}_{n}(\alpha_{ij})\mathcal{J}_{n+m}(\alpha_{ij})}{\text{U}+n\omega} \right) e^{im\omega t} \label{Jij1}
+\end{align}
+
+After time average this reduces to the $m=0$ term:
+
+\begin{equation}
+\label{MFactorApprox0}
+\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \approx \sum_{n} 2 \frac{\mathcal{J}_n(\alpha_{ij})^2}{\text{U}+n\omega}
+\end{equation}
+
+For $\omega>>U$ we can truncate this to the three smallest values of $n$, i.e. $n=0, \pm 1$. We can also use that $\alpha_{ij} << 1$ because $\alpha_{ij}$ is proportional to $\vec{A}$ which is proportional to $\omega^{-1}$. Therefore we can use $\mathcal{J}_n(x) \approx x^n \text{ for } n>0 \text{ and } x << 1$ to obtain:
+
+\begin{equation}
+\label{MFactorApprox}
+\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \approx 2 \left(\frac{\alpha_{ij}^2}{\text{U}+\omega} +\frac{1}{\text{U}} +\frac{\alpha_{ij}^2}{\text{U}-\omega} \right)
+\end{equation}
+
+And the exchange interaction coupling becomes:
+
+\begin{equation}
+\label{Jij2}
+J_{ij} \approx J_{ij}^0 + 2t_0^2 \alpha_{ij}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
+\end{equation}
+
+The lattice structure is contained in $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$. For a square lattices aligned with the coordinate system so that $\vec{a}_1=\hat{e}_x$ and $\vec{a}_2=\hat{e}_y$, we will have $\bs{R}_{ij} = \pm a\hat{e}_x,\pm a\hat{e}_y$, where $a$ is the lattice constant. Using $\vec{A}=\frac{iE_0}{\omega\sqrt{1+\lambda^2}}(\hat{e}_x+i\lambda\hat{e}_y)$ we have:
+
+\begin{equation}
+\alpha_{ij} = \begin{cases}
+             \pm \frac{eaE_0}{\omega \sqrt{1+\lambda^2}} = \pm \frac{\mathcal{E}}{\sqrt{1+\lambda^2}},  & \text{for } \bs{R}_{ij} = \pm \hat{e}_x \\
+             \pm \lambda\frac{eaE_0}{\omega \sqrt{1+\lambda^2}} = \pm \frac{\lambda \mathcal{E}}{\sqrt{1+\lambda^2}},  & \text{for } \bs{R}_{ij} = \pm \hat{e}_y
+       \end{cases} \quad
+\end{equation}
+
+Where $\mathcal{E} = \frac{eaE_0}{\omega}$. 
+
+For plane polarized light ($\lambda = 0$) the exchange interaction only changes in the direction of the polarization, that is:
+
+\begin{equation}
+J_{ij}^{PP} = \begin{cases}
+		J_{ij}^0 + 2t_0^2 \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right) & \text{for } \bs{R}_{ij} = \pm \hat{e}_x \\
+J_{ij}^0 & \text{for } \bs{R}_{ij} = \pm \hat{e}_y
+\end{cases} \quad 
+\end{equation}
+
+For circular polarized light ($\lambda=\pm1$) in this approximation the exchange interaction changes in the same way in all the directions:
+
+\begin{equation}
+\label{JijCPSQUARE}
+J_{ij}^{CP} = J_{ij}^0 + t_0^2 \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
+\end{equation}
+
+\begin{subsection}{Honeycomb lattice}
+
+Now consider a honeycomb lattice structure, so that the $\alpha_{ij}$ values are given by $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$ where $\bs{R}_{ij}$ are the displacement vectors in a honeycomb lattice. There are six such vectors:
+
+\begin{align}
+\bs{R}_1^\pm &= \pm a\hat{e}_x \\
+\bs{R}_2^\pm &= \pm a\frac{1}{2}(\hat{e}_x + \sqrt{3}\hat{e}_y) \\
+\bs{R}_3^\pm &= \pm a\frac{1}{2}(\hat{e}_x - \sqrt{3}\hat{e}_y)
+\end{align}
+
+These six possible directions will lead to $\alpha_a^\pm = \pm |e\bs{R}_a\vec{A}|$ where $\vec{A}=\frac{iE_0}{\omega\sqrt{1+\lambda^2}}(\hat{e}_x+i\lambda\hat{e}_y)$:
+
+\begin{align}
+\alpha_1^\pm &= \pm \frac{eaE_0}{\omega\sqrt{1+\lambda^2}} \\
+\alpha_2^\pm &= \alpha_3^\pm = \pm \frac{eaE_0}{2\omega} \sqrt{\frac{1+3\lambda^2}{1+\lambda^2}} = \pm\frac{eaE_0}{2\omega}\sqrt{1+\frac{2\lambda^2}{1+\lambda^2}}
+\end{align}
+
+From here we can see that if we take the same approximation as in \ref{Jij2} we will obtain the same form of exchange interaction for circular polarized light ($\lambda=\pm1$) \ref{JijCPSQUARE} with possibly a different lattice constant $a$. 
+
+\end{subsection}
+
+\end{section}

@@ -1,0 +1,59 @@
+\begin{section}{Hubbard model with SOI}
+\label{Section3HubbardSOI}
+Now, let's investigate the effect of the electric field for the Hubbard model with SOI, i.e. \ref{Hubbard}, in this case the hopping operator gets an extra spin-dependent term:
+
+\begin{equation}
+\hat{T} = \sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_0 + \bs{\Delta}_{ij} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}
+\end{equation}
+
+The vector $\bs{\Delta}_{ij}$ can describe Rashba or Dresselhaus SOI, $\bs{\Delta}_{ij} = i\Delta_R(R_{ij}^y, -R_{ij}^x, 0)$ for Rashba SOI and $\bs{\Delta}_{ij} = i\Delta_R(R_{ij}^x, -R_{ij}^y, 0)$ for Dresselhaus SOI. 
+In this case the hopping amplitudes are:
+
+\begin{equation}
+\label{HoppHubbSOI}
+t_{ij}^{\sigma \sigma'} = \begin{cases}
+	(\delta_{\sigma \sigma'}t_0+\bs{\Delta}_{ij} \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ nearest neighbors} \\
+	0 & \text{ otherwise}
+\end{cases} \quad
+\end{equation}
+ 
+And as before $\hat{H} = -\hat{T} + \text{U}\hat{D}$. In the presence of an electromagnetic field we can apply the Peierls substitution as we did before, and the effective Hamiltonian will be given by \ref{HeffSimplified}.  inserting the spin operators \ref{SpinOperatorInv1} and \ref{SpinOperatorInv2} we get:
+
+\begin{align}
+\hat{H}_{\text{eff}}(t) &= - \frac{1}{2} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \nonumber \\
+&= - \frac{1}{2} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left( \frac{\delta_{\sigma_1 \sigma_4}}{2} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1} \right) \left( \frac{\delta_{\sigma_2 \sigma_3}}{2} - \bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3} \right) \nonumber \\ &(\delta_{\sigma_1 \sigma_2}t_0+\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_1, \sigma_2}) (\delta_{\sigma_3 \sigma_4}t_0+\bs{\Delta}_{ji} \bs{\sigma}_{\sigma_3, \sigma_4}) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \label{HeffHubbSOI1}
+\end{align}
+
+Using $\bs{\Delta}_{ji} = - \bs{\Delta}_{ij}$:
+
+\begin{align*}
+&(\delta_{\sigma_1 \sigma_2}t_0+\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_1, \sigma_2}) (\delta_{\sigma_3 \sigma_4}t_0+\bs{\Delta}_{ji} \bs{\sigma}_{\sigma_3, \sigma_4}) = \\ 
+&\delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4}t_0^2 + t_0\bs{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4} \bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3 \sigma_4}) - (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1, \sigma_2})(\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_3, \sigma_4})
+\end{align*}
+
+The term proportional to $t_0^2$ will lead to the modified exchange interaction, as in the previous section. The term proportional to $t_0\bs{\Delta}_{ij}$ will lead to the modified DMI interaction and the term proportional to $\bs{\Delta}_{ij}^2$ will lead to the pseudodipolar interaction.
+
+Now we can rewrite \ref{HeffHubbSOI1} as:
+
+\begin{align*}
+\hat{H}_{\text{eff}}(t) &= - \frac{1}{2} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left( \frac{\delta_{\sigma_1 \sigma_4}}{2} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1} \right) \left( \frac{\delta_{\sigma_2 \sigma_3}}{2} - \bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3} \right) \nonumber \\ &\left[ \delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4}t_0^2 + t_0\bs{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4} \bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3 \sigma_4}) - (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1, \sigma_2})(\bs{\Delta}_{ji}\bs{\sigma}_{\sigma_3, \sigma_4}) \right] \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
+&= -\frac{t_0^2}{2} \sum_{\langle i,j \rangle \sigma, \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \bs{S}_i\bs{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\bs{S}_j\bs{\sigma}_{\sigma \sigma'}\right)\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) - \\
+&- \frac{t_0}{2} \sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) \times \\
+&\bs{\Delta}_{ij}(\delta_{\sigma_3,\sigma_4}\bs{\sigma}_{\sigma_1 \sigma_2}-\delta_{\sigma_1,\sigma_2}\bs{\sigma}_{\sigma_3 \sigma_4})\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) + \\
+&+\frac{1}{2}\sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) \\
+&(\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1, \sigma_2})(\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_3, \sigma_4})\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) = \\
+&= \sum_{\langle i,j \rangle} \left( t_0^2 \bs{S}_i\bs{S}_j + 2it_0\bs{\Delta}_{ij} \bs{S}_i \times \bs{S}_j + \sum_{\alpha, \beta} S_i^\alpha (\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta ) S_j^\beta \right) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) =\\
+&= \sum_{\langle i,j \rangle} \left\{ J_{ij}(t)\bs{S}_i\bs{S}_j +\bs{D}_{ij}(t)\bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{ij}(t)\bs{S}_j \right\}
+\end{align*}
+
+Where we used relations \ref{SpinRel1}, \ref{SpinRel2} and \ref{SpinRel3}. We have:
+
+\begin{align}
+J_{ij}(t) &= t_0^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \label{JijHSOI} \\
+\bs{D}_{ij}(t) &= 2it_0\bs{\Delta}_{ij} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \label{DijHSOI} \\
+\Gamma_{ij}^{\alpha \beta}(t) &= (\delta_{\alpha \beta} \bs{\Delta}_{ij}^2 - 2\Delta_{ij}^\alpha\Delta_{ij}^\beta )\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
+\end{align}
+
+We can see that since we only considered NN hopping processes, all the terms in the spin Hamiltonian are renormalized in the same way by the laser field (as in \cite{Stepanov2017}). In order to obtain different dependencies with the field we should consider NNN hopping processes.
+
+\end{section}
