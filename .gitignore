@@ -34,3 +34,6 @@ C:\\nppdf32Log\\debuglog.txt
 
 # Editor
 *.backup
+
+# Code
+*.Rhistory
