@@ -8,9 +8,8 @@ options(tikzMetricPackages = c("\\usepackage[utf8]{inputenc}",
                                "\\usepackage[T1]{fontenc}", "\\usetikzlibrary{calc}",
                                "\\usepackage{amssymb}"))
 
-plot_disconnect <- function(x, y, ylim, ...) {
+plot_disconnect <- function(x, y, ...) {
   Y_DISC <- 10
-  plot(x = range(x), y = ylim, type = 'n', ...)
   discontinuities <- which(abs(diff(y)) > Y_DISC)
   last_point <- 1
   for (current_point in discontinuities) {
@@ -31,27 +30,27 @@ t2 <- 0.1 #NNN hoping integral
 delta <- 0.5 #NNN intrinsic SOI coupling
 
 U <- 10 #Interaction energy
-w <- 16 #Laser frecuency
+frequencies <- list(6,16) #Laser frecuency
 bessel_trunc_order <- 10
 lattice_cte <- 1
 field_energies <- seq(from=0, by=0.001, to=5)
 
 #J1 = 2*t1^2/U*J1_factor
-J1_factor <- vector(mode="numeric", length=length(field_energies))
-
-for (n in -bessel_trunc_order:bessel_trunc_order) {
-  J1_factor <- J1_factor + besselJ(field_energies/sqrt(2), nu = n)^2 / (1 + n * w / U)
-}
+J1_factor <- lapply(frequencies, function(x) vector(mode="numeric", length=length(field_energies)))
 
 #D2 = 4*t2*delta/U*D2_factor
-D2_factor <- vector(mode="numeric", length=length(field_energies))
-
-for (n in -bessel_trunc_order:bessel_trunc_order) {
-  D2_factor <- D2_factor + besselJ(sqrt(2)*field_energies, nu = n)^2 / (1 + n * w / U)
-}
+D2_factor <- lapply(frequencies, function(x) vector(mode="numeric", length=length(field_energies)))
 
 ratioJD0 <- t1^2 / ( 2 * t2 * delta)
-ratioJD <-  ratioJD0*J1_factor/D2_factor
+ratioJD <-  lapply(frequencies, function(x) vector(mode="numeric", length=length(field_energies)))
+
+for (i in 1:length(frequencies)) {
+  for (n in -bessel_trunc_order:bessel_trunc_order) {
+    J1_factor[[i]] <- J1_factor[[i]] + besselJ(field_energies/sqrt(2), nu = n)^2 / (1 + n * frequencies[[i]] / U)
+    D2_factor[[i]] <- D2_factor[[i]] + besselJ(sqrt(2)*field_energies, nu = n)^2 / (1 + n * frequencies[[i]] / U)
+  }
+  ratioJD[[i]] <- ratioJD0*J1_factor[[i]]/D2_factor[[i]]
+}
 
 current_file <- "NNvsNNN"
 tikz(paste0(current_file, '.tex'), width = 4, height = 4, standAlone = TRUE,
@@ -61,9 +60,12 @@ tikz(paste0(current_file, '.tex'), width = 4, height = 4, standAlone = TRUE,
                   "\\setlength\\PreviewBorder{0pt}",
                   "\\usepackage{amssymb}"))
 
-plot(x=field_energies, y=J1_factor, type='l', col = "green", xlab = "$\\mathcal{E}$", ylab = '', lwd = 2)
-lines(x=field_energies, y = D2_factor, type = 'l', col = "red", lwd = 2)
-legend("topright", legend = c(TeX('$J_1/J_1^0$'), TeX('$D_2/D_2^0$')), fill = c("green", "red"))
+plot(x=range(field_energies), y = range(J1_factor), type='n', xlab = "$\\mathcal{E}$", ylab = '')
+for (i in 1:length(frequencies)) {
+  lines(x = field_energies, y = J1_factor[[i]], type = 'l', col = "green", lwd = 2, lty = i)
+  lines(x = field_energies, y = D2_factor[[i]], type = 'l', col = "red", lwd = 2, lty = i)
+}
+legend("topright", legend = c("$\\frac{J_1}{J_1^0}$", "$\\frac{D_2}{D_2^0}$"), fill = c("green", "red"))
 
 dev.off()
 tools::texi2pdf(paste0(current_file, '.tex'))
@@ -78,17 +80,22 @@ tikz(paste0(current_file, '.tex'), width = 4, height = 4, standAlone = TRUE,
                   "\\setlength\\PreviewBorder{0pt}",
                   "\\usepackage{amssymb}"))
 
-plot_disconnect(x=field_energies, y = ratioJD, ylim = c(-3*ratioJD0,2*ratioJD0), 
-                col = "blue", lwd = 2, xlab = "$\\mathcal{E}$", ylab = '$\\frac{J_1}{D_2}$')
+ylim <- c(-3*ratioJD0,2*ratioJD0)
+plot(x = range(field_energies), y = ylim, type = 'n', 
+     xlab = "$\\mathcal{E}$", ylab = '$\\frac{J_1}{D_2}$')
+
+for (i in 1:length(frequencies)) {
+  plot_disconnect(x=field_energies, y = ratioJD[[i]], col = "blue", lwd = 2, lty = i, ylim = ylim)
+}
 
 dev.off()
 tools::texi2pdf(paste0(current_file, '.tex'))
 system(paste0("mv ", current_file, ".pdf ../Chapters/", current_file, ".pdf"))
 
-EMax <- which(D2_factor <= 0)[1]-1
-res_ratio <- ratioJD[1:EMax]
-res_field_energies <- field_energies[1:EMax]
-theta <- asin((res_ratio-sqrt(res_ratio^2+32))/8)
+EMax <- lapply(1:length(frequencies), function(i) which(D2_factor[[i]] <= 0)[1]-1 )
+res_ratio <- lapply(1:length(frequencies), function(i)  ratioJD[[i]][1:EMax[[i]]] )
+res_field_energies <- lapply(1:length(frequencies), function(i)  field_energies[1:EMax[[i]]])
+theta <- lapply(1:length(frequencies), function(i) asin((res_ratio[[i]]-sqrt(res_ratio[[i]]^2+32))/8) )  
 
 current_file <- "theta"
 tikz(paste0(current_file, '.tex'), width = 4, height = 4, standAlone = TRUE,
@@ -98,8 +105,12 @@ tikz(paste0(current_file, '.tex'), width = 4, height = 4, standAlone = TRUE,
                   "\\setlength\\PreviewBorder{0pt}",
                   "\\usepackage{amssymb}"))
 
-plot(x = res_field_energies, y = theta, type = 'l', lwd =2,
-     col = "purple", xlab = "$\\mathcal{E}$", ylab="$\\theta$")
+plot(x = range(sapply(res_field_energies, range)), y = range(sapply(theta, range)), type = 'n',
+     xlab = "$\\mathcal{E}$", ylab="$\\theta$" )
+for (i in 1:length(frequencies)) {
+  lines(x = res_field_energies[[i]], y = theta[[i]], type = 'l', lwd =2, lty = i,
+         col = "purple")
+}
 
 dev.off()
 tools::texi2pdf(paste0(current_file, '.tex'))
