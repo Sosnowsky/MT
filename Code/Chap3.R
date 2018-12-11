@@ -31,7 +31,7 @@ t2 <- 0.1 #NNN hoping integral
 delta <- 0.5 #NNN intrinsic SOI coupling
 
 U <- 10 #Interaction energy
-w <- 6 #Laser frecuency
+w <- 16 #Laser frecuency
 bessel_trunc_order <- 10
 lattice_cte <- 1
 field_energies <- seq(from=0, by=0.001, to=5)
