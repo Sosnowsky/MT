@@ -15,7 +15,7 @@ where $v$ is the electron-electron interaction and where $\hat{H}^{(1)}$ is the 
 
 Where $\lambda = \frac{\hbar^2}{4m^2c^2}$ is the spin orbit coupling constant and $\text{U}(\bs{r})$ is a periodic potential. The second quantized form of this Hamiltonian can be approximated by a version of the Hubbard model. The original Hubbard model, was developed to describe the single-band magnetism \cite{Hubbard1963}, it also describes the transition between conducting and insulating systems, predicting the existence of Mott insulators, materials which should be conducting according to band theory, but they are insulating due to electron-electron interactions.
 
-We will consider a half filled system in the strong coupling limit. Ignoring electron hopping and spin orbit interaction, the ground state of this system is massively degenerated. We will find an effective Hamiltonian considering that the hopping term and the spin interaction term act on this subspace. This effective Hamiltonian will be the sum of a spin exchange interaction $J\bs{S}_i\bs{S}_j$ with $J>0$ plus an anisotropic interaction of the form $\bs{D}\bs{S}_i\times\bs{S}_j$ \cite{Moriya1960}.
+We will consider a half filled system in the strong coupling limit. Ignoring electron hopping and spin orbit interaction, the ground state of this system is massively degenerated. We will find an effective Hamiltonian considering that the hopping term and the spin interaction term act on this subspace. This effective Hamiltonian will be the sum of three spin interactions: an exchange interaction $J\bs{S}_i\bs{S}_j$ with $J>0$, a Dzyaloshinkii-Moriya interaction $\bs{D}\bs{S}_i\times\bs{S}_j$ and an anisotropic interaction $\bs{S}_i \bs{\Gamma} \bs{S}_j$ known as pseudodipolar interaction \cite{Moriya1960}.
 
 \begin{section}{Single particle in a periodic potential}
 
@@ -85,13 +85,13 @@ t_{ij} = \begin{cases}
 and
 
 \begin{equation}
-\boldsymbol{\Delta}_{ij} = \begin{cases}
-             \boldsymbol{\Delta}_{ij},  & \text{for } (i,j) \text{ nearest neighbours} \\
+\bs{\Delta}_{ij} = \begin{cases}
+             \bs{\Delta}_{ij},  & \text{for } (i,j) \text{ nearest neighbours} \\
              0,  & \text{otherwise}
        \end{cases} \quad
 \end{equation}
 
-Hubard models with hopping terms further than nearest neighbors are also interesting and will be considered in next chapter. 
+Hubbard models with hopping terms further than nearest neighbors are also interesting and will be considered in next chapter.  
 
 \item Taking into account the locality of the Wannier functions and the Coulomb interaction, the dominant contribution of $\bra{ij} \hat{v} \ket{kl}$ will come from $i=j=k=l$. Terms with $i=k$ and $j=l$ also contribute when $i, j$ are nearest neighbours. Therefore we approximate:
 
@@ -315,7 +315,7 @@ J_{ij}^0 &= \frac{2t^2}{\text{U}} \label{Jij0} \\
 \bs{\Gamma_{ij}}^{\alpha \beta} &= \frac{1}{\text{U}}(\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta) \label{Gij0}
 \end{align}
 
-The $J_{ij}^0\bs{S}_i\bs{S}_j$ term is known as exchange interaction, in the $\bs{\Delta}_{ij} = 0$ limit (no SOI) we see that \ref{HeffNOEMF} reduces to the Heisenberg model. Since $J_{ij}^0 > 0$ this model describes an antiferromagnetic material. $\bs{D}_{ij}^0 \bs{S}_i \times \bs{S}_j$ is known as Dzyaloshinskii-Moriya
+The $J_{ij}^0\bs{S}_i\bs{S}_j$ term is known as exchange interaction, in the $\bs{\Delta}_{ij} = 0$ limit (no SOI) we see that \ref{HeffNOEMF} reduces to the Heisenberg model. Since $J_{ij}^0 > 0$ this model describes an antiferromagnetic material. However, the Hubbard model can also lead to ferromagnetic and paramagnetic magnetic behavior in non half-filled systems as shown in \cite{Hirsch1985} with a mean-field theory approach. $\bs{D}_{ij}^0 \bs{S}_i \times \bs{S}_j$ is known as Dzyaloshinskii-Moriya
 interaction (DMI), the symmetries of the crystal will restrict the direction of $\bs{D}_{ij}^0$ \cite{Moriya1960}. In the next chapter we will examine this further. Lastly $\bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j$ is an anisotropic term known as pseudodipolar interaction \citep{Moriya1960} and it is usually neglected since it is proportional to $\bs{\Delta}_{ij}^2$.
 
 \end{section}
@@ -351,8 +351,6 @@ This, together with $\bs{m}_i-\bs{l}_i = 2\bs{m}_i-1$ and $\bs{m}_{i+1} \rightar
 \begin{equation}
 \mathcal{H}(\bs{l},\bs{m}) = JS^2\left\{ 4|\bs{m}|^2 + |\partial_x\bs{l}'|^2 -  |\partial_x\bs{m}'|^2 +(\bs{m}\partial_x\bs{l} -\bs{l}\partial_x\bs{m}) \right\} -KS^2\left\{ (\bs{l}\hat{z})^2 + (\bs{m}\hat{z})^2 \right\}
 \end{equation}
-
-
 
 \end{section}
 
