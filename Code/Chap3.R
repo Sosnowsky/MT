@@ -95,7 +95,7 @@ system(paste0("mv ", current_file, ".pdf ../Chapters/", current_file, ".pdf"))
 EMax <- lapply(1:length(frequencies), function(i) which(D2_factor[[i]] <= 0)[1]-1 )
 res_ratio <- lapply(1:length(frequencies), function(i)  ratioJD[[i]][1:EMax[[i]]] )
 res_field_energies <- lapply(1:length(frequencies), function(i)  field_energies[1:EMax[[i]]])
-theta <- lapply(1:length(frequencies), function(i) asin((res_ratio[[i]]-sqrt(res_ratio[[i]]^2+32))/8) )  
+theta <- lapply(1:length(frequencies), function(i) asin((-res_ratio[[i]]+sqrt(res_ratio[[i]]^2+32))/8) )  
 
 current_file <- "theta"
 tikz(paste0(current_file, '.tex'), width = 4, height = 4, standAlone = TRUE,

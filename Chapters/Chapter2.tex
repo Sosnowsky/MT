@@ -86,30 +86,63 @@ and
 
 \begin{equation}
 \boldsymbol{\Delta}_{ij} = \begin{cases}
-             \boldsymbol{\Delta}_{ij},  & \text{for } (i,j) \text{ nearest neighbous} \\
+             \boldsymbol{\Delta}_{ij},  & \text{for } (i,j) \text{ nearest neighbours} \\
              0,  & \text{otherwise}
        \end{cases} \quad
 \end{equation}
 
-\item The dominant contribution of $\bra{ij} \hat{v} \ket{kl}$ will come from $i=j=k=l$ since the Coulomb interaction will be screened for further electrons. Therefore we approximate:
+Hubard models with hopping terms further than nearest neighbors are also interesting and will be considered in next chapter. 
+
+\item Taking into account the locality of the Wannier functions and the Coulomb interaction, the dominant contribution of $\bra{ij} \hat{v} \ket{kl}$ will come from $i=j=k=l$. Terms with $i=k$ and $j=l$ also contribute when $i, j$ are nearest neighbours. Therefore we approximate:
 
 \begin{equation}
 \bra{ij} \hat{v} \ket{kl} =
 	\begin{cases}
 		\text{U}, & \text{if } i=j=k=l \\
+		\text{V}, & \text{if } i=k \text{ and } j=l \text{ where } (i,j) \text{ nearest neighbours} \\
 		0, & \text{otherwise}
 	\end{cases}						
 \end{equation}
 
-i.e. $\text{U} = \int d\bs{r} d\bs{r}' \phi(\bs{r})^* \phi(\bs{r}')^* \hat{v}(\bs{r}-\bs{r}') \phi(\bs{r}') \phi(\bs{r})$, where $\phi(\bs{r})$ is the Wannier function centered at the origin. Additionally, for $i=j=k=l$ the Pauli principle requires $\sigma' = \sigma$.
+Where we defined:
+
+\begin{align}
+\text{U} &= \frac{1}{2} \int d\bs{r} d\bs{r}' \phi(\bs{r})^* \phi(\bs{r}')^* \hat{v}(\bs{r}-\bs{r}') \phi(\bs{r}') \phi(\bs{r}) \\
+\text{V} &= \int d\bs{r} d\bs{r}' \phi(\bs{r})^* \phi(\bs{r}'-\bs{R}_1)^* \hat{v}(\bs{r}-\bs{r}') \phi(\bs{r}'-\bs{R}_1) \phi(\bs{r})
+\end{align}
+
+Where $\phi(\bs{r})$ is the Wannier function centered at the origin and $\bs{R}_1$ is a nearest neighbour lattice vector. Notice that we made explicit use of the translational invariance of the system. Also, for $i=j=k=l$ the Pauli principle requires $\sigma' = -\sigma$.
 
 \end{itemize}
 
-Taking these approximations we obtain the single band Hubbard model:
+Taking these approximations and writing $\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}^\dagger \hat{c}_{j \sigma'} \hat{c}_{i \sigma} = \hat{n}_{i \sigma} \hat{n}_{j \sigma'}$, we obtain:
+
+\begin{equation}
+\label{HubbardWithNonLocalInt}
+\hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{ij} + \bs{\Delta}_{ij} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} + \text{V} \sum_{i,j,\sigma,\sigma'}  \hat{n}_{i \sigma} \hat{n}_{j \sigma'}
+\end{equation}
+
+Now, in a half filling system this Hamiltonian can be well approximated by an effective Hamiltonian without non local Coulomb interactions:
+
+\begin{equation}
+\label{Intermediate}
+\hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{ij} + \bs{\Delta}_{ij} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U}^* \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation}
+
+Where $\text{U}^* = \text{U} - \text{V}$. The physical reason for this is that the energy difference when the Coulomb interaction pushes an electron from a double occupied site to an empty site is $\text{U}-\text{V}$ in \ref{HubbardWithNonLocalInt}, because the number of double occupied sites is reduced by one but the number of adjacent occupied sites is increased by one. This is illustred in Figure \ref{Fig2.1}. A more rigouros derivation of this effective model can be found in \cite{Schuler2013}. Altough $\text{V} < \text{U}$, they can be comparable in magnitude, and $\text{U}^*$ can be reduced by a factor of $0.5$ or more.
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.5\linewidth]{../Figures/non_local_coulomb.png}
+  \caption{Image from \cite{Schuler2013}. In a half-filled system decreasing the number of double occupancies increases the number of adjacent occupied sites, and so the energy difference is reduced to $\text{U}-\text{V}$.} 
+\label{Fig2.1}
+\end{figure}
+
+Now, abusing the notation and writing $\text{U} = \text{U}^*$ we arrive at the Hubbard model that we will use in the next sections:
 
 \begin{equation}
 \label{Hubbard}
-\hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{ij} + \boldsymbol{\Delta}_{ij} \boldsymbol{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{ij} + \bs{\Delta}_{ij} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
 \end{equation}
 
 \end{section}
@@ -118,7 +151,7 @@ Taking these approximations we obtain the single band Hubbard model:
 
 At half filling, in the $t << \text{U}$ limit, which correspond to the strong coupling limit, we can apply perturbation theory to obtain the Heisenberg model from the Hubbard Hamiltonian \ref{Hubbard}. First notice that in the case $t = 0$ the ground state corresponds to having all sites single-occupied. There are two possible spin orientations for each sites, so there is a $2^M$ degeneracy. The ground state energy is $0$. The first exited states are obtained by moving one electron from one site to another, thus leaving one empty site and one double-occupied site. The energy of one of these states is $\text{U}$. Now, if we turn the kinetic term on as a perturbation, having two neighbors electrons with antiparallel spin will allow them to hop and reduce the kinetic energy, whereas while being parallel this hopping is not allowed and there is no energy reduction. Therefore, we can see that when turning the kinetic term on antiparallel alignment will be favored. 
 
-Let us write $\hat{H} = \hat{H}_0 + \hat{H}_t$, where $\hat{H}_0$ is the Hamiltonian for $t=0$ i.e. $\hat{H}_0 = \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ and $\hat{H_t} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t + \boldsymbol{\Delta}_{ij} \boldsymbol{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$. Let $\ket{\phi}$ and $\ket{\phi'}$ be states from the ground state of $\hat{H}_0$, then we know $\bra{\phi'} \hat{H_0} \ket{\phi} = 0$ and in first order in $t$ $\bra{\phi'} \hat{H} \ket{\phi} = \bra{\phi'} \hat{H_t} \ket{\phi} = 0$ since $\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma}$ moves an electron from site $j$ to $i$ thus leaving $i$ doubly occupied, therefore $\hat{H_t} \ket{\phi}$ has no superposition with $\phi'$. In second order we have:
+Let us write $\hat{H} = \hat{H}_0 + \hat{H}_t$, where $\hat{H}_0$ is the Hamiltonian for $t=0$ i.e. $\hat{H}_0 = \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ and $\hat{H_t} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t + \bs{\Delta}_{ij} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$. Let $\ket{\phi}$ and $\ket{\phi'}$ be states from the ground state of $\hat{H}_0$, then we know $\bra{\phi'} \hat{H_0} \ket{\phi} = 0$ and in first order in $t$ $\bra{\phi'} \hat{H} \ket{\phi} = \bra{\phi'} \hat{H_t} \ket{\phi} = 0$ since $\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma}$ moves an electron from site $j$ to $i$ thus leaving $i$ doubly occupied, therefore $\hat{H_t} \ket{\phi}$ has no superposition with $\phi'$. In second order we have:
 
 \begin{equation}
 \bra{\phi'} \hat{H} \ket{\phi} = \sum_s \frac{\bra{\phi'} \hat{H_t} \ket{s}\bra{s} \hat{H_t} \ket{\phi}}{E_0-E_s}
