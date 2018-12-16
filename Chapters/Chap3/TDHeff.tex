@@ -159,7 +159,7 @@ Now the effective Hamiltonian acts on the subspace of $\hat{P}_0$, therefore we 
 
 \begin{align}
 \hat{H}_{\text{eff}}(t) &= \hat{P}_0\hat{H}'^{(2)}(t)\hat{P}_0 = -\frac{1}{2}\sum_{mn} \left( \frac{\hat{P}_0  \hat{T}_{-1(m-n)}\hat{T}_{1n}\hat{P}_0}{\text{U}+n\omega} + \frac{\hat{P}_0 \hat{T}_{-1n} \hat{T}_{1(m-n)} \hat{P}_0}{\text{U}-n\omega} \right) e^{im\omega t} \nonumber \\
-&= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}\hat{T}_{1n} + \hat{T}_{-1-n}\hat{T}_{1(m+n)})\hat{P}_0}{\text{U}+n\omega} \right\} e^{im\omega t}
+&= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}\hat{T}_{1n} + \hat{T}_{-1-n}\hat{T}_{1(m+n)})\hat{P}_0}{\text{U}+n\omega} \right\} e^{im\omega t} \label{2ndOHeff}
 \end{align}
 
 Now, since the hopping operators act on the subspace $d=0$ and must remain within that subspace, therefore $\hat{P}_0 \hat{T}_{-1a} \hat{T}_{1b} \hat{P}_0$ will be a sum of all possible hoppings between two different sites:
@@ -185,5 +185,44 @@ Where we defined:
 \end{equation}
 
 In the following sections we will apply what we have derived here for different models of the hopping operator.
+
+\begin{subsection}{Time independent field}
+
+We would like to investigate the case in which the electric field is time independent. In that case we can restrict the analysis to the one dimensional case, since in second order the electric field will only affect the bonds parallel to the field. Let us denote $\vec{\bs{E}} = E_0 \hat{e}_x$, then the Peiels transformed hopping amplitudes can be written as:
+
+\begin{equation}
+\label{TimeIndepHoppingAmpl}
+t_{ij}^{\sigma \sigma'} (t) = t_{ij}^{\sigma \sigma'} e^{ie \vec{\bs{R}}_{ij} \vec{\bs{E}} t}
+\end{equation}
+
+Therefore, there will be only two Fourier modes with frequency $\omega_0 = e \vec{\bs{R}}_{ij} \vec{\bs{E}} = \pm eaE_0$, where the sign $+(-)$ corresponds to the case $\vec{\bs{R}}_{ij} = \pm a \hat{e}_x$. Notice that this frequency $\omega_0$ does not correspond to a field frequency ($\vec{\bs{E}}$ is time independent), but to the Fourier mode in the hopping amplitudes (which is induced by the time independent field). From this point we can apply the same procedure as in the general case up to \ref{2ndOHeff}. We can greatly simplify this by considering that:
+\begin{itemize}
+	\item $n$ can only take values $ n = \pm 1$ (there are no additional Fourier modes).
+	\item When restricted to the low energy subspace a product $\hat{T}_{-1 a} \hat{T}_{1 b}$ will only contribute when $a$ and $b$ have opposite signs ($a=1, b=-1$ or viceversa). This is because, in the low energy subspace $\hat{T}_{-1 a} \hat{T}_{1 b}$ can only represent a hopping from a site $i$ to a site $j$ and the hopping back to $i$, we can see from \ref{TimeIndepHoppingAmpl} that these two amplitudes will be in opposite Fourier modes.
+\end{itemize}
+
+Taking this into consideration we see that only $m=0$ terms will remain, which is consistent with the fact that the two phases cancel out in the process $i \rightarrow j \rightarrow i$. We can thus rewrite \ref{2ndOHeff} as:
+
+\begin{equation}
+\hat{H}_{\text{eff}} = -\hat{P}_0 \left\{ \frac{\hat{T}_{-1,1}\hat{T}_{1,-1} }{\text{U}-\omega_0} + \frac{\hat{T}_{-1,-1}\hat{T}_{1,1} }{\text{U}+\omega_0} \right\} \hat{P}_0
+\end{equation}
+
+Now, the first fraction represents a hopping process $i\rightarrow j \rightarrow i$ where $j$ lies left to $i$, whereas in the second fraction $j$ lies right to $i$:
+
+\begin{align*}
+\hat{P}_0 \hat{T}_{-1,1} \hat{T}_{1,-1} \hat{P}_0 &= \sum_{i > j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} \\
+\hat{P}_0 \hat{T}_{-1,-1} \hat{T}_{1,1} \hat{P}_0 &= \sum_{i < j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} 
+\end{align*}
+
+We can rewrite this in the more compact form:
+
+\begin{equation}
+\label{TimeIndepHeff}
+\hat{H}_{\text{eff}} = -\sum_{i, j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \frac{t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4}}{\text{U} + \text{sgn}(j-i)\omega_0}
+\end{equation}
+
+This is the same effective Hamiltonian obtained in the previous section without an electric field but with a shift in the intermediate state energy by $\pm \omega_0 = \pm eaE_0$. We will analyze the corresponding spin Hamiltonian of this effective Hamiltonian when we consider the Kane-Mele-Hubbard model in Section \ref{section3NNN}.
+
+\end{subsection}
 
 \end{section}

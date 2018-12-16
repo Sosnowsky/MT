@@ -1,5 +1,7 @@
 \begin{section}{Including next nearest neighbor hopping}
 
+\label{section3NNN}
+
 In the previous sections we have seen that the second order perturbation effective Hamiltonian will contain the following terms:
 
 \begin{itemize}
@@ -20,6 +22,7 @@ And all these coupling factors will be renormalized by the laser field. This ren
 Where sum over next-nearest neighbors is denoted by $\langle \langle i j \rangle \rangle$. This Hamiltonian is the same we studied in section \ref{Section3HubbardSOI} plus a NNN hopping and SOI term. The hopping amplitudes thus are:
 
 \begin{equation}
+\label{BigHamHoppingAmp}
 t_{ij}^{\sigma \sigma'} = \begin{cases}
 	(\delta_{\sigma \sigma'}t_1+\bs{\Delta}_{1,ij} \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ nearest neighbors} \\
 	(\delta_{\sigma \sigma'}t_2+\bs{\Delta}_{2,ij} \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ next nearest neighbors} \\
@@ -116,6 +119,31 @@ J_{2,ij} &= t_2^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
 \end{align*}
 
 Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. In the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In Hamiltonian \ref{MKMHeff} we expect SDW to appear in the ground state and the SDW wavevector will be determined by a function of the parameters of this model. In the next section we will do a numerical of study on how modifying the ratio between NN and NNN spin interaction factors can change the spin state of the system.
+
+\end{subsection}
+
+\begin{subsection}{Time independent electric field in the NN + NNN Hamiltonian}
+
+Now, let us examine the case in which the applied electric field is time independent. In this case the effective Hamiltonian is \ref{TimeIndepHeff}, which is the same Hamiltonian obtained when no electric field is applied except for a shift in the intermediate energy by $\pm \omega_0 = e\bs{\vec{R}}_{ij}\bs{\vec{E}}_0$. In this case, if we consider a Hamiltonian such as \ref{BigHam}, we can follow the same procedure done before: we plug in the hopping amplitudes \ref{BigHamHoppingAmp} into \ref{TimeIndepHeff} and apply \ref{SpinRel1} to sum over the spin states and obtain the corresponding spin Hamiltonian. We obtain:
+
+\begin{align}
+\hat{H}_{\text{eff}}(t) = &\sum_{\langle i,j \rangle ^*} \left\{ J_{1,ij}\bs{S}_i\bs{S}_j + \bs{D}_{1,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{1,ij}\bs{S}_j\right\} + \nonumber \\
+&\sum_{\langle \langle i,j \rangle \rangle^*} \left\{ J_{2,ij}\bs{S}_i\bs{S}_j + \bs{D}_{2,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{2,ij}\bs{S}_j\right\}
+\end{align}
+
+$\langle i,j \rangle ^*$ denotes sum over NN avoiding repeating the same two sites. The coupling factors are:
+
+\begin{align}
+J_{n,ij} &= 4\frac{t_n^2}{U^*_{ij}} \\
+\bs{D}_{n,ij} &= 8\frac{t_n i\bs{\Delta}_{n,ij}}{U^*_{ij}} \\
+\Gamma_{n,ij}^{\alpha \beta} &= \frac{4}{U^*_{ij}}(\delta_{\alpha \beta} \bs{\Delta}_{n,ij}^2 - 2\Delta_{n,ij}^\alpha\Delta_{n,ij}^\beta )
+\end{align}
+
+Where:
+
+\begin{equation}
+\frac{1}{U^*_{ij}} =  \frac{1}{2}\left( \frac{1}{\text{U} - e\bs{\vec{R}}_{ij}\bs{\vec{E}}_0} + \frac{1}{\text{U} + e\bs{\vec{R}}_{ij}\bs{\vec{E}}_0} \right)
+\end{equation}
 
 \end{subsection}
 
