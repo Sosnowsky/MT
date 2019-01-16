@@ -326,7 +326,7 @@ interaction (DMI), the symmetries of the crystal will restrict the direction of 
 
 \end{section}
 
-\begin{section}{Next-nearest neighbor hopping}
+\begin{subsection}{Next-nearest neighbor hopping}
 This analysis can be easily extended to electronic Hamiltonians including next-nearest neighbor (NNN) hopping term. The simplest example of such a Hamiltonian is:
 
 \begin{equation}
@@ -343,7 +343,27 @@ Where $J_1 = \frac{t_1^2}{\text{U}}$ and $J_2 = \frac{t_2^2}{\text{U}}$. This Ha
 
 Notice that we can also obtain a $J_1-J_2$ Heisenberg model starting simply from a NN hamiltonian $\hat{H} = -\sum_{\langle i,j \rangle, \sigma}t_{1}\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$. This is because the NNN exchange interaction comes from the possibility of the process $i\sigma \rightarrow j\sigma \rightarrow i\sigma$ being $i,j$ NNN. This process is available when sites $i, j$ have opposite spins (otherwise it would violate the Pauli principle). Now, when $i,j$ are NNN, we can consider the fourth order process $i\sigma \rightarrow k\sigma \rightarrow j\sigma \rightarrow k\sigma \rightarrow i\sigma$, where $k$ is a site between $i$ and $j$. The resulting effective spin Hamiltonian has exchange couplings $J_1 = 2\frac{t_1^2}{\text{U}} - 8 \frac{t_1^4}{\text{U}^3}$ and $J_2 = 2\frac{t^4}{\text{U}}$. A rigorous derivation can be found in \cite{MacDonald1988}. 
 
-\end{section}
+\end{subsection}
+
+\begin{subsection}{Introducing disorder}
+
+It is possible to consider a disordered Hubbard model by adding random uncorrelated on-site energies. We neglect the SOI term for simplicity, then the disordered Hubbard model can be written as:
+
+\begin{equation}
+\label{DisorderedHubbardModel}
+\hat{H} = -t\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} +
+\sum_{i \sigma} \epsilon_i \hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation}
+
+Where $\epsilon_i$ are random variable $\epsilon_i \in [-W,W]$. At half filling we can derive an effective Hamiltonian using the same procedure as before. The second order virtual hopping $i\sigma \rightarrow j\sigma \rightarrow i\sigma$ will give rise to an exchange spin interaction. In this case, however, the intermediate energy is $\text{U} + (\epsilon_j - \epsilon_i)$. Therefore the spin Hamiltonian will be:
+
+\begin{equation}
+\hat{H}_{\text{eff}} = \sum_{\langle i,j \rangle} \frac{2t^2}{\text{U} + (\epsilon_j - \epsilon_i)} \bs{S}_i\bs{S}_j = \sum_{\langle i,j \rangle} \frac{2t^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2} \bs{S}_i\bs{S}_j = \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i\bs{S}_j
+\end{equation}
+
+Where in the second step we added the contributions of $\langle i,j \rangle$ and $\langle j,i \rangle$ and where $J_{ij} = \frac{2t^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}$. This model is relevant for studying many-body localization phenomena \cite{Protopopov}.
+
+\end{subsection}
 
 \begin{section}{AFM dynamics}
 
