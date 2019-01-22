@@ -100,4 +100,22 @@ From here we can see that if we take the same approximation as in \ref{Jij2} we 
 
 \end{subsection}
 
+\begin{subsection}{Dielectric permittivity}
+
+Using the approximation for the exchange coupling constant for circular polarized light derived in \ref{JijCPSQUARE} we can write the free energy of the system $\Phi$ as:
+
+\begin{align}
+\Phi &= \Phi_0 + \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i \bs{S}_j = \nonumber \\
+&= \Phi_0 + \sum_{\langle i,j \rangle} J_{ij}^0 \bs{S}_i \bs{S}_j + |\vec{E}_0|^2 \frac{t_0^2 e^2 a^2}{\omega}\left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)\sum_{\langle i,j \rangle} \bs{S}_i \bs{S}_j
+\end{align}
+
+Then, the dielectric permittivity is $\epsilon_{kl} = \frac{\partial^2 \Phi}{\partial E_k \partial E_l}$, i.e., the dielectric permittivity is isotropic $\epsilon_{kl} = \epsilon$ and:
+
+\begin{equation}
+\epsilon = \epsilon^0 + 2\frac{t_0^2 e^2 a^2}{\omega}\left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)\sum_{\langle i,j \rangle} \bs{S}_i \bs{S}_j
+\end{equation}
+
+Where $\epsilon^0 = \frac{\partial^2 \Phi_0}{\partial E_k \partial E_l}$. The refractive index will therefore depend on the magnetization of the antiferromagnet, this was already demonstrated experimentally in the 80's \cite{Demokritov1985}.
+\end{subsection}
+
 \end{section}

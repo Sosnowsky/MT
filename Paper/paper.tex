@@ -1,0 +1,109 @@
+% !TEX spellcheck = en-US
+\documentclass[aps,prl,twocolumn,amsmath,amssymb,superscriptaddress]{revtex4}%
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+%\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{fancybox}
+\usepackage{amsfonts}
+\usepackage{amssymb}%
+\usepackage[toc,page]{appendix}
+\setcounter{MaxMatrixCols}{30}
+
+
+\renewcommand{\cite}[1]{{[}\onlinecite{#1}{]}}
+
+\newcommand{\s}{\sum\limits}
+\newcommand{\p}{\prod\limits}
+\newcommand{\pa}{\partial}
+\newcommand{\il}{\int\limits}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\e}{\end{equation}}
+\newcommand{\beml}{\begin{subequations}}
+\newcommand{\eml}{\end{subequations}}
+\newcommand{\beq}{\begin{eqnarray}}
+\newcommand{\eq}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bpm}{\begin{pmatrix}}
+\newcommand{\epm}{\end{pmatrix}}
+\newcommand{\bc}{\begin{cases}}
+\newcommand{\ec}{\end{cases}}
+\newcommand{\lt}{\left}
+\newcommand{\rt}{\right}
+\newcommand{\n}{\nonumber}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\dd}{\displaystyle}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\h}{^\dagger}
+\newcommand{\ph}{^{\phantom{\dagger}}}
+\newcommand{\one}{\openone}
+\newcommand{\ut}{\underaccent{\tilde}}
+\newcommand{\ul}{\underaccent{\bar}}
+\newcommand{\up}{\uparrow}
+\newcommand{\dn}{\downarrow}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\ctg}{cotan}
+\DeclareMathOperator{\arcsh}{arcsinh}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\rot}{rot}
+
+\newcommand{\AQ}[1]{\textbf{\textcolor{red}{{#1}}}}
+
+\begin{document}
+\title{Ultrafast manipulation of Heisenberg exchange and Dzyaloshinskii–Moriya interactions in antiferromagnetic insulators}
+
+
+\begin{abstract}
+This is the abstract.
+\end{abstract}
+
+\date{\today}
+\maketitle
+
+\begin{section}{Model and calculations}
+
+We will start we a general Hamiltonian:
+
+\begin{equation}
+\hat{H} = -\sum_{ij\sigma \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U}\hat{D}
+\end{equation}
+
+Where $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. The hopping term $-\hat{T} = -\sum_{ij\sigma \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$ can describe various models. We will be interested in:
+
+\begin{itemize}
+	\item The Hubbard model, in which the hopping does not change the spin, $t_{ij}^{\sigma \sigma'} = \delta_{\sigma \sigma'}t$ for $i,j$ NN and $t_{ij}^{\sigma \sigma'} = 0$ otherwise.
+	\item The so-called Kane-Mele-Hubbard model, which includes a spin-dependent term araising from spin-obit interactions.
+	\begin{equation}
+t_{ij}^{\sigma \sigma'} = \begin{cases}
+	\delta_{\sigma \sigma'}t_1 & \text{for } i, j \text{ nearest neighbors} \\
+	-\Delta \nu_{ij} \hat{e}_z \cdot \bs{\sigma}_{\sigma, \sigma'} & \text{for } i, j \text{ next nearest neighbors} \\
+	0 & \text{ otherwise} \n
+\end{cases} \quad
+\end{equation}
+\end{itemize}
+
+The only assumption we will make about $\hat{T}$ is that it is proportional to any power of $\hat{p}$ in which case we can apply the Peierls substitution (\ref{AP3A}) to introduce to take into account the effect of the electromagnetic perturbation in the lattice. The strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitude, therefore, in a half filling system the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act.
+
+In terms of on-site creation and annihilation operators we can write the hopping operator as $\hat{T} = \sum_{i,j, \sigma, \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$. In the simplest case, for example, the sum would be restricted to nearest neighbors and the hopping amplitude would be diagonal in the spin state. With this notation, in presence of a vector potential $\vec{A}(t)$ (which we assume to not vary noticeably in the scale of the lattice) the Peierls substitution leads to an extra time dependent phase in the hopping amplitude:
+\end{section}
+
+\section*{Acknowledgments}
+
+\begin{thebibliography}{9}
+
+\end{thebibliography}
+
+\end{document}
+
+
