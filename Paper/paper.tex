@@ -80,7 +80,7 @@ We will start we a general Hamiltonian:
 \hat{H} = -\sum_{ij\sigma \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U}\hat{D}
 \end{equation}
 
-Where $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes, therefore the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act.
+Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$, $t_{ij}^{\sigma \sigma'}$ are the hopping amplitudes originating from kinetik terms or spin orbit interaction. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes, therefore the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act.
 
 The hopping term $-\hat{T} = -\sum_{ij\sigma \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$ can describe various models. We will be interested in:
 
@@ -116,20 +116,98 @@ With $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$ in such a way that:
 \theta_{ij} &= \theta_{ji} \label{thetaSym}
 \end{align}
 
-and $\theta_{ij} \in \left[0,\pi\right)$. Then we can apply the Jacobi–Anger expansion:
+and $\theta_{ij} \in \left[0,\pi\right)$. Then we can apply the Jacobi-–Anger expansion:
 
-\begin{align*}
-t_{ij}^{\sigma \sigma'}(t) = t_{ij}^{\sigma \sigma'}e^{ie\bs{R}_{ij}\bs{A}(t)} = t_{ij}^{\sigma \sigma'}e^{i\alpha_{ij} \cos(\omega t - \theta_{ij})} = t_{ij}^{\sigma \sigma'}\sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} = \sum t_{ij,m}^{\sigma \sigma'} e^{im\omega t}
-\end{align*}
+\begin{align}
+t_{ij}^{\sigma \sigma'}(t) &= t_{ij}^{\sigma \sigma'}\sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} = \n \\
+&= \sum t_{ij,m}^{\sigma \sigma'} e^{im\omega t}
+\end{align}
 
-Where we defined 
+Where we defined $t_{ij,m}^{\sigma \sigma'} = t_{ij}^{\sigma \sigma'} e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij})$, which is the \textit{m}th Fourier mode of the hopping term and $\mathcal{J}_m(x)$ is the \textit{m}th Bessel function \cite{Kitamura2017}. In order to derive the form of the effective Hamiltonian let us introduce a time dependent unitary transformation $\hat{U}(t) = e^{-i\hat{S}(t)}$. The transformed Hamiltonian is:
 
 \begin{equation}
-\label{HoppAmpFourier}
-t_{ij,m}^{\sigma \sigma'} = t_{ij}^{\sigma \sigma'} e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij})
+\hat{H}'(t) = e^{i\hat{S}(t)} \hat{H}(t) e^{-i\hat{S}(t)} - e^{i\hat{S}(t)} id_t e^{-i\hat{S}(t)}
+\end{equation} 
+
+We perform the unitary transformation perturbatively in the hopping operator, we can formally write $\hat{T}(t) = \eta \hat{T}(t)$, where $\eta$ will play the role of a bookkeeping parameter in the perturbative expansion. We expand $\hat{S}(t) = \sum_\nu \eta^\nu \hat{S}^{(\nu)}(t)$ and $\hat{H}'(t) = \sum_\nu \eta^\nu \hat{H}'^{(\nu)}(t)$. In order for the new Hamiltonian to be periodic we impose the unitary transformation to have the periodicity of the Hamiltonian, so that we can expand $\hat{S}^{(\nu)}(t) = \sum_m e^{im\omega t}\hat{S}^{(\nu)}_m$. Additionally we can impose the transformed Hamiltonian to be block diagonal in the doublon number $d$. With these conditions the unitary transformation can be uniquely determined if we impose that $\hat{S}(t)$ does not contain block-diagonal terms, i.e. we can write:
+\begin{equation}
+\hat{S}^{(\nu)}(t) = \sum_{d \neq 0} \sum_m \eta^\nu \hat{S}^{(\nu)}_{d,m} e^{im\omega t}
+\end{equation}
+where $\hat{S}^{(\nu)}_{d,m}$ changes the double occupancy number by $d$.
+
+Let $\hat{P}_0$ be the projection operator to the $d=0$ subspace. Then we obtain $\hat{P}_0\hat{H}'^{1}(t)\hat{P}_0 = 0$, we define $\hat{H}_{\text{eff}}$ to be the time average of $\hat{P}_0\hat{H}'^{2}(t)\hat{P}_0$. We obtain:
+
+\begin{align}
+\hat{H}_{\text{eff}} &= - \sum_{i,j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left\{ \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} \right. \n \\
+&t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \sum_{n} \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \left. \right\} \label{GeneralHeff}
+\end{align}
+
+We can obtain the spin Hamiltonian by using the relations:
+\begin{align}
+\hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
+\hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
+\end{align}
+and $n_{i \uparrow} + n_{i \downarrow} = 1$.
+
+\begin{subsection}{Kane--Mele--Hubbard model}
+
+The first model to describe topological insulators was introduced by Kane and Mele \cite{Kane2005} to describe quantum spin Hall effect in graphene. In a honeycomb lattice time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model, which has hopping amplitudes:
+
+\begin{equation}
+t_{ij}^{\sigma \sigma'} = \begin{cases}
+	\delta_{\sigma \sigma'}t_1 & \text{for } i, j \text{ nearest neighbors} \\
+	-\Delta \nu_{ij} \hat{e}_z \cdot \bs{\sigma}_{\sigma, \sigma'} & \text{for } i, j \text{ next nearest neighbors} \\
+	0 & \text{ otherwise} \n
+\end{cases} \quad
 \end{equation}
 
-Which is the \textit{m}th Fourier mode of the hopping term and $\mathcal{J}_m(x)$ is the \textit{m}th Bessel function \cite{Kitamura2017}. 
+Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). Then, introducing the spin operators and the corresponding hopping amplitudes in (\ref{GeneralHeff}) we obtain the effective spin Hamiltonian of this model:
+
+\begin{equation}
+\label{KMHeff}
+\hat{H}_{\text{KMH}}^{\text{eff}} = \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i \bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j 
+\end{equation}
+
+Where the exchange interaction couples NN spins and an anisotropic exchange interaction couples NNN spins:
+
+\begin{align*}
+J_{ij} &= 2t_1^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
+\bs{\Gamma}_{ij} &= 2\Delta^2 \text{diag}(-1,-1,1)\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega}
+\end{align*}
+\end{subsection}
+
+\begin{subsection}{Modified Kane--Mele--Hubbard model}
+
+As we saw in the previous section the effective Hamiltonian \ref{KMHeff} does not contain NNN DMI terms. The reason for this is because DMI originates from the virtual hoppings $i\rightarrow j\rightarrow i$ combining SOI hopping and kinetik hopping, since in the original Kane-Mele model we don't find NNN kinetik hopping, the DMI term vanishes. Next we will study the same Hamiltonian adding a finite NNN hopping term $t_2$, which can be understood as a second order NN hopping process (the direct NNN hopping integral would usually be much smaller). Thus we start with:
+
+\begin{align}
+\label{MKMH}
+\hat{H} &= - t_1\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \n \\
+	&+\sum_{\langle \langle i,j \rangle \rangle, \sigma}(t_2 + i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + 
+	\text{U}\hat{D}
+\end{align}
+
+Proceeding in the same way we find the effective spin Hamiltonian:
+
+\begin{align}
+\label{MKMHeff}
+&\hat{H}_{\text{eff}}(t) = \sum_{\langle i,j \rangle} J_{1,ij}\bs{S}_i\bs{S}_j +\n \\
+&+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}\bs{S}_i\bs{S}_j + \bs{D}_{2,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j \right\}
+\end{align}
+
+Where:
+
+\begin{align*}
+J_{1,ij} &= 2t_1^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
+J_{2,ij} &= 2t_2^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
+\bs{D}_{2,ij} &= - 4\nu_{ij} t_2 \Delta \hat{e}_z \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
+\bs{\Gamma}_{2,ij} &= 2\Delta^2 \text{diag}(-1,-1,1) \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega}
+\end{align*}
+
+Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. In the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In Hamiltonian \ref{MKMHeff} we expect SDW to appear in the ground state and the SDW wavevector will be determined by a function of the parameters of this model. In the next section we will do a numerical of study on how modifying the ratio between NN and NNN spin interaction factors can change the spin state of the system.
+
+\end{subsection}
+
 \end{section}
 
 \section*{Acknowledgments}
