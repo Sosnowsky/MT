@@ -80,7 +80,7 @@ We will start we a general Hamiltonian:
 \hat{H} = -\sum_{ij\sigma \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U}\hat{D}
 \end{equation}
 
-Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$, $t_{ij}^{\sigma \sigma'}$ are the hopping amplitudes originating from kinetik terms or spin orbit interaction. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes, therefore the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act.
+Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$, $t_{ij}^{\sigma \sigma'}$ are the hopping amplitudes originating from both kinetic terms or spin orbit interaction. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes, therefore the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act.
 
 The hopping term $-\hat{T} = -\sum_{ij\sigma \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$ can describe various models. We will be interested in:
 
@@ -127,15 +127,20 @@ Where we defined $t_{ij,m}^{\sigma \sigma'} = t_{ij}^{\sigma \sigma'} e^{i(\frac
 
 \begin{equation}
 \hat{H}'(t) = e^{i\hat{S}(t)} \hat{H}(t) e^{-i\hat{S}(t)} - e^{i\hat{S}(t)} id_t e^{-i\hat{S}(t)}
+\label{Htransformed}
 \end{equation} 
 
 We perform the unitary transformation perturbatively in the hopping operator, we can formally write $\hat{T}(t) = \eta \hat{T}(t)$, where $\eta$ will play the role of a bookkeeping parameter in the perturbative expansion. We expand $\hat{S}(t) = \sum_\nu \eta^\nu \hat{S}^{(\nu)}(t)$ and $\hat{H}'(t) = \sum_\nu \eta^\nu \hat{H}'^{(\nu)}(t)$. In order for the new Hamiltonian to be periodic we impose the unitary transformation to have the periodicity of the Hamiltonian, so that we can expand $\hat{S}^{(\nu)}(t) = \sum_m e^{im\omega t}\hat{S}^{(\nu)}_m$. Additionally we can impose the transformed Hamiltonian to be block diagonal in the doublon number $d$. With these conditions the unitary transformation can be uniquely determined if we impose that $\hat{S}(t)$ does not contain block-diagonal terms, i.e. we can write:
 \begin{equation}
 \hat{S}^{(\nu)}(t) = \sum_{d \neq 0} \sum_m \eta^\nu \hat{S}^{(\nu)}_{d,m} e^{im\omega t}
 \end{equation}
-where $\hat{S}^{(\nu)}_{d,m}$ changes the double occupancy number by $d$.
+where $\hat{S}^{(\nu)}_{d,m}$ changes the double occupancy number by $d$. From here the procedure is simple but lenghty, we expand \ref{Htransformed} in power series of $\eta$ and determine $\hat{S}^{(\nu)}(t)$ iteratively in $\nu$ so that $\hat{H}'^{(\nu)}(t)$ is diagonal in the doublon number. Up to second order we obtain:
+\begin{align}
+&\hat{H}'(t) \approx \text{U}\hat{D} - \sum_m \hat{T}_{0,m}(t)e^{im\omega t} + \n \\
+&+ \frac{1}{2}\sum_{mn} \left( \frac{\left[\hat{T}_{1n}, \hat{T}_{-1(m-n)} \right]}{\text{U}+n\omega} - \frac{\left[\hat{T}_{-1n}, \hat{T}_{1(m-n)} \right]}{\text{U}-n\omega} \right) e^{im\omega t}
+\end{align}
 
-Let $\hat{P}_0$ be the projection operator to the $d=0$ subspace. Then we obtain $\hat{P}_0\hat{H}'^{1}(t)\hat{P}_0 = 0$, we define $\hat{H}_{\text{eff}}$ to be the time average of $\hat{P}_0\hat{H}'^{2}(t)\hat{P}_0$. We obtain:
+Let $\hat{P}_0$ be the projection operator to the $d=0$ subspace. Then notice that $\hat{P}_0\hat{H}'^{1}(t)\hat{P}_0 = 0$, we define $\hat{H}_{\text{eff}}$ to be the time average of $\hat{P}_0\hat{H}'^{2}(t)\hat{P}_0$. Expressed in terms of creation and anihilation operators we obtain:
 
 \begin{align}
 \hat{H}_{\text{eff}} &= - \sum_{i,j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left\{ \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} \right. \n \\
