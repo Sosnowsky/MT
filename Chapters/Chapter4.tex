@@ -1,0 +1,107 @@
+\chapter{Perturbing the lattice}
+
+In this chapter we will derive an effective spin Hamiltonian for different models in the presence of a high frequency electromagnetic perturbation. The goal is to manipulate $J$ and $\bs{D}_{ij}$ in \ref{HeffNOEMF} separately. This has already been done for the case of Mott insulators (\cite{Mentink2015}, \cite{Kitamura2017}) where the starting Hamiltonian is the Hubbard model:
+
+\begin{equation*}
+\hat{H} = -t_0\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation*} 
+
+In this model, since SOI is not taken into account, only the exchange interaction $J$ plays a role. The electromagnetic perturbation is then introduced via the Peierls substitution. We reproduce the result in section \ref{Section3Hubbard}. In the following sections we extend the analysis to different systems with spin orbit interaction thereby modulating $\bs{D}_{ij}$ or other spin interactions. The simplest model with spin orbit interaction is \ref{Hubbard}:
+
+\begin{equation*}
+\hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{0} + \bs{\Delta}_{ij} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation*}
+
+Which is the same Hubbard model plus a spin dependent hopping term, which represents Rashba SOI for $\bs{\Delta}_{ij} = i\Delta_R(R_{ij}^y, -R_{ij}^x, 0)$ or Dresselhaus SOI for $\bs{\Delta}_{ij} = i\Delta_R(R_{ij}^x, -R_{ij}^y, 0)$. In section \ref{Section3HubbardSOI} we show how the exchange interaction and the DMI couplings are modulated in presence of an electromagnetic field.  
+
+In the case of graphene or other coplanar honeycomb lattice structures, nearest neighbor Rashba terms are not allowed by symmetry, and only next nearest neighbor (NNN) spin conserving terms contribute \cite{Kane2005}, this term opens a gap in the band structure describing a topological insulator. For this case we examine the Kane-Mele-Hubbard model. The effective spin model of this Hamiltonian contains the usual exchange interaction and DMI and, in addition, it exhibits anisotropic exchange interaction arising from the intrinsic SOI term. This new term has already been obtained in \cite{Rachel2010} without taking into account any electromagnetic field.
+
+Non-coplanar honeycomb lattice may exhibit intrinsic Rashba interactions between NNN \cite{Liu2011}, this, together with a NNN hopping (which would arise from direct overlapping of the next nearest neighbor Wannier functions or from second order processes) will lead to NNN DMI.
+
+
+\input{Chapters/Chap3/TDHeff}
+
+\input{Chapters/Chap3/HNoSoi}
+
+\input{Chapters/Chap3/HWithSoi}
+
+\input{Chapters/Chap3/ModelsNNN}
+
+\input{Chapters/Chap3/Numerics}
+
+\begin{subappendices}
+\begin{section}{Peierls Substitution}
+\label{AP3A}
+
+In first quantization we can introduce a vector potential $\bs{A}(\bs{r},t)$ by changing the Hamiltonian of the lattice \ref{LaticeHam} to:
+
+\begin{equation}
+\label{HamEMF}
+  \hat{H}'(\bs{r}) = \frac{(\bs{p}-e\bs{A})^2}{2m} +U(\bs{r})
+\end{equation}
+
+Now the Bloch functions defined for \ref{LaticeHam} will not be eigenfunctions of this Hamiltonian. We define a new set of Wannier functions in terms of those defined in \ref{Wannier2}, and obtain the new Bloch functions. 
+
+\begin{align}
+\psi'_{\bs{R}}(\bs{r}) &= e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \psi_{\bs{R}}(\bs{r}) \\
+\phi'_{\bs{k}}(\textbf{r}) &= \frac{1}{\sqrt{M}}\sum_{\bs{R}} e^{-i\bs{k}\bs{R}}\psi'_{\bs{R}}(\bs{r}) = \frac{1}{\sqrt{M}}\sum_{\bs{R}} e^{-i\bs{k}\bs{R}} e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \psi_{\bs{R}}(\bs{r})
+\end{align}
+
+Where we omitted the band number. The action of the new Hamiltonian is greatly simplified:
+
+\begin{align*}
+\hat{H}'(\bs{r}) \psi'_{\bs{R}} (\bs{r}) &= \left[ \frac{(\bs{p}-e\bs{A})^2}{2m} +U(\bs{r}) \right] e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \psi_{\bs{R}}(\bs{r}) = \\
+&=e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \left[ \frac{(\bs{p} - i\hbar \bs{\nabla_r}(i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)) -e\bs{A})^2}{2m} +U(\bs{r}) \right] = \\
+&= e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \left[ \frac{\bs{p}^2}{2m} + U(\bs{r}) \right] \psi_{\bs{R}}(\bs{r}) = e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}} d\bs{r}'\bs{A}(\bs{r}',t)} \hat{H}(\bs{r}) \psi_{\bs{R}}(\bs{r})
+\end{align*}
+
+And so, the matrix elements as in the case without field except for a phase:
+
+\begin{equation}
+\label{PeierlsMtxElem}
+t_{ij}(t) = \bra{\psi'_{\bs{R_i}}} \hat{H}'(\bs{r}) \ket{\psi'_{\bs{R_j}}} = e^{i\frac{e}{\hbar}\int_{\bs{R}_j}^{\bs{R}_i} d\bs{r}'\bs{A}(\bs{r}',t)} \bra{\psi_{\bs{R_i}}} \hat{H}(\bs{r}) \ket{\psi_{\bs{R_j}}}
+\end{equation}
+
+When the field can be approximated as constant along the lattice we have: $e^{i\frac{e}{\hbar}\int_{\bs{R}_j}^{\bs{R}_i} d\bs{r}'\bs{A}(\bs{r}',t)} = e^{i\frac{e}{\hbar} (\bs{R}_i-\bs{R}_j) \bs{A}(t)}$.
+
+Notice that this substitution also applies if we add a Rashba Spin-Orbit interaction term to \ref{HamEMF}, i.e., if $\hat{H}'(\bs{r}) = \frac{(\bs{p}-e\bs{A})^2}{2m} +U(\bs{r}) + \alpha_R \hat{z}(\hat{\bs{\sigma}} \times (\bs{p}-e\bs{A}))$, then
+
+\begin{align*}
+  \alpha_R \hat{z}(\hat{\bs{\sigma}} \times (\bs{p}-e\bs{A})) \psi'_{\bs{R}} &= \alpha_R(\hat{\sigma_x}(\hat{p}_y-e\bs{A}) - \hat{\sigma_y}(\hat{p}_x-e\bs{A})) e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}}d\bs{r}'\bs{A}(\bs{r}',t)} \psi_{\bs{R}} = \\
+  &= e^{i\frac{e}{\hbar}\int_{\bs{R}}^{\bs{r}}d\bs{r}'\bs{A}(\bs{r}',t)} \alpha_R \hat{z}\hat{\bs{\sigma}} \times \bs{p} \psi_{\bs{R}}
+\end{align*}
+
+Therefore relation \ref{PeierlsMtxElem} still holds.
+
+\end{section}
+
+\begin{section}{Identities}
+\label{AP3B}
+Let $Z(t)$ be an operator dependent on the parameter $t$. Then:
+
+\begin{align*}
+d_t e^{Z} &= d_t \sum_{n=0}^\infty \frac{1}{n!} Z^n = \sum_{n=0}^\infty \sum_{m=0}^{n-1} \frac{1}{n!} Z^m \frac{\partial Z}{\partial t} Z^{n-m-1} = \\
+&= \sum_{m=0}^\infty \sum_{p=0}^\infty \frac{1}{(m+p+1)!}Z^m \frac{\partial Z}{\partial t} Z^p = \sum_{m=0}^\infty \sum_{p=0}^\infty \frac{m!p!}{(m+p+1)!} \frac{Z^m}{m!} \frac{\partial Z}{\partial t} \frac{Z^p}{p!} =\\
+&= \sum_{m=0}^\infty \sum_{p=0}^\infty \int_0^1 dx x^m (1-x)^p \frac{Z^m}{m!} \frac{\partial Z}{\partial t} \frac{Z^p}{p!} = \int_0^1 dx e^{Zx} \frac{\partial Z}{\partial t} e^{Z(1-x)} = \\
+&= \int_0^1 dx \sum_{n=0}^\infty \frac{1}{n!} \left[xZ, \dots, \left[xZ, \frac{\partial Z}{\partial t}\right] \dots \right] e^Z = \sum_{n=0}^\infty \frac{1}{(n+1)!} \left[Z, \dots, \left[Z, \frac{\partial Z}{\partial t}\right] \dots \right] e^Z
+\end{align*}
+
+Where we used the Beta function $\int_0^1 dx x^m (1-x)^p = \frac{m!p!}{(m+p+1)!}$ and we also used the Baker–Campbell–Hausdorff expansion for $e^{xZ}\frac{\partial Z}{\partial t}e^{-xZ}$ and $\int_0^1 x^n = \frac{1}{n+1}$. Therefore we proved:
+
+\begin{equation}
+\label{SneidersID}
+d_t e^{Z} = \sum_{n=0}^\infty \frac{1}{(n+1)!} \left[Z, \dots, \left[Z, \frac{\partial Z}{\partial t}\right] \dots \right] e^Z = \sum_{n=0}^\infty \frac{1}{(n+1)!} \text{ad}_Z ^n \left(\frac{\partial Z}{\partial t}\right) e^Z
+\end{equation}
+
+Where $\text{ad}_A(B) = [A,B]$.
+
+\end{section}
+
+\end{subappendices}
+
+
+
+
+
+
+
