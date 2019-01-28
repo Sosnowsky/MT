@@ -74,33 +74,18 @@ This is the abstract.
 
 \begin{section}{Model and calculations}
 
-We will start we a general Hamiltonian:
+The first model to describe topological insulators was introduced by Kane and Mele \cite{Kane2005} to describe quantum spin Hall effect in graphene. In a honeycomb lattice time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model:
 
-\begin{equation}
-\hat{H} = -\sum_{ij\sigma \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U}\hat{D}
-\end{equation}
+\begin{align}
+\label{MKMH}
+\hat{H}_0 &= - \sum_{\langle i,j \rangle, \sigma} t_1\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \n \\
+	&+\sum_{\langle \langle i,j \rangle \rangle, \sigma}(t_2 + i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + 
+	\text{U}\hat{D}
+\end{align}
 
-Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$, $t_{ij}^{\sigma \sigma'}$ are the hopping amplitudes originating from both kinetic terms or spin orbit interaction. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes, therefore the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act.
+Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes, therefore the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act.
 
-The hopping term $-\hat{T} = -\sum_{ij\sigma \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$ can describe various models. We will be interested in:
-
-\begin{itemize}
-	\item The Hubbard model, in which the hopping does not change the spin, $t_{ij}^{\sigma \sigma'} = \delta_{\sigma \sigma'}t$ for $i,j$ NN and $t_{ij}^{\sigma \sigma'} = 0$ otherwise.
-	\item The so-called Kane-Mele-Hubbard model, which includes a spin-dependent term araising from spin-obit interactions.
-	\begin{equation}
-t_{ij}^{\sigma \sigma'} = \begin{cases}
-	\delta_{\sigma \sigma'}t_1 & \text{for } i, j \text{ nearest neighbors} \\
-	-\Delta \nu_{ij} \hat{e}_z \cdot \bs{\sigma}_{\sigma, \sigma'} & \text{for } i, j \text{ next nearest neighbors} \\
-	0 & \text{ otherwise} \n
-\end{cases} \quad
-\end{equation}
-\end{itemize}
-
-In the prescence of an laser perturbation we can use the Peirls substitution to introduce the effect of the field trough the hopping amplitudes. We can write the electric field as $\bs{E}(t) = \frac{1}{2}(\vec{E}e^{-i\omega t}+\vec{E}^*e^{i\omega t})$, $\vec{E} = E_0\hat{e}$ and $\hat{e} = \frac{1}{\sqrt{1+\lambda_{POL}^2}}(\hat{e}_x+i\lambda_{POL}\hat{e}_y)$ is the polarization vector and $\lambda_{POL} = 0, \pm 1$ for plane polarized, right handed and left handed circular polarized field respectively. According to the Peierls rule the hopping amplitudes gain a phase:
-\begin{equation}
-t_{ij}^{\sigma \sigma'}(t) = t_{ij}^{\sigma \sigma'} e^{ie\bs{R}_{ij}\bs{A}(t)}
-\end{equation}
-where $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$, $\bs{R}_i$ is the position of site $i$ and $\bs{A}$ is the vector potential $\bs{A}(t) = \frac{1}{2}(\vec{A}e^{-i\omega t} + \vec{A}^* e^{i\omega t})$, with $\vec{A} = \frac{iE_0}{\omega}\hat{e}$.
+In the prescence of an laser perturbation we can use the Peirls substitution to introduce the effect of the field trough the hopping amplitudes. We can write the electric field as $\bs{E}(t) = \frac{1}{2}(\vec{E}e^{-i\omega t}+\vec{E}^*e^{i\omega t})$, $\vec{E} = E_0\hat{e}$ and $\hat{e} = \frac{1}{\sqrt{1+\lambda_{POL}^2}}(\hat{e}_x+i\lambda_{POL}\hat{e}_y)$ is the polarization vector and $\lambda_{POL} = 0, \pm 1$ for plane polarized, right handed and left handed circular polarized field respectively. According to the Peierls rule the hopping amplitudes gain a phase $e^{ie\bs{R}_{ij}\bs{A}(t)}$ where $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$, $\bs{R}_i$ is the position of site $i$ and $\bs{A}$ is the vector potential $\bs{A}(t) = \frac{1}{2}(\vec{A}e^{-i\omega t} + \vec{A}^* e^{i\omega t})$, with $\vec{A} = \frac{iE_0}{\omega}\hat{e}$.
 
 Let us define:
 
@@ -116,14 +101,20 @@ With $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$ in such a way that:
 \theta_{ij} &= \theta_{ji} \label{thetaSym}
 \end{align}
 
-and $\theta_{ij} \in \left[0,\pi\right)$. Then we can apply the Jacobi-–Anger expansion:
+and $\theta_{ij} \in \left[0,\pi\right)$. Then we can apply the Jacobi-–Anger expansion to Fourier transform the hopping amplitues:
+\begin{equation}
+\label{JacobiAnger}
+e^{ie\bs{R}_{ij}\bs{A}(t)} = \sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} 
+\end{equation}
+where $\mathcal{J}_m(x)$ is the \textit{m}th Bessel function \cite{Kitamura2017}, modulating the weight of the \textit{m}th Fourier mode of the hopping amplitude. Let $\hat{T}_0$ be the hopping part of the hamiltonian, so that $\hat{H}_0 = \hat{T}_0 + \text{U}\hat{D}$. When an electric field is applied, the hopping amplitudes become time dependent so that $\hat{H}(t) = \hat{T}(t) +  \text{U}\hat{D}$. Using \ref{JacobiAnger} we can write $\hat{T}(t) = \sum_m \hat{T}_m e^{im \omega t}$ where $\hat{T}_m$ is the sum of all the \textit{m}th Fourier mode of the hopping terms. Additionaly we can further decompose the hopping operator into:
 
-\begin{align}
-t_{ij}^{\sigma \sigma'}(t) &= t_{ij}^{\sigma \sigma'}\sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} = \n \\
-&= \sum t_{ij,m}^{\sigma \sigma'} e^{im\omega t}
-\end{align}
+\begin{equation}
+\hat{T}(t) = \sum_m (\hat{T}_{-1,m}+\hat{T}_{0,m}+\hat{T}_{1,m})e^{im\omega t}
+\end{equation}
 
-Where we defined $t_{ij,m}^{\sigma \sigma'} = t_{ij}^{\sigma \sigma'} e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij})$, which is the \textit{m}th Fourier mode of the hopping term and $\mathcal{J}_m(x)$ is the \textit{m}th Bessel function \cite{Kitamura2017}. In order to derive the form of the effective Hamiltonian let us introduce a time dependent unitary transformation $\hat{U}(t) = e^{-i\hat{S}(t)}$. The transformed Hamiltonian is:
+Where $\hat{T}_{dm}(t)$ changes the doublon number by $d$, for example, if $\hat{P}_d$ is the projection operator into the subspace with doublon number $d$, then $\hat{T}_{dm}(t) = \sum_i \hat{P}_{i+d}\hat{T}_{m}(t)\hat{P}_i$.
+
+In order to derive the form of the effective Hamiltonian let us introduce a time dependent unitary transformation $\hat{U}(t) = e^{-i\hat{S}(t)}$. The transformed Hamiltonian is:
 
 \begin{equation}
 \hat{H}'(t) = e^{i\hat{S}(t)} \hat{H}(t) e^{-i\hat{S}(t)} - e^{i\hat{S}(t)} id_t e^{-i\hat{S}(t)}
@@ -143,11 +134,11 @@ where $\hat{S}^{(\nu)}_{d,m}$ changes the double occupancy number by $d$. From h
 Let $\hat{P}_0$ be the projection operator to the $d=0$ subspace. Then notice that $\hat{P}_0\hat{H}'^{1}(t)\hat{P}_0 = 0$, we define $\hat{H}_{\text{eff}}$ to be the time average of $\hat{P}_0\hat{H}'^{2}(t)\hat{P}_0$. Expressed in terms of creation and anihilation operators we obtain:
 
 \begin{align}
-\hat{H}_{\text{eff}} &= - \sum_{i,j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left\{ \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} \right. \n \\
-&t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \sum_{n} \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \left. \right\} \label{GeneralHeff}
+\hat{H}_{\text{eff}} &= - \sum_{i,j, \sigma, \sigma'} \left\{ \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \hat{c}_{j \sigma'}^\dagger \hat{c}_{i \sigma'} \right. \n \\
+&t_{ij}^{\sigma} t_{ji}^{\sigma'} \sum_{n} \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \left. \right\} \label{GeneralHeff}
 \end{align}
 
-We can obtain the spin Hamiltonian by using the relations:
+Where $t_{ij}^{\sigma}$ are the corresponding amplitudes for the unperturbed Hamiltonian, i.e. $t_{ij}^{\sigma} = t_1$ for $i,j$ being NN and $t_{ij}^{\sigma} = t_2 + i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma}$ for $i,j$ being NNN. We can obtain the spin Hamiltonian by using the relations:
 \begin{align}
 \hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
 \hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
