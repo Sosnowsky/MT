@@ -143,51 +143,12 @@ Where $t_{ij}^{\sigma}$ are the corresponding amplitudes for the unperturbed Ham
 \hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
 \hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
 \end{align}
-and $n_{i \uparrow} + n_{i \downarrow} = 1$.
-
-\begin{subsection}{Kane--Mele--Hubbard model}
-
-The first model to describe topological insulators was introduced by Kane and Mele \cite{Kane2005} to describe quantum spin Hall effect in graphene. In a honeycomb lattice time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model, which has hopping amplitudes:
-
-\begin{equation}
-t_{ij}^{\sigma \sigma'} = \begin{cases}
-	\delta_{\sigma \sigma'}t_1 & \text{for } i, j \text{ nearest neighbors} \\
-	-\Delta \nu_{ij} \hat{e}_z \cdot \bs{\sigma}_{\sigma, \sigma'} & \text{for } i, j \text{ next nearest neighbors} \\
-	0 & \text{ otherwise} \n
-\end{cases} \quad
-\end{equation}
-
-Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). Then, introducing the spin operators and the corresponding hopping amplitudes in (\ref{GeneralHeff}) we obtain the effective spin Hamiltonian of this model:
-
-\begin{equation}
-\label{KMHeff}
-\hat{H}_{\text{KMH}}^{\text{eff}} = \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i \bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j 
-\end{equation}
-
-Where the exchange interaction couples NN spins and an anisotropic exchange interaction couples NNN spins:
-
-\begin{align*}
-J_{ij} &= 2t_1^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
-\bs{\Gamma}_{ij} &= 2\Delta^2 \text{diag}(-1,-1,1)\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega}
-\end{align*}
-\end{subsection}
-
-\begin{subsection}{Modified Kane--Mele--Hubbard model}
-
-As we saw in the previous section the effective Hamiltonian \ref{KMHeff} does not contain NNN DMI terms. The reason for this is because DMI originates from the virtual hoppings $i\rightarrow j\rightarrow i$ combining SOI hopping and kinetik hopping, since in the original Kane-Mele model we don't find NNN kinetik hopping, the DMI term vanishes. Next we will study the same Hamiltonian adding a finite NNN hopping term $t_2$, which can be understood as a second order NN hopping process (the direct NNN hopping integral would usually be much smaller). Thus we start with:
-
-\begin{align}
-\label{MKMH}
-\hat{H} &= - t_1\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \n \\
-	&+\sum_{\langle \langle i,j \rangle \rangle, \sigma}(t_2 + i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + 
-	\text{U}\hat{D}
-\end{align}
-
-Proceeding in the same way we find the effective spin Hamiltonian:
+and $n_{i \uparrow} + n_{i \downarrow} = 1$. 
+and summing over the spin states. The resulting effective spin Hamiltonian is:
 
 \begin{align}
 \label{MKMHeff}
-&\hat{H}_{\text{eff}}(t) = \sum_{\langle i,j \rangle} J_{1,ij}\bs{S}_i\bs{S}_j +\n \\
+&\hat{H}_{\text{eff}} = \sum_{\langle i,j \rangle} J_{1,ij}\bs{S}_i\bs{S}_j +\n \\
 &+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}\bs{S}_i\bs{S}_j + \bs{D}_{2,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j \right\}
 \end{align}
 
@@ -201,8 +162,6 @@ J_{2,ij} &= 2t_2^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
 \end{align*}
 
 Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. In the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In Hamiltonian \ref{MKMHeff} we expect SDW to appear in the ground state and the SDW wavevector will be determined by a function of the parameters of this model. In the next section we will do a numerical of study on how modifying the ratio between NN and NNN spin interaction factors can change the spin state of the system.
-
-\end{subsection}
 
 \end{section}
 
