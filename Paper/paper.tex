@@ -79,7 +79,7 @@ The first model to describe topological insulators was introduced by Kane and Me
 \begin{align}
 \label{MKMH}
 \hat{H}_0 &= - \sum_{\langle i,j \rangle, \sigma} t_1\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \n \\
-	&+\sum_{\langle \langle i,j \rangle \rangle, \sigma}(t_2 + i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + 
+	&-\sum_{\langle \langle i,j \rangle \rangle, \sigma}(t_2 - i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + 
 	\text{U}\hat{D}
 \end{align}
 
@@ -162,6 +162,35 @@ J_{2,ij} &= 2t_2^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
 \end{align*}
 
 Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. In the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In Hamiltonian \ref{MKMHeff} we expect SDW to appear in the ground state and the SDW wavevector will be determined by a function of the parameters of this model. In the next section we will do a numerical of study on how modifying the ratio between NN and NNN spin interaction factors can change the spin state of the system.
+
+\begin{subsection}{Disorder}
+It is possible to introduce the effect of disorder in the model \ref{MKMH} by adding random uncorrelated on-site energies:
+
+\begin{align}
+\label{DisorderedHubbardModel}
+\hat{H}_0 &= - \sum_{\langle i,j \rangle, \sigma} t_1\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} -\sum_{\langle \langle i,j \rangle \rangle, \sigma}(t_2 - i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \n \\
+	& + \sum_{i \sigma} \epsilon_i \hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma} +
+	\text{U}\hat{D}
+\end{align}
+
+Where $\epsilon_i$ are uncorrelated random variables $\epsilon_i \in [-W,W]$. At half filling we can derive an effective Hamiltonian using the same procedure as before. The second order virtual hopping $i\sigma \rightarrow j\sigma \rightarrow i\sigma$ will give rise to an exchange spin interaction. In this case, however, the intermediate energy is $\text{U} + (\epsilon_j - \epsilon_i)$. Therefore the spin Hamiltonian will be:
+
+\begin{align}
+&\hat{H}_{\text{eff}}^{\text{Dis}} = \sum_{\langle i,j \rangle} J_{1,ij}\bs{S}_i\bs{S}_j +\n \\
+&+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}\bs{S}_i\bs{S}_j + \bs{D}_{2,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j \right\}
+\end{align}
+
+With:
+
+\begin{align*}
+J_{1,ij} &= \frac{2t_1^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2} \\
+J_{2,ij} &= \frac{2t_2^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2} \\
+\bs{D}_{2,ij} &= -\frac{4\nu_{ij} t_2 \Delta \text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}\hat{e}_z \\
+\bs{\Gamma}_{2,ij} &= \frac{2\Delta^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}\text{diag}(-1,-1,1)
+\end{align*}
+
+Where in the second step we added the contributions of $\langle i,j \rangle$ and $\langle j,i \rangle$ and where $J_{ij} = \frac{2t^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}$. This model is relevant for studying many-body localization phenomena \cite{Protopopov}.
+\end{subsection}
 
 \end{section}
 
