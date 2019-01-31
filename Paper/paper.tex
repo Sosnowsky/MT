@@ -78,12 +78,32 @@ The first model to describe topological insulators was introduced by Kane and Me
 
 \begin{align}
 \label{MKMH}
-\hat{H}_0 &= - \sum_{\langle i,j \rangle, \sigma} t_1\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \n \\
+\hat{H}^0 &= - \sum_{\langle i,j \rangle, \sigma} t_1\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \n \\
 	&-\sum_{\langle \langle i,j \rangle \rangle, \sigma}(t_2 - i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + 
 	\text{U}\hat{D}
 \end{align}
 
-Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes, therefore the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act.
+Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes. In the strong coupling limit any state with a nonzero number of double occupancies ($d /neq 0$) will have much larger energy than those with $d=0$. We can therfore obtain an effective Hamiltonian acting on the $d=0$ subspace by standard second order perturbation techniques in the hopping terms. We can then obtain the effective spin Hamiltonian by using the relations:
+\begin{align}
+\hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
+\hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
+\end{align}
+Following this procedure we obtain the following effective spin Hamiltonian:
+
+\begin{align}
+\label{MKMHeff0}
+&\hat{H}_{\text{eff}}^0 = \sum_{\langle i,j \rangle} J_{1,ij}^0\bs{S}_i\bs{S}_j +\n \\
+&+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}^0\bs{S}_i\bs{S}_j + \bs{D}_{2,ij}^0 \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij}^0 \bs{S}_j \right\}
+\end{align}
+
+Where:
+
+\begin{align*}
+J_{1,ij}^0 &= 2t_1^2 \\
+J_{2,ij}^0 &= 2t_2^2 \\
+\bs{D}_{2,ij}^0 &= - 4\nu_{ij} t_2 \Delta \hat{e}_z \\
+\bs{\Gamma}_{2,ij}^0 &= 2\Delta^2 \text{diag}(-1,-1,1)
+\end{align*}
 
 In the prescence of an laser perturbation we can use the Peirls substitution to introduce the effect of the field trough the hopping amplitudes. We can write the electric field as $\bs{E}(t) = \frac{1}{2}(\vec{E}e^{-i\omega t}+\vec{E}^*e^{i\omega t})$, $\vec{E} = E_0\hat{e}$ and $\hat{e} = \frac{1}{\sqrt{1+\lambda_{POL}^2}}(\hat{e}_x+i\lambda_{POL}\hat{e}_y)$ is the polarization vector and $\lambda_{POL} = 0, \pm 1$ for plane polarized, right handed and left handed circular polarized field respectively. According to the Peierls rule the hopping amplitudes gain a phase $e^{ie\bs{R}_{ij}\bs{A}(t)}$ where $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$, $\bs{R}_i$ is the position of site $i$ and $\bs{A}$ is the vector potential $\bs{A}(t) = \frac{1}{2}(\vec{A}e^{-i\omega t} + \vec{A}^* e^{i\omega t})$, with $\vec{A} = \frac{iE_0}{\omega}\hat{e}$.
 
@@ -138,21 +158,7 @@ Let $\hat{P}_0$ be the projection operator to the $d=0$ subspace. Then notice th
 &t_{ij}^{\sigma} t_{ji}^{\sigma'} \sum_{n} \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \left. \right\} \label{GeneralHeff}
 \end{align}
 
-Where $t_{ij}^{\sigma}$ are the corresponding amplitudes for the unperturbed Hamiltonian, i.e. $t_{ij}^{\sigma} = t_1$ for $i,j$ being NN and $t_{ij}^{\sigma} = t_2 + i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma}$ for $i,j$ being NNN. We can obtain the spin Hamiltonian by using the relations:
-\begin{align}
-\hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
-\hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
-\end{align}
-and $n_{i \uparrow} + n_{i \downarrow} = 1$. 
-and summing over the spin states. The resulting effective spin Hamiltonian is:
-
-\begin{align}
-\label{MKMHeff}
-&\hat{H}_{\text{eff}} = \sum_{\langle i,j \rangle} J_{1,ij}\bs{S}_i\bs{S}_j +\n \\
-&+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}\bs{S}_i\bs{S}_j + \bs{D}_{2,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j \right\}
-\end{align}
-
-Where:
+Where $t_{ij}^{\sigma}$ are the corresponding amplitudes for the unperturbed Hamiltonian, i.e. $t_{ij}^{\sigma} = t_1$ for $i,j$ being NN and $t_{ij}^{\sigma} = t_2 + i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma}$ for $i,j$ being NNN. We can obtain the spin Hamiltonian by using the relations \ref{SpinOperatorInv1} \ref{SpinOperatorInv2} and summing over the spin states. The resulting effective spin Hamiltonian is \ref{MKMHeff0} with renormalized coupling constants:
 
 \begin{align*}
 J_{1,ij} &= 2t_1^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
@@ -189,7 +195,7 @@ J_{2,ij} &= \frac{2t_2^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2} \\
 \bs{\Gamma}_{2,ij} &= \frac{2\Delta^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}\text{diag}(-1,-1,1)
 \end{align*}
 
-Where in the second step we added the contributions of $\langle i,j \rangle$ and $\langle j,i \rangle$ and where $J_{ij} = \frac{2t^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}$. This model is relevant for studying many-body localization phenomena \cite{Protopopov}.
+Where in the second step we added the contributions of $\langle i,j \rangle$ and $\langle j,i \rangle$ and where $J_{ij} = \frac{2t^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}$. This model is relevant for studying many-body localization phenomena \cite{Protopopov2018}.
 \end{subsection}
 
 \end{section}
