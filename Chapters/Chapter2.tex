@@ -5,3 +5,43 @@ Many properties of solids can be understood using one-electron models, that is, 
 Despite the success of the single particle models, there are several phenomena which cannot be explained neglecting electron correlations. For example, high temperature superconductivity cannot be understood with these models. The Hubbard model is the simplest model including electron correlations and despite its simplicity it is not fully understood yet. In this Chapter we will outline the main features of the tight binding model and the Hubbard model, which are basic tools for any condensed matter researcher.
 
 \section{Tight binding}
+
+When the electrons are strongly localized in the atom cores, the wavefunction describing such an electron is similar to the corresponding atomic orbital. Therefore it is natural to consider linear superposition of atomic orbitals as an anstatz for the crystal electron states.
+
+Let $\phi_i(\bs{r})$ be the i-\textit{th} eigenstate of the atomic Hamiltonian $\hat{H}_a(\bs{r}) = -\frac{\hbar^2p^2}{2m} + V_a(\bs{r}-bs{r}_n)$ with energy $E_i$ and where $V_a(\bs{r})$ is the atomic potential. The crystal Hamiltonian is:
+
+\begin{equation}
+\label{CrystalHam}
+\hat{H} = -\frac{\hbar^2p^2}{2m} + \sum_n V_a(\bs{r}-\bs{r}_n)
+\end{equation}
+
+An electron localized around the atom at $\bs{r}_n$ will mainly feel the potential of that atom, and the potential of the rest of the atoms will be a perturbation to the free atom problem. That is, we can spit \ref{CrystalHam} into:
+\begin{equation}
+\label{SplitCrystalHam}
+\hat{H} = \hat{H}_a + v(\bs{r}-\bs{r}_n)
+\end{equation}
+Where $v(\bs{r}-\bs{r}_n) = \sum_{m \neq n} V_a(\bs{r}-\bs{r}_m)$ is a small perturbation. We can expect the crystal electron to retain the properties of the free atom electron, and so, it is natural to describe the crystal electron as a superposition of atomic orbitals. Thus, we will try to find solutions of the form:
+
+\begin{equation}
+\psi_i(\bs{r}) = \sum_n b_i(\bs{r}_n) \phi_i(\bs{r}-\bs{r}_n)
+\end{equation}
+
+Now, the Bloch theorem states that an eigenfunction of the crystal Hamiltonian should only change by a phase from site to site, that is $\psi_i(\bs{r}+\bs{r}_m)=e^{i \bs{k} \cdot \bs{r}_m}\psi_i(\bs{r})$, where $\bs{k}$ is the crystal momentum of the Bloch wave. We can see that see implies $b_i(\bs{r}_m) = e^{i \bs{k} \cdot \bs{r}_m}b_i(0)$, by normalizing $\psi_i(\bs{r})$ we find $b_i(0) = \frac{1}{\sqrt{N}}$, where $N$ is the number of atoms in the crystal. We therefore obtain:
+
+\begin{equation}
+\psi_{i\bs{k}}(\bs{r}) = \frac{1}{\sqrt{N}}\sum_n  e^{i \bs{k} \cdot \bs{r}_n} \phi_i(\bs{r}-\bs{r}_n)
+\end{equation}
+
+The energy of this state is $E_i(\bs{k}) = \bra{\psi_{i\bs{k}}} \hat{H} \ket{\psi_{i\bs{k}}}$, using \ref{SplitCrystalHam} this can be written as:
+
+\begin{equation}
+E_i(\bs{k}) = \frac{1}{N} \sum_{n,m} e^{i\bs{k}\cdot(\bs{r}_n-\bs{r}_m)} \int \phi_i^* (E_i+v(\bs{r}-\bs{r}_n)) \phi_i(\bs{r}-\bs{r}_n) d\bs{r}
+\end{equation}
+
+
+
+
+
+
+
+
