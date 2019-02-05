@@ -1,4 +1,4 @@
-% Created by tikzDevice version 0.12 on 2018-12-14 15:20:08
+% Created by tikzDevice version 0.12 on 2019-02-05 11:12:35
 % !TEX encoding = UTF-8 Unicode
 \documentclass[10pt]{article}
 \usepackage{tikz}
@@ -50,13 +50,13 @@
 
 \path[draw=drawColor,line width= 0.4pt,line join=round,line cap=round] ( 49.20,222.70) -- ( 43.20,222.70);
 
-\node[text=drawColor,rotate= 90.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 34.80,101.14) {-0.5};
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 37.20, 97.70) {-0.5};
 
-\node[text=drawColor,rotate= 90.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 34.80,141.66) {0.0};
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 37.20,138.22) {0.0};
 
-\node[text=drawColor,rotate= 90.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 34.80,182.18) {0.5};
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 37.20,178.74) {0.5};
 
-\node[text=drawColor,rotate= 90.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 34.80,222.70) {1.0};
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 37.20,219.26) {1.0};
 
 \path[draw=drawColor,line width= 0.4pt,line join=round,line cap=round] ( 49.20, 61.20) --
 	(263.88, 61.20) --
@@ -20084,19 +20084,30 @@
 	(255.85,146.45) --
 	(255.89,146.45) --
 	(255.93,146.45);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (289.08,289.08);
 \definecolor{drawColor}{RGB}{0,0,0}
 
-\path[draw=drawColor,line width= 0.4pt,line join=round,line cap=round] (221.12,239.88) rectangle (263.88,203.88);
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 13.20,153.10) {$\tilde{J_1}$};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 13.20,141.10) {$\tilde{D_2}$};
+\end{scope}
+\begin{scope}
+\path[clip] ( 49.20, 61.20) rectangle (263.88,239.88);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\path[draw=drawColor,line width= 0.4pt,line join=round,line cap=round] (221.41,239.88) rectangle (263.88,203.88);
 \definecolor{fillColor}{RGB}{0,255,0}
 
-\path[draw=drawColor,line width= 0.4pt,line join=round,line cap=round,fill=fillColor] (230.12,230.88) rectangle (237.32,224.88);
+\path[draw=drawColor,line width= 0.4pt,line join=round,line cap=round,fill=fillColor] (230.41,230.88) rectangle (237.61,224.88);
 \definecolor{fillColor}{RGB}{255,0,0}
 
-\path[draw=drawColor,line width= 0.4pt,line join=round,line cap=round,fill=fillColor] (230.12,218.88) rectangle (237.32,212.88);
+\path[draw=drawColor,line width= 0.4pt,line join=round,line cap=round,fill=fillColor] (230.41,218.88) rectangle (237.61,212.88);
 
-\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  1.00] at (246.32,224.44) {$\frac{J_1}{J_1^0}$};
+\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  1.00] at (246.61,224.44) {$\tilde{J_1}$};
 
-\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  1.00] at (246.32,212.44) {$\frac{D_2}{D_2^0}$};
+\node[text=drawColor,anchor=base west,inner sep=0pt, outer sep=0pt, scale=  1.00] at (246.61,212.44) {$\tilde{D_2}$};
 \end{scope}
 \end{tikzpicture}
 

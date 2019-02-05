@@ -74,26 +74,30 @@ This is the abstract.
 
 \begin{section}{Model and calculations}
 
-The first model to describe topological insulators was introduced by Kane and Mele \cite{Kane2005} to describe quantum spin Hall effect in graphene. In a honeycomb lattice time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. In these circumstances the system can be modeled by the Kane-Mele-Hubbard model:
+The first model to describe topological insulators was introduced by Kane and Mele \cite{Kane2005} to describe quantum spin Hall effect in graphene. In a honeycomb lattice time reversal symmetry and inversion symmetry allow only next-nearest neighbor spin orbit coupling, which is known as intrinsic spin orbit coupling. In these circumstances the system can be modeled by the Kane-Mele-Hubbard which we write as a sum of a kinetic term, an interaction term and a SOI term:
 
-\begin{align}
+\begin{equation}
 \label{MKMH}
-\hat{H}^0 &= - \sum_{\langle i,j \rangle, \sigma} t_1\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \n \\
-	&-\sum_{\langle \langle i,j \rangle \rangle, \sigma}(t_2 - i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + 
-	\text{U}\hat{D}
+\hat{H}^0 = \hat{\mathcal{H}}_t + \hat{\mathcal{H}}_{\text{SOI}} + \hat{\mathcal{H}}_{\text{int}}
+\end{equation}
+Where:
+\begin{align}
+&\hat{\mathcal{H}}_t = - \sum_{\langle i,j \rangle, \sigma} t_1\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} - \sum_{\langle \langle i,j \rangle \rangle, \sigma} t_2\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \\
+&\hat{\mathcal{H}}_{\text{SOI}} = \sum_{\langle \langle i,j \rangle \rangle, \sigma} i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma}\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \\
+&\hat{\mathcal{H}}_{\text{int}} = \text{U}\hat{D}
 \end{align}
 
-Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes. In the strong coupling limit any state with a nonzero number of double occupancies ($d /neq 0$) will have much larger energy than those with $d=0$. We can therfore obtain an effective Hamiltonian acting on the $d=0$ subspace by standard second order perturbation techniques in the hopping terms. We can then obtain the effective spin Hamiltonian by using the relations:
+Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes. In the strong coupling limit any state with a nonzero number of double occupancies ($d \neq 0$) will have much larger energy than those with $d=0$. We can therfore obtain an effective Hamiltonian acting on the $d=0$ subspace by standard second order perturbation techniques in the hopping terms. We can then obtain the effective spin Hamiltonian by using the relations:
 \begin{align}
-\hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
-\hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \boldsymbol{S}_i\boldsymbol{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
+\hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \bs{S}_i\cdot\bs{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
+\hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \bs{S}_i\cdot\bs{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
 \end{align}
 Following this procedure we obtain the following effective spin Hamiltonian:
 
 \begin{align}
 \label{MKMHeff0}
-&\hat{H}_{\text{eff}}^0 = \sum_{\langle i,j \rangle} J_{1,ij}^0\bs{S}_i\bs{S}_j +\n \\
-&+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}^0\bs{S}_i\bs{S}_j + \bs{D}_{2,ij}^0 \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij}^0 \bs{S}_j \right\}
+&\hat{H}_{\text{eff}}^0 = \sum_{\langle i,j \rangle} J_{1,ij}^0\bs{S}_i\cdot\bs{S}_j +\n \\
+&+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}^0\bs{S}_i\cdot\bs{S}_j + \bs{D}_{2,ij}^0\cdot \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij}^0 \bs{S}_j \right\}
 \end{align}
 
 Where:
@@ -111,7 +115,7 @@ Let us define:
 
 \begin{equation}
 \label{Def_alpha}
-e\bs{R}_{ij}\vec{A} = \alpha_{ij} e^{i \theta_{ij}}
+e\bs{R}_{ij}\cdot\vec{A} = \alpha_{ij} e^{i \theta_{ij}}
 \end{equation}
 
 With $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$ in such a way that:
@@ -124,7 +128,7 @@ With $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$ in such a way that:
 and $\theta_{ij} \in \left[0,\pi\right)$. Then we can apply the Jacobi-–Anger expansion to Fourier transform the hopping amplitues:
 \begin{equation}
 \label{JacobiAnger}
-e^{ie\bs{R}_{ij}\bs{A}(t)} = \sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} 
+e^{ie\bs{R}_{ij}\cdot\bs{A}(t)} = \sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} 
 \end{equation}
 where $\mathcal{J}_m(x)$ is the \textit{m}th Bessel function \cite{Kitamura2017}, modulating the weight of the \textit{m}th Fourier mode of the hopping amplitude. Let $\hat{T}_0$ be the hopping part of the hamiltonian, so that $\hat{H}_0 = \hat{T}_0 + \text{U}\hat{D}$. When an electric field is applied, the hopping amplitudes become time dependent so that $\hat{H}(t) = \hat{T}(t) +  \text{U}\hat{D}$. Using \ref{JacobiAnger} we can write $\hat{T}(t) = \sum_m \hat{T}_m e^{im \omega t}$ where $\hat{T}_m$ is the sum of all the \textit{m}th Fourier mode of the hopping terms. Additionaly we can further decompose the hopping operator into:
 
@@ -182,8 +186,8 @@ It is possible to introduce the effect of disorder in the model \ref{MKMH} by ad
 Where $\epsilon_i$ are uncorrelated random variables $\epsilon_i \in [-W,W]$. At half filling we can derive an effective Hamiltonian using the same procedure as before. The second order virtual hopping $i\sigma \rightarrow j\sigma \rightarrow i\sigma$ will give rise to an exchange spin interaction. In this case, however, the intermediate energy is $\text{U} + (\epsilon_j - \epsilon_i)$. Therefore the spin Hamiltonian will be:
 
 \begin{align}
-&\hat{H}_{\text{eff}}^{\text{Dis}} = \sum_{\langle i,j \rangle} J_{1,ij}\bs{S}_i\bs{S}_j +\n \\
-&+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}\bs{S}_i\bs{S}_j + \bs{D}_{2,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j \right\}
+&\hat{H}_{\text{eff}}^{\text{Dis}} = \sum_{\langle i,j \rangle} J_{1,ij}\bs{S}_i\cdot\bs{S}_j +\n \\
+&+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}\bs{S}_i\cdot\bs{S}_j + \bs{D}_{2,ij}\cdot \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j \right\}
 \end{align}
 
 With:

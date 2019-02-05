@@ -60,12 +60,13 @@ tikz(paste0(current_file, '.tex'), width = 4, height = 4, standAlone = TRUE,
                   "\\setlength\\PreviewBorder{0pt}",
                   "\\usepackage{amssymb}"))
 
-plot(x=range(field_energies), y = range(J1_factor), type='n', xlab = "$\\mathcal{E}$", ylab = '')
+plot(x=range(field_energies), y = range(J1_factor), type='n', xlab = "$\\mathcal{E}$", ylab = '', las =1)
 for (i in 1:length(frequencies)) {
   lines(x = field_energies, y = J1_factor[[i]], type = 'l', col = "green", lwd = 2, lty = i)
   lines(x = field_energies, y = D2_factor[[i]], type = 'l', col = "red", lwd = 2, lty = i)
 }
-legend("topright", legend = c("$\\frac{J_1}{J_1^0}$", "$\\frac{D_2}{D_2^0}$"), fill = c("green", "red"))
+mtext(text=paste0("$\\tilde{J_1}$",'\n',"$\\tilde{D_2}$"), side =2, line = 3, las=1)
+legend("topright", legend = c("$\\tilde{J_1}$", "$\\tilde{D_2}$"), fill = c("green", "red"))
 
 dev.off()
 tools::texi2pdf(paste0(current_file, '.tex'))
