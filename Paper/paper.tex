@@ -62,7 +62,7 @@
 \newcommand{\AQ}[1]{\textbf{\textcolor{red}{{#1}}}}
 
 \begin{document}
-\title{Ultrafast manipulation of Heisenberg exchange and Dzyaloshinskii–Moriya interactions in antiferromagnetic insulators}
+\title{Ultrafast manipulation of Heisenberg exchange and Dzyaloshinskii–-Moriya interactions in antiferromagnetic insulators}
 
 
 \begin{abstract}
@@ -87,7 +87,14 @@ Where:
 &\hat{\mathcal{H}}_{\text{int}} = \text{U}\hat{D}
 \end{align}
 
-Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes. In the strong coupling limit any state with a nonzero number of double occupancies ($d \neq 0$) will have much larger energy than those with $d=0$. We can therfore obtain an effective Hamiltonian acting on the $d=0$ subspace by standard second order perturbation techniques in the hopping terms. We can then obtain the effective spin Hamiltonian by using the relations:
+Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. 
+\begin{figure}[t]
+\includegraphics[width=0.6\columnwidth]{../Figures/kmh.png}
+\caption{A honycomb cell with NN hopping $t_1$, NNN hopping $t_2$ and intrinsic SOI $\Delta$. $\nu_{ij} = \pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$).}
+\label{fig1}
+\vspace*{-6pt}
+\end{figure}
+We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes. In the strong coupling limit any state with a nonzero number of double occupancies ($d \neq 0$) will have much larger energy than those with $d=0$. We can therfore obtain an effective Hamiltonian acting on the $d=0$ subspace by standard second order perturbation techniques in the hopping terms. We can then obtain the effective spin Hamiltonian by using the relations:
 \begin{align}
 \hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \bs{S}_i\cdot\bs{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
 \hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \bs{S}_i\cdot\bs{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
@@ -170,6 +177,13 @@ J_{2,ij} &= 2t_2^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
 \bs{D}_{2,ij} &= - 4\nu_{ij} t_2 \Delta \hat{e}_z \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
 \bs{\Gamma}_{2,ij} &= 2\Delta^2 \text{diag}(-1,-1,1) \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega}
 \end{align*}
+
+\begin{figure}[t]
+\includegraphics[width=0.6\columnwidth]{../Figures/NNvsNNN.pdf}
+\caption{For circularly polarized light we obtain $\tilde{J}_1 = \frac{J_{1,ij}}{J_{1,ij}^0}$ and $\tilde{D}_{2} = \frac{D_{2,ij}}{D_{2,ij}^0}$ as function of $\mathcal{E} = \frac{eaE_0}{\omega}$, where $e$ is the electron charge and $a$ is the lattice constant. The results are obtain for (units of $\hbar=t_1=1$) $t_2 = 0.1$, $\Delta = 0.5$, $\text{U} = 10$ and $\omega = 6, 16$. Solid lines are for $\omega = 6$ and dashed lines are for $\omega = 16$. For $\tilde{J}_1$, similar results are obtained by Mentink et Al. \cite{Mentink2015}.}
+\label{fig2}
+\vspace*{-6pt}
+\end{figure}
 
 Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. In the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In Hamiltonian \ref{MKMHeff} we expect SDW to appear in the ground state and the SDW wavevector will be determined by a function of the parameters of this model. In the next section we will do a numerical of study on how modifying the ratio between NN and NNN spin interaction factors can change the spin state of the system.
 
