@@ -35,12 +35,29 @@ Now, the Bloch theorem states that an eigenfunction of the crystal Hamiltonian s
 The energy of this state is $E_i(\bs{k}) = \bra{\psi_{i\bs{k}}} \hat{H} \ket{\psi_{i\bs{k}}}$, using \ref{SplitCrystalHam} this can be written as:
 
 \begin{equation}
-E_i(\bs{k}) = \frac{1}{N} \sum_{n,m} e^{i\bs{k}\cdot(\bs{r}_n-\bs{r}_m)} \int \phi_i^* (E_i+v(\bs{r}-\bs{r}_n)) \phi_i(\bs{r}-\bs{r}_n) d\bs{r}
+E_i(\bs{k}) = \frac{1}{N} \sum_{n,m} e^{i\bs{k}\cdot(\bs{r}_n-\bs{r}_m)} \int \phi_i^*(\bs{r}-\bs{r}_m) (E_i+v(\bs{r}-\bs{r}_n)) \phi_i(\bs{r}-\bs{r}_n) d\bs{r}
 \end{equation}
 
+Assuming that $\phi_i$ is spherically symmetric, and neglecting the perturbation $v(\bs{r}-\bs{r}_n)$ further away than nearest neighbors, we can simplify this expression to:
 
+\begin{equation}
+\label{TBBand}
+E_i(\bs{k}) = E_i - A - B\sum_{\bs{\delta}} e^{i\bs{k}\cdot \bs{\delta}}
+\end{equation}
 
+Where $A = -\bra{\phi_i(\bs{r}-\bs{r}_n)}v(\bs{r}-\bs{r}_n) \ket{\phi_i(\bs{r}-\bs{r}_n)}$ and $B = -\bra{\phi_i(\bs{r}-\bs{r}_m)}v(\bs{r}-\bs{r}_n) \ket{\phi_i(\bs{r}-\bs{r}_n)}$ and where $\bs{\delta}$ are the NN vectors. $A$ measures the amount of energy reduced when the atom forms a crystal, $B$ is a measure of the width of the band.
+In second quantization formalism we can write the tight binding single band Hamiltonian as:
 
+\begin{equation}
+\label{TBModel}
+\hat{H} = -t\sum_{\langle i,j \rangle \sigma} \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma}
+\end{equation}
+
+Where $\hat{c}^{\dagger}_{i\sigma}$ ($\hat{c}_{i\sigma}$) creates (annihilates) an electron in site $i$ and spin state $\sigma$. The quantity $t$ is the hopping amplitude, and plays the same role $B$ in the first quantization formalism. We can obtain back \ref{TBBand} by changing basis to momentum space $\hat{c}_{k\sigma} = \frac{1}{\sqrt{N}}\sum_j e^{-i\bs{k}\cdot\bs{r}_j}\hat{c}_{j\sigma}$.
+
+\section{The Hubbard model}
+
+As we discuss earlier, even tough the tight binding model is successful in describing the band structure of most solids, it fails in some cases. In strongly correlated electron systems, the effect of electron-electron Coulomb interactions is important, and this effect is neglected in \ref{TBModel}. The simplest way to take this effect into account is to consider the interaction of electrons in the same site only, that is, adding a term of the form $\text{U}\sum_i \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$. This term will add an energy $+\text{U}$ when a site is double occupied ($\hat{n}_{i\uparrow} = \hat{n}_{i\downarrow} = 1$) and will not contribute in the more normal case, that $\hat{n}_{i\uparrow} + \hat{n}_{i\downarrow} = 1$.
 
 
 
