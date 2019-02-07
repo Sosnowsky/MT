@@ -57,7 +57,16 @@ Where $\hat{c}^{\dagger}_{i\sigma}$ ($\hat{c}_{i\sigma}$) creates (annihilates) 
 
 \section{The Hubbard model}
 
-As we discuss earlier, even tough the tight binding model is successful in describing the band structure of most solids, it fails in some cases. In strongly correlated electron systems, the effect of electron-electron Coulomb interactions is important, and this effect is neglected in \ref{TBModel}. The simplest way to take this effect into account is to consider the interaction of electrons in the same site only, that is, adding a term of the form $\text{U}\sum_i \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$. This term will add an energy $+\text{U}$ when a site is double occupied ($\hat{n}_{i\uparrow} = \hat{n}_{i\downarrow} = 1$) and will not contribute in the more normal case, that $\hat{n}_{i\uparrow} + \hat{n}_{i\downarrow} = 1$.
+As we discuss earlier, even tough the tight binding model is successful in describing the band structure of most solids, it fails in some cases. In strongly correlated electron systems, the effect of electron-electron Coulomb interactions is important, and this effect is neglected in \ref{TBModel}. The simplest way to take this effect into account is to consider the interaction of electrons in the same site only, that is, adding a term of the form $\text{U}\sum_i \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$:
+\begin{equation}
+\label{HH}
+\hat{H} = -t\sum_{\langle i,j \rangle \sigma} \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma} + \text{U}\sum_i \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation}
+This new term will add an energy $+\text{U}$ when a site is double occupied ($\hat{n}_{i\uparrow} = \hat{n}_{i\downarrow} = 1$) and will not contribute in the more normal case, that $\hat{n}_{i\uparrow} + \hat{n}_{i\downarrow} = 1$. The half-filled case is most commonly studied, this is the situation where the system has one electron per site (or it has half the maximum allowed number). This situation is simpler in many ways and it exhibits a lot of interesting phenomena (Mott insulating behavior, antiferromagnetic order, etc.). However, other cases have also been widely studied.
+
+Notice that if we set $\text{U}=0$ in \ref{HH} we recover the tight binding Hamiltonian, therefore we can say that the Hubbard model is an expansion of the tight binding model. The opposite limit $t=0$ is more interesting. In the half-filling case, for $\text{U}>0$ the ground state will be any state with exactly one electron per site. Since each electron can be in two spin states there is a $2^N$ degeneracy. 
+
+
 
 
 
