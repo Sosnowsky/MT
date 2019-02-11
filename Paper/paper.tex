@@ -84,17 +84,23 @@ Where:
 \begin{align}
 &\hat{\mathcal{H}}_t = - \sum_{\langle i,j \rangle, \sigma} t_1\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} - \sum_{\langle \langle i,j \rangle \rangle, \sigma} t_2\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \\
 &\hat{\mathcal{H}}_{\text{SOI}} = \sum_{\langle \langle i,j \rangle \rangle, \sigma} i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma}\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \\
-&\hat{\mathcal{H}}_{\text{int}} = \text{U}\hat{D}
+&\hat{\mathcal{H}}_{\text{int}} = \text{U}_{00}\sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} + \frac{1}{2}\sum_{\langle i,j \rangle, \sigma \sigma'} \text{U}_{ij}\hat{n}_{i\sigma}\hat{n}_{j\sigma'}
 \end{align}
 
-Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$. $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\text{U}$ is the on-site interaction. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. 
+Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$, $\text{U}_{00}$ and $\text{U}_{ij}$ are the on-site and NN Coulomb interactions. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. 
+In practice the NN Coulomb interaction can be effectively approximated by a reduced on-site interaction $\text{U} = \text{U}_{00} - \bar{\text{U}}$ where $\bar{\text{U}}$ is an average of the NN Coulomb interacion \cite{Schuler2013}, we therefore can take:
+\begin{equation}
+\hat{\mathcal{H}}_{\text{int}} \approx \text{U}\sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
+\end{equation}
+With $\text{U} = \text{U}_{00} - \bar{\text{U}}$.
+
 \begin{figure}[t]
 \includegraphics[width=0.6\columnwidth]{../Figures/kmh.png}
 \caption{A honycomb cell with NN hopping $t_1$, NNN hopping $t_2$ and intrinsic SOI $\Delta$. $\nu_{ij} = \pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$).}
 \label{fig1}
 \vspace*{-6pt}
 \end{figure}
-We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes. In the strong coupling limit any state with a nonzero number of double occupancies ($d \neq 0$) will have much larger energy than those with $d=0$. We can therfore obtain an effective Hamiltonian acting on the $d=0$ subspace by standard second order perturbation techniques in the hopping terms. We can then obtain the effective spin Hamiltonian by using the relations:
+Let us define $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ the doublon number operator so that $\hat{\mathcal{H}}_{\text{int}} \approx \text{U}\hat{D}$ with eigenvalues $d$ and projection operators $\hat{P}_d$. We will assume a half filling system in which the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitudes. In the strong coupling limit any state with a nonzero number of double occupancies ($d \neq 0$) will have much larger energy than those with $d=0$. We can therfore obtain an effective Hamiltonian acting on the $d=0$ subspace by standard second order perturbation techniques in the hopping terms. We can then obtain the effective spin Hamiltonian by using the relations:
 \begin{align}
 \hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \bs{S}_i\cdot\bs{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
 \hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \bs{S}_i\cdot\bs{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
@@ -179,14 +185,14 @@ J_{2,ij} &= 2t_2^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
 \end{align*}
 
 \begin{figure}[t]
-\includegraphics[width=0.6\columnwidth]{../Figures/NNvsNNN.pdf}
+\includegraphics[width=\columnwidth]{../Figures/NNvsNNN.pdf}
 \caption{For circularly polarized light we obtain $\tilde{J}_1 = \frac{J_{1,ij}}{J_{1,ij}^0}$ and $\tilde{D}_{2} = \frac{D_{2,ij}}{D_{2,ij}^0}$ as function of $\mathcal{E} = \frac{eaE_0}{\omega}$, where $e$ is the electron charge and $a$ is the lattice constant. The results are obtain for (units of $\hbar=t_1=1$) $t_2 = 0.1$, $\Delta = 0.5$, $\text{U} = 10$ and $\omega = 6, 16$. Solid lines are for $\omega = 6$ and dashed lines are for $\omega = 16$. For $\tilde{J}_1$, similar results are obtained by Mentink et Al. \cite{Mentink2015}.}
 \label{fig2}
 \vspace*{-6pt}
 \end{figure}
 A similar Hamiltonian including a NN exchange term and a NNN DMI term was first proposed by S. A. Owerre to model honeycome topological magnon insulators \cite{Owerre2016} \cite{Elyasi}. Additionally, experimental results regarding topological properties of spin waves in honeycomb ferromagnet Cr$I_3$ can only be understood by considering this Hamiltonian \cite{Chen2018}. This model is also relevant for the study of Spin Hall effects of Weyl magnons \cite{Zyuzin2018} \cite{Sekine2015}.
 
-Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. In the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In Hamiltonian \ref{MKMHeff} we expect SDW to appear in the ground state and the SDW wavevector will be determined by a function of the parameters of this model. In the next section we will do a numerical of study on how modifying the ratio between NN and NNN spin interaction factors can change the spin state of the system.
+Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. In the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In Hamiltonian \ref{MKMHeff0} we expect SDW to appear in the ground state and the SDW wavevector will be determined by a function of the parameters of this model. We have shown that we can modulate these parameters thus providing a techique to manipulate the SDW in the ground state.
 
 \begin{subsection}{Disorder}
 It is possible to introduce the effect of disorder in the model \ref{MKMH} by adding random uncorrelated on-site energies:
