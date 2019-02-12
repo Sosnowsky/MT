@@ -1,5 +1,5 @@
 % !TEX spellcheck = en-US
-\documentclass[aps,prl,twocolumn,amsmath,amssymb,superscriptaddress,nobibnotes]{revtex4}%
+\documentclass[aps,prl,twocolumn,amsmath,amssymb,superscriptaddress,nobibnotes]{revtex4-1}%
 \usepackage{graphicx}
 \usepackage{dcolumn}
 \usepackage{bm}
@@ -82,12 +82,12 @@ The first model to describe topological insulators was introduced by Kane and Me
 \end{equation}
 Where:
 \begin{align}
-&\hat{\mathcal{H}}_t = - \sum_{\langle i,j \rangle, \sigma} t_1\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} - \sum_{\langle \langle i,j \rangle \rangle, \sigma} t_2\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \\
-&\hat{\mathcal{H}}_{\text{SOI}} = \sum_{\langle \langle i,j \rangle \rangle, \sigma} i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma}\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \\
-&\hat{\mathcal{H}}_{\text{int}} = \text{U}_{00}\sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} + \frac{1}{2}\sum_{\langle i,j \rangle, \sigma \sigma'} \text{U}_{ij}\hat{n}_{i\sigma}\hat{n}_{j\sigma'}
+&\hat{\mathcal{H}}_t = - \sum_{\langle i,j \rangle, \sigma} t_1\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} - \sum_{\langle \langle i,j \rangle \rangle, \sigma} t_2\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \label{Ht} \\
+&\hat{\mathcal{H}}_{\text{SOI}} = \sum_{\langle \langle i,j \rangle \rangle, \sigma} i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma}\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \label{Hsoi} \\
+&\hat{\mathcal{H}}_{\text{int}} = \text{U}_{00}\sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} + \frac{1}{2}\sum_{\langle i,j \rangle, \sigma \sigma'} \text{U}_{ij}\hat{n}_{i\sigma}\hat{n}_{j\sigma'} \label{Hint}
 \end{align}
 
-Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$, $\text{U}_{00}$ and $\text{U}_{ij}$ are the on-site and NN Coulomb interactions. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. 
+Where $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) creates (anihilates) an electron at site $i$ in spin state $\sigma$, $\text{U}_{00}$ and $\text{U}_{ij}$ are the on-site and NN Coulomb interactions. $t_1$, $t_2$ are the hopping amplitudes originating from both kinetic hopping. $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). $\sigma^{z}$ is the third Pauli matrix. Notice that Rashba SOI interactions are not included in \ref{Hsoi}, the reason is that such terms are not allowed by symmetry in the honeycomb lattice, however Rashba interactions should be considered in lower symmetry lattices such a non-coplanar honeycomb lattice \cite{Liu2011}.
 In practice the NN Coulomb interaction can be effectively approximated by a reduced on-site interaction $\text{U} = \text{U}_{00} - \bar{\text{U}}$ where $\bar{\text{U}}$ is an average of the NN Coulomb interacion \cite{Schuler2013}, we therefore can take:
 \begin{equation}
 \hat{\mathcal{H}}_{\text{int}} \approx \text{U}\sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
@@ -230,6 +230,7 @@ Where in the second step we added the contributions of $\langle i,j \rangle$ and
 \section*{Acknowledgments}
 
 %\begin{thebibliography}
+\bibliographystyle{apsrev4-1}
 \bibliography{../MT}
 %\end{thebibliography}
 
