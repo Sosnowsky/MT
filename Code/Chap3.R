@@ -30,7 +30,7 @@ t2 <- 0.1 #NNN hoping integral
 delta <- 0.5 #NNN intrinsic SOI coupling
 
 U <- 10 #Interaction energy
-frequencies <- list(6,16) #Laser frecuency
+frequencies <- list(4,14) #Laser frecuency
 bessel_trunc_order <- 10
 lattice_cte <- 1
 field_energies <- seq(from=0, by=0.001, to=5)
@@ -65,12 +65,12 @@ for (i in 1:length(frequencies)) {
   lines(x = field_energies, y = J1_factor[[i]], type = 'l', col = "green", lwd = 2, lty = i)
   lines(x = field_energies, y = D2_factor[[i]], type = 'l', col = "red", lwd = 2, lty = i)
 }
-mtext(text=paste0("$\\tilde{J_1}$",'\n',"$\\tilde{D_2}$"), side =2, line = 3, las=1)
-legend("topright", legend = c("$\\tilde{J_1}$", "$\\tilde{D_2}$"), fill = c("green", "red"))
+#mtext(text=paste0("$\\tilde{J_1}$",'\n',"$\\tilde{D_2}$"), side =2, line = 3, las=1)
+legend("topright", legend = c("$\\tilde{J_1}$", "$\\tilde{D_2}$"), fill = c("green", "red"), x = 0.8*range(field_energies)[2], y = range(J1_factor)[2])
 
 dev.off()
 tools::texi2pdf(paste0(current_file, '.tex'))
-system(paste0("mv ", current_file, ".pdf ../Chapters/", current_file, ".pdf"))
+system(paste0("mv ", current_file, ".pdf ../Figures/", current_file, ".pdf"))
 #system(paste(getOption("pdfviewer"), "formula.pdf"))
 
 current_file <- "ratio"
