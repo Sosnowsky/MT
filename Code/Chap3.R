@@ -83,7 +83,8 @@ tikz(paste0(current_file, '.tex'), width = 4, height = 4, standAlone = TRUE,
 
 ylim <- c(-3*ratioJD0,2*ratioJD0)
 plot(x = range(field_energies), y = ylim, type = 'n', 
-     xlab = "$\\mathcal{E}$", ylab = '$\\frac{J_1}{D_2}$')
+     xlab = "$\\mathcal{E}$", ylab = '')
+mtext(text='$\\frac{J_1}{D_2}$', side =2, line = 3, las=1)
 
 for (i in 1:length(frequencies)) {
   plot_disconnect(x=field_energies, y = ratioJD[[i]], col = "blue", lwd = 2, lty = i, ylim = ylim)
@@ -107,7 +108,8 @@ tikz(paste0(current_file, '.tex'), width = 4, height = 4, standAlone = TRUE,
                   "\\usepackage{amssymb}"))
 
 plot(x = range(sapply(res_field_energies, range)), y = range(sapply(theta, range)), type = 'n',
-     xlab = "$\\mathcal{E}$", ylab="$\\theta$" )
+     xlab = "$\\mathcal{E}$", ylab="" )
+mtext(text='$\\theta$', side =2, line = 3, las=1)
 for (i in 1:length(frequencies)) {
   lines(x = res_field_energies[[i]], y = theta[[i]], type = 'l', lwd =2, lty = i,
          col = "purple")
