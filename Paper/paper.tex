@@ -109,17 +109,17 @@ Following this procedure we obtain the following effective spin Hamiltonian:
 
 \begin{align}
 \label{MKMHeff0}
-&\hat{H}_{\text{eff}}^0 = \sum_{\langle i,j \rangle} J_{1,ij}^0\bs{S}_i\cdot\bs{S}_j +\n \\
-&+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}^0\bs{S}_i\cdot\bs{S}_j + \bs{D}_{2,ij}^0\cdot \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij}^0 \bs{S}_j \right\}
+&\hat{H}_{\text{eff}} = \sum_{\langle i,j \rangle} J_{1,ij}\bs{S}_i\cdot\bs{S}_j +\n \\
+&+ \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}\bs{S}_i\cdot\bs{S}_j + \bs{D}_{2,ij}\cdot \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j \right\}
 \end{align}
 
 Where:
 
 \begin{align*}
-J_{1,ij}^0 &= 2t_1^2 \\
-J_{2,ij}^0 &= 2t_2^2 \\
-\bs{D}_{2,ij}^0 &= - 4\nu_{ij} t_2 \Delta \hat{e}_z \\
-\bs{\Gamma}_{2,ij}^0 &= 2\Delta^2 \text{diag}(-1,-1,1)
+J_{1,ij} &= 2t_1^2 \\
+J_{2,ij} &= 2t_2^2 \\
+\bs{D}_{2,ij} &= - 4\nu_{ij} t_2 \Delta \hat{e}_z \\
+\bs{\Gamma}_{2,ij} &= 2\Delta^2 \text{diag}(-1,-1,1)
 \end{align*}
 
 \textit{Introducing laser perturbation}. In the prescence of an laser perturbation we can use the Peirls substitution to include the effect of the field trough the hopping amplitudes. We can write the electric field as $\bs{E}(t) = \frac{1}{2}(\vec{E}e^{-i\omega t}+\vec{E}^*e^{i\omega t})$, $\vec{E} = E_0\hat{e}$ and $\hat{e} = \frac{1}{\sqrt{1+\lambda_{POL}^2}}(\hat{e}_x+i\lambda_{POL}\hat{e}_y)$ is the polarization vector and $\lambda_{POL} = 0, \pm 1$ for plane polarized, right handed and left handed circular polarized field respectively. According to the Peierls rule the hopping amplitudes gain a phase $e^{ie\bs{R}_{ij}\bs{A}(t)}$ where $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$, $\bs{R}_i$ is the position of site $i$ and $\bs{A}$ is the vector potential $\bs{A}(t) = \frac{1}{2}(\vec{A}e^{-i\omega t} + \vec{A}^* e^{i\omega t})$, with $\vec{A} = \frac{iE_0}{\omega}\hat{e}$.
@@ -178,15 +178,15 @@ Let $\hat{P}_0$ be the projection operator to the $d=0$ subspace. Then notice th
 Where $t_{ij}^{\sigma}$ are the corresponding amplitudes for the unperturbed Hamiltonian, i.e. $t_{ij}^{\sigma} = t_1$ for $i,j$ being NN and $t_{ij}^{\sigma} = t_2 + i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma}$ for $i,j$ being NNN. We can obtain the spin Hamiltonian by using the relations \ref{SpinOperatorInv1} \ref{SpinOperatorInv2} and summing over the spin states. The resulting effective spin Hamiltonian is \ref{MKMHeff0} with renormalized coupling constants:
 
 \begin{align*}
-J_{1,ij} &= 2t_1^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
-J_{2,ij} &= 2t_2^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
-\bs{D}_{2,ij} &= - 4\nu_{ij} t_2 \Delta \hat{e}_z \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
-\bs{\Gamma}_{2,ij} &= 2\Delta^2 \text{diag}(-1,-1,1) \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega}
+J_{1,ij}' &= 2t_1^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
+J_{2,ij}' &= 2t_2^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
+\bs{D}_{2,ij}' &= - 4\nu_{ij} t_2 \Delta \hat{e}_z \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \\
+\bs{\Gamma}'_{2,ij} &= 2\Delta^2 \text{diag}(-1,-1,1) \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega}
 \end{align*}
 
 \begin{figure}[t]
 \includegraphics[width=\columnwidth]{../Figures/NNvsNNN.pdf}
-\caption{For circularly polarized light we obtain $\tilde{J}_1 = \frac{J_{1,ij}}{J_{1,ij}^0}$ and $\tilde{D}_{2} = \frac{D_{2,ij}}{D_{2,ij}^0}$ as function of $\mathcal{E} = \frac{eaE_0}{\omega}$, where $e$ is the electron charge and $a$ is the lattice constant. The results are obtain for (units of $\hbar=t_1=1$) $t_2 = 0.1$, $\Delta = 0.5$, $\text{U} = 10$ and $\omega = 6, 16$. Solid lines are for $\omega = 6$ and dashed lines are for $\omega = 16$. For $\tilde{J}_1$, similar results are obtained by Mentink et Al. \cite{Mentink2015}.}
+\caption{For circularly polarized light we obtain $\tilde{J}_1 = \frac{J_{1,ij}'}{J_{1,ij}}$ and $\tilde{D}_{2} = \frac{D_{2,ij}'}{D_{2,ij}}$ as function of $\mathcal{E} = \frac{eaE_0}{\omega}$, where $e$ is the electron charge and $a$ is the lattice constant. The results are obtain for (units of $\hbar=t_1=1$) $t_2 = 0.1$, $\Delta = 0.5$, $\text{U} = 10$ and $\omega = 6, 16$. Solid lines are for $\omega = 6$ and dashed lines are for $\omega = 16$. For $\tilde{J}_1$, similar results are obtained by Mentink et Al. \cite{Mentink2015}.}
 \label{fig2}
 \vspace*{-6pt}
 \end{figure}
@@ -214,10 +214,10 @@ Where $\epsilon_i$ are uncorrelated random variables $\epsilon_i \in [-W,W]$. At
 With:
 
 \begin{align*}
-J_{1,ij} &= \frac{2t_1^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2} \\
-J_{2,ij} &= \frac{2t_2^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2} \\
-\bs{D}_{2,ij} &= -\frac{4\nu_{ij} t_2 \Delta \text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}\hat{e}_z \\
-\bs{\Gamma}_{2,ij} &= \frac{2\Delta^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}\text{diag}(-1,-1,1)
+J_{1,ij}' &= \frac{2t_1^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2} \\
+J_{2,ij}' &= \frac{2t_2^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2} \\
+\bs{D}_{2,ij}' &= -\frac{4\nu_{ij} t_2 \Delta \text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}\hat{e}_z \\
+\bs{\Gamma}_{2,ij}' &= \frac{2\Delta^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}\text{diag}(-1,-1,1)
 \end{align*}
 
 Where in the second step we added the contributions of $\langle i,j \rangle$ and $\langle j,i \rangle$ and where $J_{ij} = \frac{2t^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}$. This model is relevant for studying many-body localization phenomena \cite{Protopopov2018}.
