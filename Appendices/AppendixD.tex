@@ -6,7 +6,31 @@ Graphene, as a representative two dimensional solid with honeycomb lattice struc
 Using the same notation introduced in \ref{AP1A} we can introduce the fermionic operators $\hat{a}^\dagger_i$ and $\hat{b}^\dagger_j$ which create and electron on the A and B site receptively, at position $\bs{R}_i$ or $\bs{R}_i$. Then, the tight binding Hamiltonian considering only NN hopping is:
 
 \begin{equation}
+\label{TBHex}
 \hat{H} = -t\sum_{i \in A}\sum_{\bs{\delta}} (\hat{a}^\dagger_i\hat{b}_{i+\bs{\delta}} + \hat{b}^\dagger_{i+\bs{\delta}}\hat{a}_i)
 \end{equation}
 
-Where $i$ labels sites in sublattice A and $\bs{\delta}$ are the NN vectors, we make an abuse of notation by summing $i+\bs{\delta}$ referring, of course, to the site at position $\bs{R}_i+\bs{delta}$. 
+Where $i$ labels sites in sublattice A and $\bs{\delta}$ are the NN vectors, we make an abuse of notation by summing $i+\bs{\delta}$ referring, of course, to the site at position $\bs{R}_i+\bs{\delta}$. In order to diagonalize this Hamiltonian we change to momentum space:
+
+\begin{align}
+\hat{a}^\dagger_i &= \frac{1}{\sqrt{N}} \sum_{\bs{k}} e^{i\bs{k}\cdot\bs{r}_i}\hat{a}^\dagger_{\bs{k}} \\
+\hat{b}^\dagger_j &= \frac{1}{\sqrt{N}} \sum_{\bs{k}} e^{i\bs{k}\cdot\bs{r}_j}\hat{b}^\dagger_{\bs{k}} 
+\end{align}
+
+Then \ref{TBHex} reads:
+
+\begin{align*}
+\hat{H} &= -\frac{t}{N} \sum_{i \in A}\sum_{\bs{\delta}} \sum_{\bs{k}\bs{k}'} e^{i(\bs{k}-\bs{k}')\cdot\bs{r}_i}e^{-i\bs{k}'\cdot\bs{\delta}} \hat{a}^\dagger_{\bs{k}}\hat{b}_{\bs{k}'} + e^{i(\bs{k}'-\bs{k})\cdot\bs{r}_i}e^{i\bs{k}'\cdot\bs{\delta}} \hat{b}^\dagger_{\bs{k}'}\hat{a}_{\bs{k}} = \\
+&= -t \sum_{\bs{\delta}\bs{k}} e^{-i\bs{k}\cdot\bs{\delta}} \hat{a}^\dagger_{\bs{k}}\hat{b}_{\bs{k}} +e^{i\bs{k}\cdot\bs{\delta}} \hat{b}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} = \sum_{\bs{k}} \psi^\dagger(\bs{k})h(\bs{k})\psi(\bs{k})
+\end{align*}
+
+Where $\psi(\bs{k}) = \left( \hat{a}_{\bs{k}}, \hat{b}_{\bs{k}} \right)^T$ and:
+
+\begin{equation}
+h(\bs{k}) = \begin{pmatrix}
+    0 & f(\bs{k}) \\
+    f^*(\bs{k}) & 0
+\end{pmatrix}
+\end{equation}
+
+being $f(\bs{k}) = -t\sum_{\bs{\delta}} e^{i\bs{k}\cdot\bs{\delta}}$
