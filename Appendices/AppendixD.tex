@@ -33,4 +33,54 @@ h(\bs{k}) = \begin{pmatrix}
 \end{pmatrix}
 \end{equation}
 
-being $f(\bs{k}) = -t\sum_{\bs{\delta}} e^{i\bs{k}\cdot\bs{\delta}}$
+being $f(\bs{k}) = -t\sum_{\bs{\delta}} e^{i\bs{k}\cdot\bs{\delta}}$. In order to obtain the band structure we need to diagonalize $h(\bs{k})$. This is straightforward and the resulting energy bands are:
+
+\begin{equation}
+E(\bs{k})_{\pm} = \pm|f(\bs{k})| = \pm t\sqrt{3+2\cos(\sqrt{3}k_ya) +4\cos(\sqrt{3}k_y\frac{a}{2})\cos(3k_x\frac{a}{2})}
+\end{equation}
+
+The bands will cross, or equivalently the band gap will vanish if $f(\bs{k})=0$ has a solution, which it does at the corners of the first Brillouin zone, i.e. the points:
+
+\begin{align*}
+\bs{K} &= \frac{2\pi}{3a}\left( 1, \frac{1}{\sqrt{3}}\right) \\
+\bs{K}' &= \frac{2\pi}{3a}\left( 1, -\frac{1}{\sqrt{3}}\right) 
+\end{align*}
+
+Where $a$ is the lattice constant. The other corner points are equivalent to either one of these (that is, they can be obtained by a translation of a reciprocal lattice vector).
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.7\linewidth]{../Figures/graphene_bands.png}
+  \caption{Image from \cite{Ando2009}. The energy bands of graphene.} 
+\label{FigD1}
+\end{figure}
+
+As depicted in \ref{FigD1} the bands touch in the $\bs{K}$ and $\bs{K}'$ points of the first Brillouin zone. Now, since the system has one electron per atom with two possible spin states it is clear that at zero temperature the lower energy band will be filled (and the upper band will be empty). Thus, the excitations of the system will occur near the crossings at the $\bs{K}$ points. In order to study these excitations it is interesting to linearize the Hamiltonian around these points. Around the $\bs{K}$ point for example, since $f(bs{k})$ vanishes, we can write:
+
+\begin{equation}
+h(\bs{K}+\bs{q}) \approx \begin{pmatrix}
+    0 & \frac{\partial f(\bs{k})}{\partial \bs{k}}(\bs{K})\bs{q} \\
+    \frac{\partial f^*(\bs{k})}{\partial \bs{k}}(\bs{K})\bs{q} & 0
+\end{pmatrix}
+\end{equation}
+
+Now, 
+
+\begin{equation}
+\frac{\partial f(\bs{k})}{\partial \bs{k}}(\bs{K})\bs{q} = -ie^{\frac{2\pi i}{3}} \frac{3a}{2}(q_x+iq_y)
+\end{equation}
+
+We can ignore the phase and write:
+
+\begin{equation}
+h(\bs{K}+\bs{q}) = v_F \begin{pmatrix}
+    0 & q_x+iq_y \\
+    q_x-iq_y & 0
+\end{pmatrix}
+\end{equation}
+
+Where $v_F = \frac{3at}{2}$. This result is usually written in terms of Pauli matrices as:
+
+\begin{equation}
+h(\bs{K}+\bs{q}) = v_F(q_x\sigma_x-q_y\sigma_y)
+\end{equation}
