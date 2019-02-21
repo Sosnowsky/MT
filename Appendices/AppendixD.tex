@@ -36,7 +36,7 @@ h(\bs{k}) = \begin{pmatrix}
 being $f(\bs{k}) = -t\sum_{\bs{\delta}} e^{i\bs{k}\cdot\bs{\delta}}$. In order to obtain the band structure we need to diagonalize $h(\bs{k})$. This is straightforward and the resulting energy bands are:
 
 \begin{equation}
-E(\bs{k})_{\pm} = \pm|f(\bs{k})| = \pm t\sqrt{3+2\cos(\sqrt{3}k_ya) +4\cos(\sqrt{3}k_y\frac{a}{2})\cos(3k_x\frac{a}{2})}
+E_{\pm}(\bs{k}) = \pm|f(\bs{k})| = \pm t\sqrt{3+2\cos(\sqrt{3}k_ya) +4\cos(\sqrt{3}k_y\frac{a}{2})\cos(3k_x\frac{a}{2})}
 \end{equation}
 
 The bands will cross, or equivalently the band gap will vanish if $f(\bs{k})=0$ has a solution, which it does at the corners of the first Brillouin zone, i.e. the points:
@@ -84,3 +84,9 @@ Where $v_F = \frac{3at}{2}$. This result is usually written in terms of Pauli ma
 \begin{equation}
 h(\bs{K}+\bs{q}) = v_F(q_x\sigma_x-q_y\sigma_y)
 \end{equation}
+
+We can write this more compactly as $h(\bs{K}+\bs{q}) = v_F \left(\bs{q}\bs{\sigma}\right)^*$. Analogously for the $\bs{K}'$ point we obtain $h(\bs{K}'+\bs{q}) = v_F\bs{q}\bs{\sigma}$. This result is identical to the massless Dirac Hamiltonian for relativistic electrons where the speed of light is changed to $v_F$. The linearized energy is simply given by $E_{\pm}(\bs{K}+\bs{q}) = \pm v_F|\bs{q}|$. In \cite{Kane2005}, Kane and Mele added a term :
+\begin{equation}
+h_{SO} = \Delta_{SO}\sigma_z\tau_z s_z
+\end{equation} 
+to this Hamiltonian (where $\tau_z = \pm 1$ describing states around the $\bs{K}$ or $\bs{K}'$ points respectively and $s_z$ representing the electron's spin). This term leads to an energy $E_{\pm}(\bs{K}+\bs{q}) = \pm \sqrt{\left(v_F\bs{q} \right)^2 + \Delta_{SO}^2}$, i.e. it opens an energy gap $2\Delta_{SO}$. If this gap is large enough, the material becomes insulator in the bulk, while supporting states at the boundaries. This states are known as edge states and are of relevance for the transport of charge and spin.
