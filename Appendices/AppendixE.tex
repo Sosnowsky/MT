@@ -1,3 +1,32 @@
 \chapter{Floquet Theory}
 \label{APE}
 In this appendix we will state and proof the Floquet theorem and employ the Floquet formalism to derive a perturbative analysis of high frequency time periodic Hamiltonians. This formalism been widely used recently in many-body driven systems (\cite{Desbuquois2017}, \cite{Bordia2017}, \cite{Gorg2018}).
+
+We will start with a periodic Hamiltonian:
+
+\begin{equation}
+\hat{H}(t) = \hat{H}(t+T)
+\end{equation}
+
+The Floquet theorem states that the eigenstates for the time evolution operator for one period, $\hat{U}(t+T,t)$ can be written as:
+
+\begin{equation}
+\ket{\psi_n(t)} = e^{-i \epsilon_n t}\ket{u_n(t)}
+\end{equation}
+
+Where $\ket{u_n(t+T)} = \ket{u_n(t)}$ is a periodic function, called Floquet mode, and $\epsilon_n$ is a real number known as the quasienergy. To show this, let $a_n(t)$ be the eigenvalue of $\ket{\psi_n(t)}$ under $\hat{U(t+T,t)}$, that is $\hat{U(t+T,t)}\ket{\psi_n(t)} = a_n(t)\ket{\psi_n(t)}$, then by multiplying this equation by $\hat{U}(t',t)$ from the left and using the periodicity of the Hamiltonian in $\hat{U}(t',t) = \hat{U}(t'+T,t+T)$ we obtain:
+
+\begin{align*}
+\hat{U}(t'+T,t) \ket{\psi_n(t)} &= a_n(t)\ket{\psi_n(t')} \rightarrow \\
+\hat{U}(t'+T,t) \hat{U}(t,t')\hat{U}(t',t) \ket{\psi_n(t)} &= a_n(t)\ket{\psi_n(t')} \rightarrow \\
+\hat{U}(t'+T,t') \ket{\psi_n(t')} &= a_n(t)\ket{\psi_n(t')}
+\end{align*}
+
+Which means that $a_n(t') = a_n(t)$, so the eigenvalue does not depend on time, and since it is an eigenvalue of an unitary operator it can be written as $a_n = a_n(t) = e^{-i\epsilon_nT}$ for certain real number $\epsilon_n$. Therefore, we have 
+
+\begin{align*}
+\ket{\psi_n(t+T)} &= e^{-i\epsilon_nT} \ket{\psi_n(t)} \rightarrow \\
+\ket{\psi_n(t)} &= e^{-i\epsilon_nt} \ket{\u_n(t)}
+\end{align*}
+
+For $\ket{\u_n(t)} = e^{i\epsilon_nt} \ket{\psi_n(t)} = \ket{\u_n(t+T)}$, and this proves the theorem.
