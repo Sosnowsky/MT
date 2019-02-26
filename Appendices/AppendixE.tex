@@ -14,7 +14,7 @@ The Floquet theorem states that the eigenstates for the time evolution operator 
 \ket{\psi_n(t)} = e^{-i \epsilon_n t}\ket{u_n(t)}
 \end{equation}
 
-Where $\ket{u_n(t+T)} = \ket{u_n(t)}$ is a periodic function, called Floquet mode, and $\epsilon_n$ is a real number known as the quasienergy. To show this, let $a_n(t)$ be the eigenvalue of $\ket{\psi_n(t)}$ under $\hat{U(t+T,t)}$, that is $\hat{U(t+T,t)}\ket{\psi_n(t)} = a_n(t)\ket{\psi_n(t)}$, then by multiplying this equation by $\hat{U}(t',t)$ from the left and using the periodicity of the Hamiltonian in $\hat{U}(t',t) = \hat{U}(t'+T,t+T)$ we obtain:
+Where $\ket{u_n(t+T)} = \ket{u_n(t)}$ is a periodic function, called Floquet mode, and $\epsilon_n$ is a real number known as the quasienergy. To show this, let $a_n(t)$ be the eigenvalue of $\ket{\psi_n(t)}$ under $\hat{U}(t+T,t)$, that is $\hat{U}(t+T,t)\ket{\psi_n(t)} = a_n(t)\ket{\psi_n(t)}$, then by multiplying this equation by $\hat{U}(t',t)$ from the left and using the periodicity of the Hamiltonian in $\hat{U}(t',t) = \hat{U}(t'+T,t+T)$ we obtain:
 
 \begin{align*}
 \hat{U}(t'+T,t) \ket{\psi_n(t)} &= a_n(t)\ket{\psi_n(t')} \rightarrow \\
@@ -26,7 +26,42 @@ Which means that $a_n(t') = a_n(t)$, so the eigenvalue does not depend on time, 
 
 \begin{align*}
 \ket{\psi_n(t+T)} &= e^{-i\epsilon_nT} \ket{\psi_n(t)} \rightarrow \\
-\ket{\psi_n(t)} &= e^{-i\epsilon_nt} \ket{\u_n(t)}
+\ket{\psi_n(t)} &= e^{-i\epsilon_nt} \ket{u_n(t)}
 \end{align*}
 
-For $\ket{\u_n(t)} = e^{i\epsilon_nt} \ket{\psi_n(t)} = \ket{\u_n(t+T)}$, and this proves the theorem.
+For $\ket{u_n(t)} = e^{i\epsilon_nt} \ket{\psi_n(t)} = \ket{u_n(t+T)}$, and this proves the theorem. The states $\ket{\psi_n(t)}$ are called Floquet states and are solutions of the time dependent Schr\"{o}dinger equation $i\text{d}_t\ket{\psi_n(t)} = \hat{H}(t)\ket{\psi_n(t)}$. The time evolution operator can be written as:
+
+\begin{equation}
+\hat{U}(t_2,t_1) = \sum_n e^{-i\epsilon_n(t_2-t_1)}\ket{u_n(t_2)}\bra{u_n(t_1)}
+\end{equation}
+
+Therefore the time evolution of a superposition of Floquet states will be determined by two different contributions:
+
+\begin{itemize}
+\item The periodic evolution of the superposing Floquet modes. This is called micromotion.
+\item The non-periodic dephasing due to the factor $e^{-i\epsilon_n(t_2-t_1)}$ depending on the quasienergies $\epsilon_n$.
+\end{itemize} 
+
+It is interesting to study these two time dependencies separately. With his purpose we define the micromotion operator and the Floquet Hamiltnian. The micromotion operator is defined as:
+\begin{equation}
+\hat{U}_F(t_2,t_1) \equiv \sum_n \ket{u_n(t_2)}\bra{u_n(t_1)}
+\end{equation}
+so that $\ket{u_n(t_2)} = \hat{U}_F(t_2,t_1)\ket{u_n(t_1)}$, i.e. it is responsible of the periodic time evolution intrinsic of the Floquet modes. On the other hand, the Floquet Hamiltonian $\hat{H}_{t_0}^F$ is a time-independent Hamiltonian defined such that:
+\begin{equation}
+e^{-iT\hat{H}_{t_0}^F} \equiv \hat{U}(t_0+T,t_0)
+\end{equation}
+or equivalently:
+\begin{equation}
+e^{-it\hat{H}_{t_0}^F} = \sum_n e^{-i\epsilon_nt}\ket{u_n(t_0)}\bra{u_n(t_0)}
+\end{equation}
+this Hamiltonian will time-evolve states by adding a phase $e^{-i\epsilon_n(t_2-t_1)}$ to the correspondent fixed-time modes. The full time evolution operator is a combination of both time evolutions:
+\begin{align*}
+\hat{U}(t_2,t_1) &= \sum_n e^{-i\epsilon_n(t_2-t_1)}\ket{u_n(t_2)}\bra{u_n(t_1)} = \\
+&\left( \sum_n e^{-i\epsilon_n(t_2-t_1)}\ket{u_n(t_2)}\bra{u_n(t_2)} \right)\left( \sum_n\ket{u_n(t_2)}\bra{u_n(t_1)}\right) = \\
+&\left( \sum_n \ket{u_n(t_2)}\bra{u_n(t_1)} \right)\left( \sum_n e^{-i\epsilon_n(t_2-t_1)}\ket{u_n(t_1)}\bra{u_n(t_1)} \right)
+\end{align*}
+That is:
+\begin{equation}
+\hat{U}(t_2,t_1) = e^{-i(t_2-t_1)\hat{H}_{t_2}^F}\hat{U}_F(t_2,t_1) = \hat{U}_F(t_2,t_1)e^{-i(t_2-t_1)\hat{H}_{t_1}^F}
+\end{equation}
+
