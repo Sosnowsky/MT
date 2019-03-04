@@ -31,9 +31,9 @@ delta <- 0.5 #NNN intrinsic SOI coupling
 
 U <- 10 #Interaction energy
 frequencies <- list(4,14) #Laser frecuency
-bessel_trunc_order <- 10
+bessel_trunc_order <- 100
 lattice_cte <- 1
-field_energies <- seq(from=0, by=0.001, to=5)
+field_energies <- seq(from=0, by=0.01, to=5)
 
 #J1 = 2*t1^2/U*J1_factor
 J1_factor <- lapply(frequencies, function(x) vector(mode="numeric", length=length(field_energies)))
@@ -47,7 +47,7 @@ ratioJD <-  lapply(frequencies, function(x) vector(mode="numeric", length=length
 for (i in 1:length(frequencies)) {
   for (n in -bessel_trunc_order:bessel_trunc_order) {
     J1_factor[[i]] <- J1_factor[[i]] + besselJ(field_energies/sqrt(2), nu = n)^2 / (1 + n * frequencies[[i]] / U)
-    D2_factor[[i]] <- D2_factor[[i]] + besselJ(sqrt(2)*field_energies, nu = n)^2 / (1 + n * frequencies[[i]] / U)
+    D2_factor[[i]] <- D2_factor[[i]] + besselJ(sqrt(3/2)*field_energies, nu = n)^2 / (1 + n * frequencies[[i]] / U)
   }
   ratioJD[[i]] <- ratioJD0*J1_factor[[i]]/D2_factor[[i]]
 }
@@ -60,7 +60,7 @@ tikz(paste0(current_file, '.tex'), width = 4, height = 4, standAlone = TRUE,
                   "\\setlength\\PreviewBorder{0pt}",
                   "\\usepackage{amssymb}"))
 
-plot(x=range(field_energies), y = range(J1_factor), type='n', xlab = "$\\mathcal{E}$", ylab = '', las =1)
+plot(x=range(field_energies), y = range(c(J1_factor, D2_factor)), type='n', xlab = "$\\mathcal{E}$", ylab = '', las =1)
 for (i in 1:length(frequencies)) {
   lines(x = field_energies, y = J1_factor[[i]], type = 'l', col = "green", lwd = 2, lty = i)
   lines(x = field_energies, y = D2_factor[[i]], type = 'l', col = "red", lwd = 2, lty = i)
