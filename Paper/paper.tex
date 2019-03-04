@@ -15,6 +15,7 @@
 \usepackage[symbol]{footmisc}
 %\usepackage[backend=bibtex,natbib=true,sorting=none]{biblatex}
 \setcounter{MaxMatrixCols}{30}
+\usepackage{subcaption}
 
 
 \renewcommand{\cite}[1]{{[}\onlinecite{#1}{]}}
@@ -84,7 +85,7 @@
 
 
 
-\textit{Model Hamiltoniantest}.---
+\textit{Model Hamiltonian}.---
 Effective Hamiltonian of a 2D planar honeycomb lattice in the presence of electron-electron interactions can be described by Kane-Mele-Hubbard model \cite{Kane2005,Griset2012,Auerbach}. \AQ{cite papers for KMH model. Also cite Auerbach's book for Hubbard model!}
 The Hamitlonian in the absence of external perturbations is the sum of the kinetic term $\hat{\mathcal{H}}_t$, the intrinsic SOI $\hat{\mathcal{H}}_{\text{SOI}}$ and electron-electron interaction modelled by extended Hubbard model $\hat{\mathcal{H}}_{\text{int}}$,
 \begin{equation}
@@ -195,9 +196,17 @@ All spin interaction parameters are renormalized by the same function but $\alph
 
 
 \begin{figure}[t]
-\includegraphics[width=\columnwidth]{../Figures/NNvsNNN.pdf}
+\begin{subfigure}{0.7\columnwidth}
+\includegraphics[width=\columnwidth]{../Figures/NNvsNNN1.pdf}
 \caption{For circularly polarized light we obtain $\tilde{J}_1 = \frac{J_{1,ij}'}{J_{1,ij}}$ and $\tilde{D}_{2} = \frac{D_{2,ij}'}{D_{2,ij}}$ as function of $\mathcal{E} = \frac{eaE_0}{\omega}$. Solid lines are for $\omega = 4$ and dashed lines are for $\omega = 14$. Notice that $\tilde{J}_1$ and $\tilde{D}_{2}$ do not depend on the parameters $t_1$, $t_2$ and $\Delta$.}
 \label{fig2}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.7\columnwidth}
+\includegraphics[width=\columnwidth]{../Figures/NNvsNNN2.pdf}
+\caption{This plot is obtained for $\omega = 0.15$.}
+\label{fig3}
+\end{subfigure}
 \vspace*{-6pt}
 \end{figure}
 

@@ -30,10 +30,10 @@ t2 <- 0.1 #NNN hoping integral
 delta <- 0.5 #NNN intrinsic SOI coupling
 
 U <- 10 #Interaction energy
-frequencies <- list(4,14) #Laser frecuency
+frequencies <- list(0.15) #Laser frecuency
 bessel_trunc_order <- 100
 lattice_cte <- 1
-field_energies <- seq(from=0, by=0.01, to=5)
+field_energies <- seq(from=0, by=0.1, to=200)
 
 #J1 = 2*t1^2/U*J1_factor
 J1_factor <- lapply(frequencies, function(x) vector(mode="numeric", length=length(field_energies)))
