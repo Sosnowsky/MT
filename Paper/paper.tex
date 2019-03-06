@@ -81,13 +81,15 @@ We study ultrafast optical control of exchange and Dzyaloshinskii-Moriya interac
 \date{\today}
 \maketitle
 
-\textit{Introduction}.--- Discovery of athermal all-optical control of order parameters in antiferromagnetic (AFM) and ferromagnetic (FM) materials by intense and high-frequency laser pulses has elevated spintronics to a new era called ultrafast magnetism \cite{kimel2005ultrafast,Rasing}. Although the underlying microscopic mechanism behind this phenomena is unclear yet, there have been many attempts to uncover its origins. Recently, it has been theoretically proposed that laser pulses can modify and even reverse the sign of exchange interaction \cite{PhysRevLett.113.057201,Mentink2015,PhysRevLett.118.097701,Stepanov2017,Kitamura,MentinkReview,Barbeau2018}, the strongest spin interaction in magnetic systems. This finding has been supported by recent experiments \cite{Mikhaylovskiy2015,2018Natur.553..481G}. Another important spin interaction is Dzyaloshinskii-Moriya intercation (DMI), an antisymmetric exchange interaction appeared in inversion symmetry broken systems, that breaks the chiral symmetry of the system \cite{dzyaloshinsky1958, moriya1960,Alireza-DMI1, Alireza-DMI2}. While this interaction is much weaker than the exchange interaction, its presence has important consequences in magnetic materials such as weak ferromagnetism in AFM materials \cite{dzyaloshinsky1958, moriya1960}, stabilizing topological objects like chiral skyrmions \cite{AlirezaSk1, AlirezaSk2} and domain walls \cite{AlirezaSW}, and exotic phase of topological magnon insulators \cite{Owerre2016, Elyasi2018, Chen2018, Owerre1, Owerre2}. The ratio between these two interactions control the tilting angle of canted spins. Proposing a mechanism to tune this ratio has important consequences in ultrafast spin dynamics and switching \cite{Mikhaylovskiy2015,Mentink2015,Stepanov2017,Kitamura}. In this Letter, we show that intense and high-frequency laser pulses can change this ratio in a class of two-dimensional (2D) magnetic materials described by the Kane-Mele-Hubbard model.
+\textit{Introduction}.--- Discovery of athermal all-optical control of order parameters in antiferromagnetic (AFM) and ferromagnetic (FM) materials by ultrashort, intense and high-frequency laser pulses has elevated spintronics to a new era of ultrafast magnetism \cite{kimel2005ultrafast,Rasing}. Although the underlying microscopic mechanism behind this phenomena is unclear yet, there have been many attempts to uncover its origins. Recently, it has been theoretically proposed that laser pulses can modify and even reverse the sign of exchange interaction \cite{PhysRevLett.113.057201,PhysRevLett.115.075301,Mentink2015,PhysRevLett.118.097701,Stepanov2017,Kitamura,MentinkReview,Barbeau2018}, the strongest spin interaction in magnetic systems. This finding has been supported by recent experiments \cite{Mikhaylovskiy2015,2018Natur.553..481G}. Another important spin interaction is Dzyaloshinskii-Moriya intercation (DMI), an antisymmetric exchange interaction appeared in inversion symmetry broken systems, that breaks the chiral symmetry of the system \cite{dzyaloshinsky1958, moriya1960,Alireza-DMI1, Alireza-DMI2}. While this interaction is much weaker than the exchange interaction, its presence has important consequences in magnetic materials such as weak ferromagnetism in AFM materials \cite{dzyaloshinsky1958, moriya1960}, stabilizing topological objects like chiral skyrmions \cite{2009Sci...323..915M,2017NatRM...217031F,AlirezaSk1, AlirezaSk2} and chiral domain walls \cite{Thiaville_2012,Parkin,AlirezaSW}, and exotic phase of topological magnon insulators \cite{Owerre2016, Elyasi2018, Chen2018, Owerre1, Owerre2}. The ratio between these two interactions control the tilting angle of canted spins. Proposing a mechanism to tune this ratio has important consequences in ultrafast spin dynamics and switching \cite{Mikhaylovskiy2015,Mentink2015,Stepanov2017,Kitamura}.
 
-2D van der Waals magnetic materials with metallic, semiconducting and insulating band structures have been recently discovered in both AFM and FM phases \cite{2D1,2D2}. We can now use the advantage of both low dimensionality and magnetic order in the same material for the first time which promises novel spintronics devices with exceptional performances.
+Another important breakthrough in spintronics happened in recent few years is the discovery of two-dimensional (2D) van der Waals magnetic materials with metallic, semiconducting and insulating band structures in both AFM and FM phases \cite{2D1,2D2}. We can now use the advantage of both low dimensionality and magnetic order in the same material for the first time which promises novel spintronics devices with exceptional performances.
+
+In this Letter, we show that intense and high-frequency laser pulses can change spin-spin interactions and the ratio between exchange interaction and DMI drastically in a class of 2D magnetic materials described by the Kane-Mele-Hubbard model.
 
 
 \textit{Model Hamiltonian}.---
-Effective Hamiltonian of a 2D planar honeycomb lattice in the presence of electron-electron interactions can be described by Kane-Mele-Hubbard model \cite{Kane2005,Griset2012,Auerbach}. 
+Effective Hamiltonian of a 2D planar honeycomb lattice in the presence of electron-electron interactions can be described by Kane-Mele-Hubbard model \cite{Kane2005,PhysRevLett.107.010401,PhysRevLett.106.100403,PhysRevB.84.235149,Griset2012,Auerbach}.
 The Hamitlonian in the absence of external perturbations is the sum of the kinetic term $\hat{\mathcal{H}}_t$, the intrinsic SOI $\hat{\mathcal{H}}_{\text{SOI}}$ and Coulomb interaction between electrons modelled by extended Hubbard model $\hat{\mathcal{H}}_{\text{int}}$,
 \begin{equation}
 \label{MKMH}
@@ -95,8 +97,8 @@ The Hamitlonian in the absence of external perturbations is the sum of the kinet
 \end{equation}
 where
 \begin{align}
-\hat{\mathcal{H}}_{\text{K}} &= - \sum_{\langle i,j \rangle, \tau} t_{1}\hat{c}_{i \tau}^\dagger \hat{c}_{j \tau} - \sum_{\langle \langle i,j \rangle \rangle, \tau} t_{2}\hat{c}_{i \tau}^\dagger \hat{c}_{j \tau} \label{Ht} \\
-\hat{\mathcal{H}}_{\text{SOI}} & = \sum_{\langle \langle i,j \rangle \rangle, \tau,\tau'} i\Delta\nu_{ij}\sigma^z_{\tau, \tau'}\hat{c}_{i \tau}^\dagger \hat{c}_{j \tau'} \label{Hsoi} \\
+\hat{\mathcal{H}}_{\text{K}} &= - t_{1}\sum_{\langle i,j \rangle, \tau} \hat{c}_{i \tau}^\dagger \hat{c}_{j \tau} - t_{2}\sum_{\langle \langle i,j \rangle \rangle, \tau} \hat{c}_{i \tau}^\dagger \hat{c}_{j \tau} \label{Ht} \\
+\hat{\mathcal{H}}_{\text{SOI}} & = i \Delta \sum_{\langle \langle i,j \rangle \rangle, \tau,\tau'} \nu_{ij}\sigma^z_{\tau, \tau'}\hat{c}_{i \tau}^\dagger \hat{c}_{j \tau'} \label{Hsoi} \\
 \hat{\mathcal{H}}_{\text{int}} &= U_{00}\sum_{i=1} \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} + \frac{1}{2}\sum_{\langle i,j \rangle, \tau \tau'} V_{ij}\hat{n}_{i\tau}\hat{n}_{j\tau'} \label{Hint}.
 \end{align}
 where $\langle\cdot\rangle$ and $\langle\langle\cdot\rangle\rangle$ denote, respectively, nearest neighbors (NN) and next-nearest neighbours (NNN), $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) are fermionic creation (annihilation) operators for an electron on site $i$ and spin state $\tau=\{\uparrow,\downarrow\}$, $t_1$ and $t_2$ are NN and NNN hopping amplitudes, $\Delta$ is the intrinsic SOI constant, $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$), $\sigma^{z}$ is the $z$-component of Pauli matrices $\bm{\sigma}$, $U_{00}$ and $V_{ij}$ are the on-site and NN Coulomb interactions.
@@ -136,11 +138,12 @@ For the sake of completeness, we explain shortly the effect of disorders by addi
 
 
 Different terms appeared in the spin Hamiltonian derived in Eq. (\ref{MKMHeff0}) has already been obtained phenomenologically in several  \cite{Owerre2016} and confirmed experimentally \cite{Chen2018} but, to the best of our knowledge, this is the first microscopic derivation of the complete spin Hamiltonian $\hat{H}_{\text{S}}$ from the Kane-Mele-Hubbard model.
-It has been shown that this Hamiltonian has interesting features and exotic phases like, existence of magnon spin Nernst effect in collinear AFM layers \cite{Cheng2016, PhysRevLett.117.217203}, topological magnon insulator phase \cite{Owerre2016, Elyasi2018, Chen2018}, spin Hall effects of Weyl magnons \cite{Zyuzin2018, Sekine2016} magnonic Floquet topological insulators, spin density wave \cite{Mulder2010}, chiral and topological gapped spin liquid phases \cite{Vaezi}.
+It has been shown that this Hamiltonian has interesting features and exotic phases like, existence of magnon spin Nernst effect in collinear AFM layers \cite{Cheng2016, PhysRevLett.117.217203}, topological magnon insulator phase \cite{Owerre2016, Elyasi2018, Chen2018}, spin Hall effects of Weyl magnons \cite{Zyuzin2018, Sekine2016} magnonic Floquet topological insulators, spin density wave \cite{Mulder2010}, chiral and topological gapped spin liquid phases \cite{Vaezi}. Ultrafast control of DMI and exchange interaction by laser pulses also open a way to engineer all these phenomena.  
 
 
 
 \textit{Laser illumination}. The effect of laser irradiation on the honeycomb lattice is introduced in the Kane-Mele-Hubbard Hamiltonian, Eq. (\ref{MKMH}), via the Peierls substitution method \cite{Peierls1933}. The electric-field component of a polarized laser pulse is given by $\bs{E}(t) = \frac{E_0}{2}( e^{-i\omega t}\hat{\epsilon}+\mathrm{c.c.})$, where $E_0$ is the electric field amplitude, $\omega$ is the laser pulse frequency, and $\hat{\epsilon} = (\hat{\mathrm{e}}_x+i\lambda\hat{\mathrm{e}}_y)/\sqrt{1+\lambda^2}$ is the polarization unit vector with $\lambda= 0$ for linear polarization and $\lambda= \pm 1$ for right- and left handed polarizations.
+
 
 It is more convenient to rewrite the noninteracting part of the Kane-Mele-Hubbard Hamiltonian, Eq. (\ref{MKMH}), from now on the hopping part, as $\hat{T}_0=\hat{\mathcal{H}}_{\text{K}}+\hat{\mathcal{H}}_{\text{SOI}} = - \sum_{i,j , \tau, \tau'}
 t_{ij}^{\tau\tau'} \hat{c}_{i \tau}^\dagger \hat{c}_{j \tau'}$, where the hopping amplitude is $t_{ij}^{\tau\tau'} = \delta_{\tau,\tau'}t_1$ for $i,j$ being nn and $t_{ij}^{\tau\tau'} = \delta_{\tau,\tau'}t_2 - i\Delta\nu_{ij}\sigma^z_{\tau, \tau'}$ for $i,j$ being NNN.
@@ -159,7 +162,7 @@ The total Hamiltonian in the presence of the laser field is time depended throug
 \end{equation}
 where $\hat{T}_{dm}(t)$ changes the doublon number by $d$, for example, if $\hat{P}_d$ is the projection operator into the subspace with doublon number $d$, then $\hat{T}_{dm}(t) = \sum_i \hat{P}_{i+d}\hat{T}_{m}(t)\hat{P}_i$.
 
-To find the renormalized spin Hamiltonian, first, we have to find an effective time-independent Hamiltonian. To do that, we transform the original time-dependent Hamiltonian, $\hat{H}(t)$, using a unitary transformation $\hat{U}(t) = e^{-i\hat{S}(t)}$,
+To find renormalized spin Hamiltonian, we first drive an effective static Hamiltonian using the Floquet formalism \cite{Floquet1,Floquet2}. To do that, we transform the original time-dependent Hamiltonian, $\hat{H}(t)$, using a unitary transformation $\hat{U}(t) = e^{-i\hat{S}(t)}$,
 \begin{equation}
 \hat{H}'(t) = e^{i\hat{S}(t)} \left(\hat{H}(t)  -  i\partial_t \right) e^{-i\hat{S}(t)}.
 \label{Htransformed}
@@ -174,11 +177,12 @@ where $\hat{S}^{(\nu)}_{d,m}$ changes the double occupancy number by $d$. We exp
 &\hat{T}'(t) \approx  - \sum_m \hat{T}_{0,m}(t)e^{im\omega t} + \n \\
 &+ \frac{1}{2}\sum_{mn} \left( \frac{\left[\hat{T}_{1,n}, \hat{T}_{-1,m-n} \right]}{\text{U}+n\omega} - \frac{\left[\hat{T}_{-1,n}, \hat{T}_{1,m-n} \right]}{\text{U}-n\omega} \right) e^{im\omega t}.
 \end{align}
-Now, we are in the situation that we can calculate the effective time-independent Hamiltonian by time averaging of the transformed Hamiltonian $\hat{H}_{\text{eff}}=\hat{P}_0\hat{H}'(t)\hat{P}_0$, where $\hat{P}_0$ is the projection operator to the $d=0$ subspace.
+Now, we are in the situation that we can calculate the effective static Hamiltonian by time averaging of the transformed Hamiltonian $\hat{H}_{\text{eff}}=\hat{P}_0\hat{H}'(t)\hat{P}_0$, where $\hat{P}_0$ is the projection operator to the $d=0$ subspace.
 Doing some algebra, the effective time-independent Hamiltonian in terms of creation and annihilation operators is obtained,
 \begin{align}
 \hat{H}_{\text{eff}} &= - \sum_{i,j, \tau, \tau'} \left(t_{ij}^{\tau} t_{ji}^{\tau'} \sum_{n} \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \right)  \hat{c}_{i \tau}^\dagger \hat{c}_{j \tau} \hat{c}_{j \tau'}^\dagger \hat{c}_{i \tau'}+\text{U}\hat{d}. \label{GeneralHeff}
 \end{align}
+
 
 
 Finally, the spin Hamiltonian, at half-filling and strong interaction limit of the effective Hamiltonian $\hat{H}_{\text{eff}}$, using the relations Eqs. (\ref{SpinOperatorInv1}) and (\ref{SpinOperatorInv2}), is given by,
@@ -197,26 +201,26 @@ with the following renormalized spin interactions,
 \end{align}
 All spin interaction parameters are renormalized by the same function but $\alpha_{ij}$ is different for NN and NNN parameters. Thus, the ratios between these renormalized parameters are different than non-perturbed parameters which is a peculiar of honeycomb lattices described by the Kane-Mele-Hubbard model. The renormalized spin interactions presented in Eq. (\ref{Renor-para}) are helicity independent.
 
-
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../Figures/NNvsNNN1.pdf}
+\vspace{-1.3cm}
+\includegraphics[width=\columnwidth]{NNvsNNN1.pdf}
+\vspace{-1cm}
 \caption{Dimensionless exchange interaction (green lines) and DMI (red lines) as a function of $\mathcal{E} = \frac{eaE_0}{\omega}$, for two laser frequencies $\omega = 4$ (solid lines) and $\omega = 14$ (dashed lines).}
 \label{fig2}
 \end{figure}
-
 
 Figure \ref{fig2}, shows the dependence of normalized nn exchange interaction $\tilde{J}_{1,ij}/J_{1,ij}$ and normalized NNN DMI $\tilde{D}_{ij}/D_{ij}$ in the dimensionless electric field parameter $\mathcal{E} = \frac{e a E_0}{\omega}$, where $a$ is the lattice constant. The results are obtained for dimensionless material parameters $t_1=1$, $\text{U} = 10$ and $\omega = 4 \mathrm{and} 14$ (equivalently, $T = \frac{2\pi}{\omega} \approx 10^{-16}\text{s}$). Figure \ref{fig2}, shows that it is possible not only change the sign and amplitude of the exchange interaction as already reported in Ref. \cite{Mentink2015} but its is possible to change the signa nd amplitude of intrinsic DMI. More importantly, the ratio $\tilde{J}_{1,ij}/\tilde{D}_{ij}\neq J_{1,ij}/D_{ij}$ can be tuned by laser excitations which is responsible for ultarafast photoinduced spin dynamics and magnon scattering phenomena.
 
 Eqs. (\ref{MKMHeffw}) and (\ref{Renor-para}) explicitly show that the spin Hamiltonian in the presence of a time-dependent external field can be effectively written as $\tilde{H}_{\text{S}}=H_{\text{S}}+g_{\alpha \beta i j} S^\alpha_i S^\beta_j E^{\alpha} E^{*\beta} $, where $\alpha$ and $\beta$ stand for spatial component of vectors, and $i$ and $j$ refer to the lattice cite. Thus, the dielectric permittivity tensor is given by $\varepsilon_{\alpha \beta}=\partial^2 \tilde{H}_{\text{S}}/\partial E^{\alpha}\partial E^{*\beta}$, where $g$ is the response function tensor. This optomagnetic effect described by the dielectric permittivity $\varepsilon$, can be detected by measuring the intensity of the scattered light $I_{\mathrm{sc}} \propto (\varepsilon_{\alpha \beta} E_0)^2$ \cite{Demokritov1985}.
 
-In ultrafast spin dynamics experiments, very intense laser pulses are used and one might think about heating and concerning on the validity of our approach. Recent theoretical \cite{Rudner2019} and experimental \cite{PhysRevA.96.053602} works show that the energy absorption rate is suppressed exponentially for high frequency laser pulses $\omega/W\gg 1$, where $W\propto t_1$ is the fermionic bandwidth, which is the case in ultrafast experiments with optical laser pulses. Thus, rapidly driven systems have a very long prethermalization period and this implies that the evolution of these systems in the presence of short laser pulses can be described by our formalism safely.
+In ultrafast spin dynamics experiments, very intense laser pulses are used and one might think about heating and concerning on the validity of our approach. Recent theoretical \cite{Rudner2019,PhysRevB.97.014311} and experimental \cite{PhysRevA.96.053602} works show that the energy absorption rate is suppressed exponentially for high frequency laser pulses $\omega/W\gg 1$, where $W\propto t_1$ is the fermionic bandwidth, which is the case in ultrafast experiments with optical laser pulses. Thus, rapidly driven systems have a very long prethermalization period and this implies that the evolution of these systems in the presence of short laser pulses can be described by our formalism safely.
 
 
 
 Possibility of ultrafast optical modification of exchange interactions in the bulk of iron oxides has been recently reported \cite{Mikhaylovskiy2015}. We hope that our work stimulate new experiments on measuring both exchange interaction and DMI in novel 2D magnetic systems.
 
-In summary, using Floquet theory we have investigated the effect of polarized and intense high-frequency laser pulses on 2D canted antiferromagnetic Mott insulators. We have found that both amplitude and sign of the ratio between the exchange interaction and DMI is changed in honeycomb lattices irrespective to the helicity of laser pulses. Our calculations open a new way to ultrafast energy-efficient control of spins and engineering of topological objects and topological properties of 2D van der Waals magnetic materials.
+In summary, we have investigated the effect of polarized and intense high-frequency laser pulses on 2D canted antiferromagnetic Mott insulators using Floquet theory. We have found that both sign and amplitude of the ratio between the exchange interaction and DMI is changed in honeycomb lattices irrespective to the helicity of laser pulses. Our calculations open a new way to ultrafast and energy-efficient control of spins and engineering of topological objects and topological properties of 2D van der Waals magnetic materials.
 
 
 \section*{Acknowledgments}
