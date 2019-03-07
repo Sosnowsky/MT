@@ -81,7 +81,7 @@ We study ultrafast optical control of exchange and Dzyaloshinskii-Moriya interac
 \date{\today}
 \maketitle
 
-\textit{Introduction}.--- Discovery of athermal all-optical control of order parameters in antiferromagnetic (AFM) and ferromagnetic (FM) materials by ultrashort, intense and high-frequency laser pulses has elevated spintronics to a new era of ultrafast magnetism \cite{kimel2005ultrafast,Rasing}. Although the underlying microscopic mechanism behind this phenomena is unclear yet, there have been many attempts to uncover its origins. Recently, it has been theoretically proposed that laser pulses can modify and even reverse the sign of exchange interaction \cite{PhysRevLett.113.057201,PhysRevLett.115.075301,Mentink2015,PhysRevLett.118.097701,Stepanov2017,Kitamura,MentinkReview,Barbeau2018}, the strongest spin interaction in magnetic systems. This finding has been supported by recent experiments \cite{Mikhaylovskiy2015,2018Natur.553..481G}. Another important spin interaction is Dzyaloshinskii-Moriya intercation (DMI), an antisymmetric exchange interaction appeared in inversion symmetry broken systems, that breaks the chiral symmetry of the system \cite{dzyaloshinsky1958, moriya1960,Alireza-DMI1, Alireza-DMI2}. While this interaction is much weaker than the exchange interaction, its presence has important consequences in magnetic materials such as weak ferromagnetism in AFM materials \cite{dzyaloshinsky1958, moriya1960}, stabilizing topological objects like chiral skyrmions \cite{2009Sci...323..915M,2017NatRM...217031F,AlirezaSk1, AlirezaSk2} and chiral domain walls \cite{Thiaville_2012,Parkin,AlirezaSW}, and exotic phase of topological magnon insulators \cite{Owerre2016, Elyasi2018, Chen2018, Owerre1, Owerre2}. The ratio between these two interactions control the tilting angle of canted spins. Proposing a mechanism to tune this ratio has important consequences in ultrafast spin dynamics and switching \cite{Mikhaylovskiy2015,Mentink2015,Stepanov2017,Kitamura}.
+\textit{Introduction}.--- Discovery of athermal all-optical control of order parameters in antiferromagnetic (AFM) and ferromagnetic (FM) materials by ultrashort, intense and high-frequency laser pulses has elevated spintronics to a new era of ultrafast magnetism \cite{kimel2005ultrafast,Rasing}. Although the underlying microscopic mechanism behind this phenomena is unclear yet, there have been many attempts to uncover its origins. Recently, it has been theoretically proposed that laser pulses can modify and even reverse the sign of exchange interaction \cite{PhysRevLett.113.057201,PhysRevLett.115.075301,Mentink2015,PhysRevLett.118.097701,Stepanov2017,Kitamura,MentinkReview,Barbeau2018}, the strongest spin interaction in magnetic systems. This finding has been supported by recent experiments \cite{2018Natur.553..481G,Mikhaylovskiy2015,Perakis,PhysRevLett.93.197403}. Another important spin interaction is Dzyaloshinskii-Moriya intercation (DMI), an antisymmetric exchange interaction appeared in inversion symmetry broken systems, that breaks the chiral symmetry of the system \cite{dzyaloshinsky1958, moriya1960,Alireza-DMI1, Alireza-DMI2}. While this interaction is much weaker than the exchange interaction, its presence has important consequences in magnetic materials such as weak ferromagnetism in AFM materials \cite{dzyaloshinsky1958, moriya1960}, stabilizing topological objects like chiral skyrmions \cite{2009Sci...323..915M,2017NatRM...217031F,AlirezaSk1, AlirezaSk2} and chiral domain walls \cite{Thiaville_2012,Parkin,AlirezaSW}, and exotic phase of topological magnon insulators \cite{Owerre2016, Elyasi2018, Chen2018, Owerre1, Owerre2}. The ratio between these two interactions control the tilting angle of canted spins. Proposing a mechanism to tune this ratio has important consequences in ultrafast spin dynamics and switching \cite{Mikhaylovskiy2015,Mentink2015,Stepanov2017,Kitamura}.
 
 Another important breakthrough in spintronics happened in recent few years is the discovery of two-dimensional (2D) van der Waals magnetic materials with metallic, semiconducting and insulating band structures in both AFM and FM phases \cite{2D1,2D2}. We can now use the advantage of both low dimensionality and magnetic order in the same material for the first time which promises novel spintronics devices with exceptional performances.
 
@@ -145,7 +145,7 @@ It has been shown that this Hamiltonian has interesting features and exotic phas
 
 
 
-\textit{Laser illumination}. 
+\textit{Laser illumination}.
 The effect of laser irradiation on the honeycomb lattice is introduced in the Kane-Mele-Hubbard Hamiltonian, Eq. (\ref{MKMH}), via the Peierls substitution method \cite{Peierls1933}. The electric-field component of a polarized laser pulse is given by $\bs{E}(t) = \frac{E_0}{2}( e^{-i\omega t}\hat{\epsilon}+\mathrm{c.c.})$, where $E_0$ is the electric field amplitude, $\omega$ is the laser pulse frequency, and $\hat{\epsilon} = (\hat{\mathrm{e}}_x+i\lambda\hat{\mathrm{e}}_y)/\sqrt{1+\lambda^2}$ is the polarization unit vector with $\lambda= 0$ for linear polarization and $\lambda= \pm 1$ for right- and left handed polarizations.
 
 
@@ -166,7 +166,7 @@ The total Hamiltonian in the presence of the laser field is time depended throug
 \end{equation}
 where $\hat{T}_{dm}(t)$ changes the doublon number by $d$, for example, if $\hat{P}_d$ is the projection operator into the subspace with doublon number $d$, then $\hat{T}_{dm}(t) = \sum_i \hat{P}_{i+d}\hat{T}_{m}(t)\hat{P}_i$.
 
-To find renormalized spin Hamiltonian, we first drive an effective static Hamiltonian using the Floquet formalism \cite{Floquet1,Floquet2}. To do that, we transform the original time-dependent Hamiltonian, $\hat{H}(t)$, using a unitary transformation $\hat{U}(t) = e^{-i\hat{S}(t)}$,
+To find renormalized spin Hamiltonian, we first drive an effective static Hamiltonian using the Floquet formalism \cite{Floquet1,2018NJPh...20i3022R,Floquet2}. To do that, we transform the original time-dependent Hamiltonian, $\hat{H}(t)$, using a unitary transformation $\hat{U}(t) = e^{-i\hat{S}(t)}$,
 \begin{equation}
 \hat{H}'(t) = e^{i\hat{S}(t)} \left(\hat{H}(t)  -  i\partial_t \right) e^{-i\hat{S}(t)}.
 \label{Htransformed}
@@ -199,9 +199,9 @@ with the following renormalized spin interactions,
 \begin{subequations}
 \label{Renor-para}
 \begin{align}
-&\tilde{J}_{1(2),ij} = 2t_{1(2)}^2\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega}, \\ 
-&\tilde{\bs{\Gamma}}_{ij} = 2\Delta^2 \text{diag}(-1,-1,1) \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega},\\ 
-&\tilde{\bs{D}}_{ij} = - 4 t_2 \Delta \frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \nu_{ij} \hat{\mathrm{e}}_z. 
+&\tilde{J}_{1(2),ij} = 2t_{1(2)}^2\sum_n\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega}, \\
+&\tilde{\bs{\Gamma}}_{ij} = 2\Delta^2 \text{diag}(-1,-1,1) \sum_n\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega},\\
+&\tilde{\bs{D}}_{ij} = - 4 t_2 \Delta \sum_n\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \nu_{ij} \hat{\mathrm{e}}_z.
 \end{align}
 \end{subequations}
 All spin interaction parameters are renormalized by the same function but $\alpha_{ij}$ is different for NN and NNN parameters. Thus, the ratios between these renormalized parameters are different than non-perturbed parameters which is a peculiar of honeycomb lattices described by the Kane-Mele-Hubbard model. The renormalized spin interactions presented in Eq. (\ref{Renor-para}) are helicity independent.
