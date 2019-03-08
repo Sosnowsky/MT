@@ -11,6 +11,7 @@ We will start with a periodic Hamiltonian:
 The Floquet theorem states that the eigenstates for the time evolution operator for one period, $\hat{U}(t+T,t)$ can be written as:
 
 \begin{equation}
+\label{FloquetMode}
 \ket{\psi_n(t)} = e^{-i \epsilon_n t}\ket{u_n(t)}
 \end{equation}
 
@@ -64,4 +65,52 @@ That is:
 \begin{equation}
 \hat{U}(t_2,t_1) = e^{-i(t_2-t_1)\hat{H}_{t_2}^F}\hat{U}_F(t_2,t_1) = \hat{U}_F(t_2,t_1)e^{-i(t_2-t_1)\hat{H}_{t_1}^F}
 \end{equation}
+
+\section{Extended Hilbert space}
+
+Having introduced the micromotion operator and the Floquet Hamiltonian, we turn on to introduce the concept of extended Hilbert space. Introducing \ref{FloquetMode} in the Scr\"{o}dinger equation we get:
+
+\begin{equation}
+\left[ \hat{H}-i\text{d}_t\right] \ket{u_n(t)} = \epsilon_n\ket{u_n(t)}
+\end{equation}
+
+This can be regarded as an eigenvalue problem in the space $\mathcal{F}=\mathcal{H}\otimes\mathcal{L}_T$, where $\mathcal{L}_T$ is the space of square integrable T-periodic functions. The operator $\hat{Q} = \hat{H}-i\text{d}_t$ acting on $\mathcal{F}$ is referred to as the quasienergy operator. States in the extended Hilbert space (that is, a state plus its periodic time dependence) is usually denoted as $\ket{u}\rangle$, and the inner product in this space is defined as:
+
+\begin{equation}
+\langle \bra{u}\ket{v} \rangle = \frac{1}{T}\int_0^T \text{d}t \bra{u(t)}\ket{v(t)}
+\end{equation}
+
+An orthonormal basis for the extended Hilbert space can be obtained as the direct product an orthonormal basis of $\mathcal{H}$ and $\mathcal{L}_T$. A convenient orthonormal basis for $\mathcal{L}_T$ is given by the functions $e^{im\omega t}$, therefore, if $\ket{\alpha}$ labels an orthonormal basis of $\mathcal{H}$, then the set of functions $\ket{\alpha m (t)} = \ket{\alpha}e^{im\omega t}$ is a basis of the extended Floquet space, and it is denoted as $\ket{\alpha m}\rangle$. In this basis, the quasienergy operator has matrix elements:
+
+\begin{align}
+\langle \bra{\alpha' m'}\hat{Q}\ket{\alpha m} \rangle &= \frac{1}{T}\int_0^T \text{d}t e^{-im'\omega t}\bra{\alpha'} \hat{H}(t)-i\hbar\text{d}_t \ket{\alpha}e^{im\omega t} = \nonumber \\
+&= \bra{\alpha'} \hat{H}_{m'-m} \ket{\alpha} + \delta_{m'm}\delta_{\alpha' \alpha}m\hbar\omega \label{QOmatelem}
+\end{align}
+
+Where
+\begin{equation}
+\hat{H}_m = \frac{1}{T}\int_0^T \text{d}t e^{-im\omega t}\hat{H}(t) 
+\end{equation}
+is the Fourier transform of the Hamiltonian. Now, a Floquet state $\ket{\psi_n(t)} = e^{-i \epsilon_n t}\ket{u_n(t)}$ can be expanded as $\ket{u_n(t)} = \sum_m e^{im\omega t}\ket{u_{nm}}$, using \ref{QOmatelem} and projecting onto the \textit{m}th Fourier mode we can rewrite the Scr\"{o}dinger equation as:
+
+\begin{equation}
+(\epsilon_n+m\omega)\ket{u_{nm}} = \sum_{m'}\hat{H}_{m-m'}\ket{u_{nm'}}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
