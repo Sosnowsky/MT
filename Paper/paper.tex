@@ -11,6 +11,7 @@
 \usepackage{fancybox}
 \usepackage{amsfonts}
 \usepackage{amssymb}%
+\usepackage{natbib}
 \usepackage[toc,page]{appendix}
 \usepackage[symbol]{footmisc}
 %\usepackage[style=numeric-comp]{biblatex}
@@ -71,11 +72,11 @@
 \affiliation{Center for Quantum Spintronics, Department of Physics, Norwegian University of Science and Technology, NO-7491 Trondheim, Norway}
 \author{Alireza Qaiumzadeh}
 %\thanks{Corresponding author: alireza.qaiumzadeh@ntnu.no}
-\affiliation{Center for Quantum Spintronics, Department of Physics, Norwegian University of Science and TechFnology, NO-7491 Trondheim, Norway}
+\affiliation{Center for Quantum Spintronics, Department of Physics, Norwegian University of Science and Technology, NO-7491 Trondheim, Norway}
 %\affiliation{Institute for Advanced Studies in Basic Science (IASBS), Zanjan, Iran}
 
 \begin{abstract}
-Light provides ultrafast control of exchange and Dzyaloshinskii-Moriya interactions, we consider two-dimensional honeycomb lattices described by the Kane-Mele-Hubbard model at half-filling and in the strongly correlated limit, i.e., the Mott insulator regime of a canted antiferromagnet. Based on the Floquet theory, we demonstrate that changing the amplitude and frequency of polarized laser pulses, tunes the amplitude, the sign and even the ratio between these two spin interactions. Furthermore, the renormalizations of the spin interactions are helicity independent. Our results pave the way for ultrafast optical manipulation of spins in recently discovered two-dimensional magnetic materials.
+Light provides ultrafast control of exchange and Dzyaloshinskii-Moriya interactions, we consider two-dimensional honeycomb lattices described by the Kane-Mele-Hubbard model at half-filling and in the strongly correlated limit, i.e., the Mott insulator regime of a canted antiferromagnet. Based on the Floquet theory, we demonstrate that changing the amplitude and frequency of circularly polarized laser pulses, tunes the amplitude, the sign and even the ratio between these two spin interactions. Furthermore, the renormalizations of the spin interactions are helicity independent. Our results pave the way for ultrafast optical manipulation of spins in recently discovered two-dimensional magnetic materials.
 \end{abstract}
 
 \date{\today}
@@ -102,21 +103,21 @@ where
 &\hat{\mathcal{H}}_{\text{int}} = U_{00}\sum_{i=1} \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} + \frac{1}{2}\sum_{\langle i,j \rangle, \tau \tau'} V_{ij}\hat{n}_{i\tau}\hat{n}_{j\tau'} \label{Hint}.
 \end{align}
 Here $\langle\cdot\rangle$ and $\langle\langle\cdot\rangle\rangle$ denote, respectively, nearest neighbors (NN) and next-nearest neighbours (NNN), $\hat{c}_{i \sigma}^\dagger$ ($ \hat{c}_{i \sigma}$) are fermionic creation (annihilation) operators for an electron on site $i$ and spin state $\tau=\{\uparrow,\downarrow\}$, $t_1$ and $t_2$ are NN and NNN hopping amplitudes, $\Delta$ is the intrinsic SOI parameter, $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$), $\sigma^{z}$ is the $z$-component of Pauli matrices $\bm{\sigma}$, $U_{00}$ and $V_{ij}$ are the on-site and NN Coulomb interactions.
-The presence of the intrinsic NNN SOI, Eq. (\ref{Hsoi}), reduces the $\mathrm{SU}(2)$ symmetry of the original Hubbard model to the $\mathrm{U}(1)$ spin group. In buckled noncoplanar honeycomb lattices and systems with structural inversion asymmetry, the presence of, respectively, NNN and NN Rashba SOIs, furthur reduces the symmetry to $Z_2$.
+The presence of the intrinsic NNN SOI, Eq. (\ref{Hsoi}), reduces the $\mathrm{SU}(2)$ symmetry of the original Hubbard model to the $\mathrm{U}(1)$ spin group. In buckled noncoplanar honeycomb lattices and systems with structural inversion asymmetry, the presence of, respectively, NNN and NN Rashba SOIs, further reduces the symmetry to $Z_2$.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.6\columnwidth]{kmh.png}
-\caption{A honeycomb cell with NN hopping $t_1$, NNN hopping $t_2$, intrinsic SOI $\Delta$, and $\nu_{ij} = \pm 1$ for clockwise and counter-clockwise hoping.}
+\caption{A honeycomb cell with NN hopping $t_1$, NNN hopping $t_2$, intrinsic SOI $\Delta$, and $\nu_{ij} = \pm 1$ for clockwise and counterclockwise hoping.}
 \label{fig1}
 \vspace*{-6pt}
 \end{figure}
 
-Using the variational principle, it has been shown that the NN Coulomb interaction can be approximated by a renormalized local interaction $U =U_{00} - \bar{V}$, where $\bar{V}$ is a weighted average of the NN Coulomb interaction \cite{Schuler2013,Stepanov2017}. Thus, we only take into account the local Coulomb interaction in our total Hamiltonian and express the interaction part of the Hamiltonian (\ref{Hint}) as
+Using the variational principle, it has been shown that the NN Coulomb interaction can be approximated by a renormalized local interaction $U =U_{00} - \bar{V}$, where $\bar{V}$ is a weighted average of the NN Coulomb interaction \cite{Schuler2013,Stepanov2017}. Thus, we only take into account the local Coulomb interaction in our total Hamiltonian and express the interaction part of the Hamiltonian in Eq. (\ref{Hint}) as
 \begin{equation}
 \hat{\mathcal{H}}_{\text{int}} \approx U\hat{d},
 \end{equation}
-where we define the doublon number operator $\hat{d} = \sum_{i=1} \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ with eigenvalues $d$. We denote the projection operator to the subspace of states with eigenvale $d$ (i.e. states with exactly $d$ double occupancies) by $\hat{P}_d$. We are interested in the limit of strongly correlated regime $U\gg t_{1(2)}$. In such a strong-coupling limit any state with a nonzero number of double occupancies ($d \neq 0$) has a much larger energy than those with no double occupancies ($d=0$). We obtain an effective Hamiltonian acting on the $d=0$ subspace by standard second-order perturbation theory in the hopping terms. Using the following relations,
+where we define the doublon number operator $\hat{d} = \sum_{i=1} \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ with eigenvalues $d$. We denote the projection operator to the subspace of states with eigenvalue $d$ (i.e. states with exactly $d$ double occupancies) by $\hat{P}_d$. We are interested in the strongly correlated regime $U\gg t_{1(2)}$. In such a strong-coupling limit any state with a nonzero number of double occupancies ($d \neq 0$) has a much larger energy than those with no double occupancies ($d=0$). We obtain an effective Hamiltonian acting on the $d=0$ subspace by standard second-order perturbation theory in the hopping terms. Using the following relations,
 \begin{align}
 &\hat{c}_{i \tau}^\dagger \hat{c}_{i \tau'} = \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow})\delta_{\tau \tau'}  + \bs{S}_i\cdot\bs{\tau}_{\tau', \tau}, \label{SpinOperatorInv1}\\
 &\hat{c}_{i \tau} \hat{c}_{i \tau'}^\dagger = \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) \delta_{\tau \tau'} - \bs{S}_i\cdot\bs{\tau}_{\tau, \tau'}, \label{SpinOperatorInv2}
@@ -133,11 +134,11 @@ with the following spin-spin interactions,
 \begin{align}
 &J_{1(2)} = \frac{2t_{1(2)}^2}{U}, \\
 &\bs{\Gamma}_{ij} =\frac{2\Delta^2}{U} \text{diag}(-1,-1,1),\\
-&\bs{D}_{ij} = - \frac{4 t_2 \Delta}{U}\nu_{ij}  \hat{\mathrm{e}}_z.
+&\bs{D}_{ij} = \frac{4 t_2 \Delta}{U}\nu_{ij}  \hat{\mathrm{e}}_z.
 \end{align}
 \end{subequations}
 The first and second terms in the spin Hamiltonian, Eq. (\ref{MKMHeff0}), are the NN and NNN symmetric Heisenberg AFM exchange interactions, $J_{1(2)}>0$, respectively; the third term is the NNN anisotropic Heisenberg exchange interaction (XXZ-like term) arising from the intrinsic SOI, and finally, the last term is the intrinsic NNN DMI. The intrinsic SOI in Eq. (\ref{Hsoi}), leads to a DMI vector, $\bs{D}_{ij}$, perpendicular to the honeycomb plane. It can also be shown that the Rashba SOI results in an in-plane DMI vector that is perpendicular to the lattice bonds.
-For the sake of completeness, we explain shortly the effect of disorder by adding an on-site disorder potential $\sum_{i \tau} \varepsilon_i \hat{c}_{i \tau}^\dagger \hat{c}_{i \tau}$ in the Kane-Mele-Hubbard Hamiltonian \ref{MKMH}, where $\varepsilon_i$ is an uncorrelated random variable. Following the above procedure, it can be shown that the spin interaction parameters are renormalized as $U^{-1} \rightarrow U/\left(U^2-(\epsilon_j-\epsilon_i)^2\right)$ \cite{Protopopov2018}. In the large $U$ limit, the effect of disorder is negligible and we thus ignore it in the rest of this Letter.
+For the sake of completeness, we explain shortly the effect of disorder by adding an on-site disorder potential $\sum_{i \tau} \varepsilon_i \hat{c}_{i \tau}^\dagger \hat{c}_{i \tau}$ in the Kane-Mele-Hubbard Hamiltonian Eq. (\ref{MKMH}), where $\varepsilon_i$ is an uncorrelated random variable. Following the above procedure, it can be shown that the spin interaction parameters are renormalized as $U^{-1} \rightarrow U/\left(U^2-(\epsilon_j-\epsilon_i)^2\right)$ \cite{Protopopov2018}. In the large $U$ limit, the effect of disorder is negligible and we thus ignore it in the rest of this Letter.
 
 
 The terms in the spin Hamiltonian derived in Eq. (\ref{MKMHeff0}) have already been obtained phenomenologically \cite{Owerre2016} and confirmed experimentally \cite{Chen2018}. To the best of our knowledge, this is the first microscopic derivation of the complete spin Hamiltonian $\hat{H}_{\text{S}}$ from the microscopic Kane-Mele-Hubbard model.
@@ -150,12 +151,12 @@ The effect of laser irradiation is introduced in the Kane-Mele-Hubbard Hamiltoni
 
 It is more convenient to rewrite the noninteracting part of the Kane-Mele-Hubbard Hamiltonian, Eq. (\ref{MKMH}), as $\hat{T}_0=\hat{\mathcal{H}}_{\text{K}}+\hat{\mathcal{H}}_{\text{SOI}} = - \sum_{i,j , \tau, \tau'}
 t_{ij}^{\tau\tau'} \hat{c}_{i \tau}^\dagger \hat{c}_{j \tau'}$, where the hopping amplitude is $t_{ij}^{\tau\tau'} = \delta_{\tau,\tau'}t_1$ for $i,j$ being NN and $t_{ij}^{\tau\tau'} = \delta_{\tau,\tau'}t_2 - i\Delta\nu_{ij}\sigma^z_{\tau, \tau'}$ for $i,j$ being NNN.
-According to the Peierls substitution method, the hopping part of the Hamiltonian gain an extra phase $t_{ij}^{\tau\tau'}\rightarrow t_{ij}^{\tau\tau'} e^{{i e \bs{R}_{ij} \cdot \bs{A}(t)}/\hbar}$, where $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$, $\bs{R}_i$ is the position of site $i$, $e$ is the electronic charge, $\hbar$ is the reduced Planck constant, and $\bs{A}$ is the vector potential of the laser pulse $\bs{A}(t) = \frac{1}{2}(\bs{A} e^{-i\omega t} + \mathrm{c.c.})$, with $\bs{A} = \frac{iE_0}{\omega}\hat{\epsilon}$.
-The Peierls phase can be rewritten as $e\bs{R}_{ij}\cdot\bs{A}/\hbar \equiv \alpha_{ij} e^{i \theta_{ij}}$, with $\alpha_{ij} = \pm|e\bs{R}_{ij}\cdot \bs{A}|/\hbar$, in a such way that $\alpha_{ij}= -\alpha_{ji}$, $\theta_{ij}= \theta_{ji}$, and $\theta_{ij} \in \left[0,\pi\right)$.
+According to the Peierls substitution method, the hopping part of the Hamiltonian gain an extra phase $t_{ij}^{\tau\tau'}\rightarrow t_{ij}^{\tau\tau'} e^{{i e \bs{R}_{ij} \cdot \bs{A}(t)}}$, where $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$, $\bs{R}_i$ is the position of site $i$, $e$ is the electronic charge, and $\bs{A}$ is the vector potential of the laser pulse $\bs{A}(t) = \frac{1}{2}(\bs{A} e^{-i\omega t} + \mathrm{c.c.})$, with $\bs{A} = \frac{iE_0}{\omega}\hat{\epsilon}$.
+The Peierls phase can be rewritten as $e\bs{R}_{ij}\cdot\bs{A} \equiv \alpha_{ij} e^{i \theta_{ij}}$, with $\alpha_{ij} = \pm|e\bs{R}_{ij}\cdot \bs{A}|$, in a such way that $\alpha_{ij}= -\alpha_{ji}$, $\theta_{ij}= \theta_{ji}$, and $\theta_{ij} \in \left[0,\pi\right)$.
 Now, we use the Jacobi–-Anger expansion to rewrite the Peierls phase in the basis of its harmonics,
 \begin{equation}
 \label{JacobiAnger}
-e^{i\frac{e}{\hbar}\bs{R}_{ij}\cdot\bs{A}(t)} = \sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t},
+e^{ie\bs{R}_{ij}\cdot\bs{A}(t)} = \sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t},
 \end{equation}
 where $\mathcal{J}_m(x)$ is the \textit{m}-th Bessel function of the first kind \cite{Kitamura2017}.
 
@@ -199,10 +200,10 @@ with the following renormalized spin interactions,
 \begin{align}
 &\tilde{J}_{1(2),ij} = 2t_{1(2)}^2\sum_n\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega}, \\
 &\tilde{\bs{\Gamma}}_{ij} = 2\Delta^2 \text{diag}(-1,-1,1) \sum_n\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega},\\
-&\tilde{\bs{D}}_{ij} = - 4 t_2 \Delta \sum_n\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \nu_{ij} \hat{\mathrm{e}}_z.
+&\tilde{\bs{D}}_{ij} = 4 t_2 \Delta \sum_n\frac{\mathcal{J}_{n}^2(\alpha_{ij})}{\text{U}+n\omega} \nu_{ij} \hat{\mathrm{e}}_z.
 \end{align}
 \end{subequations}
-All spin interaction parameters are renormalized by the same function but $\alpha_{ij}$ differs for NN and NNN parameters. Thus, the ratios between these renormalized parameters are different than non-perturbed parameters which is a peculiar of honeycomb lattices described by the Kane-Mele-Hubbard model. The renormalized spin interactions presented in Eq. (\ref{Renor-para}) are helicity independent.
+All spin interaction parameters are renormalized by the same function, but $\alpha_{ij}$ differs for NN and NNN parameters. Thus, the ratios between the NN and NNN renormalized parameters are different than those of non-perturbed parameters. The renormalized spin interactions presented in Eq. (\ref{Renor-para}) are helicity independent.
 
 \begin{figure}[t]
 \centering
@@ -213,11 +214,11 @@ All spin interaction parameters are renormalized by the same function but $\alph
 \label{fig2}
 \end{figure}
 
-Figure \ref{fig2}, shows the dependence of dimensionless NN exchange interaction $\tilde{J}_{1,ij}/J_{1,ij}$ and dimensionless NNN DMI $\tilde{D}_{ij}/D_{ij}$ on the Floquet parameter $\mathcal{E} = \frac{e a E_0}{\omega}$, where $a$ is the lattice constant, for two different laser pulse frequencies. We set $\hbar = 1$ and $t_1=1$ and measure energy in units of $t_1$ and frequency in units of $\frac{t_1}{\hbar}$. The results are obtained for material parameters $t_2=0.1$ and $\text{U} = 10$. Figure \ref{fig2}, shows that it is possible not only to change the sign and amplitude of the exchange interaction as already reported in Ref. \cite{Mentink2015} but it is possible to change the sign and amplitude of the intrinsic DMI. More importantly, the ratio $\tilde{J}_{1,ij}/\tilde{D}_{ij}\neq J_{1,ij}/D_{ij}$ can be tuned by laser excitations which is responsible for ultarafast photoinduced spin dynamics and magnon scattering phenomena.
+Figure \ref{fig2}, shows the dependence of dimensionless NN exchange interaction $\tilde{J}_{1,ij}/J_{1,ij}$ and dimensionless NNN DMI $\tilde{D}_{ij}/D_{ij}$ on the Floquet parameter $\mathcal{E} = \frac{e a E_0}{\omega}$, where $a$ is the lattice constant. We show this dependence for two different laser pulse frequencies. We set $\hbar = 1$ and $t_1=1$ and measure energy in units of $t_1$ and frequency in units of $\frac{t_1}{\hbar}$. The results are obtained for material parameters $t_2=0.1$ and $\text{U} = 10$. Figure \ref{fig2}, shows that it is possible not only to change the sign and amplitude of the exchange interaction as already reported in Ref. \cite{Mentink2015} but it is possible to change the sign and amplitude of the intrinsic DMI. More importantly, the ratio $\tilde{J}_{1,ij}/\tilde{D}_{ij}\neq J_{1,ij}/D_{ij}$ can be tuned by laser excitations which is responsible for ultrafast photoinduced spin dynamics and magnon scattering phenomena.
 
-Eqs. (\ref{MKMHeffw}) and (\ref{Renor-para}) explicitly show that the spin Hamiltonian in the presence of a time-dependent external field can be effectively written as $\tilde{H}_{\text{S}}=H_{\text{S}}+g_{\alpha \beta i j} S^\alpha_i S^\beta_j E^{\alpha} E^{*\beta} $, where $\alpha$ and $\beta$ represent the spatial component of vectors, $i$ and $j$ refer to the lattice cite, and $g$ is the opto-magnetic coupling tensor which can be read from Eqs. (\ref{Renor-para}). Thus, the dielectric permittivity tensor which determines the optical properties of the medium, is given by $\varepsilon_{\alpha \beta}=\partial^2 \tilde{H}_{\text{S}}/\partial E^{\alpha}\partial E^{*\beta}$. This opto-magnetic effect described by the dielectric permittivity $\varepsilon$, can be detected by measuring the intensity of the scattered light $I_{\mathrm{sc}} \propto (\varepsilon_{\alpha \beta} E_0)^2$ \cite{Demokritov1985}.
+Eqs. (\ref{MKMHeffw}) and (\ref{Renor-para}) explicitly show that the spin Hamiltonian in the presence of a time-dependent external field can be effectively written as $\tilde{H}_{\text{S}}=H_{\text{S}}+g_{\alpha \beta i j} S^\alpha_i S^\beta_j E^{\alpha} E^{*\beta} $, where $\alpha$ and $\beta$ represent the spatial component of vectors, $i$ and $j$ refer to the lattice site, and $g$ is the opto-magnetic coupling tensor which can be read from Eqs. (\ref{Renor-para}). Thus, the dielectric permittivity tensor which determines the optical properties of the medium, is given by $\varepsilon_{\alpha \beta}=\partial^2 \tilde{H}_{\text{S}}/\partial E^{\alpha}\partial E^{*\beta}$. This opto-magnetic effect described by the dielectric permittivity $\varepsilon$, can be detected by measuring the intensity of the scattered light $I_{\mathrm{sc}} \propto (\varepsilon_{\alpha \beta} E_0)^2$ \cite{Demokritov1985}.
 
-In ultrafast spin dynamics experiments, very intense laser pulses are used and one might think about heating and the validity of our approach. Recent theoretical \cite{Rudner2019,PhysRevB.97.014311} and experimental \cite{PhysRevA.96.053602} works show that the energy absorption rate is suppressed exponentially for high frequency laser pulses $\omega/W\gg 1$, where $W\propto t_1$ is the fermionic bandwidth, which is the case in ultrafast experiments with optical laser pulses. Thus, rapidly driven systems have a very long prethermalization period and this implies that the evolution of these systems in the presence of short laser pulses can be described by our formalism safely.
+In ultrafast spin dynamics experiments, very intense laser pulses are used and one might think on how heating might affect the validity of our approach. Recent theoretical \cite{Rudner2019,PhysRevB.97.014311} and experimental \cite{PhysRevA.96.053602} works show that the energy absorption rate is suppressed exponentially for high frequency laser pulses $\omega/W\gg 1$, where $W\propto t_1$ is the fermionic bandwidth, which is the case in ultrafast experiments with optical laser pulses. Thus, rapidly driven systems have a very long prethermalization period and this implies that the evolution of these systems in the presence of short laser pulses can be described by our formalism safely.
 
 
 
