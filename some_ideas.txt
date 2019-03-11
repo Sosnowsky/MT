@@ -1,0 +1,4 @@
+-Study the dynamics of systems in general N number (non half filling). See Schrieffer-Wolff Transformation for Periodically D...
+-Some simulations regarding skyrmions or magnetic solitons in our models.
+-Higher order in perturbation (three site spin correlations, corrections, etc...)
+-Mathematical treatment of topology in condensed matter.
