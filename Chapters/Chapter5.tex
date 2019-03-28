@@ -1,0 +1,63 @@
+\chapter{Spin wave theory of antiferromagnets}
+\label{SpinWave}
+
+We will start with the Heisenberg antiferromagnet:
+
+\begin{equation}
+\hat{H} = J \sum_{\langle i j \rangle} \bs{S}_i \bs{S}_j
+\end{equation}
+
+In order to obtain the magnon Hamiltonian for this model we introduce the antiferromagnet Holstein-Primakoff transformation:
+
+\begin{align}
+S^+_{Ai} &= \sqrt{2S-\hat{a}^\dagger_i \hat{a}_i} \hat{a}_i \\
+S^-_{Ai} &= \hat{a}^\dagger_i\sqrt{2S-\hat{a}^\dagger_i \hat{a}_i}  \\
+S^z_{Ai} &= S - \hat{a}^\dagger_i \hat{a}_i \\
+S^+_{Bj} &=\hat{b}^\dagger_j\sqrt{2S-\hat{b}^\dagger_j \hat{b}_j} \\
+S^-_{Bj} &= \sqrt{2S-\hat{b}^\dagger_j \hat{b}_j} \hat{b}_j \\
+S^z_{Bj} &= -S + \hat{b}^\dagger_j \hat{b}_j
+\end{align}
+
+Where $A$ and $B$ denote two Ne\'{e}l sublattices and $\hat{a}_i$, $\hat{b}_i$ are bosonic annihilation operators. In the large-S limit we approximate $ \sqrt{2S-\hat{a}^\dagger_i \hat{a}_i} \approx \sqrt{2S}$. Then, the exchange term becomes:
+
+\begin{align*}
+\bs{S}_i\bs{S}_j = S_i^zS_j^z + \frac{1}{2}\left(S_i^+S_j^- + S_i^-S_j^+ \right) = S \left( \hat{a}^\dagger_i \hat{a}_i + \hat{b}^\dagger_j \hat{b}_j + \hat{a}_i\hat{b}_j + \hat{a}^\dagger_i\hat{b}^\dagger_j \right) - \hat{a}^\dagger_i \hat{a}_i\hat{b}^\dagger_j \hat{b}_j - S^2
+\end{align*}
+
+Now the $S^2$ term is a constant that lowers the energy of the antiferromagnet, therefore is shall not be taken into account to compute the magnon dispersion. The term $\hat{a}^\dagger_i \hat{a}_i\hat{b}^\dagger_j \hat{b}_j$ is zeroth order in $S$ and therefore neglected. We can rewrite the sum over NN as:
+
+\begin{equation}
+\sum_{\langle i j \rangle} = 2\sum_{i \in A \delta}
+\end{equation}
+
+Where $\delta$ are the NN vectors. Using this, and the Fourier relations:
+
+\begin{align}
+\hat{a}_i^\dagger &= \frac{1}{\sqrt{N}} \sum_{\bs{k}} e^{i \bs{k} \cdot \bs{r}_i} \hat{a}_{\bs{k}}^\dagger \\
+\hat{b}_j^\dagger &= \frac{1}{\sqrt{N}} \sum_{\bs{k}} e^{i \bs{k} \cdot \bs{r}_j} \hat{b}_{\bs{k}}^\dagger
+\end{align}
+
+Where the sum is over $\bs{k}$ in the first Brillouin zone. Using these relations, together with $\sum{i} e^{i{\bs{k}-\bs{k}'}\cdot\bs{r}_i} = \delta_{\bs{k}, \bs{k}'}$ we find:
+
+\begin{equation}
+\hat{H} = 2JS \sum_{\bs{k} \bs{\delta}} \left( \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \hat{b}^\dagger_{\bs{k}}\hat{b}_{\bs{k}} + e^{i\bs{k}\bs{\delta}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + e^{-i \bs{k}\cdot\bs{\delta}}  \hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right)
+\end{equation}
+
+At this point it is common to define $\gamma_{\bs{k}} = \sum_\delta e^{i \bs{k} \cdot \bs{\delta}}$, then denoting $z = \sum_\delta$ we get:
+
+\begin{equation}
+\hat{H} = 2JS \sum_{\bs{k}} \left\{ z \left( \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \hat{b}^\dagger_{\bs{k}}\hat{b}_{\bs{k}} \right) + \gamma_{\bs{k}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + \gamma_{-\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right\}
+\end{equation}
+
+Which can be written in matrix form as:
+
+\begin{equation}
+\hat{H}_{\bs{k}} = 2JS\begin{pmatrix} 
+z & 0 & 0 & \gamma_{\bs{k}} \\
+0 & z & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\gamma_{-\bs{k}} & 0 & 0 & 0 
+\end{pmatrix}
+\end{equation}
+
+Acting on the spinor $\Psi_{\bs{k}} = \left(\hat{a}_{\bs{k}},\hat{b}_{\bs{k}},\hat{a}_{-\bs{k}}^\dagger,\hat{b}_{-\bs{k}}^\dagger \right)^T$. That is, $\hat{H} = \sum_{\bs{k}} \Psi_{\bs{k}} \hat{H}_{\bs{k}} \Psi^\dagger_{\bs{k}}$
