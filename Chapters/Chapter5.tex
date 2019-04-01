@@ -1,6 +1,8 @@
 \chapter{Spin wave theory of antiferromagnets}
 \label{SpinWave}
 
+\section{Heisenberg antiferromagnet}
+
 We will start with the Heisenberg antiferromagnet:
 
 \begin{equation}
@@ -46,18 +48,147 @@ Where the sum is over $\bs{k}$ in the first Brillouin zone. Using these relation
 At this point it is common to define $\gamma_{\bs{k}} = \sum_\delta e^{i \bs{k} \cdot \bs{\delta}}$, then denoting $z = \sum_\delta$ we get:
 
 \begin{equation}
-\hat{H} = 2JS \sum_{\bs{k}} \left\{ z \left( \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \hat{b}^\dagger_{\bs{k}}\hat{b}_{\bs{k}} \right) + \gamma_{\bs{k}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + \gamma_{-\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right\}
+\label{MagnonicH}
+\hat{H} = 2JS \sum_{\bs{k}} \left\{ z \left( \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}} \right) + \gamma_{\bs{k}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + \gamma_{-\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right\}
 \end{equation}
 
 Which can be written in matrix form as:
 
 \begin{equation}
 \hat{H}_{\bs{k}} = 2JS\begin{pmatrix} 
-z & 0 & 0 & \gamma_{\bs{k}} \\
-0 & z & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-\gamma_{-\bs{k}} & 0 & 0 & 0 
+z & \gamma_{\bs{k}} \\
+\gamma_{-\bs{k}} & z
 \end{pmatrix}
 \end{equation}
 
-Acting on the spinor $\Psi_{\bs{k}} = \left(\hat{a}_{\bs{k}},\hat{b}_{\bs{k}},\hat{a}_{-\bs{k}}^\dagger,\hat{b}_{-\bs{k}}^\dagger \right)^T$. That is, $\hat{H} = \sum_{\bs{k}} \Psi_{\bs{k}} \hat{H}_{\bs{k}} \Psi^\dagger_{\bs{k}}$
+Acting on the spinor $\Psi_{\bs{k}} = \left(\hat{a}_{\bs{k}},\hat{b}_{-\bs{k}}^\dagger \right)^T$. That is, $\hat{H} = \sum_{\bs{k}} \Psi_{\bs{k}} \hat{H}_{\bs{k}} \Psi^\dagger_{\bs{k}}$. In order to diagonalize this Hamiltonian we introduce the Bogoliubov transformation:
+
+\begin{equation}
+\begin{pmatrix}
+\hat{\alpha}_{\bs{k}} \\
+\hat{\beta}_{\bs{k}}^\dagger
+\end{pmatrix} = 
+\begin{pmatrix}
+u_{\bs{k}} & -v_{\bs{k}} \\
+-v_{\bs{k}} & u_{\bs{k}}
+\end{pmatrix}
+\begin{pmatrix}
+\hat{a}_{\bs{k}} \\
+\hat{b}_{-\bs{k}}^\dagger
+\end{pmatrix}
+\end{equation}
+
+Where $u_{\bs{k}}$ and $v_{\bs{k}}$ are real functions satisfying $u_{\bs{k}}^2-v_{\bs{k}}^2 = 1$ in order to perserve the bosonic commutation relations. The inverse transformation is given by:
+
+\begin{equation}
+\begin{pmatrix}
+\hat{a}_{\bs{k}} \\
+\hat{b}_{-\bs{k}}^\dagger
+\end{pmatrix} = 
+\begin{pmatrix}
+u_{\bs{k}} & v_{\bs{k}} \\
+v_{\bs{k}} & u_{\bs{k}}
+\end{pmatrix}
+\begin{pmatrix}
+\hat{\alpha}_{\bs{k}} \\
+\hat{\beta}_{\bs{k}}^\dagger
+\end{pmatrix}
+\end{equation}
+
+Inserting this in \ref{MagnonicH} and ignoring constant terms we get:
+
+\begin{align*}
+\hat{H} &= 2JS \sum_{\bs{k}} \left\{ \left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}} \right) \left( z(u_{\bs{k}}^2+v_{\bs{k}}^2) +u_{\bs{k}}v_{\bs{k}}( \gamma_{\bs{k}}+ \gamma_{-\bs{k}}) \right) + \right. \\
+&+ \left.  \hat{\alpha}^\dagger_{\bs{k}} \hat{\beta}^\dagger_{\bs{k}} \left( 2zu_{\bs{k}}v_{\bs{k}} + \gamma_{\bs{k}}v_{\bs{k}}^2+\gamma_{-\bs{k}}u_{\bs{k}}^2 \right) + \hat{\alpha}_{\bs{k}}\hat{\beta}_{\bs{k}} \left( 2zu_{\bs{k}}v_{\bs{k}} + \gamma_{\bs{k}}u_{\bs{k}}^2+\gamma_{-\bs{k}}v_{\bs{k}}^2 \right) \right\}
+\end{align*}
+
+($\gamma_{\bs{k}} = \gamma_{-\bs{k}}$)Therefore, in order to erase the non diagonal terms we impose $2zu_{\bs{k}}v_{\bs{k}} + \gamma_{\bs{k}}(u_{\bs{k}}^2+v_{\bs{k}}^2) = 0$, which together with $u_{\bs{k}}^2-v_{\bs{k}}^2 = 1$ determines $u_{\bs{k}}$ and $v_{\bs{k}}$:
+
+\begin{align*}
+u_{\bs{k}}^2 &= \frac{1}{2}\left( \frac{1}{\sqrt{1-(\gamma_{\bs{k}}/z)^2}}+1\right) \\
+v_{\bs{k}}^2 &= \frac{1}{2}\left( \frac{1}{\sqrt{1-(\gamma_{\bs{k}}/z)^2}}-1\right)
+\end{align*}
+
+And so, the we get the dispersion relation:
+
+\begin{align}
+\hat{H} &= \sum_{\bs{k}} \omega_{\bs{k}} \left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}} \right) \\
+\omega_{\bs{k}} &= 2JSz\sqrt{1-(\gamma_{\bs{k}}/z)^2}
+\end{align}
+
+\section{Adding DMI}
+
+Let's now consider
+
+\begin{equation}
+\hat{H} = J \sum_{\langle i j \rangle} \bs{S}_i \bs{S}_j + D \sum_{\langle \langle i j \rangle \rangle} \nu_{ij}\hat{e}_z \bs{S}_i \times \bs{S}_j
+\end{equation}
+
+The NNN DMI term will couple spins within the same sublattice. Using the HP transformation:
+
+\begin{equation}
+\hat{e}_z \bs{S}_i \times \bs{S}_j = \frac{i}{2}(S_i^+S_j^--S_i^-S_j^+) = \begin{cases}
+             iS(\hat{a}_j^\dagger\hat{a}_i-\hat{a}_i^\dagger\hat{a}_j),  & \text{for } (i,j) \in A \\
+             iS(\hat{b}_i^\dagger\hat{b}_j-\hat{b}_j^\dagger\hat{b}_i),  & \text{for } (i,j) \in B
+       \end{cases} \quad
+\end{equation}
+
+Now we will make the sum over NNN in the following way:
+
+\begin{equation}
+\sum_{\langle \langle i j \rangle \rangle} = \sum_{i\in A \bs{\delta}^{NNN}} +  \sum_{i\in B \bs{\delta}^{NNN}}
+\end{equation}
+
+Where $\bs{\delta}^{NNN}$ are the NNN vectors. Following the same procedure as before we get and additional magnonic term:
+
+\begin{equation}
+D \sum_{\langle \langle i j \rangle \rangle} \nu_{ij}\hat{e}_z \bs{S}_i \times \bs{S}_j = 2JS\sum_{\bs{k}} \left\{ \Delta_{\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} - \Delta_{-\bs{k}}\hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}} \right\}
+\end{equation}
+
+Where $\Delta_{\bs{k}} = \frac{D}{2J}\sum_{\bs{\delta}^{NNN}} \nu_{i,i+\delta} (e^{i\bs{k}\cdot\bs{\delta}} -e^{-i\bs{k}\cdot\bs{\delta}})$. The full magnonic Hamiltonian now is:
+
+\begin{equation}
+\label{MagnonicH2}
+\hat{H} = 2JS \sum_{\bs{k}} \left\{ \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}}(z+\Delta_{\bs{k}}) + \hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}}(z-\Delta_{-\bs{k}}) + \gamma_{\bs{k}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + \gamma_{-\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right\}
+\end{equation}
+
+Or:
+
+\begin{equation}
+\hat{H}_{\bs{k}} = 2JS\begin{pmatrix} 
+z + \Delta_{\bs{k}}& \gamma_{\bs{k}} \\
+\gamma_{-\bs{k}} & z - \Delta_{-\bs{k}}
+\end{pmatrix}
+\end{equation}
+
+\section{NNN exchange}
+
+Let's now introduce a term:
+
+\begin{equation}
+\sum_{\langle \langle i,j \rangle \rangle} \left\{ \Gamma_{xy}(S_i^xS_j^x + S_i^yS_j^y) + \Gamma_zS_i^zS_j^z\right\}
+\end{equation}
+In terms of bosonic operators we have:
+\begin{equation}
+\Gamma_{xy}(S_i^xS_j^x + S_i^yS_j^y) + \Gamma_zS_i^zS_j^z = \begin{cases}
+             S\Gamma_{xy}(\hat{a}_i^\dagger\hat{a}_j+\hat{a}_j^\dagger\hat{a}_i) - S\Gamma_z(\hat{a}_i^\dagger\hat{a}_i+\hat{a}_j^\dagger\hat{a}_j),  & \text{for } (i,j) \in A \\
+             S\Gamma_{xy}(\hat{b}_i^\dagger\hat{b}_j+\hat{b}_j^\dagger\hat{b}_i) - S\Gamma_z(\hat{b}_i^\dagger\hat{b}_i+\hat{b}_j^\dagger\hat{b}_j),  & \text{for } (i,j) \in B
+       \end{cases} \quad
+\end{equation}
+Fourier transform leads to:
+
+\begin{align*}
+&\sum_{\langle \langle i,j \rangle \rangle} \left\{ \Gamma_{xy}(S_i^xS_j^x + S_i^yS_j^y) + \Gamma_zS_i^zS_j^z\right\}
+= S\sum_{\bs{k}} (\Gamma_{xy}\Delta'_{\bs{k}}-4z\Gamma_z) (\hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}}+\hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}}) = \\
+&=2JS\sum_{\bs{k}} \tilde{\Gamma}_{\bs{k}}(\hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}}+\hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}})
+\end{align*}
+
+Where $\Delta'_{\bs{k}} = \sum_{\delta^{NNN}} \left( e^{i\bs{k}\cdot \bs{\delta}^{NNN}} +  e^{-i\bs{k}\cdot \bs{\delta}^{NNN}}\right)$ and $\tilde{\Gamma}_{\bs{k}} = \frac{1}{2J}\left( \Gamma_{xy}\Delta'_{\bs{k}}-4z\Gamma_z \right)$. Therefore, now:
+
+\begin{equation}
+\hat{H}_{\bs{k}} = 2JS\begin{pmatrix} 
+z + \Delta_{\bs{k}} + \tilde{\Gamma}_{\bs{k}} & \gamma_{\bs{k}} \\
+\gamma_{-\bs{k}} & z - \Delta_{-\bs{k}} + \tilde{\Gamma}_{\bs{k}}
+\end{pmatrix}
+\end{equation}
+
