@@ -64,13 +64,14 @@ z & \gamma_{\bs{k}} \\
 Acting on the spinor $\Psi_{\bs{k}} = \left(\hat{a}_{\bs{k}},\hat{b}_{-\bs{k}}^\dagger \right)^T$. That is, $\hat{H} = \sum_{\bs{k}} \Psi_{\bs{k}} \hat{H}_{\bs{k}} \Psi^\dagger_{\bs{k}}$. In order to diagonalize this Hamiltonian we introduce the Bogoliubov transformation:
 
 \begin{equation}
+\label{Bogoliubov}
 \begin{pmatrix}
 \hat{\alpha}_{\bs{k}} \\
-\hat{\beta}_{\bs{k}}^\dagger
+\hat{\beta}_{\bs{k}}
 \end{pmatrix} = 
 \begin{pmatrix}
-u_{\bs{k}} & -v_{\bs{k}} \\
--v_{\bs{k}} & u_{\bs{k}}
+u_{\bs{k}} & v_{\bs{k}}^* \\
+v_{\bs{k}} & u_{\bs{k}}^*
 \end{pmatrix}
 \begin{pmatrix}
 \hat{a}_{\bs{k}} \\
@@ -78,16 +79,17 @@ u_{\bs{k}} & -v_{\bs{k}} \\
 \end{pmatrix}
 \end{equation}
 
-Where $u_{\bs{k}}$ and $v_{\bs{k}}$ are real functions satisfying $u_{\bs{k}}^2-v_{\bs{k}}^2 = 1$ in order to perserve the bosonic commutation relations. The inverse transformation is given by:
+Where $u_{\bs{k}}$ and $v_{\bs{k}}$ are complex functions satisfying $\abs{u_{\bs{k}}}^2-\abs{v_{\bs{k}}}^2 = 1$ in order to perserve the bosonic commutation relations. The inverse transformation is given by:
 
 \begin{equation}
+\label{BogoliubovInv}
 \begin{pmatrix}
 \hat{a}_{\bs{k}} \\
 \hat{b}_{-\bs{k}}^\dagger
 \end{pmatrix} = 
 \begin{pmatrix}
-u_{\bs{k}} & v_{\bs{k}} \\
-v_{\bs{k}} & u_{\bs{k}}
+u_{\bs{k}}^* & -v_{\bs{k}}^* \\
+-v_{\bs{k}} & u_{\bs{k}}
 \end{pmatrix}
 \begin{pmatrix}
 \hat{\alpha}_{\bs{k}} \\
@@ -97,23 +99,46 @@ v_{\bs{k}} & u_{\bs{k}}
 
 Inserting this in \ref{MagnonicH} and ignoring constant terms we get:
 
+\begin{align}
+\hat{H} &= 2JS \sum_{\bs{k}} \left\{ \left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}} \right) \left( z(\abs{u_{\bs{k}}}^2+\abs{v_{\bs{k}}}^2) -\gamma_{\bs{k}}u_{\bs{k}}^*v_{\bs{k}}^* - \gamma_{-\bs{k}}u_{\bs{k}}v_{\bs{k}} \right) + \right. \nonumber \\
+&+ \left.  \hat{\alpha}^\dagger_{\bs{k}} \hat{\beta}_{\bs{k}} \left( -2zu_{\bs{k}}v_{\bs{k}}^* + \gamma_{\bs{k}}(v_{\bs{k}}^*)^2+\gamma_{-\bs{k}}u_{\bs{k}}^2 \right) + \hat{\beta}_{\bs{k}}^\dagger\hat{\alpha}_{\bs{k}} \left( -2zu_{\bs{k}}^*v_{\bs{k}} + \gamma_{\bs{k}}(u_{\bs{k}}^*)^2+\gamma_{-\bs{k}}v_{\bs{k}}^2 \right) \right\} \label{BeforeBogo}
+\end{align}
+
+Therefore, in order to erase the non diagonal terms we impose:
+\begin{equation}
+\label{condition}
+-2zu_{\bs{k}}v_{\bs{k}}^* + \gamma_{\bs{k}}(v_{\bs{k}}^*)^2+\gamma_{-\bs{k}}u_{\bs{k}}^2 = 0
+\end{equation}
+Notice that for the $\hat{\beta}_{\bs{k}}^\dagger\hat{\alpha}_{\bs{k}}$ term $-2zu_{\bs{k}}^*v_{\bs{k}} + \gamma_{\bs{k}}(u_{\bs{k}}^*)^2+\gamma_{-\bs{k}}v_{\bs{k}}^2=0$ is the same equation. This, together with $\abs{u_{\bs{k}}}^2-\abs{v_{\bs{k}}}^2 = 1$ determines $u_{\bs{k}}$ and $v_{\bs{k}}$. To see this, first notice that an overall phase in both $u_{\bs{k}}$ and $v_{\bs{k}}$ leads to the same physical state. We can use this fact to impose that $v_{\bs{k}}$ is real, and we can use $\abs{u_{\bs{k}}}^2-\abs{v_{\bs{k}}}^2 = 1$ to parametrize $u_{\bs{k}}$ and $v_{\bs{k}}$ in the following way:
+
 \begin{align*}
-\hat{H} &= 2JS \sum_{\bs{k}} \left\{ \left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}} \right) \left( z(u_{\bs{k}}^2+v_{\bs{k}}^2) +u_{\bs{k}}v_{\bs{k}}( \gamma_{\bs{k}}+ \gamma_{-\bs{k}}) \right) + \right. \\
-&+ \left.  \hat{\alpha}^\dagger_{\bs{k}} \hat{\beta}^\dagger_{\bs{k}} \left( 2zu_{\bs{k}}v_{\bs{k}} + \gamma_{\bs{k}}v_{\bs{k}}^2+\gamma_{-\bs{k}}u_{\bs{k}}^2 \right) + \hat{\alpha}_{\bs{k}}\hat{\beta}_{\bs{k}} \left( 2zu_{\bs{k}}v_{\bs{k}} + \gamma_{\bs{k}}u_{\bs{k}}^2+\gamma_{-\bs{k}}v_{\bs{k}}^2 \right) \right\}
+u_{\bs{k}} &= \cosh(\frac{\theta_{\bs{k}}}{2})e^{i \xi_{\bs{k}}} \\
+v_{\bs{k}} &= \sinh(\frac{\theta_{\bs{k}}}{2})
 \end{align*}
 
-($\gamma_{\bs{k}} = \gamma_{-\bs{k}}$)Therefore, in order to erase the non diagonal terms we impose $2zu_{\bs{k}}v_{\bs{k}} + \gamma_{\bs{k}}(u_{\bs{k}}^2+v_{\bs{k}}^2) = 0$, which together with $u_{\bs{k}}^2-v_{\bs{k}}^2 = 1$ determines $u_{\bs{k}}$ and $v_{\bs{k}}$:
+Where $\theta_{\bs{k}}$ and $\xi_{\bs{k}}$ are real functions to be determined. Introducing these relations in \ref{condition}:
 
-\begin{align*}
-u_{\bs{k}}^2 &= \frac{1}{2}\left( \frac{1}{\sqrt{1-(\gamma_{\bs{k}}/z)^2}}+1\right) \\
-v_{\bs{k}}^2 &= \frac{1}{2}\left( \frac{1}{\sqrt{1-(\gamma_{\bs{k}}/z)^2}}-1\right)
-\end{align*}
+\begin{equation}
+- z\sinh(\theta_{\bs{k}}) +\gamma_{\bs{k}}e^{-i \xi_{\bs{k}}}\frac{ \cosh(\theta_{\bs{k}})-1}{2} +\gamma_{-\bs{k}}e^{i\xi_{\bs{k}}}\frac{ \cosh(\theta_{\bs{k}})+1}{2} = 0
+\end{equation}
 
-And so, the we get the dispersion relation:
+By taking $\xi_{\bs{k}}$ to be the phase of $\gamma_{\bs{k}}$, i.e. $\gamma_{\bs{k}} = \abs{\gamma_{\bs{k}}} e^{i\xi_{\bs{k}}}$ we get a real equation on $\theta_{\bs{k}}$. Altogether we find:
 
 \begin{align}
-\hat{H} &= \sum_{\bs{k}} \omega_{\bs{k}} \left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}} \right) \\
-\omega_{\bs{k}} &= 2JSz\sqrt{1-(\gamma_{\bs{k}}/z)^2}
+\gamma_{\bs{k}} &= \abs{\gamma_{\bs{k}}} e^{i\xi_{\bs{k}}} \\
+\tanh(\theta_{\bs{k}}) &= \frac{\abs{\gamma_{\bs{k}}}}{z}
+\end{align}
+
+This erases the non diagonal terms in \ref{BeforeBogo} leading to a diagonal term:
+\begin{equation}
+z\cosh(\theta_{\bs{k}})-\abs{\gamma_{\bs{k}}}\sinh(\theta_{\bs{k}}) = \sqrt{z^2-\abs{\gamma_{\bs{k}}}^2}
+\end{equation}
+
+Then, the dispersion relation is:
+
+\begin{align}
+\hat{H} &= \sum_{\bs{k}}\left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}} \right) \epsilon_{\bs{k}} \\
+\epsilon_{\bs{k}} &= 2JS \sqrt{z^2-\abs{\gamma_{\bs{k}}}^2}
 \end{align}
 
 \section{Adding DMI}
@@ -161,6 +186,13 @@ z + \Delta_{\bs{k}}& \gamma_{\bs{k}} \\
 \end{pmatrix}
 \end{equation}
 
+In this case, applying the transformation \ref{Bogoliubov} leads to the same condition for the coefficients  $u_{\bs{k}}$ and $v_{\bs{k}}$, whereas the energy gets lifted:
+
+\begin{align}
+\hat{H} &= \sum_{\bs{k}} \left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} \epsilon_{\bs{k}}^+ +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}}  \epsilon_{\bs{k}}^- \right) \label{DispWithDMI} \\
+\epsilon_{\bs{k}}^\pm &= 2JS \left( \pm \Delta_{\bs{k}} + \sqrt{z^2-\abs{\gamma_{\bs{k}}}^2} \right)
+\end{align}
+
 \section{NNN exchange}
 
 Let's now introduce a term:
@@ -191,4 +223,11 @@ z + \Delta_{\bs{k}} + \tilde{\Gamma}_{\bs{k}} & \gamma_{\bs{k}} \\
 \gamma_{-\bs{k}} & z - \Delta_{-\bs{k}} + \tilde{\Gamma}_{\bs{k}}
 \end{pmatrix}
 \end{equation}
+
+We obtain the dispersion relation by changing $z \rightarrow z + \tilde{\Gamma}_{\bs{k}}$ in \ref{DispWithDMI}:
+
+\begin{align}
+\hat{H} &= \sum_{\bs{k}} \left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} \epsilon_{\bs{k}}^+ +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}}  \epsilon_{\bs{k}}^- \right) \label{DispWithDMI} \\
+\epsilon_{\bs{k}}^\pm &= 2JS \left( \pm \Delta_{\bs{k}} +  \sqrt{(z + \tilde{\Gamma}_{\bs{k}})^2-\abs{\gamma_{\bs{k}}}^2} \right)
+\end{align}
 
