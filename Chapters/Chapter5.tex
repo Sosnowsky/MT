@@ -1,6 +1,10 @@
 \chapter{Spin wave theory of antiferromagnets}
 \label{SpinWave}
 
+In this Chapter we will study the magnon dispersion for the effective spin Hamiltonian obtained in the last two Chapters. The standard way of doing this is to use the Holstein-Primakoff transformation, which maps S-spin operators on a lattice to bosonic creation/annihilation operators. The linear approximation of this transformation leads to a bosonic Hamiltonian which can be diagonalized to obtain the magnon dispersion relation. Keeping higher order terms in this transformation is also useful to study scattering effects between magnons.
+
+We will start studying the simplest model of spin interaction, the Heisenberg model. In the following sections we will add terms such as the DMI and the anisotropic NNN term derived in \ref{MKMHeff}.
+
 \section{Heisenberg antiferromagnet}
 
 We will start with the Heisenberg antiferromagnet:
@@ -39,13 +43,17 @@ Where $\delta$ are the NN vectors. Using this, and the Fourier relations:
 \hat{b}_j^\dagger &= \frac{1}{\sqrt{N}} \sum_{\bs{k}} e^{i \bs{k} \cdot \bs{r}_j} \hat{b}_{\bs{k}}^\dagger
 \end{align}
 
-Where the sum is over $\bs{k}$ in the first Brillouin zone. Using these relations, together with $\sum{i} e^{i{\bs{k}-\bs{k}'}\cdot\bs{r}_i} = \delta_{\bs{k}, \bs{k}'}$ we find:
+Where the sum is over $\bs{k}$ in the first Brillouin zone. Using these relations, together with $\sum{i} e^{i(\bs{k}-\bs{k}')\cdot\bs{r}_i} = \delta_{\bs{k}, \bs{k}'}$ we find:
 
 \begin{equation}
 \hat{H} = 2JS \sum_{\bs{k} \bs{\delta}} \left( \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \hat{b}^\dagger_{\bs{k}}\hat{b}_{\bs{k}} + e^{i\bs{k}\bs{\delta}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + e^{-i \bs{k}\cdot\bs{\delta}}  \hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right)
 \end{equation}
 
-At this point it is common to define $\gamma_{\bs{k}} = \sum_\delta e^{i \bs{k} \cdot \bs{\delta}}$, then denoting $z = \sum_\delta$ we get:
+At this point it is common to define $\gamma_{\bs{k}} = \sum_\delta e^{i \bs{k} \cdot \bs{\delta}}$. Using $\bs{\delta}_1=\frac{a_0}{2}(1,\sqrt{3})$, $\bs{\delta}_2=\frac{a_0}{2}(1,-\sqrt{3})$, $\bs{\delta}_3=a_0(-1,0)$ and taking $a_0=1$, we can write this as:
+\begin{equation}
+\gamma_{\bs{k}} = 2e^{\frac{i}{2}k_x}\cos(\frac{\sqrt{3}}{2}k_y)+e^{-ik_x}
+\end{equation}
+Then denoting $z = \sum_\delta$ we get:
 
 \begin{equation}
 \label{MagnonicH}
@@ -164,13 +172,28 @@ Now we will make the sum over NNN in the following way:
 \sum_{\langle \langle i j \rangle \rangle} = \sum_{i\in A \bs{\delta}^{NNN}} +  \sum_{i\in B \bs{\delta}^{NNN}}
 \end{equation}
 
-Where $\bs{\delta}^{NNN}$ are the NNN vectors. Following the same procedure as before we get and additional magnonic term:
+Where $\bs{\delta}^{NNN}$ are the NNN vectors:
+\begin{align*}
+\bs{\delta}^{NNN}_1 &= \delta_1-\delta_3 = \frac{1}{2}(3, \sqrt{3}) \\
+\bs{\delta}^{NNN}_2 &= \delta_2-\delta_1 = (0, -\sqrt{3}) \\
+\bs{\delta}^{NNN}_3 &= \delta_3-\delta_2 = \frac{1}{2}(-3, \sqrt{3}) \\
+\bs{\delta}^{NNN}_4 &= -\bs{\delta}^{NNN}_1 = -\frac{1}{2}(3, \sqrt{3}) \\
+\bs{\delta}^{NNN}_5 &= -\bs{\delta}^{NNN}_2 = (0, \sqrt{3}) \\
+\bs{\delta}^{NNN}_6 &= -\bs{\delta}^{NNN}_3 = \frac{1}{2}(3, -\sqrt{3}) \\
+\end{align*}
+Notice that with these definitions, if $i$ is a site on the $A$ sublattice, $\nu_{i,i+\bs{\delta}^{NNN}_a}=+1$ for $a=1,2,3$ and $\nu_{i,i+\bs{\delta}^{NNN}_a}=-1$ for $a=4,5,6$. The opposite relations hold for $i$ in the $B$ sublattice.
+
+ Following the same procedure as before we get and additional magnonic term:
 
 \begin{equation}
 D \sum_{\langle \langle i j \rangle \rangle} \nu_{ij}\hat{e}_z \bs{S}_i \times \bs{S}_j = 2JS\sum_{\bs{k}} \left\{ \Delta_{\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} - \Delta_{-\bs{k}}\hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}} \right\}
 \end{equation}
 
-Where $\Delta_{\bs{k}} = \frac{D}{2J}\sum_{\bs{\delta}^{NNN}} \nu_{i,i+\delta} (e^{i\bs{k}\cdot\bs{\delta}} -e^{-i\bs{k}\cdot\bs{\delta}})$. The full magnonic Hamiltonian now is:
+Where $\Delta_{\bs{k}} = \frac{Di}{2J}\sum_{\bs{\delta}^{NNN}} \nu_{i,i+\delta} (e^{i\bs{k}\cdot\bs{\delta}} -e^{-i\bs{k}\cdot\bs{\delta}})$, for $i$ in the $A$ sublattice. This can be rewritten as:
+\begin{equation}
+\Delta_{\bs{k}} = -\frac{2D}{J}\left\{ \sin(\bs{\delta}^{NNN}_1 \cdot \bs{k}) + \sin(\bs{\delta}^{NNN}_2 \cdot \bs{k}) + \sin(\bs{\delta}^{NNN}_3 \cdot \bs{k})\right\}
+\end{equation}
+The full magnonic Hamiltonian now is:
 
 \begin{equation}
 \label{MagnonicH2}
@@ -200,7 +223,7 @@ Let's now introduce a term:
 \begin{equation}
 \sum_{\langle \langle i,j \rangle \rangle} \left\{ \Gamma_{xy}(S_i^xS_j^x + S_i^yS_j^y) + \Gamma_zS_i^zS_j^z\right\}
 \end{equation}
-In terms of bosonic operators we have:
+Notice that taking $\Gamma_{xy} = -\abs{J_2}-\abs{\Gamma_2}$ and $\Gamma_z = -\abs{J_2}+\abs{\Gamma_2}$ describes the NNN exchange interaction and the NNN anisotropic interaction in \ref{MKMHeff}. In terms of bosonic operators we have:
 \begin{equation}
 \Gamma_{xy}(S_i^xS_j^x + S_i^yS_j^y) + \Gamma_zS_i^zS_j^z = \begin{cases}
              S\Gamma_{xy}(\hat{a}_i^\dagger\hat{a}_j+\hat{a}_j^\dagger\hat{a}_i) - S\Gamma_z(\hat{a}_i^\dagger\hat{a}_i+\hat{a}_j^\dagger\hat{a}_j),  & \text{for } (i,j) \in A \\
