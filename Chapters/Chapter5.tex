@@ -216,6 +216,15 @@ In this case, applying the transformation \ref{Bogoliubov} leads to the same con
 \epsilon_{\bs{k}}^\pm &= 2JS \left( \pm \Delta_{\bs{k}} + \sqrt{z^2-\abs{\gamma_{\bs{k}}}^2} \right)
 \end{align}
 
+The new term $\pm \Delta_{\bs{k}}$ breaks the degeneracy between the $\alpha$ modes and the $\beta$ modes. In Figure \ref{Fig.Magnon.Disp} we plot the resulting energy dispersion of \ref{DispWithDMI}.
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.7\linewidth]{../Figures/magnon_disp_2.png}
+  \caption{The energy $\frac{\epsilon_{\bs{k}}^\pm}{JS}$ obtained for $D=0.1J$ }
+\label{Fig.Magnon.Disp}
+\end{figure}
+
 \section{NNN exchange}
 
 Let's now introduce a term:
@@ -238,7 +247,7 @@ Fourier transform leads to:
 &=2JS\sum_{\bs{k}} \tilde{\Gamma}_{\bs{k}}(\hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}}+\hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}})
 \end{align*}
 
-Where $\Delta'_{\bs{k}} = \sum_{\delta^{NNN}} \left( e^{i\bs{k}\cdot \bs{\delta}^{NNN}} +  e^{-i\bs{k}\cdot \bs{\delta}^{NNN}}\right)$ and $\tilde{\Gamma}_{\bs{k}} = \frac{1}{2J}\left( \Gamma_{xy}\Delta'_{\bs{k}}-4z\Gamma_z \right)$. Therefore, now:
+Where $\Delta'_{\bs{k}} = \sum_{\delta^{NNN}} \left( e^{i\bs{k}\cdot \bs{\delta}^{NNN}} +  e^{-i\bs{k}\cdot \bs{\delta}^{NNN}}\right) = 4\left\{ \cos(\delta^{NNN}_1\cdot\bs{k}) + \cos(\delta^{NNN}_2\cdot\bs{k}) + \cos(\delta^{NNN}_3\cdot\bs{k})\right\}$ and $\tilde{\Gamma}_{\bs{k}} = \frac{1}{2J}\left( \Gamma_{xy}\Delta'_{\bs{k}}-4z\Gamma_z \right)$. Therefore, now:
 
 \begin{equation}
 \hat{H}_{\bs{k}} = 2JS\begin{pmatrix} 
