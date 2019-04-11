@@ -48,8 +48,19 @@ for(kx in 1:samples){
     energym[kx,ky]<-energy_m(c(kx_vec[kx],kx_vec[ky]))[1][1]
   }
 }
+ky=0
 
-
+plot_for_ky <- function(ky) {
+  energyp<-sapply(kx_vec, function(x) energy_p(c(x,ky))[1][1])
+  energym<-sapply(kx_vec, function(x) energy_m(c(x,ky))[1][1])
+  p<-plot_ly(x= ~kx_vec, y=~energyp,type='scatter',mode='lines',name=paste0("e+, ky=",ky)) %>%
+    add_trace(x=~kx_vec, y=~energym, name=paste0("e-, ky=",ky),type='scatter',mode='lines')
+  return(p)
+}
+p<-plot_for_ky(0)
+plot_for_ky(-1)
+subplot(plot_for_ky(-1),plot_for_ky(0),plot_for_ky(1), nrows = 3)
+?subplot
 
 p <- plot_ly(z = ~energyp, x=kx_vec,y=kx_vec) %>% 
   layout(
@@ -60,7 +71,9 @@ p <- plot_ly(z = ~energyp, x=kx_vec,y=kx_vec) %>%
       zaxis = list(title = "")
     )) %>% add_surface() %>% add_surface(z = ~energym)
 p
-p <- plot_ly(z = energyp, x=kx_vec,y=kx_vec, type = "heatmap")
+p <- plot_ly(z = energyp, x=kx_vec,y=kx_vec, type = "heatmap") %>% layout(scene=list(      xaxis = list(title = "x"),
+                                                                                           yaxis = list(title = "y"),
+                                                                                           zaxis = list(title = "")))
 m <- plot_ly(z = energym, x=kx_vec,y=kx_vec, type = "heatmap")
 p <- subplot(p, m)
 p
