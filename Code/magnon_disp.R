@@ -35,7 +35,7 @@ energy_m <- function(k) {
 kmax = 3
 res = 0.01
 J=1
-D=0.1
+D=0
 S=2.5
 kx_vec<-seq(from=-kmax, to=kmax, by=res)
 samples=length(kx_vec)

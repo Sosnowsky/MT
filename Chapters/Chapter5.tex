@@ -49,7 +49,7 @@ Where the sum is over $\bs{k}$ in the first Brillouin zone. Using these relation
 \hat{H} = 2JS \sum_{\bs{k} \bs{\delta}} \left( \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \hat{b}^\dagger_{\bs{k}}\hat{b}_{\bs{k}} + e^{i\bs{k}\bs{\delta}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + e^{-i \bs{k}\cdot\bs{\delta}}  \hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right)
 \end{equation}
 
-At this point it is common to define $\gamma_{\bs{k}} = \sum_\delta e^{i \bs{k} \cdot \bs{\delta}}$. Using $\bs{\delta}_1=\frac{a_0}{2}(1,\sqrt{3})$, $\bs{\delta}_2=\frac{a_0}{2}(1,-\sqrt{3})$, $\bs{\delta}_3=a_0(-1,0)$ and taking $a_0=1$, we can write this as:
+At this point it is common to define $\gamma_{\bs{k}} = \sum_\delta e^{i \bs{k} \cdot \bs{\delta}}$. Using $\bs{\delta}_1=\frac{a_0}{2}(1,\sqrt{3})$, $\bs{\delta}_2=\frac{a_0}{2}(1,-\sqrt{3})$, $\bs{\delta}_3=a_0(-1,0)$ (see Fig \ref{Fig.Magnon.Vecs}) and taking $a_0=1$, we can write this as:
 \begin{equation}
 \gamma_{\bs{k}} = 2e^{\frac{i}{2}k_x}\cos(\frac{\sqrt{3}}{2}k_y)+e^{-ik_x}
 \end{equation}
@@ -172,7 +172,7 @@ Now we will make the sum over NNN in the following way:
 \sum_{\langle \langle i j \rangle \rangle} = \sum_{i\in A \bs{\delta}^{NNN}} +  \sum_{i\in B \bs{\delta}^{NNN}}
 \end{equation}
 
-Where $\bs{\delta}^{NNN}$ are the NNN vectors:
+Where $\bs{\delta}^{NNN}$ are the NNN vectors (as depicted in Fig \ref{Fig.Magnon.Vecs}):
 \begin{align*}
 \bs{\delta}^{NNN}_1 &= \delta_1-\delta_3 = \frac{1}{2}(3, \sqrt{3}) \\
 \bs{\delta}^{NNN}_2 &= \delta_2-\delta_1 = (0, -\sqrt{3}) \\
@@ -181,6 +181,12 @@ Where $\bs{\delta}^{NNN}$ are the NNN vectors:
 \bs{\delta}^{NNN}_5 &= -\bs{\delta}^{NNN}_2 = (0, \sqrt{3}) \\
 \bs{\delta}^{NNN}_6 &= -\bs{\delta}^{NNN}_3 = \frac{1}{2}(3, -\sqrt{3}) \\
 \end{align*}
+\begin{figure}
+\centering
+  \includegraphics[width=0.7\linewidth]{../Figures/NNNvec.png}
+  \caption{NN vectors $\bs{\delta}_a$ and NNN vectors $\bs{\delta}^{NNN}_a$. Red and blue denote sites of sublattices $A$ and $B$ respectively.}
+\label{Fig.Magnon.Vecs}
+\end{figure}
 Notice that with these definitions, if $i$ is a site on the $A$ sublattice, $\nu_{i,i+\bs{\delta}^{NNN}_a}=+1$ for $a=1,2,3$ and $\nu_{i,i+\bs{\delta}^{NNN}_a}=-1$ for $a=4,5,6$. The opposite relations hold for $i$ in the $B$ sublattice.
 
  Following the same procedure as before we get and additional magnonic term:
