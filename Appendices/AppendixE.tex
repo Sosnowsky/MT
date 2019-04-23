@@ -80,7 +80,7 @@ This can be regarded as an eigenvalue problem in the space $\mathcal{F}=\mathcal
 \langle \bra{u}\ket{v} \rangle = \frac{1}{T}\int_0^T \text{d}t \bra{u(t)}\ket{v(t)}
 \end{equation}
 
-An orthonormal basis for the extended Hilbert space can be obtained as the direct product an orthonormal basis of $\mathcal{H}$ and $\mathcal{L}_T$. A convenient orthonormal basis for $\mathcal{L}_T$ is given by the functions $e^{im\omega t}$, therefore, if $\ket{\alpha}$ labels an orthonormal basis of $\mathcal{H}$, then the set of functions $\ket{\alpha m (t)} = \ket{\alpha}e^{im\omega t}$ is a basis of the extended Floquet space, and it is denoted as $\ket{\alpha m}\rangle$. In this basis, the quasienergy operator has matrix elements:
+An orthonormal basis for the extended Hilbert space can be obtained as the direct product of an orthonormal basis of $\mathcal{H}$ and $\mathcal{L}_T$. A convenient orthonormal basis for $\mathcal{L}_T$ is given by the functions $e^{im\omega t}$, where $m$ is usually referred to as the photon number. Then, if $\ket{\alpha}$ labels an orthonormal basis of $\mathcal{H}$, then the set of functions $\ket{\alpha m (t)} = \ket{\alpha}e^{im\omega t}$ is a basis of the extended Floquet space, and it is denoted as $\ket{\alpha m}\rangle$. In this basis, the quasienergy operator has matrix elements:
 
 \begin{align}
 \langle \bra{\alpha' m'}\hat{Q}\ket{\alpha m} \rangle &= \frac{1}{T}\int_0^T \text{d}t e^{-im'\omega t}\bra{\alpha'} \hat{H}(t)-i\hbar\text{d}_t \ket{\alpha}e^{im\omega t} = \nonumber \\
@@ -97,6 +97,16 @@ is the Fourier transform of the Hamiltonian. Now, a Floquet state $\ket{\psi_n(t
 (\epsilon_n+m\omega)\ket{u_{nm}} = \sum_{m'}\hat{H}_{m-m'}\ket{u_{nm'}}
 \end{equation}
 
+\section{Diagonalization}
+
+We introduce a unitary transformation $\hat{U}(t)=\sum_m e^{im\omega t}\hat{U}_m$, $\hat{Q} \rightarrow \hat{Q}'=\hat{U}^{\dagger}(t)\hat{Q}\hat{U}(t)$ or:
+
+\begin{align}
+\hat{H}(t) \rightarrow \hat{H}'(t) &= \hat{U}^{\dagger}(t)\hat{H}(t)\hat{U}(t) - i\hat{U}^{\dagger}(t)\text{d}_t\hat{U}(t) \\
+\ket{\psi(t)} \rightarrow \ket{\psi'(t)} &= \hat{U}^{\dagger}(t)\ket{\psi(t)}
+\end{align}
+
+The goal is to find $\hat{U}(t)$ such that the transformed quasienergy operator $\hat{Q}'$ is block diagonal in the photon number. Using \ref{QOmatelem} we notice that this requirement is equivalent to the requirement that the transformed Hamiltonian $\hat{H}'(t)$ is time independent.
 
 
 
