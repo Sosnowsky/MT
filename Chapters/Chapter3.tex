@@ -7,14 +7,12 @@ In this chapter we will start with a Hamiltonian
 \label{Ham1}
 \hat{H} = \sum_{i=1}^{N_e} \hat{H}^{(1)}(\textbf{r}_i) + \frac{1}{2} \sum_{\substack{i,j = 1 \\ i \neq j}} ^ {N_e} v(\textbf{r}_i - \textbf{r}_j)
 \end{equation}
-
 where $v$ is the electron-electron interaction and where $\hat{H}^{(1)}$ is the single particle Hamiltonian:
 
 \begin{equation}
 \hat{H}^{(1)}(\textbf{r}) = -\frac{\hbar^2}{2m}\nabla^2_{\textbf{r}} + \text{U}(\textbf{r}) + \lambda\bs{\sigma}\cdot\bs{\nabla}V(\textbf{r}) \times \textbf{p}
 \end{equation}
-
-Where $\lambda = \frac{\hbar^2}{4m^2c^2}$ is the spin orbit coupling constant and $\text{U}(\bs{r})$ is a periodic potential. The second quantized form of this Hamiltonian can be approximated by a version of the Hubbard model. We will consider a half filled system in the strong coupling limit. Ignoring electron hopping and spin orbit interaction, the ground state of this system is massively degenerated. We will find an effective Hamiltonian considering that the hopping term and the spin interaction term act on this subspace. This effective Hamiltonian will be the sum of three spin interactions: an exchange interaction $J\bs{S}_i\cdot\bs{S}_j$ with $J>0$, a Dzyaloshinkii-Moriya interaction $\bs{D}\cdot\bs{S}_i\times\bs{S}_j$ and an anisotropic interaction $\bs{S}_i \bs{\Gamma} \bs{S}_j$ known as pseudodipolar interaction \cite{Moriya1960}. We will start by finding a suitable basis to write the second quantized version of \ref{Ham1}.
+Where $\lambda = \frac{\hbar^2}{4m^2c^2}$ is the spin orbit coupling constant and $\text{U}(\bs{r})$ is a periodic potential. $\hbar$ is the reduced Planck constant, $m$ is the electron mass, $c$ is the speed of light and $\bs{\sigma}$ is a vector of Pauli matrices $\bs{\sigma} = (\sigma_1, \sigma_2, \sigma_3)$. The second quantized form of this Hamiltonian can be approximated by a version of the Hubbard model. We will consider a half filled system in the strong coupling limit. Ignoring electron hopping and spin orbit interaction, the ground state of this system is massively degenerated. We will find an effective Hamiltonian considering that the hopping term and the spin interaction term act on this subspace. This effective Hamiltonian will be the sum of three spin interactions: an exchange interaction $J\bs{S}_i\cdot\bs{S}_j$ with $J>0$, a Dzyaloshinkii-Moriya interaction $\bs{D}\cdot\bs{S}_i\times\bs{S}_j$ and an anisotropic interaction $\bs{S}_i \bs{\Gamma} \bs{S}_j$ known as pseudodipolar interaction \cite{Moriya1960}. We will start by finding a suitable basis to write the second quantized version of \ref{Ham1}.
 
 \begin{section}{Single particle in a periodic potential}
 
@@ -31,7 +29,6 @@ Where $\text{U}(\bs{r})$ has the symmetry of the lattice, i.e. $\text{U}(\bs{r} 
 \label{Bloch1}
 \bra{\bs{r}+\bs{R}} \ket{\phi_{n, \textbf{k}}} = e^{i\bs{k}\cdot\bs{R}}\bra{\bs{r}} \ket{\phi_{n, \textbf{k}}}
 \end{equation}
-
 Which is the well-known Bloch function form. Here, $n$ is called the band index, and $\textbf{k}$ is the quasimomentum. The energy of this wavefunction is $\epsilon_{n \textbf{k}}$.  Notice that both $\phi_{n,\textbf{k}}$ and $\epsilon_{n \textbf{k}}$ are periodic functions of $\textbf{k}$ in the reciprocal lattice.
 
 The Bloch function is extended over the whole crystal volume $V$. However, we would like to work with a localized basis. Such a localized basis built by a set of functions known as Wannier functions $\ket{\psi_{in}}$, which defined in terms of the Bloch functions as:
@@ -40,7 +37,6 @@ The Bloch function is extended over the whole crystal volume $V$. However, we wo
 \bra{\bs{r}}\ket{\phi_{n\bs{k}}} &= \frac{1}{\sqrt{M}}\sum_{\bs{R}} e^{i\bs{k}\cdot\bs{R}} \bra{\bs{r}}\ket{\psi_{\bs{R}n}}  \label{Wannier1} \\
 \bra{\bs{r}}\ket{\psi_{in}} &= \frac{1}{\sqrt{M}} \sum_{\bs{k}\in BZ} e^{-i\bs{k}\cdot\bs{R}_i} \bra{\bs{r}}\ket{\phi_{n\bs{k}}}\label{Wannier2}
 \end{align}
-
 Where $M$ is the number of lattice sites as defined in \ref{AP1A}. Using \ref{Bloch1} we see that $\psi_{in}(\textbf{r}) = \psi_{0n}(\textbf{r}-\textbf{r}_i) \equiv \psi_{n}(\textbf{r}-\textbf{r}_i)$, so we only need to define one Wannier function for each band and the others are obtained by translations. From now on we will restrict ourselves to a fixed band, so we will drop the band index. Additionally, we will include the spin state, therefore the basis states will have two quantum numbers one for the site and one for the spin state. We will adopt the notation $\ket{i\sigma}$ for the basis state of site $i$ with spin state $\sigma = \uparrow, \downarrow$, or just $\ket{i}$ when the spin state is irrelevant. Fock states with small number of particles will be denoted as $\ket{i\sigma, j\sigma'}$, for a state with a particle at site $i$ with spin $\sigma$ and a particle at $j$ with spin $\sigma'$, or $\ket{ij}$ when spin is irrelevant. With these definitions we are ready for write down the second quantized form of \ref{Ham1}, and show some approximations that lead to the Hubbard model.
 
 \end{section}
@@ -52,13 +48,11 @@ In this section we will derive the second quantized form of \ref{Ham1} using the
 \begin{equation}
 \hat{H} = \sum_{i,j,\sigma, \sigma'} \bra{i\sigma} \hat{H}^{(1)} \ket{j\sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \frac{1}{2} \sum_{i,j,k,l, \sigma, \sigma'} \bra{ij} \hat{v} \ket{kl} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}^\dagger \hat{c}_{l \sigma'} \hat{c}_{k \sigma}
 \end{equation}
-
 Where we assumed $\hat{v}$ to be spin independent. This can be rewritten as:
 
 \begin{equation}
 \hat{H} = -\sum_{i,j,\sigma, \sigma'} (\delta_{\sigma, \sigma'} t_{ij} + \bs{\Delta}_{ij} \cdot\bs{\sigma}_{\sigma, \sigma'}) \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \frac{1}{2} \sum_{i,j,k,l, \sigma, \sigma'} \bra{ij} \hat{v} \ket{kl} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}^\dagger \hat{c}_{l \sigma'} \hat{c}_{k \sigma}
 \end{equation}
-
 Where $t_{ij} = -\bra{i} -\frac{\hbar^2}{2m}\nabla^2_{\textbf{r}} + \text{U}(\textbf{r}) \ket{j}$ and $\boldsymbol{\Delta}_{ij} = -\bra{i} \lambda \boldsymbol{\nabla}V(\textbf{r}) \times \textbf{p} \ket{j}$. Notice that $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$, for example, in the $x$ component:
 
 \begin{align*}
@@ -68,7 +62,6 @@ Where $t_{ij} = -\bra{i} -\frac{\hbar^2}{2m}\nabla^2_{\textbf{r}} + \text{U}(\te
 &= -i\hbar\lambda \int d\bs{r} \left[ \partial_z \phi_i(\bs{r})^* \partial_y V(\bs{r}) - \partial_y \phi_i(\bs{r})^*\partial_z V(\bs{r}) \right] \phi_j(\bs{r}) = \\
 &= \int d\bs{r} \phi_j(\bs{r}) \lambda (\bs{\nabla}V(\bs{r}) \times \bs{p})_x \phi_i(\bs{r})^* = - \Delta_{ji,x}
 \end{align*}
-
 Therefore it follows that $\bs{\Delta}_{ii} = 0$ and that $\bs{\Delta}_{ij}$ is purely imaginary. We can impose that $t_{ii} = t(0) = 0$ since adding a constant term to all the hopping amplitudes would only lead to a lifting in the zero point energy. Additionally, for a system of strongly correlated electrons we can assume that:
 
 \begin{itemize}
@@ -89,7 +82,6 @@ and
              0,  & \text{otherwise}
        \end{cases} \quad
 \end{equation}
-
 Hubbard models with hopping terms further than nearest neighbors are also interesting and will be considered in next chapter.  
 
 \item Taking into account the locality of the Wannier functions and the Coulomb interaction, the dominant contribution of $\bra{ij} \hat{v} \ket{kl}$ will come from $i=j=k=l$. Terms with $i=k$ and $j=l$ also contribute when $i, j$ are nearest neighbours. Therefore we approximate:
@@ -102,14 +94,12 @@ Hubbard models with hopping terms further than nearest neighbors are also intere
 		0, & \text{otherwise}
 	\end{cases}						
 \end{equation}
-
 Where we defined:
 
 \begin{align}
 \text{U} &= \frac{1}{2} \int d\bs{r} d\bs{r}' \phi(\bs{r})^* \phi(\bs{r}')^* \hat{v}(\bs{r}-\bs{r}') \phi(\bs{r}') \phi(\bs{r}) \\
 \text{V} &= \int d\bs{r} d\bs{r}' \phi(\bs{r})^* \phi(\bs{r}'-\bs{R}_1)^* \hat{v}(\bs{r}-\bs{r}') \phi(\bs{r}'-\bs{R}_1) \phi(\bs{r})
 \end{align}
-
 Where $\phi(\bs{r})$ is the Wannier function centered at the origin and $\bs{R}_1$ is a nearest neighbour lattice vector. Notice that we made explicit use of the translational invariance of the system. Also, for $i=j=k=l$ the Pauli principle requires $\sigma' = -\sigma$.
 
 \end{itemize}
@@ -120,14 +110,12 @@ Taking these approximations and writing $\hat{c}_{i \sigma}^\dagger \hat{c}_{j \
 \label{HubbardWithNonLocalInt}
 \hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{ij} + \bs{\Delta}_{ij} \cdot \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow} + \text{V} \sum_{i,j,\sigma,\sigma'}  \hat{n}_{i \sigma} \hat{n}_{j \sigma'}
 \end{equation}
-
 Now, in a half filling system this Hamiltonian can be well approximated by an effective Hamiltonian without non local Coulomb interactions:
 
 \begin{equation}
 \label{Intermediate}
 \hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{ij} + \bs{\Delta}_{ij} \cdot\bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U}^* \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
 \end{equation}
-
 Where $\text{U}^* = \text{U} - \text{V}$. The physical reason for this is that the energy difference when the Coulomb interaction pushes an electron from a double occupied site to an empty site is $\text{U}-\text{V}$ in \ref{HubbardWithNonLocalInt}, because the number of double occupied sites is reduced by one but the number of adjacent occupied sites is increased by one. This is illustred in Figure \ref{Fig2.1}. A more rigouros derivation of this effective model can be found in \cite{Schuler2013}. Altough $\text{V} < \text{U}$, they can be comparable in magnitude, and $\text{U}^*$ can be reduced by a factor of $0.5$ or more.
 
 \begin{figure}
@@ -143,7 +131,6 @@ Now, abusing the notation and writing $\text{U} = \text{U}^*$ we arrive at the m
 \label{Hubbard}
 \hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{ij} + \bs{\Delta}_{ij} \cdot \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
 \end{equation}
-
 This Hamiltonian is identical to the Hubbard Hamiltonian \ref{HH} adding a spin dependent hopping, which arises from the SOI. In the next section we will show that this Hamiltonian leads to an effective spin Hamiltonian in the appropriate limit.
 
 \end{section}
@@ -157,7 +144,6 @@ Let us write $\hat{H} = \hat{H}_0 + \hat{H}_t$, where $\hat{H}_0$ is the Hamilto
 \begin{equation}
 \bra{\phi'} \hat{H} \ket{\phi} = \sum_s \frac{\bra{\phi'} \hat{H_t} \ket{s}\bra{s} \hat{H_t} \ket{\phi}}{E_0-E_s}
 \end{equation}
-
 The sum being over all excited states. Since $\hat{H_t}\ket{\phi}$ is a superposition of states with exactly one double occupied site and one empty site, we see that only excited states with one double occupied site will contribute. These states have energy $E_s = \text{U}$ therefore we have $\bra{\phi'} \hat{H} \ket{\phi} = -\frac{1}{\text{U}}\sum_s \bra{\phi'} \hat{H_t} \ket{s}\bra{s} \hat{H_t} \ket{\phi} = \bra{\phi'} -\frac{\hat{H_t^2}}{\text{U}} \ket{\phi}$. This means that within the subspace generated by the ground states of $\hat{H_0}$, $\hat{H}$ acts as an effective Hamiltonian $\hat{H}_{\text{eff}} = -\frac{\hat{H_t^2}}{\text{U}}$. Now,
 
 \begin{align}
@@ -170,7 +156,6 @@ The sum being over all excited states. Since $\hat{H_t}\ket{\phi}$ is a superpos
 & \left. \left. - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3 \sigma_4}) - (\bs{\Delta}_{ij}\cdot\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \cdot\bs{\sigma}_{\sigma_3 \sigma_4}) \right] \hat{c}_{i\sigma_1}^\dagger \hat{c}_{i\sigma_4} \hat{c}_{j 		\sigma_2} \hat{c}_{j \sigma_3}^\dagger \ket{\phi} \right\} = \nonumber \\
 & \bra{\phi'} \hat{H}_J + \hat{H}_D + \hat{H}_P \ket{\phi}
 \end{align}
-
 In the second line we imposed $i=j'$ and $j=i'$ since that's the only way $\hat{H_t^2}\ket{\phi}$ has no double occupied sites and so the matrix element does not vanish (remember that $\ket{\phi}$ and $\ket{\phi'}$ belong in the subspace of zero double occupied states). We also used $\bs{\Delta}_{ij} = - \bs{\Delta}_{ji}$ and we defined:
 
 \begin{align}
@@ -178,28 +163,24 @@ In the second line we imposed $i=j'$ and $j=i'$ since that's the only way $\hat{
 \hat{H}_D &= -\frac{t}{\text{U}}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \bs{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4}	\bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3 	\sigma_4}) \hat{c}_{i\sigma_1}^\dagger \hat{c}_{i\sigma_4} \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \label{C3HD}\\
 \hat{H}_P &= \frac{1}{\text{U}}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \cdot\bs{\sigma}_{\sigma_3 \sigma_4}) \hat{c}_{i\sigma_1}^\dagger \hat{c}_{i\sigma_4} \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \label{C3HP}
 \end{align}
-
 Let us now introduce the on-site spin operators:
 
 \begin{equation}
 \label{SpinOperators}
 \boldsymbol{S}_i = \frac{1}{2} \sum_{\sigma, \sigma'} \hat{c}_{i \sigma}^\dagger \boldsymbol{\sigma}_{\sigma, \sigma'} \hat{c}_{i \sigma'}
 \end{equation}
-
 Which satisfy:
 
 \begin{align}
 \hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma'} &= \delta_{\sigma \sigma'} \frac{1}{2} (n_{i \uparrow} + n_{i \downarrow}) + \bs{S}_i\cdot\bs{\sigma}_{\sigma', \sigma} \label{SpinOperatorInv1}\\ 
 \hat{c}_{i \sigma} \hat{c}_{i \sigma'}^\dagger &= \delta_{\sigma \sigma'} \frac{1}{2} (2 - n_{i \uparrow} - n_{i \downarrow}) - \bs{S}_i\cdot\bs{\sigma}_{\sigma, \sigma'} \label{SpinOperatorInv2}
 \end{align}
-
 In the half-filling case we have $n_{i \uparrow} + n_{i \downarrow} = 1$ and we can show two important relations. First:
 
 \begin{align*}
 &\sum_{\sigma \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \bs{S}_i\cdot\bs{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\bs{S}_j\cdot\bs{\sigma}_{\sigma \sigma'}\right) = \sum_{\sigma \sigma'} \left\{ \frac{1}{4}\delta_{\sigma \sigma'} - \sum_{ab} S_i^aS_j^b 	\bs{\sigma}_{\sigma'\sigma}^a \cdot \bs{\sigma}_{\sigma \sigma'}^b \right\}= \\
 &= \frac{1}{2} - \sum_{ab} S_i^aS_j^b	2\delta_{ab} = \frac{1}{2} - 2\bs{S}_i\cdot\bs{S}_j
 \end{align*}
-
 Where we have neglected the term $\sum_{\sigma \sigma'} \frac{1}{2}\delta_{\sigma,\sigma'}(\bs{S}_i\cdot\bs{\sigma}_{\sigma',\sigma} - \bs{S}_j\cdot\bs{\sigma}_{\sigma,\sigma'})$ because eventually we will sum over all $\langle i, j \rangle$ and it will cancel out. We also used the well known property $tr(\bs{\sigma}^a\bs{\sigma}^b)=2\delta_{a,b}$. And second:
 
 \begin{align*}
@@ -225,7 +206,6 @@ Where we have neglected the term $\sum_{\sigma \sigma'} \frac{1}{2}\delta_{\sigm
 &= 2\left\{ \Delta_{ij}^+ (S_i^-S_j^z - S_i^zS_j^-) + \Delta_{ij}^- (S_i^zS_j^+ - S_i^+S_j^z) + \Delta_{ij}^z (S_i^+S_j^- - S_i^-S_j^+) \right\} = \\
 &= -2i\left\{ \Delta_{ij}^+ (\bs{S}_i\times\bs{S}_j)^- + \Delta_{ij}^- (\bs{S}_i\times\bs{S}_j)^+ + 2\Delta_{ij}^z (\bs{S}_i\times\bs{S}_j)^z \right\} = -4i \bs{\Delta}_{ij}\cdot \bs{S}_i \times \bs{S}_j 
 \end{align*}
-
 Where in the second line we expand the sum in the spin states (overbrace indicates the spin state $\sigma_1$, $\sigma_2$, $\sigma_3$, $\sigma_4$ respectively). We also used that for any vector $\vec{v}$ we can define $\bs{\sigma}_{12}\vec{v} = v^x+iv^y = v^+$, $\bs{\sigma}_{21}\vec{v} = v^x-iv^y = v^-$, $\bs{\sigma}_{11}\vec{v} = v^z$ and $\bs{\sigma}_{22}\vec{v} = -v^z$. Also, for any two vectors $\vec{a}$ and $\vec{b}$, the following applies $a^-b^z-a^zb^- = -i(\vec{a}\times\vec{b})^-$, $a^zb^+-a^+b^z=-i(\vec{a}\times\vec{b})^+$, $a^+b^--a^-b^+=-2i(\vec{a}\times \vec{b})^z$ and $a^+b^-+a^-b^+=2(a^xb^x+a^yb^y)$.
 
 The third important relation is:
@@ -266,7 +246,6 @@ S_j^x \\ S_j^y \\ S_j^z
 \end{pmatrix} = \\
 &\frac{(\Delta_{ij}^z)^2+\Delta_{ij}^+\Delta_{ij}^-}{2} + \sum_{\alpha, \beta} S_i^\alpha (4\Delta_{ij}^\alpha\Delta_{ij}^\beta - \delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2) S_j^\beta
 \end{align*}
-
 These three relations are important and will be used in the next chapter:
 
 \begin{align}
@@ -277,27 +256,23 @@ These three relations are important and will be used in the next chapter:
 & \sum_{\sigma_1, \sigma_2, \sigma_3, \sigma_4} (\bs{\Delta}_{ij}\cdot\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij} \cdot\bs{\sigma}_{\sigma_3 \sigma_4})\bs{S}_i\cdot\bs{\sigma}_{\sigma_4 \sigma_1}\left(-\bs{S}_j\cdot\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \nonumber \\
 &= \sum_{\alpha, \beta} S_i^\alpha (\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta ) S_j^\beta \label{SpinRel3}
 \end{align}
-
 Now introducing the spin operators into  $\hat{H}_J$ in \ref{C3HJ}, with $n_{i \uparrow} + n_{i \downarrow} = 1$ and using \ref{SpinRel1} we obtain:
 
 \begin{align*}
 \hat{H}_{J} = &-\frac{t^2}{\text{U}} \sum_{\langle i,j \rangle, \sigma \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \bs{S}_i\cdot\bs{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\bs{S}_j\cdot\bs{\sigma}_{\sigma \sigma'}\right) = \\
 &-\frac{t^2}{\text{U}}\sum_{\langle i,j \rangle} \left( \frac{1}{2} - 2\bs{S}_i\cdot\bs{S}_j \right)
 \end{align*}
-
 The constant term can be neglected leaving:
 
 \begin{equation}
 \hat{H}_{J} = \frac{2t^2}{\text{U}} \sum_{\langle i,j \rangle} \bs{S}_i\cdot\bs{S}_j = \sum_{\langle i,j \rangle} J_{ij}^0 \bs{S}_i\cdot\bs{S}_j
 \end{equation}
-
 Which is the Heisenberg model for antiferromagnets with $J_{ij}^0 = \frac{2t^2}{\text{U}} > 0$. Likewise, for $\hat{H}_D$ in \ref{C3HD}, using \ref{SpinRel2}:
 
 \begin{align*}
 \hat{H}_D = &-\frac{t}{\text{U}} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\bs{\Delta}_{ij}\cdot(\delta_{\sigma_3 \sigma_4}\bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3\sigma_4})\left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\cdot\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\cdot\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \\
 &= +\frac{4it}{\text{U}} \sum_{\langle i,j \rangle} \bs{\Delta}_{ij}\cdot \bs{S}_i \times \bs{S}_j = \sum_{\langle i,j \rangle} \bs{D}_{ij}^0\cdot \bs{S}_i \times \bs{S}_j
 \end{align*}
-
 Where $\bs{D}_{ij}^0 = \frac{4it}{\text{U}}\bs{\Delta}_{ij}$, notice that being $\bs{\Delta}_{ij}$ purely imaginary, $\bs{D}_{ij}^0$ is a real vector. 
 Lastly, using \ref{SpinRel3}, the term proportional to \ref{C3HP} leads to:
 
@@ -305,14 +280,12 @@ Lastly, using \ref{SpinRel3}, the term proportional to \ref{C3HP} leads to:
 \hat{H}_P &= \frac{1}{\text{U}}\sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} (\bs{\Delta}_{ij}\cdot\bs{\sigma}_{\sigma_1 \sigma_2})(\bs{\Delta}_{ij}\cdot \bs{\sigma}_{\sigma_3 \sigma_4}) \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\cdot\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\cdot\bs{\sigma}_{\sigma_2 \sigma_3}\right) = \\
 &\frac{1}{\text{U}} \sum_{\langle i,j \rangle} \sum_{\alpha, \beta} S_i^\alpha (\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta ) S_j^\beta = \sum_{\langle i,j \rangle} \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j
 \end{align*}
-
 With $\bs{\Gamma_{ij}}^{\alpha \beta} = \frac{1}{\text{U}}(\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta)$.
 The total effective Hamiltonian is:
 
 \begin{equation}
 \hat{H}_{\text{eff}} = \sum_{\langle i,j \rangle} \left( J_{ij}^0 \bs{S}_i\cdot\bs{S}_j + \bs{D}_{ij}^0 \cdot \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j \right) \label{HeffNOEMF}
 \end{equation}
-
 With:
 
 \begin{align}
@@ -320,7 +293,6 @@ J_{ij}^0 &= \frac{2t^2}{\text{U}} \label{Jij0} \\
 \bs{D}_{ij}^0 &= \frac{4it}{\text{U}}\bs{\Delta}_{ij} \label{Dij0} \\ 
 \bs{\Gamma_{ij}}^{\alpha \beta} &= \frac{1}{\text{U}}(\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta) \label{Gij0}
 \end{align}
-
 The $J_{ij}^0\bs{S}_i\cdot\bs{S}_j$ term is known as exchange interaction. Setting $\bs{\Delta}_{ij} = 0$ (no SOI) we see that \ref{HeffNOEMF} reduces to the Heisenberg model. Since $J_{ij}^0 > 0$ this model describes an antiferromagnetic material. However, the Hubbard model can also lead to ferromagnetic and paramagnetic magnetic behavior in non half-filled systems as shown in \cite{Hirsch1985} with a mean-field theory approach. The term $\bs{D}_{ij}^0 \cdot\bs{S}_i \times \bs{S}_j$ is known as Dzyaloshinskii-Moriya
 interaction (DMI), the symmetries of the crystal will restrict the direction of $\bs{D}_{ij}^0$ \cite{Moriya1960}. In the next chapter we will examine this further. Lastly $\bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j$ is an anisotropic term known as pseudodipolar interaction \citep{Moriya1960} and it is usually neglected since it is proportional to $\bs{\Delta}_{ij}^2$.
 
@@ -334,13 +306,11 @@ This analysis can be easily extended to electronic Hamiltonians including next-n
 \begin{equation}
 \hat{H} = -\sum_{\langle i,j \rangle, \sigma}t_{1}\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} -\sum_{\langle \langle i,j \rangle \rangle, \sigma} t_{2}\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
 \end{equation}
-
-Where $\langle \langle i,j \rangle \rangle$ denotes sum over NNN. If we follow the procedure as before we will obtain an effective spin Hamiltonian:
+Where $\langle \langle i,j \rangle \rangle$ denotes sum over NNN and $t_1$ and $t_2$ denote the NN and NNN hopping amplitudes respectively. If we follow the procedure as before we will obtain an effective spin Hamiltonian:
 
 \begin{equation}
 \hat{H}_{\text{eff}} = J_1\sum_{\langle i,j \rangle} \bs{S}_i\cdot\bs{S}_j + J_2\sum_{\langle \langle i,j \rangle \rangle}\bs{S}_i\cdot\bs{S}_j
 \end{equation}
-
 Where $J_1 = \frac{t_1^2}{\text{U}}$ and $J_2 = \frac{t_2^2}{\text{U}}$. This Hamiltonian is known as $J_1-J_2$ Heisenberg model. This model has been extensively studied, and the $J_1-J_2-J_3$ is also of interest \cite{Reuther2011}. 
 
 Notice that we can also obtain a $J_1-J_2$ Heisenberg model starting simply from a NN hamiltonian $\hat{H} = -\sum_{\langle i,j \rangle, \sigma}t_{1}\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$. This is because the NNN exchange interaction comes from the possibility of the process $i\sigma \rightarrow j\sigma \rightarrow i\sigma$ being $i,j$ NNN. This process is available when sites $i, j$ have opposite spins (otherwise it would violate the Pauli principle). Now, when $i,j$ are NNN, we can consider the fourth order process $i\sigma \rightarrow k\sigma \rightarrow j\sigma \rightarrow k\sigma \rightarrow i\sigma$, where $k$ is a site between $i$ and $j$. The resulting effective spin Hamiltonian has exchange couplings $J_1 = 2\frac{t_1^2}{\text{U}} - 8 \frac{t_1^4}{\text{U}^3}$ and $J_2 = 2\frac{t^4}{\text{U}}$. A rigorous derivation can be found in \cite{MacDonald1988}. 
@@ -356,13 +326,11 @@ It is possible to consider a disordered Hubbard model by adding random uncorrela
 \hat{H} = -t\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} +
 \sum_{i \sigma} \epsilon_i \hat{c}_{i \sigma}^\dagger \hat{c}_{i \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
 \end{equation}
-
 Where $\epsilon_i$ are random variable $\epsilon_i \in [-W,W]$. At half filling we can derive an effective Hamiltonian using the same procedure as before. The second order virtual hopping $i\sigma \rightarrow j\sigma \rightarrow i\sigma$ will give rise to an exchange spin interaction. In this case, however, the intermediate energy is $\text{U} + (\epsilon_j - \epsilon_i)$. Therefore the spin Hamiltonian will be:
 
 \begin{equation}
 \hat{H}_{\text{eff}} = \sum_{\langle i,j \rangle} \frac{2t^2}{\text{U} + (\epsilon_j - \epsilon_i)} \bs{S}_i\cdot\bs{S}_j = \sum_{\langle i,j \rangle} \frac{2t^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2} \bs{S}_i\cdot\bs{S}_j = \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i\cdot\bs{S}_j
 \end{equation}
-
 Where in the second step we added the contributions of $\langle i,j \rangle$ and $\langle j,i \rangle$ and where $J_{ij} = \frac{2t^2\text{U}}{\text{U}^2-(\epsilon_j-\epsilon_i)^2}$. This model is relevant for studying many-body localization phenomena \cite{Protopopov2018}.
 
 \end{subsection}
@@ -375,15 +343,13 @@ In this section we will show how a continuum one dimensional model can be obtain
 \bs{m}_i &= \frac{\bs{S}_{\alpha}^i + \bs{S}_{\beta}^i}{2S} \\
 \bs{l}_i &= \frac{\bs{S}_{\alpha}^i - \bs{S}_{\beta}^i}{2S}
 \end{align}
-
 Where $S$ is the spin angular momentum in units of $\hbar$. Inverting these relations, introducing them into the Hamiltonian and neglecting edge terms we obtain:
 
 \begin{align}
-\hat{H} &= JS^2 \sum_i^{N-1} (\bs{m}_i-\bs{l}_i)(\bs{m}_i+\bs{l}_i+\bs{m}_{i+1}+\bs{l}_{i+1}) - KS^2\sum_i^N \left[(\bs{m}_{iz}+\bs{l}_{iz})^2 + (\bs{m}_{iz}-\bs{l}_{iz})^2 \right] \nonumber = \\
+\hat{H} &= JS^2 \sum_i^{N-1} (\bs{m}_i-\bs{l}_i)\cdot(\bs{m}_i+\bs{l}_i+\bs{m}_{i+1}+\bs{l}_{i+1}) - KS^2\sum_i^N \left[(\bs{m}_{iz}+\bs{l}_{iz})^2 + (\bs{m}_{iz}-\bs{l}_{iz})^2 \right] \nonumber = \\
 & 2JS^2\sum_i^{N} (\bs{m}_i^2-\bs{l}_i^2)+\frac{JS^2}{2}\sum_i^{N-1}\left[(\bs{l}_{i+1}-\bs{l}_i)^2-(\bs{m}_{i+1}-\bs{m}_i)^2 \right] \nonumber \\
-& + JS^2\sum_i^{N-1} \left[ \bs{m}_i(\bs{l}_{i+1}-\bs{l}_i) - \bs{l}_i(\bs{m}_{i+1}-\bs{m}_i) \right] - 2KS^2\sum_i^N(m_{iz}^2+l_{iz}^2)
+& + JS^2\sum_i^{N-1} \left[ \bs{m}_i\cdot(\bs{l}_{i+1}-\bs{l}_i) - \bs{l}_i\cdot(\bs{m}_{i+1}-\bs{m}_i) \right] - 2KS^2\sum_i^N(m_{iz}^2+l_{iz}^2)
 \end{align}
-
 Now we can take the continuum limit with:
 
 \begin{align*}
@@ -392,12 +358,13 @@ Now we can take the continuum limit with:
 2d \sum_i &\rightarrow \int dx \\
 \hat{H} &\rightarrow \int \frac{dx}{2d} \mathcal{H}(\bs{l},\bs{m})
 \end{align*}
-
 This, together with $\bs{m}_i-\bs{l}_i = 2\bs{m}_i-1$ and $\bs{m}_{i+1} \rightarrow \bs{m}(x) + 2d \partial_x\bs{m}(x)$ gives:
 
-\begin{equation}
-\mathcal{H}(\bs{l},\bs{m}) = JS^2\left\{ 4|\bs{m}|^2 + |\partial_x\bs{l}'|^2 -  |\partial_x\bs{m}'|^2 +(\bs{m}\partial_x\bs{l} -\bs{l}\partial_x\bs{m}) \right\} -KS^2\left\{ (\bs{l}\hat{z})^2 + (\bs{m}\hat{z})^2 \right\}
-\end{equation}
+\begin{align}
+\mathcal{H}(\bs{l},\bs{m}) &= JS^2\left\{ 4|\bs{m}|^2 + |\partial_x\bs{l}'|^2 -  |\partial_x\bs{m}'|^2 +(\bs{m}\partial_x\bs{l} -\bs{l}\partial_x\bs{m}) \right\} \nonumber \\
+&-KS^2\left\{ (\bs{l}\hat{z})^2 + (\bs{m}\hat{z})^2 \right\}
+\end{align}
+This Hamiltonian is used as a starting point for the study of spin dynamics in antiferromagnets. Antiferromagnetic domain wall motion can be described within this framework \cite{AlirezaSW, Alireza2014}. Manipulation of AFM domain walls is of great interest in spintronics since it can lead to high frequency switching of magnetic textures \cite{Jungwirth2016}.
 
 \end{section}
 

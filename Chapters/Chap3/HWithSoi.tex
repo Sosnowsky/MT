@@ -12,7 +12,7 @@ In this case the hopping amplitudes are:
 \begin{equation}
 \label{HoppHubbSOI}
 t_{ij}^{\sigma \sigma'} = \begin{cases}
-	(\delta_{\sigma \sigma'}t_0+\bs{\Delta}_{ij} \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ nearest neighbors} \\
+	(\delta_{\sigma \sigma'}t_0+\bs{\Delta}_{ij} \cdot \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ nearest neighbors} \\
 	0 & \text{ otherwise}
 \end{cases} \quad
 \end{equation}
@@ -21,14 +21,14 @@ And as before $\hat{H} = -\hat{T} + \text{U}\hat{D}$. In the presence of an elec
 
 \begin{align}
 \hat{H}_{\text{eff}}(t) &= - \frac{1}{2} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \nonumber \\
-&= - \frac{1}{2} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left( \frac{\delta_{\sigma_1 \sigma_4}}{2} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1} \right) \left( \frac{\delta_{\sigma_2 \sigma_3}}{2} - \bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3} \right) \nonumber \\ &(\delta_{\sigma_1 \sigma_2}t_0+\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_1, \sigma_2}) (\delta_{\sigma_3 \sigma_4}t_0+\bs{\Delta}_{ji} \bs{\sigma}_{\sigma_3, \sigma_4}) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \label{HeffHubbSOI1}
+&= - \frac{1}{2} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left( \frac{\delta_{\sigma_1 \sigma_4}}{2} + \bs{S}_i\cdot\bs{\sigma}_{\sigma_4 \sigma_1} \right) \left( \frac{\delta_{\sigma_2 \sigma_3}}{2} - \bs{S}_j\cdot\bs{\sigma}_{\sigma_2 \sigma_3} \right) \nonumber \\ &(\delta_{\sigma_1 \sigma_2}t_0+\bs{\Delta}_{ij}\cdot \bs{\sigma}_{\sigma_1, \sigma_2}) (\delta_{\sigma_3 \sigma_4}t_0+\bs{\Delta}_{ji}\cdot \bs{\sigma}_{\sigma_3, \sigma_4}) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \label{HeffHubbSOI1}
 \end{align}
 
 Using $\bs{\Delta}_{ji} = - \bs{\Delta}_{ij}$:
 
 \begin{align*}
-&(\delta_{\sigma_1 \sigma_2}t_0+\bs{\Delta}_{ij} \bs{\sigma}_{\sigma_1, \sigma_2}) (\delta_{\sigma_3 \sigma_4}t_0+\bs{\Delta}_{ji} \bs{\sigma}_{\sigma_3, \sigma_4}) = \\ 
-&\delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4}t_0^2 + t_0\bs{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4} \bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3 \sigma_4}) - (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1, \sigma_2})(\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_3, \sigma_4})
+&(\delta_{\sigma_1 \sigma_2}t_0+\bs{\Delta}_{ij} \cdot\bs{\sigma}_{\sigma_1, \sigma_2}) (\delta_{\sigma_3 \sigma_4}t_0+\bs{\Delta}_{ji}\cdot \bs{\sigma}_{\sigma_3, \sigma_4}) = \\ 
+&\delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4}t_0^2 + t_0\bs{\Delta}_{ij}\cdot(\delta_{\sigma_3 \sigma_4} \bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3 \sigma_4}) - (\bs{\Delta}_{ij}\cdot\bs{\sigma}_{\sigma_1, \sigma_2})(\bs{\Delta}_{ij}\cdot\bs{\sigma}_{\sigma_3, \sigma_4})
 \end{align*}
 
 The term proportional to $t_0^2$ will lead to the modified exchange interaction, as in the previous section. The term proportional to $t_0\bs{\Delta}_{ij}$ will lead to the modified DMI interaction and the term proportional to $\bs{\Delta}_{ij}^2$ will lead to the pseudodipolar interaction.
@@ -36,14 +36,14 @@ The term proportional to $t_0^2$ will lead to the modified exchange interaction,
 Now we can rewrite \ref{HeffHubbSOI1} as:
 
 \begin{align*}
-\hat{H}_{\text{eff}}(t) &= - \frac{1}{2} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left( \frac{\delta_{\sigma_1 \sigma_4}}{2} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1} \right) \left( \frac{\delta_{\sigma_2 \sigma_3}}{2} - \bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3} \right) \nonumber \\ &\left[ \delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4}t_0^2 + t_0\bs{\Delta}_{ij}(\delta_{\sigma_3 \sigma_4} \bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3 \sigma_4}) - (\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1, \sigma_2})(\bs{\Delta}_{ji}\bs{\sigma}_{\sigma_3, \sigma_4}) \right] \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
-&= -\frac{t_0^2}{2} \sum_{\langle i,j \rangle \sigma, \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \bs{S}_i\bs{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\bs{S}_j\bs{\sigma}_{\sigma \sigma'}\right)\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) - \\
-&- \frac{t_0}{2} \sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) \times \\
-&\bs{\Delta}_{ij}(\delta_{\sigma_3,\sigma_4}\bs{\sigma}_{\sigma_1 \sigma_2}-\delta_{\sigma_1,\sigma_2}\bs{\sigma}_{\sigma_3 \sigma_4})\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) + \\
-&+\frac{1}{2}\sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\bs{\sigma}_{\sigma_2 \sigma_3}\right) \\
-&(\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_1, \sigma_2})(\bs{\Delta}_{ij}\bs{\sigma}_{\sigma_3, \sigma_4})\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) = \\
-&= \sum_{\langle i,j \rangle} \left( t_0^2 \bs{S}_i\bs{S}_j + 2it_0\bs{\Delta}_{ij} \bs{S}_i \times \bs{S}_j + \sum_{\alpha, \beta} S_i^\alpha (\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta ) S_j^\beta \right) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) =\\
-&= \sum_{\langle i,j \rangle} \left\{ J_{ij}\bs{S}_i\bs{S}_j +\bs{D}_{ij}\bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{ij}\bs{S}_j \right\}
+\hat{H}_{\text{eff}}(t) &= - \frac{1}{2} \sum_{\langle i,j \rangle, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left( \frac{\delta_{\sigma_1 \sigma_4}}{2} + \bs{S}_i\cdot\bs{\sigma}_{\sigma_4 \sigma_1} \right) \left( \frac{\delta_{\sigma_2 \sigma_3}}{2} - \bs{S}_j\cdot\bs{\sigma}_{\sigma_2 \sigma_3} \right) \nonumber \\ &\left[ \delta_{\sigma_1 \sigma_2}\delta_{\sigma_3 \sigma_4}t_0^2 + t_0\bs{\Delta}_{ij}\cdot(\delta_{\sigma_3 \sigma_4} \bs{\sigma}_{\sigma_1 \sigma_2} - \delta_{\sigma_1 \sigma_2} \bs{\sigma}_{\sigma_3 \sigma_4}) - (\bs{\Delta}_{ij}\cdot\bs{\sigma}_{\sigma_1, \sigma_2})(\bs{\Delta}_{ji}\cdot\bs{\sigma}_{\sigma_3, \sigma_4}) \right] \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
+&= -\frac{t_0^2}{2} \sum_{\langle i,j \rangle \sigma, \sigma'} \left(\frac{1}{2}\delta_{\sigma \sigma'} + \bs{S}_i\cdot\bs{\sigma}_{\sigma' \sigma}\right)\left(\frac{1}{2}\delta_{\sigma \sigma'}-\bs{S}_j\cdot\bs{\sigma}_{\sigma \sigma'}\right)\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) - \\
+&- \frac{t_0}{2} \sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\cdot\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\cdot\bs{\sigma}_{\sigma_2 \sigma_3}\right) \times \\
+&\bs{\Delta}_{ij}\cdot(\delta_{\sigma_3,\sigma_4}\bs{\sigma}_{\sigma_1 \sigma_2}-\delta_{\sigma_1,\sigma_2}\bs{\sigma}_{\sigma_3 \sigma_4})\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) + \\
+&+\frac{1}{2}\sum_{\langle i,j \rangle \sigma_1, \sigma_2, \sigma_3, \sigma_4} \left(\frac{1}{2}\delta_{\sigma_1 \sigma_4} + \bs{S}_i\cdot\bs{\sigma}_{\sigma_4 \sigma_1}\right)\left(\frac{1}{2}\delta_{\sigma_2 \sigma_3}-\bs{S}_j\cdot\bs{\sigma}_{\sigma_2 \sigma_3}\right) \\
+&(\bs{\Delta}_{ij}\cdot\bs{\sigma}_{\sigma_1, \sigma_2})(\bs{\Delta}_{ij}\cdot\bs{\sigma}_{\sigma_3, \sigma_4})\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) = \\
+&= \sum_{\langle i,j \rangle} \left( t_0^2 \bs{S}_i\cdot\bs{S}_j + 2it_0\bs{\Delta}_{ij}\cdot \bs{S}_i \times \bs{S}_j + \sum_{\alpha, \beta} S_i^\alpha (\delta_{\alpha \beta} 2\bs{\Delta}_{ij}^2 - 4\Delta_{ij}^\alpha\Delta_{ij}^\beta ) S_j^\beta \right) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) =\\
+&= \sum_{\langle i,j \rangle} \left\{ J_{ij}\bs{S}_i\cdot\bs{S}_j +\bs{D}_{ij}\cdot\bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{ij}\bs{S}_j \right\}
 \end{align*}
 
 Where we used relations \ref{SpinRel1}, \ref{SpinRel2} and \ref{SpinRel3}. We have:

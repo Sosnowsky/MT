@@ -12,7 +12,7 @@ Where $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the d
 The effect of the electromagnetic perturbation in the lattice can be introduced via the Peierls substitution (\ref{AP3A}). With this notation, in presence of a vector potential $\vec{A}(t)$ (which we assume to not vary noticeably in the scale of the lattice) the Peierls substitution leads to an extra time dependent phase in the hopping amplitude:
 
 \begin{equation}
-t_{ij}^{\sigma \sigma'}(t) = t_{ij}^{\sigma \sigma'} e^{ie\bs{R}_{ij}\bs{A}(t)}
+t_{ij}^{\sigma \sigma'}(t) = t_{ij}^{\sigma \sigma'} e^{ie\bs{R}_{ij}\cdot\bs{A}(t)}
 \end{equation}
 
 Where $\bs{A}$ is the vector potential and $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$. We write the electric field as $\bs{E}(t) = \frac{1}{2}(\vec{E}e^{-i\omega t}+\vec{E}^*e^{i\omega t})$, where $\vec{E} = E_0\hat{e}$ and $\hat{e} = \frac{1}{\sqrt{1+\lambda_{POL}^2}}(\hat{e}_x+i\lambda_{POL}\hat{e}_y)$ is the polarization vector and $\lambda_{POL} = 0, \pm 1$ for plane polarized, right handed and left handed circular polarized field respectively. The vector potential takes the form $\bs{A}(t) = \frac{1}{2}(\vec{A}e^{-i\omega t} + \vec{A}^* e^{i\omega t})$, with $\vec{A} = \frac{iE_0}{\omega}\hat{e}$.
@@ -34,7 +34,7 @@ With $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$ in such a way that:
 and $\theta_{ij} \in \left[0,\pi\right)$. Then we can apply the Jacobi–Anger expansion:
 
 \begin{align*}
-t_{ij}^{\sigma \sigma'}(t) &= t_{ij}^{\sigma \sigma'}e^{ie\bs{R}_{ij}\bs{A}(t)} = t_{ij}^{\sigma \sigma'}e^{i\alpha_{ij} \cos(\omega t - \theta_{ij})} = \\
+t_{ij}^{\sigma \sigma'}(t) &= t_{ij}^{\sigma \sigma'}e^{ie\bs{R}_{ij}\cdot\bs{A}(t)} = t_{ij}^{\sigma \sigma'}e^{i\alpha_{ij} \cos(\omega t - \theta_{ij})} = \\
 &= t_{ij}^{\sigma \sigma'}\sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} = \sum t_{ij,m}^{\sigma \sigma'} e^{im\omega t}
 \end{align*}
 
@@ -195,10 +195,10 @@ Before we start using \ref{HeffSimplified} for different models we would like to
 
 \begin{equation}
 \label{TimeIndepHoppingAmpl}
-t_{ij}^{\sigma \sigma'} (t) = t_{ij}^{\sigma \sigma'} e^{ie \vec{\bs{R}}_{ij} \vec{\bs{E}} t}
+t_{ij}^{\sigma \sigma'} (t) = t_{ij}^{\sigma \sigma'} e^{ie \vec{\bs{R}}_{ij} \cdot \vec{\bs{E}} t}
 \end{equation}
 
-Therefore, there will be only two Fourier modes with frequency $\omega_0 = e \vec{\bs{R}}_{ij} \vec{\bs{E}} = \pm eaE_0$, where the sign $+(-)$ corresponds to the case $\vec{\bs{R}}_{ij} = \pm a \hat{e}_x$. Notice that this frequency $\omega_0$ does not correspond to a field frequency ($\vec{\bs{E}}$ is time independent), but to the Fourier mode in the hopping amplitudes (which is induced by the time independent field). From this point we can apply the same procedure as in the general case up to \ref{2ndOHeff}. We can greatly simplify this by considering that:
+Therefore, there will be only two Fourier modes with frequency $\omega_0 = e \vec{\bs{R}}_{ij} \cdot \vec{\bs{E}} = \pm eaE_0$, where the sign $+(-)$ corresponds to the case $\vec{\bs{R}}_{ij} = \pm a \hat{e}_x$. Notice that this frequency $\omega_0$ does not correspond to a field frequency ($\vec{\bs{E}}$ is time independent), but to the Fourier mode in the hopping amplitudes (which is induced by the time independent field). From this point we can apply the same procedure as in the general case up to \ref{2ndOHeff}. We can greatly simplify this by considering that:
 \begin{itemize}
 	\item $n$ can only take values $ n = \pm 1$ (there are no additional Fourier modes).
 	\item When restricted to the low energy subspace a product $\hat{T}_{-1 a} \hat{T}_{1 b}$ will only contribute when $a$ and $b$ have opposite signs ($a=1, b=-1$ or viceversa). This is because, in the low energy subspace $\hat{T}_{-1 a} \hat{T}_{1 b}$ can only represent a hopping from a site $i$ to a site $j$ and the hopping back to $i$, we can see from \ref{TimeIndepHoppingAmpl} that these two amplitudes will be in opposite Fourier modes.
@@ -209,21 +209,18 @@ Taking this into consideration we see that only $m=0$ terms will remain, which i
 \begin{equation}
 \hat{H}_{\text{eff}} = -\hat{P}_0 \left\{ \frac{\hat{T}_{-1,1}\hat{T}_{1,-1} }{\text{U}-\omega_0} + \frac{\hat{T}_{-1,-1}\hat{T}_{1,1} }{\text{U}+\omega_0} \right\} \hat{P}_0
 \end{equation}
-
 Now, the first fraction represents a hopping process $i\rightarrow j \rightarrow i$ where $j$ lies left to $i$, whereas in the second fraction $j$ lies right to $i$:
 
 \begin{align*}
 \hat{P}_0 \hat{T}_{-1,1} \hat{T}_{1,-1} \hat{P}_0 &= \sum_{i > j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} \\
 \hat{P}_0 \hat{T}_{-1,-1} \hat{T}_{1,1} \hat{P}_0 &= \sum_{i < j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} 
 \end{align*}
-
 We can rewrite this in the more compact form:
 
 \begin{equation}
 \label{TimeIndepHeff}
 \hat{H}_{\text{eff}} = -\sum_{i, j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \frac{t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4}}{\text{U} + \text{sgn}(j-i)\omega_0}
 \end{equation}
-
 This is the same effective Hamiltonian obtained in the previous section without an electric field but with a shift in the intermediate state energy by $\pm \omega_0 = \pm eaE_0$. We will analyze the corresponding spin Hamiltonian of this effective Hamiltonian when we consider the Kane-Mele-Hubbard model in Section \ref{section3NNN}.
 
 \end{subsection}

@@ -14,8 +14,8 @@ And all these coupling factors will be renormalized by the laser field. This ren
 
 \begin{equation}
 \label{BigHam}
-\hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_1 + \bs{\Delta}_{1,ij} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} - 
-	\sum_{\langle \langle i,j \rangle \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_2 + \bs{\Delta}_{2,ij} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + 
+\hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_1 + \bs{\Delta}_{1,ij}\cdot \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} - 
+	\sum_{\langle \langle i,j \rangle \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_2 + \bs{\Delta}_{2,ij}\cdot \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + 
 	\text{U}\hat{D}
 \end{equation}
 
@@ -24,8 +24,8 @@ Where sum over next-nearest neighbors is denoted by $\langle \langle i j \rangle
 \begin{equation}
 \label{BigHamHoppingAmp}
 t_{ij}^{\sigma \sigma'} = \begin{cases}
-	(\delta_{\sigma \sigma'}t_1+\bs{\Delta}_{1,ij} \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ nearest neighbors} \\
-	(\delta_{\sigma \sigma'}t_2+\bs{\Delta}_{2,ij} \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ next nearest neighbors} \\
+	(\delta_{\sigma \sigma'}t_1+\bs{\Delta}_{1,ij}\cdot \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ nearest neighbors} \\
+	(\delta_{\sigma \sigma'}t_2+\bs{\Delta}_{2,ij}\cdot \bs{\sigma}_{\sigma, \sigma'}) & \text{for } i, j \text{ next nearest neighbors} \\
 	0 & \text{ otherwise}
 \end{cases} \quad
 \end{equation}
@@ -33,8 +33,8 @@ t_{ij}^{\sigma \sigma'} = \begin{cases}
 The effective Hamiltonian will be the same as in section \ref{Section3HubbardSOI}, with the corresponding NNN terms. This is because in second order perturbation NN hopping terms do not mix with NNN hopping terms. Thus, the effective spin Hamiltonian will be:
 
 \begin{align}
-\hat{H}_{\text{eff}}(t) = &\sum_{\langle i,j \rangle} \left\{ J_{1,ij}\bs{S}_i\bs{S}_j + \bs{D}_{1,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{1,ij}\bs{S}_j\right\} + \nonumber \\
-&\sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}\bs{S}_i\bs{S}_j + \bs{D}_{2,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{2,ij}\bs{S}_j\right\}
+\hat{H}_{\text{eff}}(t) = &\sum_{\langle i,j \rangle} \left\{ J_{1,ij}\bs{S}_i\cdot\bs{S}_j + \bs{D}_{1,ij} \cdot\bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{1,ij}\bs{S}_j\right\} + \nonumber \\
+&\sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}\bs{S}_i\cdot\bs{S}_j + \bs{D}_{2,ij}\cdot \bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{2,ij}\bs{S}_j\right\}
 \end{align}
 
 Where:
@@ -54,7 +54,7 @@ J_{2,ij} &= J_2^0 + t_2^2 \frac{3\mathcal{E}^2}{2} \left( \frac{1}{\text{U}+\ome
 
 Where $J_n^0 = \frac{t_n^2}{\text{U}}$ and where we used that $|\bs{R}_{ij}| = a$ for NN and $|\bs{R}_{ij}| = \sqrt{3}a$ for NNN in a honeycomb lattice. The other coupling factors in \ref{DGeneral} and \ref{GammaGeneral} can be approximated in the same way.
 
-In section \ref{Numerics} we will investigate this numerically. The reason for this is that in a hopping process, the electron picks up a phase $e^{ie\bs{R}_{ij}\bs{A}(t)}$ (assuming flat field approximation). This phase will be larger for NNN hopping than for NN hopping and this will therefore translate in the corresponding spin interactions.
+In section \ref{Numerics} we will investigate this numerically. The reason for this is that in a hopping process, the electron picks up a phase $e^{ie\bs{R}_{ij}\cdot\bs{A}(t)}$ (assuming flat field approximation). This phase will be larger for NNN hopping than for NN hopping and this will therefore translate in the corresponding spin interactions.
 
 Next we will show several well-known models which are described by \ref{BigHam}.
 
@@ -71,7 +71,7 @@ Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ d
 
 \begin{equation}
 \label{KMHeff}
-\hat{H}_{\text{KMH}}^{\text{eff}}(t) = \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i \bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j 
+\hat{H}_{\text{KMH}}^{\text{eff}}(t) = \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i \cdot\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j 
 \end{equation}
 
 With and:
@@ -137,8 +137,8 @@ Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S
 Now, let us examine the case in which the applied electric field is time independent. In this case the effective Hamiltonian is \ref{TimeIndepHeff}, which is the same Hamiltonian obtained when no electric field is applied except for a shift in the intermediate energy by $\pm \omega_0 = e\bs{\vec{R}}_{ij}\bs{\vec{E}}_0$. In this case, if we consider a Hamiltonian such as \ref{BigHam}, we can follow the same procedure done before: we plug in the hopping amplitudes \ref{BigHamHoppingAmp} into \ref{TimeIndepHeff} and apply \ref{SpinRel1} to sum over the spin states and obtain the corresponding spin Hamiltonian. We obtain:
 
 \begin{align}
-\hat{H}_{\text{eff}}(t) = &\sum_{\langle i,j \rangle ^*} \left\{ J_{1,ij}\bs{S}_i\bs{S}_j + \bs{D}_{1,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{1,ij}\bs{S}_j\right\} + \nonumber \\
-&\sum_{\langle \langle i,j \rangle \rangle^*} \left\{ J_{2,ij}\bs{S}_i\bs{S}_j + \bs{D}_{2,ij} \bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{2,ij}\bs{S}_j\right\}
+\hat{H}_{\text{eff}}(t) = &\sum_{\langle i,j \rangle ^*} \left\{ J_{1,ij}\bs{S}_i\cdot\bs{S}_j + \bs{D}_{1,ij}\cdot \bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{1,ij}\bs{S}_j\right\} + \nonumber \\
+&\sum_{\langle \langle i,j \rangle \rangle^*} \left\{ J_{2,ij}\bs{S}_i\cdot\bs{S}_j + \bs{D}_{2,ij} \cdot\bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{2,ij}\bs{S}_j\right\}
 \end{align}
 
 $\langle i,j \rangle ^*$ denotes sum over NN avoiding repeating the same two sites. The coupling factors are:
@@ -152,7 +152,7 @@ J_{n,ij} &= 4\frac{t_n^2}{U^*_{ij}} \\
 Where:
 
 \begin{equation}
-\frac{1}{U^*_{ij}} =  \frac{1}{2}\left( \frac{1}{\text{U} - e\bs{\vec{R}}_{ij}\bs{\vec{E}}_0} + \frac{1}{\text{U} + e\bs{\vec{R}}_{ij}\bs{\vec{E}}_0} \right)
+\frac{1}{U^*_{ij}} =  \frac{1}{2}\left( \frac{1}{\text{U} - e\bs{\vec{R}}_{ij}\cdot\bs{\vec{E}}_0} + \frac{1}{\text{U} + e\bs{\vec{R}}_{ij}\cdot\bs{\vec{E}}_0} \right)
 \end{equation}
 
 \end{subsection}

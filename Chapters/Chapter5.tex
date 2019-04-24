@@ -11,7 +11,7 @@ We will start with the Heisenberg antiferromagnet:
 
 \begin{equation}
 \label{Heisenberg}
-\hat{H} = J \sum_{\langle i j \rangle} \bs{S}_i \bs{S}_j
+\hat{H} = J \sum_{\langle i j \rangle} \bs{S}_i\cdot \bs{S}_j
 \end{equation}
 
 In order to obtain the magnon Hamiltonian for this model we introduce the antiferromagnet Holstein-Primakoff transformation:
@@ -28,7 +28,7 @@ S^z_{Bj} &= -S + \hat{b}^\dagger_j \hat{b}_j
 Where $A$ and $B$ denote two Ne\'{e}l sublattices and $\hat{a}_i$, $\hat{b}_i$ are bosonic annihilation operators. In the large-S limit we approximate $ \sqrt{2S-\hat{a}^\dagger_i \hat{a}_i} \approx \sqrt{2S}$. Then, the exchange term becomes:
 
 \begin{align*}
-\bs{S}_i\bs{S}_j = S_i^zS_j^z + \frac{1}{2}\left(S_i^+S_j^- + S_i^-S_j^+ \right) = S \left( \hat{a}^\dagger_i \hat{a}_i + \hat{b}^\dagger_j \hat{b}_j + \hat{a}_i\hat{b}_j + \hat{a}^\dagger_i\hat{b}^\dagger_j \right) - \hat{a}^\dagger_i \hat{a}_i\hat{b}^\dagger_j \hat{b}_j - S^2
+\bs{S}_i\cdot\bs{S}_j = S_i^zS_j^z + \frac{1}{2}\left(S_i^+S_j^- + S_i^-S_j^+ \right) = S \left( \hat{a}^\dagger_i \hat{a}_i + \hat{b}^\dagger_j \hat{b}_j + \hat{a}_i\hat{b}_j + \hat{a}^\dagger_i\hat{b}^\dagger_j \right) - \hat{a}^\dagger_i \hat{a}_i\hat{b}^\dagger_j \hat{b}_j - S^2
 \end{align*}
 
 Now the $S^2$ term is a constant that lowers the energy of the antiferromagnet, therefore is shall not be taken into account to compute the magnon dispersion. The term $\hat{a}^\dagger_i \hat{a}_i\hat{b}^\dagger_j \hat{b}_j$ is zeroth order in $S$ and therefore neglected. We can rewrite the sum over NN as:
@@ -47,7 +47,7 @@ Where $\delta$ are the NN vectors. Using this, and the Fourier relations:
 Where the sum is over $\bs{k}$ in the first Brillouin zone. Using these relations, together with $\sum{i} e^{i(\bs{k}-\bs{k}')\cdot\bs{r}_i} = \delta_{\bs{k}, \bs{k}'}$ and denoting the number of sites by $N$ and the number of nearest neighbors by $z$, we find:
 
 \begin{equation}
-\hat{H} = -S^2JNz + 2JS \sum_{\bs{k} \bs{\delta}} \left( \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \hat{b}^\dagger_{\bs{k}}\hat{b}_{\bs{k}} + e^{i\bs{k}\bs{\delta}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + e^{-i \bs{k}\cdot\bs{\delta}}  \hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right)
+\hat{H} = -S^2JNz + 2JS \sum_{\bs{k} \bs{\delta}} \left( \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \hat{b}^\dagger_{\bs{k}}\hat{b}_{\bs{k}} + e^{i\bs{k}\cdot\bs{\delta}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + e^{-i \bs{k}\cdot\bs{\delta}}  \hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right)
 \end{equation}
 
 At this point it is common to define $\gamma_{\bs{k}} = \sum_\delta e^{i \bs{k} \cdot \bs{\delta}}$. Using $\bs{\delta}_1=\frac{a_0}{2}(1,\sqrt{3})$, $\bs{\delta}_2=\frac{a_0}{2}(1,-\sqrt{3})$, $\bs{\delta}_3=a_0(-1,0)$ (see Fig \ref{Fig.Magnon.Vecs}) and taking $a_0=1$, we can write this as:
@@ -166,7 +166,7 @@ Which is indeed negative since the terms in the sum are always negative. This te
 Let's now consider
 
 \begin{equation}
-\hat{H} = J \sum_{\langle i j \rangle} \bs{S}_i \bs{S}_j + D \sum_{\langle \langle i j \rangle \rangle} \nu_{ij}\hat{e}_z \bs{S}_i \times \bs{S}_j
+\hat{H} = J \sum_{\langle i j \rangle} \bs{S}_i\cdot \bs{S}_j + D \sum_{\langle \langle i j \rangle \rangle} \nu_{ij}\hat{e}_z\cdot \bs{S}_i \times \bs{S}_j
 \end{equation}
 
 The NNN DMI term will couple spins within the same sublattice. Using the HP transformation:
@@ -204,7 +204,7 @@ Notice that with these definitions, if $i$ is a site on the $A$ sublattice, $\nu
  Following the same procedure as before we get and additional magnonic term:
 
 \begin{equation}
-D \sum_{\langle \langle i j \rangle \rangle} \nu_{ij}\hat{e}_z \bs{S}_i \times \bs{S}_j = 2JS\sum_{\bs{k}} \left\{ \Delta_{\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \Delta_{-\bs{k}}\hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}} \right\}
+D \sum_{\langle \langle i j \rangle \rangle} \nu_{ij}\hat{e}_z \cdot\bs{S}_i \times \bs{S}_j = 2JS\sum_{\bs{k}} \left\{ \Delta_{\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \Delta_{-\bs{k}}\hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}} \right\}
 \end{equation}
 
 Where $\Delta_{\bs{k}} = \frac{Di}{2J}\sum_{\bs{\delta}^{NNN}} \nu_{i,i+\delta} (e^{i\bs{k}\cdot\bs{\delta}} -e^{-i\bs{k}\cdot\bs{\delta}})$, for $i$ in the $A$ sublattice. This can be rewritten as:

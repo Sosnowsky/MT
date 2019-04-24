@@ -15,13 +15,13 @@ Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We see that the 
 Now, introducing the spin operators \ref{SpinOperatorInv1} and \ref{SpinOperatorInv2} and summing over the spin states as in \ref{SpinRel1}:
 
 \begin{align*}
-\sum_{\sigma, \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \hat{c}_{j \sigma'}^\dagger \hat{c}_{i \sigma'} = \sum_{\sigma, \sigma'} \left( \frac{\delta_{\sigma \sigma'}}{2} + \bs{S}_i\bs{\sigma}_{\sigma' \sigma} \right) \left( \frac{\delta_{\sigma \sigma'}}{2} - \bs{S}_j\bs{\sigma}_{\sigma \sigma'} \right) = -2\bs{S}_i \bs{S}_j
+\sum_{\sigma, \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \hat{c}_{j \sigma'}^\dagger \hat{c}_{i \sigma'} = \sum_{\sigma, \sigma'} \left( \frac{\delta_{\sigma \sigma'}}{2} + \bs{S}_i\cdot\bs{\sigma}_{\sigma' \sigma} \right) \left( \frac{\delta_{\sigma \sigma'}}{2} - \bs{S}_j\cdot\bs{\sigma}_{\sigma \sigma'} \right) = -2\bs{S}_i\cdot \bs{S}_j
 \end{align*}
 
 Where we neglected the constant term. The effective spin Hamiltonian is thus:
 
 \begin{equation}
-\hat{H}_{\text{eff}}(t) = \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i \bs{S}_j
+\hat{H}_{\text{eff}}(t) = \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i \cdot \bs{S}_j
 \end{equation}
 
 With 
@@ -105,14 +105,14 @@ From here we can see that if we take the same approximation as in \ref{Jij2} we 
 Using the approximation for the exchange coupling constant for circular polarized light derived in \ref{JijCPSQUARE} we can write the free energy of the system $\Phi$ as:
 
 \begin{align}
-\Phi &= \Phi_0 + \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i \bs{S}_j = \nonumber \\
-&= \Phi_0 + \sum_{\langle i,j \rangle} J_{ij}^0 \bs{S}_i \bs{S}_j + |\vec{E}_0|^2 \frac{t_0^2 e^2 a^2}{\omega}\left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)\sum_{\langle i,j \rangle} \bs{S}_i \bs{S}_j
+\Phi &= \Phi_0 + \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i \cdot \bs{S}_j = \nonumber \\
+&= \Phi_0 + \sum_{\langle i,j \rangle} J_{ij}^0 \bs{S}_i \cdot \bs{S}_j + |\vec{E}_0|^2 \frac{t_0^2 e^2 a^2}{\omega}\left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)\sum_{\langle i,j \rangle} \bs{S}_i \cdot \bs{S}_j
 \end{align}
 
 Then, the dielectric permittivity is $\epsilon_{kl} = \frac{\partial^2 \Phi}{\partial E_k \partial E_l}$, i.e., the dielectric permittivity is isotropic $\epsilon_{kl} = \epsilon$ and:
 
 \begin{equation}
-\epsilon = \epsilon^0 + 2\frac{t_0^2 e^2 a^2}{\omega}\left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)\sum_{\langle i,j \rangle} \bs{S}_i \bs{S}_j
+\epsilon = \epsilon^0 + 2\frac{t_0^2 e^2 a^2}{\omega}\left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)\sum_{\langle i,j \rangle} \bs{S}_i \cdot \bs{S}_j
 \end{equation}
 
 Where $\epsilon^0 = \frac{\partial^2 \Phi_0}{\partial E_k \partial E_l}$. The refractive index will therefore depend on the magnetization of the antiferromagnet, this was already demonstrated experimentally in the 80's \cite{Demokritov1985}.

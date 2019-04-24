@@ -59,15 +59,15 @@ As depicted in \ref{FigD1} the bands touch in the $\bs{K}$ and $\bs{K}'$ points 
 
 \begin{equation}
 h(\bs{K}+\bs{q}) \approx \begin{pmatrix}
-    0 & \frac{\partial f(\bs{k})}{\partial \bs{k}}(\bs{K})\bs{q} \\
-    \frac{\partial f^*(\bs{k})}{\partial \bs{k}}(\bs{K})\bs{q} & 0
+    0 & \frac{\partial f(\bs{k})}{\partial \bs{k}}(\bs{K})\cdot\bs{q} \\
+    \frac{\partial f^*(\bs{k})}{\partial \bs{k}}(\bs{K})\cdot\bs{q} & 0
 \end{pmatrix}
 \end{equation}
 
 Now, 
 
 \begin{equation}
-\frac{\partial f(\bs{k})}{\partial \bs{k}}(\bs{K})\bs{q} = -ie^{\frac{2\pi i}{3}} \frac{3a}{2}(q_x+iq_y)
+\frac{\partial f(\bs{k})}{\partial \bs{k}}(\bs{K})\cdot\bs{q} = -ie^{\frac{2\pi i}{3}} \frac{3a}{2}(q_x+iq_y)
 \end{equation}
 
 We can ignore the phase and write:
@@ -85,7 +85,7 @@ Where $v_F = \frac{3at}{2}$. This result is usually written in terms of Pauli ma
 h(\bs{K}+\bs{q}) = v_F(q_x\sigma_x-q_y\sigma_y)
 \end{equation}
 
-We can write this more compactly as $h(\bs{K}+\bs{q}) = v_F \left(\bs{q}\bs{\sigma}\right)^*$. Analogously for the $\bs{K}'$ point we obtain $h(\bs{K}'+\bs{q}) = v_F\bs{q}\bs{\sigma}$. This result is identical to the massless Dirac Hamiltonian for relativistic electrons where the speed of light is changed to $v_F$. The linearized energy is simply given by $E_{\pm}(\bs{K}+\bs{q}) = \pm v_F|\bs{q}|$. In \cite{Kane2005}, Kane and Mele added a term :
+We can write this more compactly as $h(\bs{K}+\bs{q}) = v_F \left(\bs{q}\cdot\bs{\sigma}\right)^*$. Analogously for the $\bs{K}'$ point we obtain $h(\bs{K}'+\bs{q}) = v_F\bs{q}\cdot\bs{\sigma}$. This result is identical to the massless Dirac Hamiltonian for relativistic electrons where the speed of light is changed to $v_F$. The linearized energy is simply given by $E_{\pm}(\bs{K}+\bs{q}) = \pm v_F|\bs{q}|$. In \cite{Kane2005}, Kane and Mele added a term :
 \begin{equation}
 h_{SO} = \Delta_{SO}\sigma_z\tau_z s_z
 \end{equation} 
