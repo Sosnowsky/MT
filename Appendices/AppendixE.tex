@@ -7,14 +7,12 @@ We will start with a periodic Hamiltonian:
 \begin{equation}
 \hat{H}(t) = \hat{H}(t+T)
 \end{equation}
-
 The Floquet theorem states that the eigenstates for the time evolution operator for one period, $\hat{U}(t+T,t)$ can be written as:
 
 \begin{equation}
 \label{FloquetMode}
 \ket{\psi_n(t)} = e^{-i \epsilon_n t}\ket{u_n(t)}
 \end{equation}
-
 Where $\ket{u_n(t+T)} = \ket{u_n(t)}$ is a periodic function, called Floquet mode, and $\epsilon_n$ is a real number known as the quasienergy. To show this, let $a_n(t)$ be the eigenvalue of $\ket{\psi_n(t)}$ under $\hat{U}(t+T,t)$, that is $\hat{U}(t+T,t)\ket{\psi_n(t)} = a_n(t)\ket{\psi_n(t)}$, then by multiplying this equation by $\hat{U}(t',t)$ from the left and using the periodicity of the Hamiltonian in $\hat{U}(t',t) = \hat{U}(t'+T,t+T)$ we obtain:
 
 \begin{align*}
@@ -22,27 +20,23 @@ Where $\ket{u_n(t+T)} = \ket{u_n(t)}$ is a periodic function, called Floquet mod
 \hat{U}(t'+T,t) \hat{U}(t,t')\hat{U}(t',t) \ket{\psi_n(t)} &= a_n(t)\ket{\psi_n(t')} \rightarrow \\
 \hat{U}(t'+T,t') \ket{\psi_n(t')} &= a_n(t)\ket{\psi_n(t')}
 \end{align*}
-
 Which means that $a_n(t') = a_n(t)$, so the eigenvalue does not depend on time, and since it is an eigenvalue of an unitary operator it can be written as $a_n = a_n(t) = e^{-i\epsilon_nT}$ for certain real number $\epsilon_n$. Therefore, we have 
 
 \begin{align*}
 \ket{\psi_n(t+T)} &= e^{-i\epsilon_nT} \ket{\psi_n(t)} \rightarrow \\
 \ket{\psi_n(t)} &= e^{-i\epsilon_nt} \ket{u_n(t)}
 \end{align*}
-
 For $\ket{u_n(t)} = e^{i\epsilon_nt} \ket{\psi_n(t)} = \ket{u_n(t+T)}$, and this proves the theorem. The states $\ket{\psi_n(t)}$ are called Floquet states and are solutions of the time dependent Schr\"{o}dinger equation $i\text{d}_t\ket{\psi_n(t)} = \hat{H}(t)\ket{\psi_n(t)}$. The time evolution operator can be written as:
 
 \begin{equation}
 \hat{U}(t_2,t_1) = \sum_n e^{-i\epsilon_n(t_2-t_1)}\ket{u_n(t_2)}\bra{u_n(t_1)}
 \end{equation}
-
 Therefore the time evolution of a superposition of Floquet states will be determined by two different contributions:
 
 \begin{itemize}
 \item The periodic evolution of the superposing Floquet modes. This is called micromotion.
 \item The non-periodic dephasing due to the factor $e^{-i\epsilon_n(t_2-t_1)}$ depending on the quasienergies $\epsilon_n$.
 \end{itemize} 
-
 It is interesting to study these two time dependencies separately. With his purpose we define the micromotion operator and the Floquet Hamiltnian. The micromotion operator is defined as:
 \begin{equation}
 \hat{U}_F(t_2,t_1) \equiv \sum_n \ket{u_n(t_2)}\bra{u_n(t_1)}
@@ -73,20 +67,17 @@ Having introduced the micromotion operator and the Floquet Hamiltonian, we turn 
 \begin{equation}
 \left[ \hat{H}-i\text{d}_t\right] \ket{u_n(t)} = \epsilon_n\ket{u_n(t)}
 \end{equation}
-
 This can be regarded as an eigenvalue problem in the space $\mathcal{F}=\mathcal{H}\otimes\mathcal{L}_T$, where $\mathcal{L}_T$ is the space of square integrable T-periodic functions. The operator $\hat{Q} = \hat{H}-i\text{d}_t$ acting on $\mathcal{F}$ is referred to as the quasienergy operator. States in the extended Hilbert space (that is, a state plus its periodic time dependence) is usually denoted as $\ket{u}\rangle$, and the inner product in this space is defined as:
 
 \begin{equation}
 \langle \bra{u}\ket{v} \rangle = \frac{1}{T}\int_0^T \text{d}t \bra{u(t)}\ket{v(t)}
 \end{equation}
-
 An orthonormal basis for the extended Hilbert space can be obtained as the direct product of an orthonormal basis of $\mathcal{H}$ and $\mathcal{L}_T$. A convenient orthonormal basis for $\mathcal{L}_T$ is given by the functions $e^{im\omega t}$, where $m$ is usually referred to as the photon number. Then, if $\ket{\alpha}$ labels an orthonormal basis of $\mathcal{H}$, then the set of functions $\ket{\alpha m (t)} = \ket{\alpha}e^{im\omega t}$ is a basis of the extended Floquet space, and it is denoted as $\ket{\alpha m}\rangle$. In this basis, the quasienergy operator has matrix elements:
 
 \begin{align}
 \langle \bra{\alpha' m'}\hat{Q}\ket{\alpha m} \rangle &= \frac{1}{T}\int_0^T \text{d}t e^{-im'\omega t}\bra{\alpha'} \hat{H}(t)-i\hbar\text{d}_t \ket{\alpha}e^{im\omega t} = \nonumber \\
 &= \bra{\alpha'} \hat{H}_{m'-m} \ket{\alpha} + \delta_{m'm}\delta_{\alpha' \alpha}m\hbar\omega \label{QOmatelem}
 \end{align}
-
 Where
 \begin{equation}
 \hat{H}_m = \frac{1}{T}\int_0^T \text{d}t e^{-im\omega t}\hat{H}(t) 
@@ -105,7 +96,6 @@ We introduce a unitary transformation $\hat{U}(t)=\sum_m e^{im\omega t}\hat{U}_m
 \hat{H}(t) \rightarrow \hat{H}'(t) &= \hat{U}^{\dagger}(t)\hat{H}(t)\hat{U}(t) - i\hat{U}^{\dagger}(t)\text{d}_t\hat{U}(t) \\
 \ket{\psi(t)} \rightarrow \ket{\psi'(t)} &= \hat{U}^{\dagger}(t)\ket{\psi(t)}
 \end{align}
-
 The goal is to find $\hat{U}(t)$ such that the transformed quasienergy operator $\hat{Q}'$ is block diagonal in the photon number. Using \ref{QOmatelem} we notice that this requirement is equivalent to the requirement that the transformed Hamiltonian $\hat{H}'(t)$ is time independent.
 
 

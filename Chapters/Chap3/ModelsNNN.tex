@@ -66,27 +66,23 @@ The first model to describe topological insulators was introduced by Kane and Me
 \label{KMH}
 \hat{H}_{\text{KMH}} &= -t_1\sum_{\langle i j \rangle \sigma} \hat{c}^{\dagger}_{i\sigma}\hat{c}_{j\sigma} + i\Delta \sum_{\langle \langle i j \rangle \rangle \sigma \sigma'} \hat{c}^{\dagger}_{i\sigma} \nu_{ij} \sigma^z_{\sigma \sigma'} \hat{c}_{j\sigma'} + \text{U}\hat{D}
 \end{align}
-
 Where $\Delta$ is the intrinsic spin orbit coupling constant. $\nu_{ij}=\pm 1$ depending on whether the electron traversing from $i$ to $j$ makes a right ($+1$) or a left turn ($-1$). This Hamiltonian is described by \ref{BigHam} if we set $\bs{\Delta}_{1,ij} = 0$, $t_2 = 0$ and $\bs{\Delta}_{2,ij} = -i\Delta \nu_{ij} \hat{e}_z$. Then, the effective spin model will be:
 
 \begin{equation}
 \label{KMHeff}
 \hat{H}_{\text{KMH}}^{\text{eff}}(t) = \sum_{\langle i,j \rangle} J_{ij} \bs{S}_i \cdot\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j 
 \end{equation}
-
 With and:
 
 \begin{align*}
 J_{ij} &= t_1^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
 \bs{\Gamma}_{ij} &= \Delta^2 \text{diag}(-1,-1,1)\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
 \end{align*}
-
 according to \ref{JGeneral} and \ref{GammaGeneral}. Notice that:
 
 \begin{equation*}
 \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j = \Delta^2 \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \left(S_i^zS_j^z - S_i^xS_j^x - S_i^yS_j^y\right)
 \end{equation*}
-
 This describes a type of anisotropic exchange interaction known as XXZ Heisenberg model for next nearest neighbors. Notice that the anisotropic term breaks the SU(2) symmetry of the bare Heisenberg model. The same spin model is obtained in \cite{Rachel2010} without the laser perturbation, this model has a much richer phase diagram than the $J_1-J_2$ Heisenberg model \cite{Vaezi2012}. If the laser field is not too strong so that we can assume $\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) > 0$, then $\Gamma^{zz}_{ij} > 0$. Therefore we see that this interaction favors antiferromagnetic order in the $\hat{e}_z$ direction and ferromagnetic order in the $\hat{e}_x-\hat{e}_y$ plane. The exchange interaction $J_{ij}$ will favor antiferromagnetic order for nearest neighbors, so that next nearest neighbors will tend to be aligned. Therefore, $\Gamma^{zz}_{ij}$ will compete against $J_{ij}$ in the $\hat{e}_z$ direction. In the $\hat{e}_x-\hat{e}_y$ plane, $\bs{\Gamma}_{ij}$ will favor ferromagnetic order between next nearest neighbors, which adds to the effect of $J_{ij}$. In general the strength of the exchange interaction will be larger and the net effect of $\bs{\Gamma}_{ij}$ will be a tilting of the spins towards the $\hat{e}_x$-$\hat{e}_y$ plane.
 
 \end{subsection}
@@ -101,7 +97,6 @@ As we saw in the previous section the effective Hamiltonian \ref{KMHeff} does no
 	\sum_{\langle \langle i,j \rangle \rangle, \sigma}(t_2 - i\Delta\nu_{ij}\sigma^z_{\sigma, \sigma})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + 
 	\text{U}\hat{D}
 \end{equation}
-
 \begin{figure}
 \centering
 \includegraphics[width=0.5\columnwidth]{../Figures/kmh.png}
@@ -116,7 +111,6 @@ This corresponds to the case $\bs{\Delta}_{1,ij} = 0$ and $\bs{\Delta}_{2,ij} = 
 \label{MKMHeff}
 \hat{H}_{\text{eff}}(t) = \sum_{\langle i,j \rangle} J_{1,ij}\bs{S}_i\cdot\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} \left\{ J_{2,ij}\bs{S}_i\cdot\bs{S}_j + \bs{D}_{2,ij}\cdot \bs{S}_i \times \bs{S}_j + \bs{S}_i \bs{\Gamma}_{ij} \bs{S}_j \right\}
 \end{equation}
-
 Where:
 
 \begin{align*}
@@ -125,7 +119,6 @@ J_{2,ij} &= t_2^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
 \bs{D}_{2,ij} &= 2\nu_{ij} t_2 \Delta \hat{e}_z \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
 \bs{\Gamma}_{2,ij} &= \Delta^2 \text{diag}(-1,-1,1) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) 
 \end{align*}
-
 Such a Hamiltonian was first proposed by S. A. Owerre to model honeycome topological magnon insulators \cite{Owerre2016} \cite{Elyasi2018}. Experimental results regarding topological properties of spin waves in honeycomb ferromagnet Cr$I_3$ can only be understood by considering this Hamiltonian \cite{Chen2018}. This model is also relevant for the study of Spin Hall effects of Weyl magnons \cite{Zyuzin2018} \cite{Sekine2016}.
 
 Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\cdot\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\cdot\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. In the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In Hamiltonian \ref{MKMHeff} we expect SDW to appear in the ground state and the SDW wavevector will be determined by a function of the parameters of this model. In the next section we will do a numerical of study on how modifying the ratio between NN and NNN spin interaction factors can change the spin state of the system.
@@ -140,21 +133,19 @@ Now, let us examine the case in which the applied electric field is time indepen
 \hat{H}_{\text{eff}}(t) = &\sum_{\langle i,j \rangle ^*} \left\{ J_{1,ij}\bs{S}_i\cdot\bs{S}_j + \bs{D}_{1,ij}\cdot \bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{1,ij}\bs{S}_j\right\} + \nonumber \\
 &\sum_{\langle \langle i,j \rangle \rangle^*} \left\{ J_{2,ij}\bs{S}_i\cdot\bs{S}_j + \bs{D}_{2,ij} \cdot\bs{S}_i \times \bs{S}_j + \bs{S}_i\bs{\Gamma}_{2,ij}\bs{S}_j\right\}
 \end{align}
-
 $\langle i,j \rangle ^*$ denotes sum over NN avoiding repeating the same two sites. The coupling factors are:
 
 \begin{align}
-J_{n,ij} &= 4\frac{t_n^2}{U^*_{ij}} \\
-\bs{D}_{n,ij} &= 8\frac{t_n i\bs{\Delta}_{n,ij}}{U^*_{ij}} \\
-\Gamma_{n,ij}^{\alpha \beta} &= \frac{4}{U^*_{ij}}(\delta_{\alpha \beta} \bs{\Delta}_{n,ij}^2 - 2\Delta_{n,ij}^\alpha\Delta_{n,ij}^\beta )
+J_{n,ij} &= 4\frac{t_n^2}{\text{U}^*_{ij}} \\
+\bs{D}_{n,ij} &= 8\frac{t_n i\bs{\Delta}_{n,ij}}{\text{U}^*_{ij}} \\
+\Gamma_{n,ij}^{\alpha \beta} &= \frac{4}{\text{U}^*_{ij}}(\delta_{\alpha \beta} \bs{\Delta}_{n,ij}^2 - 2\Delta_{n,ij}^\alpha\Delta_{n,ij}^\beta )
 \end{align}
-
 Where:
 
 \begin{equation}
-\frac{1}{U^*_{ij}} =  \frac{1}{2}\left( \frac{1}{\text{U} - e\bs{\vec{R}}_{ij}\cdot\bs{\vec{E}}_0} + \frac{1}{\text{U} + e\bs{\vec{R}}_{ij}\cdot\bs{\vec{E}}_0} \right)
+\frac{1}{\text{U}^*_{ij}} =  \frac{1}{2}\left( \frac{1}{\text{U} - e\bs{\vec{R}}_{ij}\cdot\bs{\vec{E}}_0} + \frac{1}{\text{U} + e\bs{\vec{R}}_{ij}\cdot\bs{\vec{E}}_0} \right)
 \end{equation}
-
+We thus see that, again, the effect of a static electric field can be taken into consideration by a renormalization of the onsite interaction $\text{U}_{ij}^*$.
 \end{subsection}
 
 \end{section}

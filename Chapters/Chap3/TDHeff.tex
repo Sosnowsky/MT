@@ -6,7 +6,6 @@ In this section we will derive a general effective Hamiltonian starting with any
 \begin{equation}
 \hat{H} = -\hat{T} + \text{U}\hat{D}
 \end{equation}
-
 Where $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\hat{T}$ is any hopping operator. In terms of on-site creation and annihilation operators we can write the hopping operator as $\hat{T} = \sum_{i,j, \sigma, \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$. The strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitude, therefore, in a half filling system the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act.
 
 The effect of the electromagnetic perturbation in the lattice can be introduced via the Peierls substitution (\ref{AP3A}). With this notation, in presence of a vector potential $\vec{A}(t)$ (which we assume to not vary noticeably in the scale of the lattice) the Peierls substitution leads to an extra time dependent phase in the hopping amplitude:
@@ -14,7 +13,6 @@ The effect of the electromagnetic perturbation in the lattice can be introduced 
 \begin{equation}
 t_{ij}^{\sigma \sigma'}(t) = t_{ij}^{\sigma \sigma'} e^{ie\bs{R}_{ij}\cdot\bs{A}(t)}
 \end{equation}
-
 Where $\bs{A}$ is the vector potential and $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$. We write the electric field as $\bs{E}(t) = \frac{1}{2}(\vec{E}e^{-i\omega t}+\vec{E}^*e^{i\omega t})$, where $\vec{E} = E_0\hat{e}$ and $\hat{e} = \frac{1}{\sqrt{1+\lambda_{POL}^2}}(\hat{e}_x+i\lambda_{POL}\hat{e}_y)$ is the polarization vector and $\lambda_{POL} = 0, \pm 1$ for plane polarized, right handed and left handed circular polarized field respectively. The vector potential takes the form $\bs{A}(t) = \frac{1}{2}(\vec{A}e^{-i\omega t} + \vec{A}^* e^{i\omega t})$, with $\vec{A} = \frac{iE_0}{\omega}\hat{e}$.
 
 Let us define:
@@ -23,34 +21,29 @@ Let us define:
 \label{Def_alpha}
 e\bs{R}_{ij}\vec{A} = \alpha_{ij} e^{i \theta_{ij}}
 \end{equation}
-
 With $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$ in such a way that:
 
 \begin{align}
 \alpha_{ij} &= -\alpha_{ji} \label{alphaSym} \\
 \theta_{ij} &= \theta_{ji} \label{thetaSym}
 \end{align}
-
 and $\theta_{ij} \in \left[0,\pi\right)$. Then we can apply the Jacobi–Anger expansion:
 
 \begin{align*}
 t_{ij}^{\sigma \sigma'}(t) &= t_{ij}^{\sigma \sigma'}e^{ie\bs{R}_{ij}\cdot\bs{A}(t)} = t_{ij}^{\sigma \sigma'}e^{i\alpha_{ij} \cos(\omega t - \theta_{ij})} = \\
 &= t_{ij}^{\sigma \sigma'}\sum_m e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij}) e^{im\omega t} = \sum t_{ij,m}^{\sigma \sigma'} e^{im\omega t}
 \end{align*}
-
 Where we defined 
 
 \begin{equation}
 \label{HoppAmpFourier}
 t_{ij,m}^{\sigma \sigma'} = t_{ij}^{\sigma \sigma'} e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij})
 \end{equation}
-
 Which is the \textit{m}th Fourier mode of the hopping term and $\mathcal{J}_m(x)$ is the \textit{m}th Bessel function \cite{Kitamura2017}. Correspondingly we can write $\hat{T}(t) = \sum_m \hat{T}_m e^{im \omega t}$ where $\hat{T}_m$ is the sum of all the \textit{m}th Fourier mode of the hopping terms. We can further decompose the hopping operator into:
 
 \begin{equation}
 \hat{T}(t) = \sum_m (\hat{T}_{-1,m}+\hat{T}_{0,m}+\hat{T}_{1,m})e^{im\omega t}
 \end{equation}
-
 Where $\hat{T}_{dm}(t)$ changes the doublon number by $d$, for example, if $\hat{P}_d$ is the projection operator into the subspace with doublon number $d$, then $\hat{T}_{dm}(t) = \sum_i \hat{P}_{i+d}\hat{T}_{m}(t)\hat{P}_i$. Since the hopping term is of second order in the creation and annihilation operators, it can change the double occupancy of the states only by $\pm1$.
 
 In order to derive the form of the effective spin Hamiltonian let us introduce a time dependent unitary transformation $\hat{U}(t) = e^{-i\hat{S}(t)}$. The transformed Hamiltonian is:
@@ -58,13 +51,11 @@ In order to derive the form of the effective spin Hamiltonian let us introduce a
 \begin{equation}
 \hat{H}'(t) = e^{i\hat{S}(t)} \hat{H}(t) e^{-i\hat{S}(t)} - e^{i\hat{S}(t)} id_t e^{-i\hat{S}(t)}
 \end{equation} 
-
 We perform the unitary transformation perturbatively in the hopping operator, we can formally write $\hat{T}(t) = \eta \hat{T}(t)$, where $\eta$ will play the role of a bookkeeping parameter in the perturbative expansion. We expand $\hat{S}(t) = \sum_\nu \eta^\nu \hat{S}^{(\nu)}(t)$ and $\hat{H}'(t) = \sum_\nu \eta^\nu \hat{H}'^{(\nu)}(t)$. We require the transformed Hamiltonian to be block diagonal in the doublon number operator $\hat{d}$. To fulfill this requirement, the unitary transformation $\hat{S}(t)$ must have the same periodicity as $\hat{T}(t)$; consequently, the transformed Hamiltonian $\hat{H}'(t)$ will have the same periodicity as the original Hamiltonian $\hat{H}(t)$. Thus we can write $\hat{S}^{(\nu)}(t) = \sum_m e^{im\omega t}\hat{S}^{(\nu)}_m$. With the further requirement that $\hat{S}(t)$ does not contain block-diagonal terms, we can uniquely determine the unitary transformation:
 
 \begin{equation}
 \hat{S}^{(\nu)}(t) = \sum_{d \neq 0} \sum_m \eta^\nu \hat{S}^{(\nu)}_{d,m} e^{im\omega t}
 \end{equation}
-
 where $\hat{S}^{(\nu)}_{d,m}$ changes the double occupancy number by $d$.
 
 Now we can use the identity:
@@ -72,26 +63,22 @@ Now we can use the identity:
 \begin{equation}
 id_t e^{-i\hat{S}(t)} = \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t))e^{-i\hat{S}(t)}
 \end{equation}
-
 Derived in appendix \ref{AP3B}, where $\text{ad}_A(B) = [A,B]$ to rewrite the transformed Hamiltonian as:
 
 \begin{equation}
 \hat{H}'(t) = e^{i\hat{S}(t)} \left( \hat{H}(t) - \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t)) \right) e^{-i\hat{S}(t)}
 \end{equation}
-
 Using the Baker–Campbell–Hausdorff expansion we can write the transformed Hamiltonian as:
 
 \begin{equation}
 \label{PertFull}
 \hat{H}'(t) = \sum_m \frac{1}{m!} \text{ad}_{i\hat{S}(t)}^m \left( \hat{H}(t) - \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t)) \right)
 \end{equation}
-
 Now, in this expression we have to expand $\hat{S}(t) = \sum_\nu \eta^\nu \hat{S}^{(\nu)}(t)$ and $\hat{H}'(t) = \sum_\nu \eta^\nu \hat{H}'^{(\nu)}(t)$ and determine $\hat{S}^{(\nu)}(t)$ iteratively in $\nu$ so that $\hat{H}'^{(\nu)}(t)$ is diagonal in the doublon number. Notice that we do not expand $\hat{H}(t)$ as an infinite series since $\hat{H}(t) = -\eta \hat{T}(t) + \text{U}\hat{D}$. Now, notice also that if we take $i\hat{S}^{(0)}(t)=0$ in \ref{PertFull}, then, to zeroth order in $\eta$ only terms in $m=0$ and $n=0$ contribute obtaining:
 
 \begin{equation}
 \hat{H}'^{(0)}(t) = \text{U}\hat{D}
 \end{equation}
-
 Which is indeed diagonal in the doublon number, and therefore we can take $i\hat{S}^{(0)}(t)=0$. With this equating terms of the same order in \ref{PertFull} is greatly simplified, since terms with high $m,n$ will correspond to terms with high $\eta$. Since we are only interested in orders up to second order, we can truncate \ref{PertFull} up to $m=2$:
 
 \begin{align}
@@ -99,27 +86,23 @@ Which is indeed diagonal in the doublon number, and therefore we can take $i\hat
 \hat{H}'(t) &=  \hat{H}(t) - \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t)) + [i\hat{S}(t), \hat{H}(t) - \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t))] + \nonumber \\
 &+ \frac{1}{2} [i\hat{S}(t),[i\hat{S}(t), \hat{H}(t) - \sum_n \frac{1}{(n+1)!}\text{ad}_{-i\hat{S}(t)}^n (d_t \hat{S}(t)) ]]
 \end{align}
-
 This equation holds up to order $\eta^2$. In first order we obtain:
 
 \begin{equation}
 \label{1stO}
 \hat{H}'^{(1)}(t) = -\hat{T}(t) - d_t\hat{S}^{(1)}(t) + \left[ i\hat{S}^{(1)}(t), \text{U}\hat{D} \right]
 \end{equation}
-
 Now we expanding in $m,d$ and use $\left[ \hat{D}, \hat{S}^{(\nu)}_{dm} \right] = d\hat{S}^{(\nu)}_{dm}$ because $\hat{S}^{(\nu)}_{dm}$ changes the doublon number by $d$:
 
 \begin{equation}
 \hat{H}'^{(1)}(t)=-\hat{T}(t)-\sum_{d\neq 0}\sum_m (\text{U}d+m\omega) i\hat{S}^{(1)}_{dm} e^{im\omega t}
 \end{equation}
-
 Therefore:
 
 \begin{align}
 i\hat{S}^{(1)}_d(t) &= -\sum_m \frac{\hat{T}_{d,m}}{\text{U}d+m\omega}e^{im\omega t} \label{1stOSpin}\\
 \hat{H}'^{(1)}(t) &= -\sum_m \hat{T}_{0,m}(t)e^{im\omega t} \label{1stOH}
 \end{align}
-
 To second order we find:
 
 \begin{align}
@@ -127,13 +110,11 @@ To second order we find:
 &+ \left[i\hat{S}^{(2)}(t), \text{U}\hat{D} \right] + \frac{1}{2} \left[i\hat{S}^{(1)}(t), \left[i\hat{S}^{(1)}(t), \text{U}\hat{D} \right] \right] = \nonumber \\
 &= \left[i\hat{S}^{(2)}(t), \text{U} \hat{D} \right] - \left[ i\hat{S}^{(1)}(t), \hat{T}(t) \right] + \frac{1}{2}\left[ i\hat{S}^{(1)}(t), \left[ i\hat{S}^{(1)}(t), \text{U}\hat{D} \right] \right] - d_t\hat{S}^{(2)}(t)
 \end{align}
-
 Using \ref{1stO} and using $\left[ i\hat{S}^{(1)}(t), d_t\hat{S}^{(1)}(t)\right] = 0$ due to different Fourier modes of the hopping operator being equal up to a constant (explain better), we can rewrite:
 
 \begin{equation}
 \hat{H}'^{(2)}(t) = \left[i\hat{S}^{(2)}(t), \text{U} \hat{D} \right] - \frac{1}{2}\left[ i\hat{S}^{(1)}(t), \hat{T}(t) - \hat{H}'^{(1)}(t)\right] - d_t\hat{S}^{(2)}(t)
 \end{equation}
-
 Using \ref{1stOSpin} and \ref{1stOH}, the middle term is:
 
 \begin{align*}
@@ -141,34 +122,29 @@ Using \ref{1stOSpin} and \ref{1stOH}, the middle term is:
 &= -\sum_{mn} \left\{ \frac{2\left[\hat{T}_{1m}, \hat{T}_{0n} \right]}{\text{U}+m\omega} + \frac{\left[\hat{T}_{1m}, \hat{T}_{-1n} \right]}{\text{U}+m\omega} - \frac{\left[\hat{T}_{-1m}, \hat{T}_{1n} \right]}{\text{U}-m\omega} - \frac{2\left[\hat{T}_{-1m}, \hat{T}_{0n} \right]}{\text{U}-m\omega} \right\} e^{i(m+n)\omega t} \\
 &= -\sum_{mn} \left\{ \frac{2\left[\hat{T}_{1n}, \hat{T}_{0(m-n)} \right]}{\text{U}+n\omega} + \frac{\left[\hat{T}_{1n}, \hat{T}_{-1(m-n)} \right]}{\text{U}+n\omega} - \frac{\left[\hat{T}_{-1n}, \hat{T}_{1(m-n)} \right]}{\text{U}-n\omega} - \frac{2\left[\hat{T}_{-1n}, \hat{T}_{0(m-n)} \right]}{\text{U}-n\omega} \right\} e^{im\omega t}
 \end{align*}
-
 Altogether:
 
 \begin{align*}
 \hat{H}'^{(2)}(t) &= \sum_{mn} \left\{ \frac{\left[\hat{T}_{1n}, \hat{T}_{0(m-n)} \right]}{\text{U}+n\omega} + \frac{\left[\hat{T}_{1n}, \hat{T}_{-1(m-n)} \right]}{2(\text{U}+n\omega)} - \frac{\left[\hat{T}_{-1n}, \hat{T}_{1(m-n)} \right]}{2(\text{U}-n\omega)} - \frac{\left[\hat{T}_{-1n}, \hat{T}_{0(m-n)} \right]}{\text{U}-n\omega} \right\} e^{im\omega t} \\
 &-\sum_{d\neq 0}\sum_m (\text{U}d+m\omega) i\hat{S}^{(2)}_{dm} e^{im\omega t}
 \end{align*}
-
 By choosing $i\hat{S}^{(2)}_{dm}$ such that the transformed Hamiltonian is block-diagonal, we obtain:
 
 \begin{align}
 i\hat{S}^{(2)}_{dm} &= \sum_n \frac{\left[ \hat{T}_{dn}, \hat{T}_{0(m-n)} \right]}{(\text{U}d+n\omega)(\text{U}d+m\omega)} \label{2ndOSpin}\\
 \hat{H}'^{(2)}(t) &= \frac{1}{2}\sum_{mn} \left( \frac{\left[\hat{T}_{1n}, \hat{T}_{-1(m-n)} \right]}{\text{U}+n\omega} - \frac{\left[\hat{T}_{-1n}, \hat{T}_{1(m-n)} \right]}{\text{U}-n\omega} \right) e^{im\omega t} \label{2ndOH}
 \end{align}
-
 Now the effective Hamiltonian acts on the subspace of $d=0$ (zero double occupancies), therefore we are only interested on the block $\hat{P}_0 \hat{H}'^{(2)}(t) \hat{P}_0$ (notice that $\hat{P}_0 \hat{H}'^{(1)}(t) \hat{P}_0 = 0$). In this subspace we can write:
 
 \begin{align}
 \hat{H}_{\text{eff}}(t) &= \hat{P}_0\hat{H}'^{(2)}(t)\hat{P}_0 = -\frac{1}{2}\sum_{mn} \left( \frac{\hat{P}_0  \hat{T}_{-1(m-n)}\hat{T}_{1n}\hat{P}_0}{\text{U}+n\omega} + \frac{\hat{P}_0 \hat{T}_{-1n} \hat{T}_{1(m-n)} \hat{P}_0}{\text{U}-n\omega} \right) e^{im\omega t} \nonumber \\
 &= -\frac{1}{2}\sum_{mn} \left\{ \frac{\hat{P}_0  (\hat{T}_{-1(m-n)}\hat{T}_{1n} + \hat{T}_{-1-n}\hat{T}_{1(m+n)})\hat{P}_0}{\text{U}+n\omega} \right\} e^{im\omega t} \label{2ndOHeff}
 \end{align}
-
 Now, since the hopping operators act on the subspace $d=0$ and must remain within that subspace, therefore $\hat{P}_0 \hat{T}_{-1a} \hat{T}_{1b} \hat{P}_0$ will be a sum of all possible hoppings between two different sites:
 
 \begin{align*}
 \hat{P}_0 \hat{T}_{-1a} \hat{T}_{1b} \hat{P}_0 = \sum_{i,j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} t_{ij,a}^{\sigma_1 \sigma_2} t_{ji,b}^{\sigma_3 \sigma_4} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4}
 \end{align*}
-
 Where $a$ and $b$ are any two Fourier modes. Inserting this into \ref{HeffSimplified} and using the definition of $t_{ij,m}^{\sigma \sigma'} = t_{ij}^{\sigma \sigma'} e^{i(\frac{\pi}{2}-\theta_{ij})m} \mathcal{J}_m(\alpha_{ij})$ and using that $\theta_{ji} = \theta_{ij}$ and $\alpha_{ji} = -\alpha_{ij}$ and the properties $\mathcal{J}_{-m}(x) = (-1)^m\mathcal{J}_m(x)$ and $\mathcal{J}_m(-x) = (-1)^m\mathcal{J}_m(x)$ we can write \ref{HeffSimplified} as:
 
 \begin{align}
@@ -179,14 +155,12 @@ Where $a$ and $b$ are any two Fourier modes. Inserting this into \ref{HeffSimpli
 &\left. \frac{ \mathcal{J}_{n-m}(\alpha_{ij}) \mathcal{J}_{n}(\alpha_{ij}) + \mathcal{J}_{n}(\alpha_{ij}) \mathcal{J}_{m+n}(\alpha_{ij})}{\text{U}+n\omega} e^{im\omega t} \right\} \nonumber \\
 &= - \frac{1}{2} \sum_{i,j, \sigma_1, \sigma_2, \sigma_3, \sigma_4}\hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4} t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \label{HeffSimplified}
 \end{align}
-
 Where we defined:
 
 \begin{equation}
 \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) = \sum_{mn}e^{-i(\frac{\pi}{2}+\theta_{ij})m} \left\{ 
     \frac{\mathcal{J}_{n-m}(\alpha_{ij})\mathcal{J}_{n}(\alpha_{ij}) + \mathcal{J}_{n}(\alpha_{ij})\mathcal{J}_{m+n}(\alpha_{ij})}{\text{U}+n\omega} \right\}e^{im\omega t}
 \end{equation}
-
 In the following sections we will use this effective Hamiltonian for different models of the hopping operator. In each case we will introduce the spin relations \ref{SpinOperatorInv1} and \ref{SpinOperatorInv2} together with \ref{SpinRel1}, \ref{SpinRel2} and \ref{SpinRel3} to obtain the corresponding effective spin Hamiltonian. 
 
 \begin{subsection}{Time independent field}
@@ -197,13 +171,11 @@ Before we start using \ref{HeffSimplified} for different models we would like to
 \label{TimeIndepHoppingAmpl}
 t_{ij}^{\sigma \sigma'} (t) = t_{ij}^{\sigma \sigma'} e^{ie \vec{\bs{R}}_{ij} \cdot \vec{\bs{E}} t}
 \end{equation}
-
 Therefore, there will be only two Fourier modes with frequency $\omega_0 = e \vec{\bs{R}}_{ij} \cdot \vec{\bs{E}} = \pm eaE_0$, where the sign $+(-)$ corresponds to the case $\vec{\bs{R}}_{ij} = \pm a \hat{e}_x$. Notice that this frequency $\omega_0$ does not correspond to a field frequency ($\vec{\bs{E}}$ is time independent), but to the Fourier mode in the hopping amplitudes (which is induced by the time independent field). From this point we can apply the same procedure as in the general case up to \ref{2ndOHeff}. We can greatly simplify this by considering that:
 \begin{itemize}
 	\item $n$ can only take values $ n = \pm 1$ (there are no additional Fourier modes).
 	\item When restricted to the low energy subspace a product $\hat{T}_{-1 a} \hat{T}_{1 b}$ will only contribute when $a$ and $b$ have opposite signs ($a=1, b=-1$ or viceversa). This is because, in the low energy subspace $\hat{T}_{-1 a} \hat{T}_{1 b}$ can only represent a hopping from a site $i$ to a site $j$ and the hopping back to $i$, we can see from \ref{TimeIndepHoppingAmpl} that these two amplitudes will be in opposite Fourier modes.
 \end{itemize}
-
 Taking this into consideration we see that only $m=0$ terms will remain, which is consistent with the fact that the two phases cancel out in the process $i \rightarrow j \rightarrow i$. We can thus rewrite \ref{2ndOHeff} as:
 
 \begin{equation}

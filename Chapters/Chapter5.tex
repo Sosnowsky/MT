@@ -13,7 +13,6 @@ We will start with the Heisenberg antiferromagnet:
 \label{Heisenberg}
 \hat{H} = J \sum_{\langle i j \rangle} \bs{S}_i\cdot \bs{S}_j
 \end{equation}
-
 In order to obtain the magnon Hamiltonian for this model we introduce the antiferromagnet Holstein-Primakoff transformation:
 
 \begin{align}
@@ -24,32 +23,27 @@ S^+_{Bj} &=\hat{b}^\dagger_j\sqrt{2S-\hat{b}^\dagger_j \hat{b}_j} \\
 S^-_{Bj} &= \sqrt{2S-\hat{b}^\dagger_j \hat{b}_j} \hat{b}_j \\
 S^z_{Bj} &= -S + \hat{b}^\dagger_j \hat{b}_j
 \end{align}
-
 Where $A$ and $B$ denote two Ne\'{e}l sublattices and $\hat{a}_i$, $\hat{b}_i$ are bosonic annihilation operators. In the large-S limit we approximate $ \sqrt{2S-\hat{a}^\dagger_i \hat{a}_i} \approx \sqrt{2S}$. Then, the exchange term becomes:
 
 \begin{align*}
 \bs{S}_i\cdot\bs{S}_j = S_i^zS_j^z + \frac{1}{2}\left(S_i^+S_j^- + S_i^-S_j^+ \right) = S \left( \hat{a}^\dagger_i \hat{a}_i + \hat{b}^\dagger_j \hat{b}_j + \hat{a}_i\hat{b}_j + \hat{a}^\dagger_i\hat{b}^\dagger_j \right) - \hat{a}^\dagger_i \hat{a}_i\hat{b}^\dagger_j \hat{b}_j - S^2
 \end{align*}
-
 Now the $S^2$ term is a constant that lowers the energy of the antiferromagnet, therefore is shall not be taken into account to compute the magnon dispersion. The term $\hat{a}^\dagger_i \hat{a}_i\hat{b}^\dagger_j \hat{b}_j$ is zeroth order in $S$ and therefore neglected. We can rewrite the sum over NN as:
 
 \begin{equation}
 \sum_{\langle i j \rangle} = 2\sum_{i \in A \delta}
 \end{equation}
-
 Where $\delta$ are the NN vectors. Using this, and the Fourier relations:
 
 \begin{align}
 \hat{a}_i^\dagger &= \frac{1}{\sqrt{N}} \sum_{\bs{k}} e^{i \bs{k} \cdot \bs{r}_i} \hat{a}_{\bs{k}}^\dagger \\
 \hat{b}_j^\dagger &= \frac{1}{\sqrt{N}} \sum_{\bs{k}} e^{i \bs{k} \cdot \bs{r}_j} \hat{b}_{\bs{k}}^\dagger
 \end{align}
-
 Where the sum is over $\bs{k}$ in the first Brillouin zone. Using these relations, together with $\sum{i} e^{i(\bs{k}-\bs{k}')\cdot\bs{r}_i} = \delta_{\bs{k}, \bs{k}'}$ and denoting the number of sites by $N$ and the number of nearest neighbors by $z$, we find:
 
 \begin{equation}
 \hat{H} = -S^2JNz + 2JS \sum_{\bs{k} \bs{\delta}} \left( \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \hat{b}^\dagger_{\bs{k}}\hat{b}_{\bs{k}} + e^{i\bs{k}\cdot\bs{\delta}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + e^{-i \bs{k}\cdot\bs{\delta}}  \hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right)
 \end{equation}
-
 At this point it is common to define $\gamma_{\bs{k}} = \sum_\delta e^{i \bs{k} \cdot \bs{\delta}}$. Using $\bs{\delta}_1=\frac{a_0}{2}(1,\sqrt{3})$, $\bs{\delta}_2=\frac{a_0}{2}(1,-\sqrt{3})$, $\bs{\delta}_3=a_0(-1,0)$ (see Fig \ref{Fig.Magnon.Vecs}) and taking $a_0=1$, we can write this as:
 \begin{equation}
 \gamma_{\bs{k}} = 2e^{\frac{i}{2}k_x}\cos(\frac{\sqrt{3}}{2}k_y)+e^{-ik_x}
@@ -60,7 +54,6 @@ Then denoting $z = \sum_\delta$ we get:
 \label{MagnonicH}
 \hat{H} = -S^2JNz + 2JS \sum_{\bs{k}} \left\{ z \left( \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}} \right) + \gamma_{\bs{k}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + \gamma_{-\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right\}
 \end{equation}
-
 Which can be written in matrix form as:
 
 \begin{equation}
@@ -69,7 +62,6 @@ z & \gamma_{\bs{k}} \\
 \gamma_{-\bs{k}} & z
 \end{pmatrix}
 \end{equation}
-
 Acting on the spinor $\Psi_{\bs{k}} = \left(\hat{a}_{\bs{k}},\hat{b}_{-\bs{k}}^\dagger \right)^T$. That is, $\hat{H} = -S^2JNz + \sum_{\bs{k}} \Psi_{\bs{k}} \hat{H}_{\bs{k}} \Psi^\dagger_{\bs{k}}$. In order to diagonalize this Hamiltonian we introduce the Bogoliubov transformation:
 
 \begin{equation}
@@ -87,7 +79,6 @@ v_{\bs{k}} & u_{\bs{k}}^*
 \hat{b}_{-\bs{k}}^\dagger
 \end{pmatrix}
 \end{equation}
-
 Where $u_{\bs{k}}$ and $v_{\bs{k}}$ are complex functions satisfying $\abs{u_{\bs{k}}}^2-\abs{v_{\bs{k}}}^2 = 1$ in order to perserve the bosonic commutation relations. The inverse transformation is given by:
 
 \begin{equation}
@@ -105,7 +96,6 @@ u_{\bs{k}}^* & -v_{\bs{k}}^* \\
 \hat{\beta}_{\bs{k}}^\dagger
 \end{pmatrix}
 \end{equation}
-
 Inserting this in \ref{MagnonicH} and ignoring constant terms we get:
 
 \begin{align}
@@ -113,7 +103,6 @@ Inserting this in \ref{MagnonicH} and ignoring constant terms we get:
 &+ \hat{\alpha}^\dagger_{\bs{k}} \hat{\beta}^\dagger_{\bs{k}} \left( -2zu_{\bs{k}}v_{\bs{k}}^* + \gamma_{\bs{k}}(v_{\bs{k}}^*)^2+\gamma_{-\bs{k}}u_{\bs{k}}^2 \right) + \hat{\alpha}_{\bs{k}}\hat{\beta}_{\bs{k}} \left( -2zu_{\bs{k}}^*v_{\bs{k}} + \gamma_{\bs{k}}(u_{\bs{k}}^*)^2+\gamma_{-\bs{k}}v_{\bs{k}}^2 \right) + \nonumber \\
 &\left. + \left( 2z\abs{v_{\bs{k}}}^2 - \gamma_{\bs{k}}u_{\bs{k}}^* v_{\bs{k}}^* - \gamma_{-\bs{k}}u_{\bs{k}}v_{\bs{k}} \right) \right\} \label{AfterBogo}
 \end{align}
-
 Therefore, in order to erase the non diagonal terms we impose:
 \begin{equation}
 \label{condition}
@@ -125,32 +114,27 @@ Notice that for the $\hat{\beta}_{\bs{k}}^\dagger\hat{\alpha}_{\bs{k}}$ term $-2
 u_{\bs{k}} &= \cosh(\frac{\theta_{\bs{k}}}{2})e^{i \xi_{\bs{k}}} \label{Bogou} \\
 v_{\bs{k}} &= \sinh(\frac{\theta_{\bs{k}}}{2}) \label{Bogov}
 \end{align}
-
 Where $\theta_{\bs{k}}$ and $\xi_{\bs{k}}$ are real functions to be determined. Introducing these relations in \ref{condition}:
 
 \begin{equation}
 - z\sinh(\theta_{\bs{k}}) +\gamma_{\bs{k}}e^{-i \xi_{\bs{k}}}\frac{ \cosh(\theta_{\bs{k}})-1}{2} +\gamma_{-\bs{k}}e^{i\xi_{\bs{k}}}\frac{ \cosh(\theta_{\bs{k}})+1}{2} = 0
 \end{equation}
-
 By taking $\xi_{\bs{k}}$ to be the phase of $\gamma_{\bs{k}}$, i.e. $\gamma_{\bs{k}} = \abs{\gamma_{\bs{k}}} e^{i\xi_{\bs{k}}}$ we get a real equation on $\theta_{\bs{k}}$. Altogether we find:
 
 \begin{align}
 \gamma_{\bs{k}} &= \abs{\gamma_{\bs{k}}} e^{i\xi_{\bs{k}}} \\
 \tanh(\theta_{\bs{k}}) &= \frac{\abs{\gamma_{\bs{k}}}}{z}
 \end{align}
-
 This erases the non diagonal terms in \ref{AfterBogo} leading to a diagonal term:
 \begin{equation}
 z\cosh(\theta_{\bs{k}})-\abs{\gamma_{\bs{k}}}\sinh(\theta_{\bs{k}}) = \sqrt{z^2-\abs{\gamma_{\bs{k}}}^2}
 \end{equation}
-
 With this, we can rewrite \ref{AfterBogo} as:
 
 \begin{align}
 \hat{H} &= -S^2JNz + 2JS \sum_{\bs{k}}\left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}}+1 \right)\epsilon_{\bs{k}}+2JS \sum_{\bs{k}}z(\abs{v_{\bs{k}}}^2-\abs{u_{\bs{k}}}^2) = \nonumber \\
 &= E_0 + \sum_{\bs{k}}\left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}} \right)
 \end{align}
-
 Where we used $\sum_{\bs{k}}=\frac{N}{2}$ and where $\epsilon_{\bs{k}} = 2JS \sqrt{z^2-\abs{\gamma_{\bs{k}}}^2}$. The ground state energy of this magnon Hamiltonian is:
 \begin{equation}
 E_0 = -JNz(S^2+S)+\sum_{\bs{k}}\epsilon_{\bs{k}} \label{HeisenbergMagnonGS}
@@ -168,7 +152,6 @@ Let's now consider
 \begin{equation}
 \hat{H} = J \sum_{\langle i j \rangle} \bs{S}_i\cdot \bs{S}_j + D \sum_{\langle \langle i j \rangle \rangle} \nu_{ij}\hat{e}_z\cdot \bs{S}_i \times \bs{S}_j
 \end{equation}
-
 The NNN DMI term will couple spins within the same sublattice. Using the HP transformation:
 
 \begin{equation}
@@ -177,13 +160,11 @@ The NNN DMI term will couple spins within the same sublattice. Using the HP tran
              iS(\hat{b}_i^\dagger\hat{b}_j-\hat{b}_j^\dagger\hat{b}_i),  & \text{for } (i,j) \in B
        \end{cases} \quad
 \end{equation}
-
 Now we will make the sum over NNN in the following way:
 
 \begin{equation}
 \sum_{\langle \langle i j \rangle \rangle} = \sum_{i\in A \bs{\delta}^{NNN}} +  \sum_{i\in B \bs{\delta}^{NNN}}
 \end{equation}
-
 Where $\bs{\delta}^{NNN}$ are the NNN vectors (as depicted in Fig \ref{Fig.Magnon.Vecs}):
 \begin{align*}
 \bs{\delta}^{NNN}_1 &= \delta_1-\delta_3 = \frac{1}{2}(3, \sqrt{3}) \\
@@ -206,19 +187,16 @@ Notice that with these definitions, if $i$ is a site on the $A$ sublattice, $\nu
 \begin{equation}
 D \sum_{\langle \langle i j \rangle \rangle} \nu_{ij}\hat{e}_z \cdot\bs{S}_i \times \bs{S}_j = 2JS\sum_{\bs{k}} \left\{ \Delta_{\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}} + \Delta_{-\bs{k}}\hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}} \right\}
 \end{equation}
-
 Where $\Delta_{\bs{k}} = \frac{Di}{2J}\sum_{\bs{\delta}^{NNN}} \nu_{i,i+\delta} (e^{i\bs{k}\cdot\bs{\delta}} -e^{-i\bs{k}\cdot\bs{\delta}})$, for $i$ in the $A$ sublattice. This can be rewritten as:
 \begin{equation}
 \Delta_{\bs{k}} = -\frac{2D}{J}\left\{ \sin(\bs{\delta}^{NNN}_1 \cdot \bs{k}) + \sin(\bs{\delta}^{NNN}_2 \cdot \bs{k}) + \sin(\bs{\delta}^{NNN}_3 \cdot \bs{k})\right\}
 \end{equation}
-
 Note that $\Delta_{\bs{k}}=-\Delta_{-\bs{k}}$ .The full magnonic Hamiltonian now is:
 
 \begin{equation}
 \label{MagnonicH2}
 \hat{H} = -S^2JNz + 2JS \sum_{\bs{k}} \left\{ \hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}}(z+\Delta_{\bs{k}}) + \hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}}(z-\Delta_{\bs{k}}) + \gamma_{\bs{k}}\hat{a}_{\bs{k}}\hat{b}_{\bs{-k}} + \gamma_{-\bs{k}}\hat{a}^\dagger_{\bs{k}}\hat{b}^\dagger_{-\bs{k}} \right\}
 \end{equation}
-
 Or:
 
 \begin{equation}
@@ -227,7 +205,6 @@ z + \Delta_{\bs{k}}& \gamma_{\bs{k}} \\
 \gamma_{-\bs{k}} & z - \Delta_{\bs{k}}
 \end{pmatrix} \label{MatrixMagnonDMI}
 \end{equation}
-
 In this case, applying the transformation \ref{Bogoliubov} leads to the same condition for the coefficients  $u_{\bs{k}}$ and $v_{\bs{k}}$, leading to:
 
 \begin{align*}
@@ -235,14 +212,12 @@ In this case, applying the transformation \ref{Bogoliubov} leads to the same con
 &\left. + \hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}} \left( \abs{u_{\bs{k}}}^2(z-\Delta_{\bs{k}}) + \abs{v_{\bs{k}}}^2(z+\Delta_{\bs{k}}) -\gamma_{\bs{k}}u_{\bs{k}}^*v_{\bs{k}}^*-\gamma_{-\bs{k}}u_{\bs{k}}v_{\bs{k}} \right) + \right. \\
 &\left. + \left( 2\abs{v_{\bs{k}}}^2 - \gamma_{\bs{k}}u_{\bs{k}}^*v_{\bs{k}}^*-\gamma_{-\bs{k}}u_{\bs{k}}v_{\bs{k}}\right) \right\}
 \end{align*}
-
 Where we already took \ref{Bogou} and \ref{Bogov}. The ground state energy $E_0$ remains the same as in the base Heisenberg model while the excitation modes $\hat{\alpha}_{\bs{k}}^\dagger$ and $\hat{\beta}_{\bs{k}}^\dagger$ change in the following way:
 
 \begin{align}
 \hat{H} &= E_0 + \sum_{\bs{k}} \left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} \epsilon_{\bs{k}}^+ +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}}  \epsilon_{\bs{k}}^- \right) \label{DispWithDMI} \\
 \epsilon_{\bs{k}}^\pm &= 2JS \left( \pm \Delta_{\bs{k}} + \sqrt{z^2-\abs{\gamma_{\bs{k}}}^2} \right)
 \end{align}
-
 The new term $\pm \Delta_{\bs{k}}$ breaks the degeneracy between the $\alpha$ modes and the $\beta$ modes. In Figure \ref{Fig.Magnon.Disp} we plot the resulting energy dispersion of \ref{DispWithDMI}.
 
 \begin{figure}
@@ -273,7 +248,6 @@ Fourier transform leads to:
 = S\sum_{\bs{k}} (\Gamma_{xy}\Delta'_{\bs{k}}-4z\Gamma_z) (\hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}}+\hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}}) = \\
 &=2JS\sum_{\bs{k}} \tilde{\Gamma}_{\bs{k}}(\hat{a}^\dagger_{\bs{k}}\hat{a}_{\bs{k}}+\hat{b}^\dagger_{-\bs{k}}\hat{b}_{-\bs{k}})
 \end{align*}
-
 Where we defined:
 \begin{align*}
 \Delta'_{\bs{k}} &= \sum_{\delta^{NNN}} \left( e^{i\bs{k}\cdot \bs{\delta}^{NNN}} +  e^{-i\bs{k}\cdot \bs{\delta}^{NNN}}\right) = 4\left\{ \cos(\delta^{NNN}_1\cdot\bs{k}) + \cos(\delta^{NNN}_2\cdot\bs{k}) + \cos(\delta^{NNN}_3\cdot\bs{k})\right\} \\
@@ -287,13 +261,11 @@ z + \Delta_{\bs{k}} + \tilde{\Gamma}_{\bs{k}} & \gamma_{\bs{k}} \\
 \gamma_{-\bs{k}} & z - \Delta_{-\bs{k}} + \tilde{\Gamma}_{\bs{k}}
 \end{pmatrix}
 \end{equation}
-
 This is the same as \ref{MatrixMagnonDMI} if we replace $z \rightarrow z + \tilde{\Gamma}_{\bs{k}}$, therefore the magnon Hamiltonian is:
 
 \begin{align}
 \hat{H} &= E_0 + \sum_{\bs{k}} \left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} \epsilon_{\bs{k}}^+ +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}}  \epsilon_{\bs{k}}^- \right) \\
 \epsilon_{\bs{k}}^\pm &= 2JS \left( \pm \Delta_{\bs{k}} +  \sqrt{(z + \tilde{\Gamma}_{\bs{k}})^2-\abs{\gamma_{\bs{k}}}^2} \right)
 \end{align}
-
 This concludes our discussion of the magnons in the models derived in the last Chapter. The main difference of the magnonic Hamiltonian of a Kane-Mele system with a simple Heisenberg interaction is that the $\hat{\alpha}_{\bs{k}}^\dagger$ and $\hat{\beta}_{\bs{k}}^\dagger$ modes have non degenerate spectrum. This is arising from the addition of DMI in the model which breaks the symmetry of the system.
 
