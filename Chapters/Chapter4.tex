@@ -3,19 +3,20 @@
 
 In this chapter we will derive an effective spin Hamiltonian for different models in the presence of a high frequency electromagnetic perturbation. The goal is to manipulate $J$ and $\bs{D}_{ij}$ in \ref{HeffNOEMF} separately. For the exchange interaction coupling $J$ alone, this has already been done (\cite{Mentink2015}, \cite{Kitamura2017}) starting with the Hamiltonian of the Hubbard model:
 
-\begin{equation*}
+\begin{equation}
+\label{HnoSOI}
 \hat{H} = -t_0\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
-\end{equation*} 
-In this model, since SOI is not taken into account, only the exchange interaction $J$ plays a role. The electromagnetic perturbation is then introduced via the Peierls substitution. We reproduce the result in section \ref{Section3Hubbard}. In the following sections we extend the analysis to different systems with spin orbit interaction thereby modulating $\bs{D}_{ij}$ or other spin interactions. The simplest model with spin orbit interaction is \ref{Hubbard}:
+\end{equation} 
+In this model, since SOI is not taken into account, only the exchange interaction $J$ plays a role. The electromagnetic perturbation is then introduced via the Peierls substitution. We reproduce the result in section \ref{Section3Hubbard}. In the following sections we extend the analysis to different systems with spin orbit interaction thereby modulating $\bs{D}_{ij}$ or other spin interactions. The simplest model with spin orbit interaction is the one we derived in the previous Chapter, \ref{Hubbard}:
 
 \begin{equation*}
 \hat{H} = -\sum_{\langle i,j \rangle, \sigma, \sigma'}(\delta_{\sigma, \sigma'} t_{0} + \bs{\Delta}_{ij} \bs{\sigma}_{\sigma, \sigma'})\hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
 \end{equation*}
-Which is the same Hubbard model plus a spin dependent hopping term, which represents Rashba SOI for $\bs{\Delta}_{ij} = i\Delta_R(R_{ij}^y, -R_{ij}^x, 0)$ or Dresselhaus SOI for $\bs{\Delta}_{ij} = i\Delta_R(R_{ij}^x, -R_{ij}^y, 0)$. In section \ref{Section3HubbardSOI} we show how the exchange interaction and the DMI couplings are modulated in presence of an electromagnetic field.  
+Which is the same as \ref{HnoSOI} plus a spin dependent hopping term, which represents Rashba SOI for $\bs{\Delta}_{ij} = i\Delta_R(R_{ij}^y, -R_{ij}^x, 0)$ or Dresselhaus SOI for $\bs{\Delta}_{ij} = i\Delta_R(R_{ij}^x, -R_{ij}^y, 0)$. In section \ref{Section3HubbardSOI} we show how the exchange interaction and the DMI couplings are modulated in presence of an electromagnetic field.  
 
-In the case of graphene or other coplanar honeycomb lattice structures, nearest neighbor Rashba terms are not allowed by symmetry, and only next nearest neighbor (NNN) spin conserving terms contribute \cite{Kane2005}, this term opens a gap in the band structure describing a topological insulator. For this case we examine the Kane-Mele-Hubbard model. The effective spin model of this Hamiltonian contains the usual exchange interaction and DMI and, in addition, it exhibits anisotropic exchange interaction arising from the intrinsic SOI term. This new term has already been obtained in \cite{Rachel2010} without taking into account any electromagnetic field.
+In the case of graphene or other coplanar honeycomb lattice structures, nearest neighbor Rashba terms are not allowed by symmetry, and only next nearest neighbor (NNN) spin conserving terms contribute \cite{Kane2005}, this term opens a gap in the band structure thus describing a topological insulator. For this case we examine the Kane-Mele-Hubbard model. The effective spin model of this Hamiltonian contains the usual exchange interaction and DMI and, in addition, it exhibits anisotropic exchange interaction arising from the intrinsic SOI term. This new term has already been obtained in \cite{Rachel2010} without taking into account any external electromagnetic field.
 
-Non-coplanar honeycomb lattice may exhibit intrinsic Rashba interactions between NNN \cite{Liu2011}, this, together with a NNN hopping (which would arise from direct overlapping of the next nearest neighbor Wannier functions or from second order processes) will lead to NNN DMI.
+Non-coplanar honeycomb lattices may exhibit intrinsic Rashba interactions between NNN \cite{Liu2011}, this, together with a NNN hopping (which would arise from direct overlapping of the next nearest neighbor Wannier functions or from second order processes) will lead to NNN DMI.
 
 
 \input{Chapters/Chap3/TDHeff}

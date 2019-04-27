@@ -1,12 +1,12 @@
 \begin{section}{Hubbard model without SOI}
 \label{Section3Hubbard}
-We start by considering the simplest hopping operator, as in the Hubbard model:
+We start by considering the simplest hopping operator, excluding SOI terms \ref{HnoSOI}:
 
 \begin{equation}
 \hat{H} = -t_0\sum_{\langle i,j \rangle, \sigma} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} + \text{U} \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}
 \end{equation}
 
-Which is the Hamiltonian \ref{Hubbard} without DMI interaction. We see that the hopping amplitudes introduced in the previous section take the form $t_{ij}^{\sigma \sigma'} = \delta_{\sigma \sigma'} t_0$ for $i,j$ being nearest neighbors, and $t_{ij}^{\sigma \sigma'} = 0$ otherwise. With this we can directly apply \ref{HeffSimplified} to obtain:
+We see that the hopping amplitudes introduced in the previous section can be written as $t_{ij}^{\sigma \sigma'} = \delta_{\sigma \sigma'} t_0$ for $i,j$ being nearest neighbors, and $t_{ij}^{\sigma \sigma'} = 0$ otherwise. With this we can directly apply \ref{HeffSimplified} to obtain:
 
 \begin{equation}
 \hat{H}_{\text{eff}}(t) = -\frac{t_0^2}{2} \sum_{\langle i,j \rangle, \sigma, \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma} \hat{c}_{j \sigma'}^\dagger \hat{c}_{i \sigma'} \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t)
@@ -35,14 +35,14 @@ After time average this reduces to the $m=0$ term:
 
 \begin{equation}
 \label{MFactorApprox0}
-\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \approx \sum_{n} 2 \frac{\mathcal{J}_n(\alpha_{ij})^2}{\text{U}+n\omega}
+\mathcal{M}(\alpha_{ij}, \text{U}, \omega) \approx \sum_{n} 2 \frac{\mathcal{J}_n(\alpha_{ij})^2}{\text{U}+n\omega}
 \end{equation}
 
 For $\omega>>U$ we can truncate this to the three smallest values of $n$, i.e. $n=0, \pm 1$. We can also use that $\alpha_{ij} << 1$ because $\alpha_{ij}$ is proportional to $\vec{A}$ which is proportional to $\omega^{-1}$. Therefore we can use $\mathcal{J}_n(x) \approx x^n \text{ for } n>0 \text{ and } x << 1$ to obtain:
 
 \begin{equation}
 \label{MFactorApprox}
-\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \approx 2 \left(\frac{\alpha_{ij}^2}{\text{U}+\omega} +\frac{1}{\text{U}} +\frac{\alpha_{ij}^2}{\text{U}-\omega} \right)
+\mathcal{M}(\alpha_{ij}, \text{U}, \omega) \approx 2 \left(\frac{\alpha_{ij}^2}{\text{U}+\omega} +\frac{1}{\text{U}} +\frac{\alpha_{ij}^2}{\text{U}-\omega} \right)
 \end{equation}
 
 And the exchange interaction coupling becomes:
@@ -78,6 +78,8 @@ For circular polarized light ($\lambda=\pm1$) in this approximation the exchange
 \label{JijCPSQUARE}
 J_{ij}^{CP} = J_{ij}^0 + t_0^2 \mathcal{E}^2 \left( \frac{1}{\text{U}+\omega} + \frac{1}{\text{U}-\omega} \right)
 \end{equation}
+
+Notice that this result is independent of the helicity of the applied field, this is true even if we do not make the approximation \ref{MFactorApprox}. 
 
 \begin{subsection}{Honeycomb lattice}
 

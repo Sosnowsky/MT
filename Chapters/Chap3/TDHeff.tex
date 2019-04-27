@@ -6,18 +6,20 @@ In this section we will derive a general effective Hamiltonian starting with any
 \begin{equation}
 \hat{H} = -\hat{T} + \text{U}\hat{D}
 \end{equation}
-Where $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\hat{T}$ is any hopping operator. In terms of on-site creation and annihilation operators we can write the hopping operator as $\hat{T} = \sum_{i,j, \sigma, \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$. The strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitude, therefore, in a half filling system the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act.
+Where $\hat{D} = \sum_{i=1}^M \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ is the doublon number operator and $\hat{T}$ is any hopping operator. In terms of on-site creation and annihilation operators we can write the hopping operator as $\hat{T} = \sum_{i,j, \sigma, \sigma'} t_{ij}^{\sigma \sigma'} \hat{c}_{i \sigma}^\dagger \hat{c}_{j \sigma'}$. For a strongly correlated system, the strength of the on-site interaction $\text{U}$ is much larger than the hopping amplitude, therefore, in a half filling system the zero double occupancies subspace $d=0$ can be taken as the low energy subspace in which the effective Hamiltonian will act. 
 
-The effect of the electromagnetic perturbation in the lattice can be introduced via the Peierls substitution (\ref{AP3A}). With this notation, in presence of a vector potential $\vec{A}(t)$ (which we assume to not vary noticeably in the scale of the lattice) the Peierls substitution leads to an extra time dependent phase in the hopping amplitude:
+The doublon number operator $\hat{d} = \sum_{i=1} \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$, has eigenvalues positive integers $d$, corresponding to states with exactly $d$ double occupancies (doublons). For later use, we define $\hat{P}_d$ as the projection operator onto the subspace spanned by states with eigenvalue $d$, i.e., states with exactly $d$ doublons. At site $i$, we can define the projection operator to the double occupied state as $\hat{P}_{i,1} = \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}$ and the projection operator to the complementary space as $\hat{P}_{i,0} = 1 - \hat{P}_{i,1}$ \cite{Fazekas}. We can then define the projection operator $\hat{P}_{d}$ for the whole system as follows. Let $\mathcal{O}$ and $\mathcal{P}^d(\mathcal{O})$ denote the set of sites on the lattice and the set of subsets of $\mathcal{O}$ with exactly $d$ elements, respectively. Then, in compact form, the projection operator reads $\hat{P}_d = \sum_{A \in \mathcal{P}^d(\mathcal{O})} \left\{\prod_{i \in A} \hat{P}_{i,1} \prod_{i \notin A} \hat{P}_{i,0} \right\}$.
+
+The effect of the electromagnetic perturbation in the lattice can be introduced via the Peierls substitution (\ref{AP3A}). With this notation, in presence of a vector potential $\bs{A}(t)$ (which we assume to not vary noticeably in the scale of the lattice) the Peierls substitution leads to an extra time dependent phase in the hopping amplitude:
 
 \begin{equation}
 \label{TimeDepHopping}
 t_{ij}^{\sigma \sigma'}(t) = t_{ij}^{\sigma \sigma'} e^{ie\bs{R}_{ij}\cdot\bs{A}(t)}
 \end{equation}
-Where $\bs{A}$ is the vector potential and $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$ and we take $\hbar=1$. We write the electric field as $\bs{E}(t) = \frac{1}{2}(\vec{E}e^{-i\omega t}+\vec{E}^*e^{i\omega t})$, where $\vec{E} = E_0\hat{e}$ and $\hat{e} = \frac{1}{\sqrt{1+\lambda_{POL}^2}}(\hat{e}_x+i\lambda_{POL}\hat{e}_y)$ is the polarization vector and $\lambda_{POL} = 0, \pm 1$ for plane polarized, right handed and left handed circular polarized field respectively. The vector potential takes the form $\bs{A}(t) = \frac{1}{2}(\vec{A}e^{-i\omega t} + \vec{A}^* e^{i\omega t})$, with $\vec{A} = \frac{iE_0}{\omega}\hat{e}$.
+Where $\bs{A}$ is the vector potential and $\bs{R}_{ij} = \bs{R}_i-\bs{R}_j$, $e$ is the electronic charge and we take $\hbar=1$. We write the electric field as $\bs{E}(t) = \frac{1}{2}(\vec{E}e^{-i\omega t}+\vec{E}^*e^{i\omega t})$, where $\vec{E} = E_0\hat{e}$ and $\hat{e} = \frac{1}{\sqrt{1+\lambda_{POL}^2}}(\hat{e}_x+i\lambda_{POL}\hat{e}_y)$ is the polarization vector and $\lambda_{POL} = 0, \pm 1$ for plane polarized, right handed and left handed circular polarized field respectively. The vector potential takes the form $\bs{A}(t) = \frac{1}{2}(\vec{A}e^{-i\omega t} + \vec{A}^* e^{i\omega t})$, with $\vec{A} = \frac{iE_0}{\omega}\hat{e}$.
 With the hopping amplitudes in \ref{TimeDepHopping} the Hamiltonian becomes time dependent. We will use Floquet theory \ref{APE} to derive an effective Hamiltonian including the laser perturbation.
 
-Let us define:
+First, let us define:
 
 \begin{equation}
 \label{Def_alpha}
@@ -29,7 +31,7 @@ With $\alpha_{ij} = \pm|e\bs{R}_{ij}\vec{A}|$ in such a way that:
 \alpha_{ij} &= -\alpha_{ji} \label{alphaSym} \\
 \theta_{ij} &= \theta_{ji} \label{thetaSym}
 \end{align}
-and $\theta_{ij} \in \left[0,\pi\right)$. Then we can apply the Jacobi–Anger expansion:
+and $\theta_{ij} \in \left[0,\pi\right)$. Then we can apply the Jacobi–Anger expansion \cite{Korsch2006}:
 
 \begin{align*}
 t_{ij}^{\sigma \sigma'}(t) &= t_{ij}^{\sigma \sigma'}e^{ie\bs{R}_{ij}\cdot\bs{A}(t)} = t_{ij}^{\sigma \sigma'}e^{i\alpha_{ij} \cos(\omega t - \theta_{ij})} = \\
@@ -195,7 +197,7 @@ We can rewrite this in the more compact form:
 \label{TimeIndepHeff}
 \hat{H}_{\text{eff}} = -\sum_{i, j, \sigma_1, \sigma_2, \sigma_3, \sigma_4} \frac{t_{ij}^{\sigma_1 \sigma_2} t_{ji}^{\sigma_3 \sigma_4} \hat{c}_{i \sigma_1}^\dagger \hat{c}_{j \sigma_2} \hat{c}_{j \sigma_3}^\dagger \hat{c}_{i \sigma_4}}{\text{U} + \text{sgn}(j-i)\omega_0}
 \end{equation}
-This is the same effective Hamiltonian obtained in the previous section without an electric field but with a shift in the intermediate state energy by $\pm \omega_0 = \pm eaE_0$. We will analyze the corresponding spin Hamiltonian of this effective Hamiltonian when we consider the Kane-Mele-Hubbard model in Section \ref{section3NNN}.
+This is the same effective Hamiltonian obtained in the previous section without an electric field but with a shift in the intermediate state energy by $\pm \omega_0 = \pm eaE_0$. This can be easily interpreted physically, the processes with intermediate energy $\text{U}+\omega_0$ correspond to processes in which an electron 'climbs up' the electric potential and then 'falls down' so that the intermediate energy is raised by the potential energy gained in the process; processes with intermediate energy $\text{U}-\omega_0$ correspond to the opposite process. We will analyze the corresponding spin Hamiltonian of this effective Hamiltonian when we consider the Kane-Mele-Hubbard model in Section \ref{section3NNN}.
 
 \end{subsection}
 
