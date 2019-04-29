@@ -5,12 +5,16 @@ In this section we will make a short numerical study of the analytic results obt
 
 \begin{subsection}{One dimensional system}
 
-We will start with a one dimensional chain with hamiltonian $\hat{H} = \sum_{\langle i,j \rangle} |J_1| \bs{S}_i\bs{S}_j - \sum_{\langle \langle i,j \rangle \rangle} \nu_{ij}|D_2|\hat{e}_z\bs{S}_i \times \bs{S}_j$. This approximated Hamiltonian with no NNN exchange interaction is very simple, but in some systems where it has even been observed that $|\bs{D}_{2,ij}| > |J_{2,ij}|$ \cite{Chen2018} it can be a good approximation.  We write the absolute values in $|J_1|$ and $|D_2|$ to limit the analysis to the range in which the field does not change the sign of these factors. In this case we can write $\bs{S}(r) = S(\cos(kr), \sin(kr), 0)$, where the real number $k$ plays the role of the wavevector, and $\theta = ka-\pi$ is the deviation from the N\'eel state. This form assumes spiral order, with N\'eel state being the special case $\theta = 0$ (or $k = \pi$). From now we will use $\theta$ instead of $k$. Then the classical energy per site is given by:
+We will start with a one dimensional chain with hamiltonian $\hat{H} = \sum_{\langle i,j \rangle} |J_1| \bs{S}_i\cdot\bs{S}_j - \sum_{\langle \langle i,j \rangle \rangle} \nu_{ij}|D_2|\hat{e}_z\cdot\bs{S}_i \times \bs{S}_j$. This approximated Hamiltonian with no NNN exchange interaction is very simple, but in some systems where it has even been observed that $|\bs{D}_{2,ij}| > |J_{2,ij}|$ \cite{Chen2018}, therefore it can be a good approximation to disregard  $|J_{2,ij}|$ with respect to $|\bs{D}_{2,ij}|$.  We write the absolute values in $|J_1|$ and $|D_2|$ to limit the analysis to the range in which the field does not change the sign of these factors. In this case we can write $\bs{S}(r) = S(\cos(kr), \sin(kr), 0)$, where the real number $k$ plays the role of the wavevector, and $\theta = ka-\pi$ is the deviation from the N\'eel state. This form assumes spiral order, with N\'eel state being the special case $\theta = 0$ (or $k = \pi$). From now we will use $\theta$ instead of $k$. Then the classical energy per site is given by:
 
 \begin{equation}
 \frac{E(\theta)}{2S^2} = -|J_1|\cos(\theta) - |D_2|\sin(2 \theta)
 \end{equation}
-and the energy is minimized for $\theta^* = \arcsin(\frac{-\frac{J_1}{D_2} + \sqrt{(\frac{J_1}{D_2})^2+32}}{8})$, i.e. $\theta^* = \theta^*(\frac{J_1}{D_2})$. This is the correct minimization for $J_1, D_2 > 0$. Next we will show numerically that the ratio between the NN and NNN parameters, $\frac{J_1}{D_2}$, can be modulated by the intensity of the field, and therefore the field can be used to control the SDW wavevector. 
+and the energy is minimized for 
+\begin{equation}
+\theta^* = \arcsin(\frac{-\frac{J_1}{D_2} + \sqrt{(\frac{J_1}{D_2})^2+32}}{8})
+\end{equation}
+i.e. $\theta^* = \theta^*(\frac{J_1}{D_2})$. This is the correct minimization for $J_1, D_2 > 0$. Next we will show numerically that the ratio between the NN and NNN parameters, $\frac{J_1}{D_2}$, can be modulated by the intensity of the field, and therefore the field can be used to control the SDW wavevector. 
 
 We will use the time average approximation \ref{MFactorApprox0} so that we can write:
 
@@ -28,14 +32,14 @@ In each case the absolute vale is independent of $i,j$.  Now, in units $\hbar=t_
 
 \begin{figure}
 \centering
-\begin{subfigure}{.45\textwidth}
+\begin{subfigure}{.5\textwidth}
   %\centering
   \includegraphics[width=1\linewidth]{Figures/NNvsNNN1.pdf}
   \caption{$\frac{J_{1}}{J_{1}^0}$ and $\frac{D_{2,ij}}{D_{2,ij}^0}$ are plotted as function of $\mathcal{E}$. Similar results are obtained in \cite{Mentink2015} for $J_{1}$. Solid lines are for $\omega = 4$ and dashed lines are for $\omega = 14$.}
   \label{Fig3.1:NNvsNNN}
 \end{subfigure}%
 \hspace*{\fill}
-\begin{subfigure}{.45\textwidth}
+\begin{subfigure}{.5\textwidth}
   %\centering
   \includegraphics[width=1\linewidth]{Figures/ratio.pdf}
   \caption{$\frac{J_{1}}{D_{2,ij}}$ is plotted as function of $\mathcal{E}$, it diverges every time $D_{2,ij}$ changes sign. Solid lines are for $\omega = 4$ and dashed lines are for $\omega = 14$.}

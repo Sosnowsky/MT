@@ -54,7 +54,7 @@ J_{2,ij} &= J_2^0 + t_2^2 \frac{3\mathcal{E}^2}{2} \left( \frac{1}{\text{U}+\ome
 
 Where $J_n^0 = \frac{t_n^2}{\text{U}}$ and where we used that $|\bs{R}_{ij}| = a$ for NN and $|\bs{R}_{ij}| = \sqrt{3}a$ for NNN in a honeycomb lattice. The other coupling factors in \ref{DGeneral} and \ref{GammaGeneral} can be approximated in the same way.
 
-In section \ref{Numerics} we will investigate this numerically. The reason for this is that in a hopping process, the electron picks up a phase $e^{ie\bs{R}_{ij}\cdot\bs{A}(t)}$ (assuming flat field approximation). This phase will be larger for NNN hopping than for NN hopping and this will therefore translate in the corresponding spin interactions.
+In section \ref{Numerics} we will investigate this numerically. The reason why the renormalization differs for NN and NNN spin interactions is that in a hopping process, the electron picks up a phase $e^{ie\bs{R}_{ij}\cdot\bs{A}(t)}$ (assuming flat field approximation). This phase will be larger for NNN hopping than for NN hopping and this will therefore translate in the corresponding spin interactions.
 
 Next we will show several well-known models which are described by \ref{BigHam}.
 
@@ -104,7 +104,6 @@ As we saw in the previous section the effective Hamiltonian \ref{KMHeff} does no
 \label{fig:MKMH}
 \vspace*{-6pt}
 \end{figure}
-
 This corresponds to the case $\bs{\Delta}_{1,ij} = 0$ and $\bs{\Delta}_{2,ij} = (0, 0, -i\nu_{ij} \Delta)$ in \ref{BigHam}. The Hamiltonian parameters are sketched in Figure \ref{fig:MKMH}. With this, the effective Hamiltonian will be:
 
 \begin{equation}
@@ -119,7 +118,7 @@ J_{2,ij} &= t_2^2\mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
 \bs{D}_{2,ij} &= 2\nu_{ij} t_2 \Delta \hat{e}_z \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) \\
 \bs{\Gamma}_{2,ij} &= \Delta^2 \text{diag}(-1,-1,1) \mathcal{M}(\alpha_{ij}, \text{U}, \omega, t) 
 \end{align*}
-Such a Hamiltonian was first proposed by S. A. Owerre to model honeycome topological magnon insulators \cite{Owerre2016} \cite{Elyasi2018}. Experimental results regarding topological properties of spin waves in honeycomb ferromagnet Cr$I_3$ can only be understood by considering this Hamiltonian \cite{Chen2018}. This model is also relevant for the study of Spin Hall effects of Weyl magnons \cite{Zyuzin2018} \cite{Sekine2016}.
+Such a Hamiltonian was first proposed by S. A. Owerre to model honeycomb topological magnon insulators \cite{Owerre2016} \cite{Elyasi2018}. Experimental results regarding topological properties of spin waves in honeycomb ferromagnet Cr$I_3$ can only be understood by considering this Hamiltonian \cite{Chen2018}. This model is also relevant for the study of Spin Hall effects of Weyl magnons \cite{Zyuzin2018} \cite{Sekine2016}.
 
 Now, a Hamiltonian with the form $\hat{H} = \sum_{\langle i,j \rangle} J_1 \bs{S}_i\cdot\bs{S}_j + \sum_{\langle \langle i,j \rangle \rangle} J_2\bs{S}_i\cdot\bs{S}_j$ is known as the $J_1$-$J_2$ Heisenberg model and in a 2D honeycomb lattice it exhibits N\'eel order for $J_2 < J_1 / 6$ and for $J_2 > J_1 / 6$ spin density waves (SDW) appear \cite{Mulder2010}. In the presence of DMI alone there will always be SDW in the plane perpendicular to $\bs{D}$ \cite{Uchida2006}. In Hamiltonian \ref{MKMHeff} we expect SDW to appear in the ground state and the SDW wavevector will be determined by a function of the parameters of this model. In the next section we will do a numerical of study on how modifying the ratio between NN and NNN spin interaction factors can change the spin state of the system.
 

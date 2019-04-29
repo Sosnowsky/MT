@@ -1,7 +1,7 @@
 \chapter{Spin wave theory of antiferromagnets}
 \label{SpinWave}
 
-In this Chapter we will study the magnon dispersion for the effective spin Hamiltonian obtained in the last two Chapters. The standard way of doing this is to use the Holstein-Primakoff transformation, which maps S-spin operators on a lattice to bosonic creation/annihilation operators. The linear approximation of this transformation leads to a bosonic Hamiltonian which can be diagonalized to obtain the magnon dispersion relation. Keeping higher order terms in this transformation is also useful to study scattering effects between magnons.
+In this Chapter we will study the magnon dispersion for the effective spin Hamiltonian obtained in the last two Chapters. The standard way of doing this is to use the Holstein-Primakoff transformation \cite{Auerbach,Nolting2009}, which maps S-spin operators on a lattice to bosonic creation/annihilation operators. The linear approximation of this transformation leads to a bosonic Hamiltonian which can be diagonalized to obtain the magnon dispersion relation. Keeping higher order terms in this transformation is also useful to study scattering effects between magnons.
 
 We will start studying the simplest model of spin interaction, the Heisenberg model. In the following sections we will add terms such as the DMI and the anisotropic NNN term derived in \ref{MKMHeff}.
 
@@ -28,7 +28,7 @@ Where $A$ and $B$ denote two Ne\'{e}l sublattices and $\hat{a}_i$, $\hat{b}_i$ a
 \begin{align*}
 \bs{S}_i\cdot\bs{S}_j = S_i^zS_j^z + \frac{1}{2}\left(S_i^+S_j^- + S_i^-S_j^+ \right) = S \left( \hat{a}^\dagger_i \hat{a}_i + \hat{b}^\dagger_j \hat{b}_j + \hat{a}_i\hat{b}_j + \hat{a}^\dagger_i\hat{b}^\dagger_j \right) - \hat{a}^\dagger_i \hat{a}_i\hat{b}^\dagger_j \hat{b}_j - S^2
 \end{align*}
-Now the $S^2$ term is a constant that lowers the energy of the antiferromagnet, therefore is shall not be taken into account to compute the magnon dispersion. The term $\hat{a}^\dagger_i \hat{a}_i\hat{b}^\dagger_j \hat{b}_j$ is zeroth order in $S$ and therefore neglected. We can rewrite the sum over NN as:
+Now the $S^2$ term is a constant that lowers the energy of the antiferromagnet. The term $\hat{a}^\dagger_i \hat{a}_i\hat{b}^\dagger_j \hat{b}_j$ is zeroth order in $S$ and therefore neglected. We can rewrite the sum over NN as:
 
 \begin{equation}
 \sum_{\langle i j \rangle} = 2\sum_{i \in A \delta}
@@ -218,7 +218,7 @@ Where we already took \ref{Bogou} and \ref{Bogov}. The ground state energy $E_0$
 \hat{H} &= E_0 + \sum_{\bs{k}} \left( \hat{\alpha}_{\bs{k}}^\dagger \hat{\alpha}_{\bs{k}} \epsilon_{\bs{k}}^+ +\hat{\beta}_{\bs{k}}^\dagger \hat{\beta}_{\bs{k}}  \epsilon_{\bs{k}}^- \right) \label{DispWithDMI} \\
 \epsilon_{\bs{k}}^\pm &= 2JS \left( \pm \Delta_{\bs{k}} + \sqrt{z^2-\abs{\gamma_{\bs{k}}}^2} \right)
 \end{align}
-The new term $\pm \Delta_{\bs{k}}$ breaks the degeneracy between the $\alpha$ modes and the $\beta$ modes. In Figure \ref{Fig.Magnon.Disp} we plot the resulting energy dispersion of \ref{DispWithDMI}.
+The new term $\pm \Delta_{\bs{k}}$ breaks the degeneracy between the $\alpha$ modes and the $\beta$ modes. In Figure \ref{Fig.Magnon.Disp} we plot the resulting energy dispersion of \ref{DispWithDMI}. This dispersion relation has already been studied in \cite{Zyuzin2016,Cheng2016}.
 
 \begin{figure}
 \centering
