@@ -61,6 +61,8 @@
 
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage[backend=bibtex,natbib=true,sorting=none,style=nature]{biblatex}
+\bibliography{../MT.bib}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -226,6 +228,18 @@ It leads to a spin Hamiltonian:
 What we wanted, in this case if we apply light $\frac{J}{D} \neq \frac{J+\Delta J}{D + \Delta D}$.
 
 \end{block}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+  \begin{minipage}[c]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{../Figures/NNvsNNN1.pdf}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.5\textwidth}
+    \caption{$\frac{J_{1}}{J_{1}^0}$ and $\frac{D_{2,ij}}{D_{2,ij}^0}$ are plotted as function of $\mathcal{E}$. Similar results are obtained in \cite{Mentink2015} for $J_{1}$. Solid lines are for $\omega = 4$ and dashed lines are for $\omega = 14$.}
+  \end{minipage}
+\end{figure}
+\footfullcite{Mentink2015}
 \end{frame}
 
 \begin{frame}
